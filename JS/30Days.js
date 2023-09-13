@@ -36,3 +36,40 @@
 // 28. Truncate a string to a specified length and add ellipsis if necessary.
 // 29. Validate if a string contains only valid characters (e.g., alphanumeric).
 // 30. Count the number of occurrences of a substring in a larger string.
+
+
+// #Day1: Reverse an Array:
+// There are multiple approaches to reverse an array in JavaScript
+// Approach 1: Using the reverse() method
+// Approach 2: Using the spread operator
+// Approach 3: Using the map() method
+// Approach 4: Using a for...of loop
+// Approach 5: Using a while loop
+// Approach 6: Using the reduce() method
+// Approach 7: Using a for loop
+// Approach 8: Using recursion
+
+// Approach 1
+const orginal = [1,2,3,4,5]
+// orginal.reverse()
+// console.log(orginal)
+
+// Approach 2
+// const sp = [...orginal].reverse()
+// console.log(sp)
+
+// Approach 3
+// const reversed = orginal.map((_, index, arr) => arr[arr.length - 1 - index]);
+// console.log(reversed);
+
+// Approach 4
+const reversed = []
+// for (let i = 1; i <= orginal.length; i++) {
+//     reversed.unshift(i)
+// }
+// for (const iterator of orginal) {
+//     reversed.unshift(iterator)
+// }
+console.log(reversed)
+
+// Approach 5
