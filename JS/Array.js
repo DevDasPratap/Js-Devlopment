@@ -11,7 +11,7 @@ const tempArr = [];
 for (let i = arr.length - 1; i >= 0; i--) {
   tempArr.push(arr[i]);
 }
-console.log(tempArr);
+// console.log(tempArr);
 
 // arr.reverse() //change orginal array
 // console.log(arr)
@@ -71,8 +71,8 @@ for (num of arr) {
     checkDuplicate.set(num);
   }
 }
-console.log("Unique array is :", uniqueArray);
-console.log(" Duplicate array is: ", duplicateArray);
+// console.log("Unique array is :", uniqueArray);
+// console.log(" Duplicate array is: ", duplicateArray);
 
 
 // arr.sort((a,b)=>{
@@ -80,4 +80,50 @@ console.log(" Duplicate array is: ", duplicateArray);
 // })
 // console.log(arr)
 
+
+// map in array
+// const planets = ['Mercury', 'Venus', 'Erath', 'Mars']
+// planets.push('Jupiter')
+// console.log(planets)
+
+// const newPlanet = planets.map((planet, index)=>planet+'-'+ index)
+// console.log(newPlanet)
+
+const iteam = ['light', 'bnana', 'phone', 'book', 'note']
+// const plurals = iteam.map((item)=>{
+//   return `${item}s`
+// })
+// const plurals = iteam.map((item)=>{
+//   if (item === 'phone') {
+//     return 'mobile'
+//   }
+//   return item+'s'
+// })
+// console.log(plurals)
+
+// filter
+const nums = [5,4,7,8,9,10,16]
+// const oddNum = nums.filter((n)=>{
+//   if (n%2===1) {
+//     return true
+//   }
+// })
+// console.log(nums)
+// console.log(oddNum)
+
+const nArr = [
+  [1,2,3],
+  [0,0,1],
+  [3,6,9],
+  [0,1,2]
+]
+const hasTwo = nArr.filter((value)=>{
+  if (value.includes(2)) {
+    return true;
+  }
+  return false;
+})
+
+// console.log(nArr)
+// console.log(hasTwo)
 
