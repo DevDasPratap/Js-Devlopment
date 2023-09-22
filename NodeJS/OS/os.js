@@ -1,0 +1,13 @@
+const os = require('os')
+console.log('CPU Architructure:',os.arch())
+console.log('Free Memory:',os.freemem())
+console.log('Total memory:',os.totalmem())
+console.log('Network interface:',os.networkInterfaces())
+// console.log('Network interface:',JSON.stringify(os.networkInterfaces()))
+console.log('Temp dir:',os.tmpdir())
+
+console.log('Endness:',os.endianness())
+console.log('Hostname:',os.hostname())
+console.log('OS type:',os.type())
+console.log('Platform type:',os.platform())
+console.log('OS release:', os.release())
