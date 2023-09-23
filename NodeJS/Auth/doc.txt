@@ -1,0 +1,6 @@
+authentication patterns two type => statefull, stateless
+statefull => which maintain sate or data or server side
+stateless => which has no sate
+transfer user id => cookies, response, headers
+
+statefull=> problemv-> if server restart or state lost then logout cookie session end, server memory used

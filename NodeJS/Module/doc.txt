@@ -1,0 +1,5 @@
+module 2 type => local module, core module
+local module=> it is one file to another file import export
+Core module => Global and non global module
+Global module => just using require from node_module
+Non global module=> using with- npm install module name

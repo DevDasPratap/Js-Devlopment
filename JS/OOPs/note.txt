@@ -1,0 +1,26 @@
+Programming paradigm main goal:
+1. Organize code
+2. Easier code
+3. Clean and understandable code
+4. Easy to explore(understand any developer from junior to seniour)
+5. Easy to maintain
+6. Memory efficient
+7. Dry(Don't repeat your self)
+
+
+Functional Programming alernate of OOPs
+
+
+
+OOPs structed in Programming
+1. Classes
+2. Objects
+3. Properties
+4. Methods
+
+
+Four principle for OOPs
+1. Abstraction: Hide something for simplisity
+2. Encapsulation: Keep Properties and method private. that will not work outside of the class
+3. Inheritance: Child class will take matching Properties and values from parent class
+4. Polymorphism: This will behave many ways.a child class can overwrite a method that inherited from parent class
