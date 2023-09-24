@@ -1,0 +1,15 @@
+Authentication and Authorization
+
+Authentication: Who are you
+Authorization: What can you do
+
+Authentication = Identity
+Authorization = role, access, permission page
+
+Authentication type = 
+    . Something you know
+      . Password and security question
+    . Something you have
+      . smart card, OTP, Login with link, USB security token
+    . Something you are
+      . Biometric authentication machine
