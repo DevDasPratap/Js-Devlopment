@@ -83,7 +83,7 @@ const signUp = async (req, res, next) => {
  * @returns User Object , cookie
  ******************************************************/
 
-const signIn = async (req, res, next) => {
+const signIn = async (req, res) => {
     const { email, password } = req.body
     // send response with error message if email or password is missing
     if (!email || !password) {
@@ -127,7 +127,48 @@ const signIn = async (req, res, next) => {
     }
 }
 
+const getUser = async (req, res) => {
+    // const userId = req.body.id // req.body not rquired bcz user data avalible in cookie
+    // alredy login all data get in cookie => defined on authModel=> jwtToken
+    const userId = req.user.id
+    try {
+        const user = await authModel.findById(userId)
+        return res.status(200).json({
+            success: true,
+            data: user
+        });
+    } catch (error) {
+        console.log(error)
+        return res.status(400).json({
+            success: false,
+            message: error.message,
+        })
+    }
+}
+
+const logout = async(req, res)=>{
+    try {
+        const cookieOption = {
+            expires: new Date(),
+            httpOnly:true
+        }
+        res.cookie('token', null, cookieOption) //set token null for destroy token value
+        res.status(200).json({
+            success: true,
+            message: 'Logged out'
+        });
+    } catch (error) {
+        console.log(error)
+        return res.status(400).json({
+            success: false,
+            message: error.message,
+        })
+    }
+}
+
 module.exports = {
     signUp,
-    signIn
+    signIn,
+    getUser,
+    logout
 }
