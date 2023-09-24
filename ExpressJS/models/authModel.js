@@ -1,6 +1,7 @@
 const mongoose = require('mongoose')
 const { Schema } = mongoose
 const JWT = require('jsonwebtoken')
+const bcrypt = require('bcrypt')
 const authSchema = new Schema({
     name: {
         type: String,
@@ -28,6 +29,15 @@ const authSchema = new Schema({
     }
 }, {
     timestamps: true
+})
+
+// custom middleware for password encrypt
+authSchema.pre('save', async function(next){
+    if (!this.isModified('password')) {
+        return next()
+    }
+    this.password = await bcrypt.hash(this.password, 10)
+    return next()
 })
 
 // Create custom validator/methods

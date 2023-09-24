@@ -1,6 +1,6 @@
 const authModel = require("../models/authModel")
 const emailValidator = require('email-validator')
-
+const bcrypt = require('bcrypt')
 /******************************************************
  * @SIGNUP
  * @route /api/auth/signup
@@ -98,7 +98,8 @@ const signIn = async (req, res) => {
             .findOne({ email }) //one field lookup - email
             .select('+password') // in db collection(document) i only select password
         // If user is null or the password is incorrect return response with error message
-        if (!user || user.password !== password) {
+        // if (!user || user.password !== password) { // for db and req.body password compare (login with token)
+        if (!user || !(await bcrypt.compare(password,user.password))) { // login with normal password
             return res.status(400).json({
                 success: false,
                 message: 'Invalid credentials'
