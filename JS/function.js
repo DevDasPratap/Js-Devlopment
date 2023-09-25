@@ -169,3 +169,106 @@ console.log(totalSum(1)(2)(3))
 
 // ----Function-----
 console.log(`--------Function------`)
+
+// function declaration
+function greet(name) {
+  console.log(`Hello ${name}`)
+}
+
+greet('PD')
+
+// Function expretion
+const multiplyNum = function (a, b) {
+  return a*b
+}
+console.log(multiplyNum(5, 7))
+
+// Arrow function
+const addNum = (a, b)=> a+b
+console.log(addNum(4,5))
+
+// Anonymous function
+const numbers = [1, 2, 3, 4]
+numbers.forEach(function (nums) {
+  console.log(nums)
+})
+
+// IIFE - Immediately invoked function expression
+// (function() {
+//   console.log(`I am IIFE`)
+// })()
+
+// generate function
+function * generateNumbers(){
+  yield 1
+  yield 2
+  yield 3
+}
+const generator = generateNumbers()
+console.log(generator.next().value)
+console.log(generator.next().value)
+console.log(generator.next().value)
+
+
+// Callback function
+console.log(`--------- Callback function --------`)
+// function fetchData(callback) {
+//   setTimeout(()=>{
+//     const data = 'Get some async data'
+//     callback(data)
+//   }, 1000)
+// }
+
+// fetchData((result)=>{
+//   console.log(result)
+// })
+
+// Higher order function
+/*
+In JS, a higher order function is a function that either takes another function as an argument
+or returns a function as its results. This concept allow you to create more flexible and reusable.
+*/
+
+console.log(`--------- Higher order function --------`)
+
+// Function as argument - this twice function takes another function as an argument and calls it twice.
+function twice(fn) {
+  fn()
+  fn()
+}
+function greet() {
+  console.log('Hello')
+}
+twice(greet)
+
+// Function as result - MultiplyBy is higher order function that return a function. we create a double function using multiplyBy
+function multiplyBy(factor) {
+  return function(numbers){
+    return numbers * factor
+  }
+}
+const double = multiplyBy(2)
+console.log(double(5))
+
+// Array higher order function
+const num = [1, 2, 3, 4, 5]
+const squared = num.map(x=> x ** 2)
+console.log(squared)
+
+// Constructor function
+function Person(name, age) {
+  this.name = name
+  this.age = age
+}
+const person = new Person('XYZ', 50)
+console.log(person)
+console.log(person.name)
+
+
+function higherOrderFunction(operation) {
+  return function(a, b){
+    return operation(a, b)
+  }
+}
+const addNums = higherOrderFunction((a, b)=>a+b)
+console.log(addNums(5,4))
