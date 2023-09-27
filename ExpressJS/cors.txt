@@ -1,0 +1,39 @@
+const cors = require ('cors')
+
+Corss-Origin Resource Sharing (CORS) is an HTTP-header
+based machanism that allows a server to indicate any origins
+(Domain, Scheme, or port) other than its own from which a browser
+should permit loading resources.
+
+const corsOptions = {
+  origin: 'http://your-angular-app-domain.com', // Replace with your Angular app's domain
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  credentials: true, // If you need to handle cookies or authentication
+};
+
+app.use(cors(corsOptions));
+
+
+How does CORS work?
+Let's first see what is CORS preflight mechanism.
+preflight mechanism: It is a part of the Cross-Origin Resource Sharing (CORS) standard that is used to check if
+a cross-origin request is safe to send before actually sending it. This is done to prevent certain types of attacks,
+such as cross-site scripting (XSS) and cross-site request forgery (CSRF), which can occur when a web page
+can make requests to a different domain that the user did not intendg
+CORS preflight call: It is a special type of HTTP OPTIONS request that a browser sends to a server to check
+whether the server will allow a subsequent cross-origin request. It includes information about the origin, the
+request method, and headersg
+Now let's see how CORS works
+Let's say you have a website hosted on examplescom and you want to make a request to an ,PI located on
+apisexamplesorgr
++ website on "example.com" makes a request to the ,PI on apisexamplesorg
++ Before the actual request is sent, the browser sends a preflight request to the server hosting the ,PI
+("api.example.org"). This preflight request is an HTTP OPTIONS request that asks the server whether it will
+allow the actual requestf
++ The server hosting the ,PI responds to the preflight request with a set of headers that indicate whether the
+
+request is allowed or not. These headers include Access-Control-Allow-Origin, Access-Control-Allow-
+Methods, and Access-Control-Allow-Headers
+
++ If the server responds with headers that allow the request, the browser sends the actual request to the ,PI
+and retrieves the requested datag
