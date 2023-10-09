@@ -127,3 +127,26 @@ const hasTwo = nArr.filter((value)=>{
 // console.log(nArr)
 // console.log(hasTwo)
 
+
+// CRUD
+// create array
+const crud = [1,2,3,4]
+// create index
+function create(crud, value, index) {
+  for (let i = 0; i < crud.length; i++) {
+    if (crud[i] === index) {
+      crud[i] = value 
+    }
+  }
+  return crud
+}
+create(crud, 5, 3)
+console.log(crud)
+
+// function insertAtIndex(array, value, index) {
+//   array.splice(index, 0, value);
+//   return array;
+// }
+
+// insertAtIndex(crud, 5, 3);
+// console.log(crud);

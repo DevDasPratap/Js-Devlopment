@@ -41,7 +41,7 @@ function name(params) {
   //params
   return;
 }
-name("values"); //this enetr values are arguments
+name("values"); //this enter values are arguments
 
 // sprade vs rest operator
 // function multiply(a, b) {
