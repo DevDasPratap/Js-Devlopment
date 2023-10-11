@@ -13,7 +13,7 @@ const connectionToDB = async () => {
         }
     } catch (error) {
         console.log(error)
-        process.exit(1) // if get error(db not connect) terminate this
+        process.exit(1) // if get error(db not connect/exit) terminate this
     }
 }
 export default connectionToDB

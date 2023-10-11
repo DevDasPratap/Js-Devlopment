@@ -1,14 +1,31 @@
+/*
+1.Named function
+2.Anonymous function
+3.Arrow function
+4.Function expression
+5.Higher order function
+6.Constructor function
+7.Generator function
+8.Recursive function
+9.Callback function
+10.Method function
+11.First class function
+*/
+
+// 1.Named function
 // function declare/defenation /statement
 function name(params) {
   return params;
 }
 
+// 4.Function expression
 // function expression
 const fn = function (params) {
   //fn is expression(varible)
   return;
 };
 
+// 2.Anonymous function
 // annyonumos(no name) function = assign to variable or callback function
 // function(params) {
 //     return
@@ -24,7 +41,7 @@ function dispaly(fn) {
 }
 dispaly(squre);
 
-// IIFE =
+// IIFE = 2.Anonymous function
 // (function name(params) {
 //     console.log(params*params)
 // })(7)
@@ -256,6 +273,8 @@ const squared = num.map(x=> x ** 2)
 console.log(squared)
 
 // Constructor function
+// 6.Constructor function - These fn used to create instance of objects.
+// This use the new keyword to create new instance
 function Person(name, age) {
   this.name = name
   this.age = age
@@ -272,3 +291,12 @@ function higherOrderFunction(operation) {
 }
 const addNums = higherOrderFunction((a, b)=>a+b)
 console.log(addNums(5,4))
+
+// 10.Method function - These fn are defined as properties of object and are called methods.
+// they can access object properties and perform actions on them.
+const man = {
+  name:'Pratap',
+  sayHello: function () {
+    console.log(`Hello , my name is ${this.name}`)
+  }
+}

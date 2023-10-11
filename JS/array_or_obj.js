@@ -193,16 +193,16 @@ console.log(result)
 
 
 
-// grouping
+// grouping same string
 const names = ['Apple', 'Banana', 'juice', 'chinmoy', 'bugs', 'Developer', 'coder', 'Codding', 'Faild', 'false', 'fruit', 'India', 'bharat', 'Banda', 'Pratap', 'pd', 'das']
 const nameGruoped = names.reduce((pre, curr)=>{
     const filterLetter = curr[0].toUpperCase()
     if (filterLetter in pre) {
         // found
-        pre[filterLetter].push(curr)
+        pre[filterLetter].push(curr) // sit after 1st index all mtch curr value
     }else{
         // not found
-        pre[filterLetter] = [curr]
+        pre[filterLetter] = [curr] //create array sit curr value(first index)
     }
     return pre
 }, {})

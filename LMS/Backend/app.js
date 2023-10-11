@@ -28,7 +28,7 @@ app.use('/api/v1/user', userRoutes)
 
 
 app.all('*', (req, res)=>{
-    res.status(404).send(`OOPS! 404 `)
+    res.status(404).send(`OOPS! 404 Page not found`)
 })
 
 // create app error general middleware
