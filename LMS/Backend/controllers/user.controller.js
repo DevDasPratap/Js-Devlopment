@@ -25,7 +25,7 @@ const register = async (req, res, next) => {
             avatar: {
                 public_id: email,
                 secure_url: 'https://avatars.githubusercontent.com/u/59955072?v=4'
-            }
+            },
         })
         if (!user) { // if not create user during register
             return next(new AppError('User registration faild, please try again', 400))

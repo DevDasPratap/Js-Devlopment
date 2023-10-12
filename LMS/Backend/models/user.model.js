@@ -19,6 +19,7 @@ const userSchema = new Schema({
     },
     email: {
         type: 'String',
+        required: [true, 'Email is required'],
         lowercase: true,
         trim: true,
         unique: true,
@@ -58,12 +59,12 @@ userSchema.pre('save', async function (next) {
 })
 
 // generic method
-userSchema.method = {
+userSchema.methods = {
     // method which will help us compare plain password with hashed password and returns true or false
     generateJWTToken: async function () {
-        return  await jwt.sign(
+        return await jwt.sign(
             {
-                id: this.public_id, email: this.email, subcription: this.subcription, role: this.role
+                id: this._id, email: this.email, role: this.role, subscription: this.subscription
             },
             process.env.JWT_SECRET,
             {
@@ -71,7 +72,7 @@ userSchema.method = {
             }
         )
     },
-    comparePassword: async function(plainTextPassword){
+    comparePassword: async function (plainTextPassword) {
         return await bcrypt.compare(plainTextPassword, this.password)
     }
 }

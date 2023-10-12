@@ -12,4 +12,6 @@ const isLoggedIn = async (req, res, next)=>{
     req.user = userDetail
     next()
 }
-export {isLoggedIn}
+export {
+    isLoggedIn
+}
