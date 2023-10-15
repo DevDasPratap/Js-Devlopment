@@ -2,4 +2,4 @@
 /MongoDB/node_modules/
 /ExpressJS/node_modules/
 /ExpressJS/.env
-/LMS/Backend/.env
+LMS/Backend/.env
