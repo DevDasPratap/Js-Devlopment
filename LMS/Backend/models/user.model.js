@@ -1,6 +1,7 @@
-import { Schema, model } from "mongoose";
+import { Schema, model, now } from "mongoose";
 import bcrypt from 'bcrypt'
 import jwt from "jsonwebtoken";
+import crypto from "crypto";
 
 // create userSchema instance
 const userSchema = new Schema({
@@ -74,6 +75,11 @@ userSchema.methods = {
     },
     comparePassword: async function (plainTextPassword) {
         return await bcrypt.compare(plainTextPassword, this.password)
+    },
+    generatePasswordResetToken: async function() {
+        const resetToken = crypto.randomBytes(20).toString('hex')
+        this.forgotPasswordToken = crypto.createHash('sha256').update(resetToken).digest('hex')
+        this.forgotPasswordExpiry = Date.now() + 15*60*1000 //15min time for expire passwors reset link
     }
 }
 

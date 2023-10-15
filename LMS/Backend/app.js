@@ -13,6 +13,7 @@ app.use(cors({
     origin:[process.env.FRONTED_URL],
     credentials:true
 }))
+app.use(express.urlencoded({extended:true})) //params data decoded
 
 app.use(cookieParser()) // token parse in cookie
 
