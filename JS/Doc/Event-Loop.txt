@@ -1,0 +1,15 @@
+In JavaScript, the event loop is a core mechanism that enables asynchronous, non-blocking behavior in the language. It's an essential part of handling events and managing tasks efficiently.
+
+JavaScript is single-threaded, meaning it can only execute one task at a time. However, it often needs to perform tasks like fetching data from a server or responding to user interactions without freezing the entire program. This is where the event loop comes into play.
+
+The event loop continuously checks the message queue for pending events and tasks. Events can include user interactions (like clicks or keyboard input), timers (setTimeout, setInterval), or network responses. When an event occurs, its associated callback is added to the message queue.
+
+The event loop's job is to process these callbacks from the queue one by one, executing them in the order they were added. Importantly, if a callback takes a long time to execute, it won't block other tasks, thanks to JavaScript's non-blocking nature.
+
+This asynchronous behavior is what allows JavaScript to handle multiple tasks concurrently, providing a responsive user experience and supporting features like AJAX requests, animations, and more.
+
+
+Things to explore more ( I wont be explaining these as I want you guys to explore on this):
+Different memory types in browser
+Micro task and callback queue
+Web Apis

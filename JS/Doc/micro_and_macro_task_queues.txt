@@ -1,0 +1,17 @@
+Q1: What are micro and macro task queues in JavaScript, and how do they relate to the event loop?
+Answer: Micro and macro task queues are part of the event loop in JavaScript. Microtasks have higher priority and execute before macrotasks. Microtasks are typically used for high-priority, non-blocking operations like promises, while macrotasks handle less time-sensitive tasks like I/O operations and rendering updates.
+
+Q2: How can you schedule code to run in the microtask queue, and what is the order of execution compared to the macrotask queue?
+Answer: Code can be scheduled to run in the microtask queue using functions like Promise.then(), Promise.catch(), and Promise.finally(). Microtasks have higher priority and are executed before macrotasks in the event loop.
+
+Q3: What kinds of operations are typically placed in the macrotask queue, and how do you schedule them?
+Answer: Macrotasks are typically used for operations like I/O (e.g., file read), network requests (e.g., API calls), and rendering updates (e.g., modifying the DOM). You can schedule macrotasks using functions like setTimeout, setInterval, and requestAnimationFrame.
+
+Q4: Explain the order of execution when both micro and macro tasks are in the queue.
+Answer: When both micro and macro tasks are in the queue, microtasks are executed until the microtask queue is empty. Only then are macrotasks executed. This ensures that high-priority microtasks are processed first. Micro and macro task queues help manage the execution order of asynchronous operations. Microtasks allow high-priority tasks to execute promptly, maintaining UI responsiveness. Macrotasks handle less critical tasks, preventing them from blocking the main thread.
+
+Q5: How do you schedule asynchronous code to run in the microtask queue, and what are common use cases for microtasks?
+Answer: Asynchronous code can be scheduled to run in the microtask queue using Promise methods like .then(), .catch(), and .finally(). Common use cases for microtasks include handling promises, DOM mutations, and updating application state before rendering.
+
+Q6: Can you explain the potential drawbacks of excessive use of microtasks in an application?
+Answer: Excessive use of microtasks can lead to "starvation" of the macrotask queue, causing macrotasks like rendering and user input handling to be delayed. This can result in a less responsive user interface and potential performance issues.

@@ -1,0 +1,41 @@
+APIs are the backbone of modern web and mobile applications, allowing different software components to communicate with each other.
+
+But like any valuable asset, APIs need to be properly secured. One popular approach for API security is JWT (JSON Web Token) authentication.
+
+In this post, I'll explain JWTs in simple terms to help you protect your APIs.
+
+Imagine your APIs are like a nightclub.
+
+The bouncer (authentication server) needs to allow in valid patrons (users/clients) but keep out shady characters (attackers/unauthorized access).
+
+With JWT auth, when a patron arrives the bouncer gives them a wristband (JWT) after checking their ID. The wristband has the patron's name, VIP status, age, etc encoded into it.
+
+Whenever the patron wants to enter a restricted area like the VIP lounge, they show their wristband to the staff.
+
+The staff decode the wristband to validate the patron's access rights.
+
+The wristband also has an expiration time, forcing the patron to occasionally re-verify with the bouncer.
+
+JWTs work similarly - they are encoded JSON objects that assert user identity and privileges.
+
+They contain a header (algorithm used), payload (user data/claims), and signature (to prevent tampering).
+
+The signature is created with a secret key only your API knows.
+
+When a client calls your API, your authentication server generates a JWT with the user's identity and privileges and sends it back.
+
+The client stores this JWT and sends it in the authorization header for every subsequent request.
+
+Your API verifies the JWT signature with the secret key to authenticate the user.
+
+JWT advantages:
+
+- Compact: Can store lots of user data in compact JSON format
+- Self-contained: No need to query the database for each request
+- Secure: Signed with secret key to prevent tampering
+
+So remember, JWTs are like VIP wristbands for your APIs, allowing verified access without excessive queries.
+
+Choose a strong signature algorithm like RS256 and store your secret keys securely.
+
+Your APIs will be safer and faster with proper JWT authentication!

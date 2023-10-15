@@ -1,0 +1,17 @@
+💼 Responsibilities:
+- Developed user-facing features in NodeJS, Angular
+- Built reusable components and libraries, API
+- Translated designs into high-quality code
+- Optimized application performance
+- Troubleshot and resolved bugs
+
+🛠️ Skills:
+- Proficient in JavaScript and its object model
+- In-depth understanding of Angular and its principles
+- Experienced in Redux workflows and custom hooks
+- Familiar with ECMAScript specifications
+- Knowledge of server-side rendering and RESTful APIs
+- Skilled in TypeScript and Redux middleware (Saga & Thunk)
+- Familiar with front-end development tools (Babel, Webpack, NPM, yarn)
+- Ability to translate business requirements into technical solutions
+- Proficient in version control tools (Git, Bitbucket, JIRA)

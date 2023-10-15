@@ -49,8 +49,39 @@
 // Approach 7: Using a for loop
 // Approach 8: Using recursion
 
+// #Day2 #30daysofcode
+// 😆 Find the maximum number in an array.
+// There are multiple approaches in JavaScript
+// Approach 1: Using the Math.max() function and the spread operator
+// Approach 2: Using the reduce() method
+// Approach 3: Using the sort() method
+// Approach 4: Using the Math.max() function with apply()
+// Approach 5: Using the forEach() method
+// Approach 6: Using a for loop
+
+// #Day3 #30daysofcode
+// 😆 Calculate the sum of all numbers in an array.
+// There are multiple approaches in JavaScript:
+// Approach 1: Using a for loop
+// Approach 2: Using the reduce() method
+// Approach 3: Using a forEach() loop
+// Approach 4: Using a for...of loop
+// Approach 5: Using the for...in loop
+// Approach 6: Using the while loop
+
+// #Day4 #30daysofcode
+// 😆 Remove duplicates from an array.
+// There are multiple approaches in JavaScript:
+// Approach 1: Using sets
+// Approach 2: Using filter
+// Approach 3: Using reduce:
+// Approach 4: Using for-of loop
+// Approach 5: Using forEach
+// Approach 6: Using indexof
+// Approach 7: Using map
+
 // Approach 1
-const orginal = [1,2,3,4,5]
+// const orginal = [1,2,3,4,5]
 // orginal.reverse()
 // console.log(orginal)
 
@@ -59,17 +90,30 @@ const orginal = [1,2,3,4,5]
 // console.log(sp)
 
 // Approach 3
-// const reversed = orginal.map((_, index, arr) => arr[arr.length - 1 - index]);
-// console.log(reversed);
+// const reversed = orginal.map((val, index, arr)=>val).reverse()
+// console.log(reversed)
 
 // Approach 4
-const reversed = []
-// for (let i = 1; i <= orginal.length; i++) {
-//     reversed.unshift(i)
-// }
+// let data = []
 // for (const iterator of orginal) {
-//     reversed.unshift(iterator)
-// }
-console.log(reversed)
-
+    //     data.unshift(iterator)
+    // }
+    // console.log(data)
+    
+    
 // Approach 5
+// let start = 0
+// let store =[]
+// while (start < orginal.length) {
+//     store.unshift(orginal[start])
+//     start++
+// }
+// console.log(store)
+
+// Approach 6
+// const store = []
+// let n= orginal.length
+// for(let i in orginal){
+// store.push(orginal[n-i-1])
+// }
+// console.log(store)
