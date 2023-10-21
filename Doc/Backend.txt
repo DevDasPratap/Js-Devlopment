@@ -1,0 +1,69 @@
+Backend Developer
+
+1. API Design
+   ∟ Rest API
+   ∟ GraphQL
+   ∟ gRPC
+   ∟ Web Socket
+   ∟ Message Broker(communication with 2 API)
+2. API Security
+   ∟ JWT Token
+   ∟ Refresh Token (Highly used large application)
+   ∟ OAuth2(social login(Login with google, facebook, etc))
+   ∟ SAML(Single sign on)
+   ∟ Identity Provider(Cognito, Oauth0, etc)
+   ∟ Role based Authorization
+3. API Testing
+   ∟ Unit Testing
+   ∟ Acceptance Testing
+   ∟ Load Testing
+4. Documentation
+   ∟ Swagger
+   ∟ Postman
+5. Database(ORM)
+   ∟ NoSQL
+      ∟ MongoDB
+      ∟ AWS DynamoDB
+   ∟ SQL
+      ∟ PostgreSQL
+      ∟ MySql
+   ∟ In Memory
+      ∟ Redis
+      ∟ Mem Cashed
+   ∟ Graph Database
+      ∟ Neo4j
+6. Linux Server
+7. Cloud Computing
+8. DevOps
+
+
+
+Server Apllication Responsiblity
+ - Listen request
+ - Process
+    ∟ Algorithm
+    ∟ Data Structure
+    ∟ Database
+    ∟ Problem solving
+ - Response
+
+HTTP (Stateless communication - if i req on server after server res communication disconnected)
+- Method
+ ∟ GET
+ ∟ POST
+ ∟ PUT/PATCH
+ ∟ DELETE
+-Header
+
+Routing Patterns
+- GET
+  ∟ Get all ('/')
+  ∟ Get with filter ('/:id)
+- POST
+  ∟ Create
+- UPDATE
+  ∟ Update with id ('/:id')
+- DELETE
+  ∟ Delete by id ('/:')
+
+Request => Middleware[Logger, body parser, user ip, block ip, authentication, authorization, validation] => Controller => Middleware[Error handler] => Response
