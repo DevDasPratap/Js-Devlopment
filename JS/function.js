@@ -329,28 +329,28 @@ const result = Math.abs(times(sumation(a, b), sub(a, b))) //composition
 // Prove -> function is a varible
 
 function fnc(){
-  console.log('Variable function')
+  // console.log('Variable function')
 }
 // const fun = fnc() //invoking function
 // console.log(fun) // undefined
 
 const func = fnc //store
-console.log('Store function->',func, typeof func)
+// console.log('Store function->',func, typeof func)
 func()
 
 // we can store function inside an object / array
 const ar = [func, fnc]
-console.log(ar)
+// console.log(ar)
 const ob = {
   func:fnc,
   fnc: func
 }
-console.log(ob)
+// console.log(ob)
 
 function returnFn(){
   return fnc
 }
-console.log(returnFn())
+// console.log(returnFn())
 
 
 // new function delcare
@@ -363,7 +363,7 @@ function strToObj(str){
   }
   return obj
 }
-console.log(strToObj('Pd Pratap'))
+// console.log(strToObj('Pd Pratap'))
 // or using constructor
 const newFn = new Function('str',
 `
@@ -375,7 +375,7 @@ for(let s of str){
 }
 return obj`
 )
-console.log(newFn('Pd Pratap'))
+// console.log(newFn('Pd Pratap'))
 
 // Create dynamic function
 const fnData = {
@@ -390,7 +390,7 @@ const fnBody = fnData.body.reduce((pre, cur)=>{
 // console.log(fnBody)
 const generateFun = new Function(...fnData.params, fnBody)
 
-console.log(generateFun(10, 7))
+// console.log(generateFun(10, 7))
 
 // Create multiple dynamic function
 const operation = [
@@ -414,3 +414,64 @@ operation.forEach((op)=>{
   const fncon = new Function(...op.params, op.body)
   fncon(...op.args)
 })
+
+/*
+Higher order function:-
+1.Function can be passed as an argument
+2.Function can be return from another function
+*/
+
+/*
+Hidden concept:-
+-Scope
+-Cloure
+-Function context
+-Hoisting
+*/
+
+// Higher order function = cb(Function can be passed as an argument)
+function generateTwoNum(max, cb){
+  const random1 = Math.floor(Math.random() * max)
+  const random2 = Math.floor(Math.random() * max)
+
+  const result = cb(random1, random2)
+  return result
+}
+const cb = function(ran1, ran2){
+  console.log(ran1, ran2)
+}
+generateTwoNum(1000, cb)
+
+// or
+
+// generateTwoNum(100, (ran1, ran2)=>{
+//   console.log(ran1, ran2)
+// })
+
+// console.log(generateTwoNum(100, (r1,r2)=>r1+r2))
+
+// Higher order function = Higher order function
+function sqr(n) {
+  return n*n
+}
+function cube(n) {
+  return n*n*n
+}
+function power(p) {
+  return function(n){
+    let result = 1
+    for (let i = 0; i <=p; i++) {
+      result += n
+    }
+    return result
+  }
+}
+
+const squr = power(2)
+console.log(squr)
+console.log(cube)
+console.log(sqr)
+
+console.log(squr(5))
+
+// Lexical/parsing/tokenize => compile => run
