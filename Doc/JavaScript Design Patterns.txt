@@ -1,0 +1,117 @@
+🏭 JavaScript Design Patterns: Factory Pattern
+
+In the world of JavaScript, the Factory Pattern is like a magical factory that creates objects! 🪄✨
+
+Imagine you need to produce multiple objects of the same type with different configurations. That's where the Factory Pattern comes in handy. It defines an interface for creating an object but lets subclasses alter the type of objects that will be created.
+
+🧰 How Does It Work?
+
+You define a factory function that takes parameters.
+The function creates and configures the object based on those parameters.
+It returns the fully prepared object.
+
+🚀 Practical Uses:
+
+Creating UI Components: Generating buttons, forms, and widgets with various styles.
+API Requests: Creating request objects tailored for different endpoints.
+Database Interactions: Generating database query builders.
+
+📦 Implementation:
+// Using Constructor Functions
+
+let Factory = function () {
+this.createEmployee = function (type) {
+let employee;
+
+if (type === "fulltime") {
+employee = new Fulltime();
+} else if (type === "parttime") {
+employee = new Parttime();
+} else if (type === "contractual") {
+employee = new Contractual();
+}
+
+employee.type = type;
+
+employee.say = function () {
+console.log(
+`Hello I am of type ${this.type} having ${this.hourlyWages} hourly wages`
+);
+};
+
+return employee;
+};
+};
+
+function Fulltime() {
+this.hourlyWages = "Rs. 300";
+}
+
+function Parttime() {
+this.hourlyWages = "Rs. 150";
+}
+
+function Contractual() {
+this.hourlyWages = "Rs. 500";
+}
+
+let factory = new Factory();
+let employees = [];
+
+employees.push(factory.createEmployee("fulltime"));
+employees.push(factory.createEmployee("parttime"));
+employees.push(factory.createEmployee("contractual"));
+
+employees.forEach((emp) => emp.say());
+
+🌟 Benefits:
+
+Encapsulation: Creation logic is encapsulated in one place.
+Flexibility: Easily extend or modify object creation.
+Consistency: Ensures objects have a consistent structure.
+
+👩‍💻 In Interviews:
+
+The Factory Pattern is a popular topic in coding interviews. Be prepared to explain how it simplifies object creation and demonstrate its use in various scenarios.
+
+The Factory Pattern empowers you to create objects like a pro, making your code more organized and maintainable. 🛠️👨‍🏭
+
+
+
+🎯 JavaScript Design Patterns: Singleton Pattern
+
+In the vast world of JavaScript, there's one design pattern that stands out - the Singleton Pattern! 🦄
+
+The Singleton Pattern ensures that a class has only one instance, and it provides a global point of access to it. But why is it so special? 🤔
+
+🔒 Securing Resources: Singleton is like a gatekeeper for vital resources. Need to manage a global state, control access to a configuration object, or limit the number of database connections? Singleton's got you covered! It guarantees that there's just one instance to handle these tasks.
+
+💡 Practical Uses:
+1.) Logger Instances: Ensuring a single log point for your app's lifecycle.
+2.) Database Connections: Managing a single, efficient connection pool.
+3.) Cache Handlers: Storing and retrieving cached data in a controlled way.
+
+👀 Implementation:
+class Singleton {
+constructor() {
+if (Singleton.instance) return Singleton.instance;
+this.data = "I'm a Singleton!";
+Singleton.instance = this;
+}
+}
+const instance1 = new Singleton();
+const instance2 = new Singleton();
+console.log(instance1 === instance2); // true
+
+🌟 Benefits:
+1.) Memory Efficiency: It saves memory by having only one instance.
+2.) Global Access: Provides a single point of access across the application.
+3.) Lazy Initialization: The instance is created when it's first needed.
+
+🚀 When to Use:
+Use the Singleton Pattern when you want to manage shared resources efficiently or ensure that only one instance of a class exists.
+
+👩‍💻 In Interviews:
+Singleton is a favorite topic in technical interviews. Be ready to explain how it works, demonstrate its implementation, and highlight its use cases.
+
+The Singleton Pattern is your go-to hero when you need a single point of control in your JavaScript application! 🦸‍♂️✨
