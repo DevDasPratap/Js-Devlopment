@@ -1,6 +1,6 @@
-Learn Git,🙄
+Learn Git
 
-Git is this much only👇😊
+Git is this much only
 
 1.Core:
 • git init

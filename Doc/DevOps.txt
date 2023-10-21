@@ -1,0 +1,78 @@
+DevOps Roadmap
+
+Week 1: DevOps Fundamentals and Git
+- Day 1-2: Introduction to DevOps
+- Day 3-4: Linux Fundamentals
+- Day 5-6: YAML Basics
+- Day 7: Networking Basics
+
+Week 2: Git and Version Control
+- Day 1-2: What is Git and GitHub?
+- Day 3-4: Git Components
+- Day 5-6: Git Workflow
+- Day 7: Git Branching: Checkout, Merge, Rebase
+
+Week 3: Advanced Git and GitHub
+- Day 1-2: Handling Merge Conflicts & Pull Requests
+- Day 3-4: GitHub Commands
+- Day 5-6: Creating Git Repository and Pushing to GitHub
+
+Week 4: Docker & Containerization
+- Day 1-2: Introduction to Containers
+- Day 3-4: What is Docker?
+- Day 5-6: Docker Images, Docker Files, Docker Hub
+- Day 7: Docker Commands
+
+Week 5: Docker Management
+- Day 1-2: Managing Images and Containers
+- Day 3-4: Docker Volumes
+- Day 5-6: Docker Networking
+- Day 7: Docker Compose for Multi-Container Apps
+
+Week 6: CI/CD with Jenkins and GitHub Actions
+- Day 1-2: Introduction to CI/CD
+- Day 3-4: What is Jenkins?
+- Day 5-6: Deploying a Containerized Web Application using Docker
+- Day 7: Building a Multi-Container App using Docker Compose
+
+Week 7: CI/CD with GitHub Actions and Kubernetes
+- Day 1-2: What are Jenkins Jobs, Jenkins Pipelines & Jenkinsfiles?
+- Day 3-4: Build Triggers in Jenkins
+- Day 5-6: Introduction to GitHub Actions
+- Day 7: Components of GitHub Actions and Creating Workflows
+
+Week 8: Kubernetes & Container Orchestration
+- Day 1-2: Introduction to Container Orchestration and Kubernetes
+- Day 3-4: Kubernetes Architecture
+- Day 5-6: Kubernetes Components (Pods, Deployments, Services)
+- Day 7: Deploying Applications using Kubernetes
+
+Week 9: Cloud Services & AWS Fundamentals
+- Day 1-2: Introduction to Cloud Computing
+- Day 3-4: Overview of AWS Services
+- Day 5-6: AWS EC2 and Security Groups
+- Day 7: AWS Elastic Beanstalk and AWS S3
+
+Week 10: AWS Services and DevOps on AWS
+- Day 1-2: AWS S3 (Versioning, Storage Classes, Bucket Policy)
+- Day 3-4: AWS IAM (Users, Groups, Policies, Roles)
+- Day 5-6: AWS Container Services (ECR, ECS, Fargate)
+- Day 7: DevOps Pipeline with AWS
+
+Week 11: Advanced DevOps Tools - Ansible and IAC
+- Day 1-2: Introduction to Configuration Management with Ansible
+- Day 3-4: Ansible Basics, Inventory, Ad-hoc Commands, and Playbooks
+- Day 5-6: Ansible Roles and Modules
+- Day 7: Integration of Ansible with AWS
+
+Week 12: Infrastructure as Code with Terraform
+- Day 1-2: Introduction to Infrastructure as Code (IAC)
+- Day 3-4: Terraform and HCL (HashiCorp Configuration Language)
+- Day 5-6: Terraform Providers and Using Terraform with AWS
+- Day 7: Deploying AWS Services using Terraform
+
+Week 13: Monitoring, Logging, and Project Integration
+- Day 1-2: Introduction to Monitoring and Logging
+- Day 3-4: Using Prometheus for Monitoring
+- Day 5-6: Creating Custom Dashboards with Grafana
+- Day 7: Integrating all Concepts into Final Projects
