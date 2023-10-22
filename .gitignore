@@ -3,3 +3,4 @@
 /ExpressJS/node_modules/
 /ExpressJS/.env
 LMS/Backend/.env
+/Backend/node_modules
