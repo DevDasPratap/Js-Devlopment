@@ -1,0 +1,57 @@
+JSON - JavaScript Object Notation
+
+What Is JSON ?
+
+JSON Data Representation format.
+
+JSON is a lightweight format for storing and transporting data.
+
+JSON is often used when data is sent from a server to a web page.
+
+Why Use JSON?
+
+Commonly used for API & Configs.
+Lightweight & easy to read/Write.
+Integrates easily with most languages.
+How To Write JSON?
+
+Use Key/Value Pairs.
+Use double quotes around key.
+Use only specified data types.
+{
+  //objects
+  "name": "Salah", //string
+  "age": 22, //numbers
+  "isStudent": true, //booleans
+  "friends": [
+    //arrays
+    {
+      "name": "friend1",
+      "age": 0.5 //floating numbers
+    },
+    {
+      "name": "friend2",
+      "age": -45, //signed numbers
+      "isStudent": false
+    }
+  ],
+  "salary": null //and null
+}
+Data types
+
+Object.
+Numbers: 0, -5, 25.6,33.
+String: text.
+Boolean: true or false.
+Array.
+Null.
+
+Imagine we received this text from a web server:
+'{ "name":"John", "age":30, "city":"New York"}'
+We use JSON.parse() to convert text into a JavaScript object:
+var object = JSON.parse('{"name":"John", "age":30, "city":"New York"}');
+JSON.Stringfy()
+
+Now Imagine we have to send this object to the web server again:
+We use the JavaScript function JSON.stringify() to convert it into a string.
+var myJSON = JSON.stringify(object);

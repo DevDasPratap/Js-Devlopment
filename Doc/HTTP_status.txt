@@ -1,0 +1,48 @@
+There are five classes of HTTP status codes 🚦✅🛠️
+
+1xx Status Codes: Information Request
+2xx Status Codes: Success
+3xx Status Codes: Redirection
+4xx Status Codes: Client Error
+5xx Status Codes: Server Error
+
+
+The 1xx Codes
+1xx codes usually refer to as informational response, where the server accepts the request and wishes to receive further payload/body.
+
+100 Continue
+101 Switching Protocols
+102 Processing
+
+Certainly, here's a list of various HTTP status codes along with one-line explanations and corresponding emojis:
+
+**2xx - Successful Requests** ✅
+- 200 OK: The request was successful.
+- 201 Created: A new resource was successfully created.
+- 202 Accepted: The request was accepted for processing.
+- 204 No Content: The request was successful with no content.
+- 226 IM Used: The server fulfilled the request, and the response is a representation of the result.
+
+**3xx - Redirection** 🔄
+- 300 Multiple Choices: There are multiple options available for the requested resource.
+- 301 Moved Permanently: The requested resource has been permanently moved.
+- 302 Found: The requested resource is temporarily found elsewhere.
+- 307 Temporary Redirect: The request should be redirected temporarily.
+- 308 Permanent Redirect: The request should be redirected permanently.
+
+**4xx - Client Errors** 🚫
+- 400 Bad Request: The server could not understand the request.
+- 401 Unauthorized: Authentication is required or has failed.
+- 403 Forbidden: Access to the resource is denied.
+- 404 Not Found: The requested resource could not be found.
+- 418 I'm a teapot: A humorous code indicating a server's inability to brew coffee.
+
+**5xx - Server Errors** 🛠️
+- 500 Internal Server Error: A generic server error occurred.
+- 501 Not Implemented: The server does not support the functionality.
+- 502 Bad Gateway: The server received an invalid response from an upstream server.
+- 503 Service Unavailable: The server is temporarily unavailable.
+- 504 Gateway Timeout: The gateway server timed out.
+- 599 Network Connect Timeout Error: Network connection to the server timed out.
+
+These HTTP status codes, along with their emojis, help convey the result of an HTTP request succinctly, making them valuable tools for communication in web development. 🌐🤖

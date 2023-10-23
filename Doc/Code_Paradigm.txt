@@ -1,0 +1,7 @@
+1. 🧩 **Organize code**: The main goal is to structure and arrange code in a logical and coherent manner for better management.
+2. 🛠️ **Easier code**: Make code development less complex and more straightforward to write and understand.
+3. 📝 **Clean and understandable code**: Aim for code that is clear, well-documented, and easy to follow for both developers and maintainers.
+4. 🗺️ **Easy to explore (understand any developer from junior to senior)**: Ensure that any developer, regardless of their experience, can readily comprehend and navigate the codebase.
+5. 🧹 **Easy to maintain**: Create code that is sustainable over time, reducing the effort required for future updates and improvements.
+6. 💾 **Memory efficient**: Strive for code that optimizes memory usage and resource allocation, avoiding unnecessary waste.
+7. ♻️ **DRY (Don't Repeat Yourself)**: Minimize code duplication by reusing common components, promoting efficiency and consistency throughout the codebase.

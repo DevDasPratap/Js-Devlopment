@@ -67,3 +67,61 @@ Routing Patterns
   ∟ Delete by id ('/:')
 
 Request => Middleware[Logger, body parser, user ip, block ip, authentication, authorization, validation] => Controller => Middleware[Error handler] => Response
+
+Server application development
+ - Express
+ - NodeJS Loggers
+ - NodeJS File Uploads
+ - NodeJS Emails
+ - NodeJS Clean Architecture
+ - NodeJS Caching Techniques
+ - NodeJS Jobs Schedular
+ - NodeJS Message Queues
+ - NodeJS Realtime Application
+ - NodeJS Testing
+ - NodeJS Design
+ - NodeJS CI/CD Pipeline
+
+Multi Page Application
+ - NodeJS Template Engine
+ - Session Based Authentication
+
+Rest API
+ - Rest API
+ - API Validation
+ - API Security - Bearer Token
+ - API Security - Refresh Token
+ - Rest API Design & Management
+ - Acceptance Testing
+ - Postman 
+ - API Security - OAuth2
+ - API Security - MFA & SSO
+ - API Security - Oauth0
+ - Role Based Access Control
+
+CMS
+ - Strapi CMS
+ - Strapi CMS Development
+
+Database Courses
+ - SQL
+   - PostgreSQL
+   - Sequalize
+   - TypeORM
+   - Prisma 2
+   - Redis
+   - SQL
+   - SQL Database Design
+   - SQL Join
+   - SQL Transactions
+ - NoSQL
+   - MongoDB
+   - Mongoose
+   - MongoDB Data Modeling
+   - MongoDB - Aggregation
+   - MongoDB - Transactions
+   - MongoDB - Performance Optimization
+   - MongoDB - Security
+   - MongoDB - Administration
+   - MongoDB - Atlas
+   - MongoDB - Realm
