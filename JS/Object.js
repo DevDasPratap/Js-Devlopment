@@ -210,3 +210,15 @@ delete students[idToBeUpdated];
 // Object.values(students).forEach((student) => {
 // 	console.log(student.name, student.email);
 // });
+
+const last = 'Last name'
+const obje = {
+	id:1,
+	name:"PD",
+	"First name":"Pratap",
+	[last]:"Das",
+	id:2,
+	city:"Haldia"
+}
+
+console.log(obje)
