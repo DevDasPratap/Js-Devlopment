@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken')
 const { find_user_by_property, create_new_user } = require('./user.service')
 const error = require('../utils/error')
 
-const register_service = async({name, email, password})=>{ //destrucure
+const register_service = async({name, email, password, role, accountStatus})=>{ //destrucure
     let user = await find_user_by_property('email', email) //key value pass
         if (user) {
             // return res.status(400).json({ message: 'User already exist' })
@@ -14,7 +14,7 @@ const register_service = async({name, email, password})=>{ //destrucure
         }
         const salt = await bcrypt.genSalt(10)
         const hash = await bcrypt.hash(password, salt)
-        return create_new_user({name, email, password: hash})
+        return create_new_user({name, email, password: hash, role, accountStatus})
         // return res.status(200).json({ message: 'User created successfully' })
 }
 const login_service = async({email, password})=>{

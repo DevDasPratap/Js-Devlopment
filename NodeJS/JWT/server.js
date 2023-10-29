@@ -1,6 +1,6 @@
 const express = require('express')
 const connectDB = require('./db')
-const authenticate = require('./jwt.middleware')
+const authenticate = require('./middleware/jwt.middleware')
 const index_router = require('./routes')
 const app = express()
 app.use(express.json())
