@@ -1,0 +1,10 @@
+Inside a-z express
+1. Use express
+2. Create APP
+3. Request Object
+4. Response Object
+5. Middleware
+6. Router
+7. Error Handaling
+8. Static files
+9. Express generator

@@ -1,0 +1,17 @@
+Responsible of a Middleware
+1. Handle comon task
+2. Request logs
+3. Filter request
+4. Modify or reshape request
+5. Validate request body
+6. Authenticate and authrize request
+7. Add additional details to request body
+8. Response bad request
+9. Pass requests to next middleware ofresponse healder
+10. This is middleware signature
+11. If everything is seems ok middleware will call next() 
+12. If everything seems ok controller will call response method
+13. Middleware sit in middle between req and res
+14. Read request object
+15. Process request
+16. Response back to result
