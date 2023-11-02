@@ -1,0 +1,28 @@
+Client
+      1. Frontend app
+      2. Mobile app
+      3. Desktop app
+      4. IOT device
+      5. VS code extention
+      6. Chromium extention
+      7. Figma plugin
+Backend
+      Backend API JSON
+
+
+
+Frontend                    Backend
+⬇️                            ⬇️
+Representation Layer          1. Data Layer(local variable, cookies, session storage)
+                              2. Network Layer (HTTP)
+
+         Logical Layer(control, function)                     
+⇅⬅︎⟺⇄
+|￣￣￣￣￣￣￣￣￣￣￣￣￣|
+|       Frontend       |
+|＿＿＿＿＿＿＿＿＿＿＿＿＿|
+
+|￣￣￣￣￣￣￣￣￣￣￣￣￣|
+|  HTML, CSS, and JS   
+|   even in 2023       |
+|＿＿＿＿＿＿＿＿＿＿＿＿＿| 
