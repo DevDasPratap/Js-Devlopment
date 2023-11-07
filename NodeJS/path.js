@@ -8,5 +8,4 @@ const path = require('path')
 // console.log(path.parse('/Users/pratapdas/JS Development/NodeJS/path.js'))
 // const info = path.parse('/Users/pratapdas/JS Development/NodeJS/path.js')
 // console.log(info.base)
-
 module.exports = path
