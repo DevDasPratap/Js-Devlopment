@@ -176,3 +176,146 @@ ADVANCED CONCEPTS
 • Jasmine
 • Mocha
 • Jest
+
+
+Complete JavaScript Road Map🔥
+
+With Resources👇
+|
+|--- Fundamentals
+|       |--- Data Types
+|       |       |─ Numbers
+|       |       |─ Strings
+|       |       |─ Booleans
+|       |       |─ Bigint
+|       |       |─ Arrays
+|       |       |─ Objects
+|       |       |─ Undefined
+|       |      └─  Null
+|       |
+|       |--- Operators
+|       |       |─ Arithmetic 
+|       |       |─ Comparison 
+|       |       |─ Logical 
+|       |       |─ Assignment 
+|       |       |─ Increment
+|       |      └─ Decrement 
+|       |
+|       |--- Control Flow Statements
+|       |       |─ If Statements
+|       |       |─ Switch Statements
+|       |       |─ For Loops
+|       |       |─ While Loops
+|       |      └─ Do While Loops
+|       |
+|       |--- Functions
+|       |       |─ Defining Functions
+|       |       |─ Function Arguments
+|       |       |─ Function Scope
+|       |       |─ Returning Values from Functions
+|       |      └─ Function Expressions
+|       |
+|       |--- Objects
+|       |       |─ Creating Objects
+|       |       |─ Accessing Object Properties
+|       |       |─ Modifying Object Properties
+|       |       |─ Object Methods
+|       |      └─ Inheritance
+|       |
+|      └-- DOM Manipulation
+|               |─ Selecting Elements
+|               |─ Modifying Element Properties
+|               |─ Adding Event Listeners
+|               |─ Removing Event Listener
+|              └─ Handling User Input
+|
+|--- Advanced JavaScript
+|       |--- Asynchronous Programming
+|       |       |─ Callbacks
+|       |       |─ Promises
+|       |      └─ Async/Await
+|       |--- Error Handling
+|       |       |─ Try/Catch Statements
+|       |       |─ Throwing Errors
+|       |      └─ Error Handling Best Practices
+|       |--- Regular Expressions
+|       |       |─ Pattern Matching
+|       |       |─ Replacing Text
+|       |      └─ Extracting Data
+|       |--- Modules
+|       |       |─ CommonJS Modules
+|       |       |─ AMD Modules
+|       |      └─ ES6 Modules
+|       |--- Unit Testing
+|       |       |─ Introduction to Unit Testing
+|       |       |─ Writing Unit Tests
+|       |      └─ Running Unit Tests
+|      └-- Web APIs
+|              |─ Fetch API
+|              |─ Geolocation API
+|              |─ Web Storage API
+|             └─ Web Notifications API
+|
+|--- JavaScript Frameworks
+|       |--- React
+|       |       |─ Creating React Components
+|       |       |─ Handling State
+|       |       |─ Routing
+|       |      └─ Prop Drilling vs. Context API
+|       |
+|       |--- Angular
+|       |       |─ Components, 
+|       |       |─ Directives
+|       |       |─ Services
+|       |       |─ Data Binding
+|       |       |─ Dependency Injection
+|       |       |─ Routing
+|       |       |─ Navigation
+|       |       |─ Modules
+|       |      └─ Lazy Loading
+|       |
+|      └- Vue.js
+|             |─ Templates 
+|             |─ Components
+|             |─ Directives
+|             |─ Data Binding
+|             |─ Computed Properties
+|             |─ Routing
+|             |─ Navigation
+|            └- Vuex for State Management
+|
+|--- JavaScript Libraries
+|       |--- jQuery
+|       |       |─ DOM Manipulation
+|       |       |─ AJAX Requests
+|       |      └─ Event Handling
+|       |--- Lodash
+|       |       |─ Arrays and Collections
+|       |       |─ Objects and Functions
+|       |      └- Utility Functions
+|       |--- Underscore.js
+|       |       |─ Arrays and Collections
+|       |       |─ Objects and Functions
+|       |      └- Utility Functions
+|      └─ Moment.js
+|              |─ Date and Time Manipulation
+|              |─ Formatting Dates and Times
+|             └- Working with Timezones
+|
+|--- JavaScript Tools
+        |--- Webpack
+        |     |-- Bundling and Minification
+        |     |-- Module Management
+        |    └- Hot Module Replacement
+        |--- Babel
+        |       |─ Transpiling ES6+ Code to ES5
+        |       |─ Polyfilling Missing Features
+        |      └─ Code Preprocessing
+        |--- ESLint
+        |       |-- Static Code Analysis
+        |       |-- Code Style Enforcement
+        |      └─ Error and Warning Reporting
+       └─- Prettier
+                |─ Code Formatting
+                |─ Code Style Enforcement
+               └─ Automatic Code Formatting
