@@ -1,0 +1,337 @@
+Backend Development 🤯 + System Design + Open Source + CI/CD
+
+Advanced Backend Development In NODE
+
+Syllabus
+
+Introduction to Programming with JS
+
+1. Introduction to programming with JS | Keywords | Variable
+2. Coding Variables In JS
+3. Showing Data To User Using console log
+4. DataTypes In JS | Primitives and Non Primitives
+5. Other Datatypes
+6. Special Characters
+7. Comments
+8. Operators | Arithmetic and Assignment
+9. Relational Operators
+10. Logical Operators
+11. Short circuiting and Coercion Introduction with Logical
+12. Special Numbers | NaN | 0 and Negative 0 | Infinity
+13. Bitwise operators
+14. Abstract and Strict Equality Operators
+15. Typeof operator | type of null special case
+
+First Pillar of JS - Coercion
+1. Introduction To Coercion
+2. Definition Of Coercion
+3. Abstract Operations
+4. Reading the official docs for coercion
+5. ToNumber Abstract Operation
+6. Trying ToNumber Abstract Operation
+7. ToNumber on Strings
+8. Understanding the subtraction operation
+
+Second Pillar of JS - Scopes
+1. What is Scopes
+2. Compiles vs Interpreted language
+3. Nature of JS, is it compiled or interpreted ?
+4. Exploring the 2 phases of JS code execution
+5. var vs let
+6. Intro to block and function scope
+7. Understanding parsing and execution
+8. Scopes in strict mode
+
+Third Pillar of JS - HOF | Functional Programming
+1. What is a higher order function
+2. Higher order functions
+3. Example of a HOF
+4. When to use maps
+5. Getting index with maps
+6. Making custom mapper
+7. Details about sort function
+8. filter function
+9. Reduce function
+10. Using reduce
+
+ 
+Fourth Pillar of JS - Callbacks | Promises
+1. intro to callbacks
+2. What are the problems with callbacks
+3. Callback hell
+4. Inversion Of Control
+
+Fifth Pillar of JS - Async Nature of JS
+1. Sync nature of Javascript
+2. Role of runtime to execute async features
+3. Dry running an async example 1
+4. Dry running an async example 2
+5. Important interview problem 1
+6. Important interview problem 2
+7. Important interview problem 3
+8. is console log also an async feature ?
+9. SetInterval discussion
+
+Sixth Pillar of JS - Advanced Promises
+1. Introduction to promises
+2. Important parts of learning promises
+3. How to create a promise ?
+4. Syntax for new promise
+5. Resolve and reject call backs
+6. Trying promises
+7. What if we pass multiple params in resolve or reject ?
+8. Can we return from resolve or reject ?
+
+
+[Hands On Session] Converting Callbacks to Promises
+
+Seventh Pillar of JS - Closures | Iterators | Generators
+1. Closures in JS
+2. Playing with closures
+3. Introduction to Iterators
+4. Writing iterators
+6. Let's move one level ahead of iterators
+7. Introduction to generators
+8. Debugging iterator and generator
+9. Exploring yield
+10. Debugging iterator and generator 2
+
+Eighth Pillar of JS - Objects , Classes, Prototypes, OOPS
+1. Introduction to OOPS
+2. The one and only class keyword
+4. Let's create our first class
+5. Do you know this keyword ?
+6. Understanding new keyword of JS
+7. Understanding the syntax sugar of classes
+8. Function constructors in js
+9. Private properties inside JS classes
+10. Understanding the big picture
+11. Existence of prototypes
+12. Underlying structure of JS Object prototypes
+13. Visualising prototypes in code
+14. Dunder proto and protoypal inheritance
+15. Prototypal inheritance with classes
+16. Example case with this property
+18. call, apply, bind part 2
+19. freeze , seal
+20. create method in Object
+21. Debugging a complex set of functions
+
+Networks | Cookies | Torrent | TCP | UDP | HTTP | DNS | IP
+1. Introduction to Computer Networks
+2. History Of Internet
+3. Terminologies in Computer Networks
+4. Access Networks and DSL
+5. Network Protocol Stack | OSI and TCP
+6. Application layer
+7. Client server and P2P architecture
+8. HTTP
+9. HTTP continued
+10. HTTP methods and codes
+11. Cookies
+12. SMTP
+13. IMAP and POP
+14. Torrent
+15. Transport layer responsibilities
+16. Reliable Data Transfer In Transport Layer
+17. TCP
+18. UDP
+19. Intro to DNS 1
+20. Intro to DNS 2
+21. IP Addressing
+22. Classfull Addressing
+23. Classless Addressing
+24. IPV6
+25. Web Sockets
+
+Socket Programming and network internals
+
+Functional Dependency and Normalisation
+1. Introduction to normalisation
+2. Database schema
+3. Functional Dependency
+4. Axioms
+5. DB Keys
+6. Numericals ON DBMS
+7. What is normalisation
+8. 1NF
+9. 2NF
+10. 3NF
+11. Practice Normalisation
+
+ 
+DB Design and DB Indexing
+
+SQL Queries with MySQL
+
+Transactions and ACID in RDBMS with MySQl
+
+Linux Commands | VIM | Shell | Piping
+1 basics of linux
+2 Intro to shell
+3 Commands part 1
+4 Relative and absolute paths
+5 Relative and absolute path continued
+6 Commands part 2
+7 Creating files and folders
+9 Vim introduction
+11 Vim commands
+12 Vimrc
+13 Commands part 3
+14. Piping
+15 Dumping data and boolean logics with commands
+16. Commands part 4
+17. Commands part 5
+18. Zipping and creating archives
+19 navigation in vim
+
+File IO in NodeJS
+
+Streams In NodeJS
+
+NodeJS Thread Pool and LibUV
+
+Introduction to Express and Setting up http server
+
+How Internet works ?
+
+🚀Project - Making your own Telegram Bot
+
+MVC Architecture
+
+REST
+
+Setting up folder structure
+
+Object Relational Mappers
+
+Sequelize ORM
+
+Writing Restful API
+
+🚀 Project - Airline Booking System using Microservices
+
+Writing REST API for First microservice
+
+🚀 Project - Associations in RDBMS
+
+🚀 Project - Flight Microservice for Airline | Rest API
+
+🚀 Project - Booking service for Airline | Seeders | Enums
+
+Pessimistic & Optimistic Concurrency | Race Condition
+
+Idempotent API | Cron Jobs
+
+Connecting your frontend to backend
+
+Auth | Password Encryption | JWT | HTTP Only Cookie
+1. Intro to auth
+2. Setting up API_Gateway
+3. Setting up user model and migrations
+4. Writing signup api
+5. Encrypting password
+6. Other hash algorithms
+7. JWT
+8. Preparing password matcher
+9. Adding signin api
+10. Added auth middlewares
+11. Added auth middlewares 2
+12. Added jwt expiry handling
+ 
+API Gateway | Reverse proxy | Authorisation
+1. Intro to API Gateways
+2. Adding rate limit
+3. Forward Proxy
+4. Reverse Proxy
+5. Setting up custom reverse proxy
+6. Completing rate limitter and reverse proxy
+7. Authorisation
+8. DB structure for authorisation
+9. Adding default customer role for signup
+10. Impl add role to user
+11. Added authorisation check for add role
+12. Introducing Publisher Subscribers using message queues
+
+ 
+Message Queues | Rabbit MQ | Mailers
+
+Containers | Docker | Dockerizing | Dockerfile | Compose
+
+Kubernetes | Nodes | Pods | minikube | Kubectl [Optional]
+
+AWS | EC2 | PM2 | Autoscaling | Amazon RDS
+
+gRPC | Protocol Buffers | GRPC Client
+
+NoSQL: MongoDB and ODM
+
+Azure Cosmos | NoSQL DB with SQL Queries 🤩
+
+
+Web Sockets with Socket.IO
+
+Testing | Jest | Mocking | spy | Coverage
+
+[HLD] DB Replication | Sharding | Consistency Pattern
+
+[HLD] Consistent Hashing
+
+[HLD] Vertical & Horizontal Scaling
+
+[HLD] Stackoverflow Case Study
+
+[HLD] L4 & L7 Load balancer
+
+[HLD] Designing scalable code submission platform
+
+Caching with Redis
+
+Message queues with Kafka
+
+Decomposing Microservices | Domain Driven Design
+
+Microservices intercommunication | Sync & Async
+
+Fastify - Make NodeJS apps faster than Java
+
+Open Source Contributions - Insights from Ex-GSoCer
+
+Making your first open source contributions 🥇
+
+Server Sent Events and Polling
+
+Secure your apps with Key vaults | AWS KMS
+
+tRPC with Fastify to Type Safe and Scalable Backend
+
+Setting up nginx as reverse proxy and LB
+
+Horizontal Scaling NodeJS app on multiple cores
+
+Adding Observability and Monitoring with New Relic
+
+Continuous Integration - Continuous Dev (CI CD)
+
+Load testing your applications for performance
+
+Feature Level vs Component Level Project structure
+
+[LLD] Design Patterns with JS
+
+[LLD]Structural Design Pattern - Proxy | Decorator | Adapter
+
+[LLD] Behavioral Design Pattern -Strategy | State | Iterator
+
+🚀 Project - Design a pubsub library with Observer Pattern
+
+Serverless with AWS
+
+Rate Limiting for DDos Protection
+
+Creational Design Pattern - Factory | Builder | Singleton
+
+Configuring MondoDB Quorum using Concerns
+
+[Interview Prep] Machine Coding Interviews
+
