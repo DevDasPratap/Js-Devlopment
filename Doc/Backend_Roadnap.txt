@@ -99,23 +99,23 @@ Seventh Pillar of JS - Closures | Iterators | Generators
 Eighth Pillar of JS - Objects , Classes, Prototypes, OOPS
 1. Introduction to OOPS
 2. The one and only class keyword
-4. Let's create our first class
-5. Do you know this keyword ?
-6. Understanding new keyword of JS
-7. Understanding the syntax sugar of classes
-8. Function constructors in js
-9. Private properties inside JS classes
-10. Understanding the big picture
-11. Existence of prototypes
-12. Underlying structure of JS Object prototypes
-13. Visualising prototypes in code
-14. Dunder proto and protoypal inheritance
-15. Prototypal inheritance with classes
-16. Example case with this property
-18. call, apply, bind part 2
-19. freeze , seal
-20. create method in Object
-21. Debugging a complex set of functions
+3. Let's create our first class
+4. Do you know this keyword ?
+5. Understanding new keyword of JS
+6. Understanding the syntax sugar of classes
+7. Function constructors in js
+8. Private properties inside JS classes
+9. Understanding the big picture
+10. Existence of prototypes
+11. Underlying structure of JS Object prototypes
+12. Visualising prototypes in code
+13. Dunder proto and protoypal inheritance
+14. Prototypal inheritance with classes
+15. Example case with this property
+16. call, apply, bind part 2
+17. freeze , seal
+18. create method in Object
+19. Debugging a complex set of functions
 
 Networks | Cookies | Torrent | TCP | UDP | HTTP | DNS | IP
 1. Introduction to Computer Networks
@@ -145,6 +145,7 @@ Networks | Cookies | Torrent | TCP | UDP | HTTP | DNS | IP
 25. Web Sockets
 
 Socket Programming and network internals
+ - Two servser communication
 
 Functional Dependency and Normalisation
 1. Introduction to normalisation
@@ -159,7 +160,6 @@ Functional Dependency and Normalisation
 10. 3NF
 11. Practice Normalisation
 
- 
 DB Design and DB Indexing
 
 SQL Queries with MySQL
