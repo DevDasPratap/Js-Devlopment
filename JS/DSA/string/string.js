@@ -108,3 +108,42 @@ function truncate(str, maxLength) {
 else return str
 }
 console.log(truncate(line, 9))
+
+
+// palindrom
+const palin = 'madam'
+const palinDrom = function(val){
+    if (val < 0) return false
+    if(typeof val === "number") val = String(val)
+    return val === String(val).split('').reverse().join('')
+}
+const res = palinDrom(palin)
+console.log(res)
+
+// hamming distance //not copy char
+const val_a = 'Hello'
+const val_b = 'Hwlly '
+const hamming = function(val_a, val_b) {
+    if (val_a.length !== val_b.length) return console.log('value are not same length')
+    let missChar = 0
+for (let i = 0; i < val_a.length; i++) {
+    if (val_a[i] !== val_b[i]) {
+        missChar++
+    }
+}
+return missChar
+}
+
+const ham = hamming(val_a, val_b)
+console.log(ham)
+
+// Anagram
+const ana_a = 'kolkata'
+const ana_b = 'atakolk'
+const anagram = function (ana_a, ana_b) {
+    if(ana_a.length !== ana_b.length) return false
+
+    return ana_a.split('').sort().join('') === ana_b.split('').sort().join('')
+}
+const anag = anagram(ana_a, ana_b)
+console.log(anag)
