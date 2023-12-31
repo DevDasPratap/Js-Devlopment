@@ -1,0 +1,812 @@
+pratapdas@Prataps-MacBook-Air ~ % mongosh
+Current Mongosh Log ID:	65904354a9760cd6a750cac4
+Connecting to:		mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.0.0
+Using MongoDB:		7.0.0
+Using Mongosh:		2.0.0
+mongosh 2.0.1 is available for download: https://www.mongodb.com/try/download/shell
+
+For mongosh info see: https://docs.mongodb.com/mongodb-shell/
+
+------
+   The server generated these startup warnings when booting
+   2023-12-30T21:17:40.594+05:30: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+------
+
+test> show dbs
+Weather       2.50 MiB
+admin        40.00 KiB
+auth_by_pd   72.00 KiB
+auth_pd     108.00 KiB
+config       60.00 KiB
+instaClone   72.00 KiB
+lms         108.00 KiB
+local       144.00 KiB
+todo        108.00 KiB
+todo_pd     108.00 KiB
+universicy  112.00 KiB
+test> use college
+switched to db college
+college> db
+college
+college> show dbs
+Weather       2.50 MiB
+admin        40.00 KiB
+auth_by_pd   72.00 KiB
+auth_pd     108.00 KiB
+config       72.00 KiB
+instaClone   72.00 KiB
+lms         108.00 KiB
+local       144.00 KiB
+todo        108.00 KiB
+todo_pd     108.00 KiB
+universicy  112.00 KiB
+college> db
+college
+college> db.students.insertOne({name:"pratap",email:"pratap@gmail.com"})
+{
+  acknowledged: true,
+  insertedId: ObjectId("65904472a9760cd6a750cac5")
+}
+college> show dbs
+Weather       2.50 MiB
+admin        40.00 KiB
+auth_by_pd   72.00 KiB
+auth_pd     108.00 KiB
+college       8.00 KiB
+config       72.00 KiB
+instaClone   72.00 KiB
+lms         108.00 KiB
+local       144.00 KiB
+todo        108.00 KiB
+todo_pd     108.00 KiB
+universicy  112.00 KiB
+college> db.students.insertOne({name:"pd",email:"pd@gmail.com", mob:9000000000})
+{
+  acknowledged: true,
+  insertedId: ObjectId("659044eda9760cd6a750cac6")
+}
+college> db.students.insertOne({name:"pdas",email:"pdas@gmail.com", mob:9000000000, fees: true})
+{
+  acknowledged: true,
+  insertedId: ObjectId("65904528a9760cd6a750cac7")
+}
+college> show collections
+students
+college> db.students
+college.students
+college> db.students.find()
+[
+  {
+    _id: ObjectId("65904472a9760cd6a750cac5"),
+    name: 'pratap',
+    email: 'pratap@gmail.com'
+  },
+  {
+    _id: ObjectId("659044eda9760cd6a750cac6"),
+    name: 'pd',
+    email: 'pd@gmail.com',
+    mob: 9000000000
+  },
+  {
+    _id: ObjectId("65904528a9760cd6a750cac7"),
+    name: 'pdas',
+    email: 'pdas@gmail.com',
+    mob: 9000000000,
+    fees: true
+  }
+]
+college> db.students.find().pretty()
+[
+  {
+    _id: ObjectId("65904472a9760cd6a750cac5"),
+    name: 'pratap',
+    email: 'pratap@gmail.com'
+  },
+  {
+    _id: ObjectId("659044eda9760cd6a750cac6"),
+    name: 'pd',
+    email: 'pd@gmail.com',
+    mob: 9000000000
+  },
+  {
+    _id: ObjectId("65904528a9760cd6a750cac7"),
+    name: 'pdas',
+    email: 'pdas@gmail.com',
+    mob: 9000000000,
+    fees: true
+  }
+]
+college> db.dropDatabase()
+{ ok: 1, dropped: 'college' }
+college> db
+college
+college> show dbs
+Weather       2.50 MiB
+admin        40.00 KiB
+auth_by_pd   72.00 KiB
+auth_pd     108.00 KiB
+config       96.00 KiB
+instaClone   72.00 KiB
+lms         108.00 KiB
+local       144.00 KiB
+todo        108.00 KiB
+todo_pd     108.00 KiB
+universicy  112.00 KiB
+college> use college
+already on db college
+college> db.students.insertOne({name:"pdas",email:"pdas@gmail.com", mob:9000000000, fees: true})
+{
+  acknowledged: true,
+  insertedId: ObjectId("659046e1a9760cd6a750cac8")
+}
+college> db.students.insertOne({name:"pd",email:"pd@gmail.com", mob:9000000000, fees: false})
+{
+  acknowledged: true,
+  insertedId: ObjectId("65904702a9760cd6a750cac9")
+}
+college> db.students.insertOne({name:"pratap",email:"pratap@gmail.com", fees: true})
+{
+  acknowledged: true,
+  insertedId: ObjectId("65904710a9760cd6a750caca")
+}
+college> db.students.find()
+[
+  {
+    _id: ObjectId("659046e1a9760cd6a750cac8"),
+    name: 'pdas',
+    email: 'pdas@gmail.com',
+    mob: 9000000000,
+    fees: true
+  },
+  {
+    _id: ObjectId("65904702a9760cd6a750cac9"),
+    name: 'pd',
+    email: 'pd@gmail.com',
+    mob: 9000000000,
+    fees: false
+  },
+  {
+    _id: ObjectId("65904710a9760cd6a750caca"),
+    name: 'pratap',
+    email: 'pratap@gmail.com',
+    fees: true
+  }
+]
+college> db.students.insertMany([{name:"pratap",email:"pratap@gmail.com", fees: false},{name:"dev", email:"dev@gmail.com", mob:80000000, fees: ture}])
+ReferenceError: ture is not defined
+college> db.students.insertMany([{name:"pratap",email:"pratap@gmail.com", fees: false},{name:"dev", email:"dev@gmail.com", mob:80000000, fees: true}])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId("65904819a9760cd6a750cacb"),
+    '1': ObjectId("65904819a9760cd6a750cacc")
+  }
+}
+college> db.students.find({name:"dev"})
+[
+  {
+    _id: ObjectId("65904819a9760cd6a750cacc"),
+    name: 'dev',
+    email: 'dev@gmail.com',
+    mob: 80000000,
+    fees: true
+  }
+]
+college> db.students.find({name:"pratap"})
+[
+  {
+    _id: ObjectId("65904710a9760cd6a750caca"),
+    name: 'pratap',
+    email: 'pratap@gmail.com',
+    fees: true
+  },
+  {
+    _id: ObjectId("65904819a9760cd6a750cacb"),
+    name: 'pratap',
+    email: 'pratap@gmail.com',
+    fees: false
+  }
+]
+college> db.students.findOne({name:"pratap"})
+{
+  _id: ObjectId("65904710a9760cd6a750caca"),
+  name: 'pratap',
+  email: 'pratap@gmail.com',
+  fees: true
+}
+college> db.students.find({name:"dev"},{name:0})
+[
+  {
+    _id: ObjectId("65904819a9760cd6a750cacc"),
+    email: 'dev@gmail.com',
+    mob: 80000000,
+    fees: true
+  }
+]
+college> db.students.find({name:"dev"},{name:1})
+[ { _id: ObjectId("65904819a9760cd6a750cacc"), name: 'dev' } ]
+college> db.students.find({name:"dev"},{name:1, fees:1})
+[
+  {
+    _id: ObjectId("65904819a9760cd6a750cacc"),
+    name: 'dev',
+    fees: true
+  }
+]
+college> db.students.find({fees: true})
+[
+  {
+    _id: ObjectId("659046e1a9760cd6a750cac8"),
+    name: 'pdas',
+    email: 'pdas@gmail.com',
+    mob: 9000000000,
+    fees: true
+  },
+  {
+    _id: ObjectId("65904710a9760cd6a750caca"),
+    name: 'pratap',
+    email: 'pratap@gmail.com',
+    fees: true
+  },
+  {
+    _id: ObjectId("65904819a9760cd6a750cacc"),
+    name: 'dev',
+    email: 'dev@gmail.com',
+    mob: 80000000,
+    fees: true
+  }
+]
+college> db.students.find({fees: true}).limt(1)
+TypeError: db.students.f ... true}).limt is not a function
+college> db.students.find({fees: true}).limit(1)
+[
+  {
+    _id: ObjectId("659046e1a9760cd6a750cac8"),
+    name: 'pdas',
+    email: 'pdas@gmail.com',
+    mob: 9000000000,
+    fees: true
+  }
+]
+college> db.students.find({name:"pratap"}).limit(2).skip(1)
+[
+  {
+    _id: ObjectId("65904819a9760cd6a750cacb"),
+    name: 'pratap',
+    email: 'pratap@gmail.com',
+    fees: false
+  }
+]
+college> db.students.updateOne({name:'dev'}, {$set:{mob:7000000}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+college> db.students.find({name:'dev'})
+[
+  {
+    _id: ObjectId("65904819a9760cd6a750cacc"),
+    name: 'dev',
+    email: 'dev@gmail.com',
+    mob: 7000000,
+    fees: true
+  }
+]
+college> db.students.updateMany({name:'pratap'}, {$set:{fees:"NA"}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 2,
+  modifiedCount: 2,
+  upsertedCount: 0
+}
+college> db.students.find({name:'pratap'})
+[
+  {
+    _id: ObjectId("65904710a9760cd6a750caca"),
+    name: 'pratap',
+    email: 'pratap@gmail.com',
+    fees: 'NA'
+  },
+  {
+    _id: ObjectId("65904819a9760cd6a750cacb"),
+    name: 'pratap',
+    email: 'pratap@gmail.com',
+    fees: 'NA'
+  }
+]
+college> db.students.deleteOne({})
+{ acknowledged: true, deletedCount: 1 }
+college> db.students.find()
+[
+  {
+    _id: ObjectId("65904702a9760cd6a750cac9"),
+    name: 'pd',
+    email: 'pd@gmail.com',
+    mob: 9000000000,
+    fees: false
+  },
+  {
+    _id: ObjectId("65904710a9760cd6a750caca"),
+    name: 'pratap',
+    email: 'pratap@gmail.com',
+    fees: 'NA'
+  },
+  {
+    _id: ObjectId("65904819a9760cd6a750cacb"),
+    name: 'pratap',
+    email: 'pratap@gmail.com',
+    fees: 'NA'
+  },
+  {
+    _id: ObjectId("65904819a9760cd6a750cacc"),
+    name: 'dev',
+    email: 'dev@gmail.com',
+    mob: 7000000,
+    fees: true
+  }
+]
+college> db.students.deleteMany({fees:"NA"})
+{ acknowledged: true, deletedCount: 2 }
+college> db.students.find()
+[
+  {
+    _id: ObjectId("65904702a9760cd6a750cac9"),
+    name: 'pd',
+    email: 'pd@gmail.com',
+    mob: 9000000000,
+    fees: false
+  },
+  {
+    _id: ObjectId("65904819a9760cd6a750cacc"),
+    name: 'dev',
+    email: 'dev@gmail.com',
+    mob: 7000000,
+    fees: true
+  }
+]
+college> 
+
+
+
+pratapdas@Prataps-MacBook-Air ~ % mongosh
+Current Mongosh Log ID:	6590ce0ee563d4338dfaa7b3
+Connecting to:		mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.0.0
+Using MongoDB:		7.0.0
+Using Mongosh:		2.0.0
+mongosh 2.0.1 is available for download: https://www.mongodb.com/try/download/shell
+
+For mongosh info see: https://docs.mongodb.com/mongodb-shell/
+
+------
+   The server generated these startup warnings when booting
+   2023-12-31T07:38:24.126+05:30: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+------
+
+test> show dbs
+Weather       2.50 MiB
+admin        40.00 KiB
+auth_by_pd   72.00 KiB
+auth_pd     108.00 KiB
+college      72.00 KiB
+config      108.00 KiB
+instaClone   72.00 KiB
+lms         108.00 KiB
+local       144.00 KiB
+todo        108.00 KiB
+todo_pd     108.00 KiB
+universicy  112.00 KiB
+test> use college
+switched to db college
+college> show collections
+students
+college> db.students.find().count()
+(node:868) [MONGODB DRIVER] Warning: cursor.count is deprecated and will be removed in the next major version, please use `collection.estimatedDocumentCount` or `collection.countDocuments` instead 
+(Use `node --trace-warnings ...` to show where the warning was created)
+2
+college> db.students.countDocuments()
+2
+college> db.students.find()
+[
+  {
+    _id: ObjectId("65904702a9760cd6a750cac9"),
+    name: 'pd',
+    email: 'pd@gmail.com',
+    mob: 9000000000,
+    fees: false
+  },
+  {
+    _id: ObjectId("65904819a9760cd6a750cacc"),
+    name: 'dev',
+    email: 'dev@gmail.com',
+    mob: 7000000,
+    fees: true
+  }
+]
+college> db.studentsfind().countDocuments()
+TypeError: db.studentsfind is not a function
+college> db.students.find().countDocuments()
+TypeError: db.students.find().countDocuments is not a function
+college> db.students.insertMany([{name:"pratap", email:"pratap@gmail.com", fess:"NA"}, {name:"pratap", email:"pratap@gmail.com", mob:80000000, fees:"NA"}, {name:"das",email:"das@gmail.com",mob:11111111,fess:true }])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId("6590cfcae563d4338dfaa7b4"),
+    '1': ObjectId("6590cfcae563d4338dfaa7b5"),
+    '2': ObjectId("6590cfcae563d4338dfaa7b6")
+  }
+}
+college> db.studentsfind().countDocuments()
+TypeError: db.studentsfind is not a function
+college> db.students.countDocuments()
+5
+college> db.students.countDocuments().pretty()
+TypeError: db.students.c ... ents().pretty is not a function
+college> db.students.limit(3).countDocuments()
+TypeError: db.students.limit is not a function
+college> db.students.find().sort({name:1})
+[
+  {
+    _id: ObjectId("6590cfcae563d4338dfaa7b6"),
+    name: 'das',
+    email: 'das@gmail.com',
+    mob: 11111111,
+    fess: true
+  },
+  {
+    _id: ObjectId("65904819a9760cd6a750cacc"),
+    name: 'dev',
+    email: 'dev@gmail.com',
+    mob: 7000000,
+    fees: true
+  },
+  {
+    _id: ObjectId("65904702a9760cd6a750cac9"),
+    name: 'pd',
+    email: 'pd@gmail.com',
+    mob: 9000000000,
+    fees: false
+  },
+  {
+    _id: ObjectId("6590cfcae563d4338dfaa7b4"),
+    name: 'pratap',
+    email: 'pratap@gmail.com',
+    fess: 'NA'
+  },
+  {
+    _id: ObjectId("6590cfcae563d4338dfaa7b5"),
+    name: 'pratap',
+    email: 'pratap@gmail.com',
+    mob: 80000000,
+    fees: 'NA'
+  }
+]
+college> db.students.find().sort({name:-1})
+[
+  {
+    _id: ObjectId("6590cfcae563d4338dfaa7b4"),
+    name: 'pratap',
+    email: 'pratap@gmail.com',
+    fess: 'NA'
+  },
+  {
+    _id: ObjectId("6590cfcae563d4338dfaa7b5"),
+    name: 'pratap',
+    email: 'pratap@gmail.com',
+    mob: 80000000,
+    fees: 'NA'
+  },
+  {
+    _id: ObjectId("65904702a9760cd6a750cac9"),
+    name: 'pd',
+    email: 'pd@gmail.com',
+    mob: 9000000000,
+    fees: false
+  },
+  {
+    _id: ObjectId("65904819a9760cd6a750cacc"),
+    name: 'dev',
+    email: 'dev@gmail.com',
+    mob: 7000000,
+    fees: true
+  },
+  {
+    _id: ObjectId("6590cfcae563d4338dfaa7b6"),
+    name: 'das',
+    email: 'das@gmail.com',
+    mob: 11111111,
+    fess: true
+  }
+]
+college> db.students.insertMany([{name:"pratap1", email:"pratap@gmail.com", fess:"NA"}, {name:"pratap7", email:"pratap@gmail.com", mob:80000000, fees:"NA"}, {name:"das1",email:"das@gmail.com",mob:11111111,fess:true }])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId("6590d0b0e563d4338dfaa7b7"),
+    '1': ObjectId("6590d0b0e563d4338dfaa7b8"),
+    '2': ObjectId("6590d0b0e563d4338dfaa7b9")
+  }
+}
+college> db.books.insertOne({title:"the way of king", auther:"Brandon sanderson", rating: 9, page: 400, genres:['fantasy'], reviews:[{name:'das', message:"great book"}, {name:'pratap', message:'much better'}]})
+{
+  acknowledged: true,
+  insertedId: ObjectId("6590d26de563d4338dfaa7ba")
+}
+college> db.books().find()
+TypeError: db.books is not a function
+college> db.books.countDocuments()
+1
+college> db.books.find()
+[
+  {
+    _id: ObjectId("6590d26de563d4338dfaa7ba"),
+    title: 'the way of king',
+    auther: 'Brandon sanderson',
+    rating: 9,
+    page: 400,
+    genres: [ 'fantasy' ],
+    reviews: [
+      { name: 'das', message: 'great book' },
+      { name: 'pratap', message: 'much better' }
+    ]
+  }
+]
+college> db.books.insertOne({title:"money pholochophy", auther:"Bro", rating: 8, page: 400, genres:['great'], reviews:[{name:'das', message:"great book"}, {name:'pratap', message:'much better'}]})
+{
+  acknowledged: true,
+  insertedId: ObjectId("6590d364e563d4338dfaa7bb")
+}
+college> db.books.insertOne({title:"Learn code", auther:"harry", rating: 7, page: 405, genres:['good'], reviews:[{name:'pd', message:"nice"}, {name:'das', message:'graet'}]})
+{
+  acknowledged: true,
+  insertedId: ObjectId("6590d3ade563d4338dfaa7bc")
+}
+college> db.books.find()
+[
+  {
+    _id: ObjectId("6590d26de563d4338dfaa7ba"),
+    title: 'the way of king',
+    auther: 'Brandon sanderson',
+    rating: 9,
+    page: 400,
+    genres: [ 'fantasy' ],
+    reviews: [
+      { name: 'das', message: 'great book' },
+      { name: 'pratap', message: 'much better' }
+    ]
+  },
+  {
+    _id: ObjectId("6590d364e563d4338dfaa7bb"),
+    title: 'money pholochophy',
+    auther: 'Bro',
+    rating: 8,
+    page: 400,
+    genres: [ 'great' ],
+    reviews: [
+      { name: 'das', message: 'great book' },
+      { name: 'pratap', message: 'much better' }
+    ]
+  },
+  {
+    _id: ObjectId("6590d3ade563d4338dfaa7bc"),
+    title: 'Learn code',
+    auther: 'harry',
+    rating: 7,
+    page: 405,
+    genres: [ 'good' ],
+    reviews: [
+      { name: 'pd', message: 'nice' },
+      { name: 'das', message: 'graet' }
+    ]
+  }
+]
+college> db.books.find({rating:{$gt:7}})
+[
+  {
+    _id: ObjectId("6590d26de563d4338dfaa7ba"),
+    title: 'the way of king',
+    auther: 'Brandon sanderson',
+    rating: 9,
+    page: 400,
+    genres: [ 'fantasy' ],
+    reviews: [
+      { name: 'das', message: 'great book' },
+      { name: 'pratap', message: 'much better' }
+    ]
+  },
+  {
+    _id: ObjectId("6590d364e563d4338dfaa7bb"),
+    title: 'money pholochophy',
+    auther: 'Bro',
+    rating: 8,
+    page: 400,
+    genres: [ 'great' ],
+    reviews: [
+      { name: 'das', message: 'great book' },
+      { name: 'pratap', message: 'much better' }
+    ]
+  }
+]
+college> db.books.find({rating:{$et:7}})
+MongoServerError: unknown operator: $et
+college> db.books.find({rating:{$lt:8}})
+[
+  {
+    _id: ObjectId("6590d3ade563d4338dfaa7bc"),
+    title: 'Learn code',
+    auther: 'harry',
+    rating: 7,
+    page: 405,
+    genres: [ 'good' ],
+    reviews: [
+      { name: 'pd', message: 'nice' },
+      { name: 'das', message: 'graet' }
+    ]
+  }
+]
+college> db.books.find({rating:{$e:8}})
+MongoServerError: unknown operator: $e
+college> db.books.find({$or: [{rating:7}, {auther:'harry'}})
+Uncaught:
+SyntaxError: Unexpected token, expected "," (1:49)
+
+> 1 | db.books.find({$or: [{rating:7}, {auther:'harry'}})
+    |                                                  ^
+  2 |
+
+college> db.books.find({$or: [{rating:7}, {auther:'harry'}]})
+[
+  {
+    _id: ObjectId("6590d3ade563d4338dfaa7bc"),
+    title: 'Learn code',
+    auther: 'harry',
+    rating: 7,
+    page: 405,
+    genres: [ 'good' ],
+    reviews: [
+      { name: 'pd', message: 'nice' },
+      { name: 'das', message: 'graet' }
+    ]
+  }
+]
+college> db.books.find({$or: [{rating:8}, {auther:'harry'}]})
+[
+  {
+    _id: ObjectId("6590d364e563d4338dfaa7bb"),
+    title: 'money pholochophy',
+    auther: 'Bro',
+    rating: 8,
+    page: 400,
+    genres: [ 'great' ],
+    reviews: [
+      { name: 'das', message: 'great book' },
+      { name: 'pratap', message: 'much better' }
+    ]
+  },
+  {
+    _id: ObjectId("6590d3ade563d4338dfaa7bc"),
+    title: 'Learn code',
+    auther: 'harry',
+    rating: 7,
+    page: 405,
+    genres: [ 'good' ],
+    reviews: [
+      { name: 'pd', message: 'nice' },
+      { name: 'das', message: 'graet' }
+    ]
+  }
+]
+college> db.books.find({$or: [{rating:9}, {auther:'bro'}]})
+[
+  {
+    _id: ObjectId("6590d26de563d4338dfaa7ba"),
+    title: 'the way of king',
+    auther: 'Brandon sanderson',
+    rating: 9,
+    page: 400,
+    genres: [ 'fantasy' ],
+    reviews: [
+      { name: 'das', message: 'great book' },
+      { name: 'pratap', message: 'much better' }
+    ]
+  }
+]
+college> 
+
+
+college> db.books.find({rating: 8}).explain('executionStats')
+{
+  explainVersion: '2',
+  queryPlanner: {
+    namespace: 'college.books',
+    indexFilterSet: false,
+    parsedQuery: { rating: { '$eq': 8 } },
+    queryHash: 'F5BC19EA',
+    planCacheKey: 'F0716F80',
+    maxIndexedOrSolutionsReached: false,
+    maxIndexedAndSolutionsReached: false,
+    maxScansToExplodeReached: false,
+    winningPlan: {
+      queryPlan: {
+        stage: 'COLLSCAN',
+        planNodeId: 1,
+        filter: { rating: { '$eq': 8 } },
+        direction: 'forward'
+      },
+      slotBasedPlan: {
+        slots: '$$RESULT=s5 env: { s1 = TimeZoneDatabase(America/Detroit...Europe/Istanbul) (timeZoneDB), s2 = Nothing (SEARCH_META), s7 = 8, s3 = 1703995022213 (NOW) }',
+        stages: '[1] filter {traverseF(s4, lambda(l1.0) { ((l1.0 == s7) ?: false) }, false)} \n' +
+          '[1] scan s5 s6 none none none none lowPriority [s4 = rating] @"269a1cbe-fdc0-4e8b-b740-ad9fd61e1198" true false '
+      }
+    },
+    rejectedPlans: []
+  },
+  executionStats: {
+    executionSuccess: true,
+    nReturned: 2,
+    executionTimeMillis: 2,
+    totalKeysExamined: 0,
+    totalDocsExamined: 5,
+    executionStages: {
+      stage: 'filter',
+      planNodeId: 1,
+      nReturned: 2,
+      executionTimeMillisEstimate: 0,
+      opens: 1,
+      closes: 1,
+      saveState: 0,
+      restoreState: 0,
+      isEOF: 1,
+      numTested: 5,
+      filter: 'traverseF(s4, lambda(l1.0) { ((l1.0 == s7) ?: false) }, false) ',
+      inputStage: {
+        stage: 'scan',
+        planNodeId: 1,
+        nReturned: 5,
+        executionTimeMillisEstimate: 0,
+        opens: 1,
+        closes: 1,
+        saveState: 0,
+        restoreState: 0,
+        isEOF: 1,
+        numReads: 5,
+        recordSlot: 5,
+        recordIdSlot: 6,
+        fields: [ 'rating' ],
+        outputSlots: [ Long("4") ]
+      }
+    }
+  },
+  command: { find: 'books', filter: { rating: 8 }, '$db': 'college' },
+  serverInfo: {
+    host: 'Prataps-MacBook-Air.local',
+    port: 27017,
+    version: '7.0.0',
+    gitVersion: '37d84072b5c5b9fd723db5fa133fb202ad2317f1'
+  },
+  serverParameters: {
+    internalQueryFacetBufferSizeBytes: 104857600,
+    internalQueryFacetMaxOutputDocSizeBytes: 104857600,
+    internalLookupStageIntermediateDocumentMaxSizeBytes: 104857600,
+    internalDocumentSourceGroupMaxMemoryBytes: 104857600,
+    internalQueryMaxBlockingSortMemoryUsageBytes: 104857600,
+    internalQueryProhibitBlockingMergeOnMongoS: 0,
+    internalQueryMaxAddToSetBytes: 104857600,
+    internalDocumentSourceSetWindowFieldsMaxMemoryBytes: 104857600,
+    internalQueryFrameworkControl: 'trySbeEngine'
+  },
+  ok: 1
+}
+college> db.books.createIndex({rating: 8})
+rating_8
+college> db.books.getIndexes()
+[
+  { v: 2, key: { _id: 1 }, name: '_id_' },
+  { v: 2, key: { rating: 8 }, name: 'rating_8' }
+]
+college> db.books.dropIndex({rating: 8})
+{ nIndexesWas: 2, ok: 1 }
+college> 
