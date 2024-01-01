@@ -31,3 +31,41 @@ for (let i = 0; i < numArray.length; i++) {
 }
 console.log(numArray)
 console.log(unique)
+
+let set2 = new Set([1,2,3,4,5,6,7,8]);
+let set3 = new Set('Pratap');
+console.log(set2)
+console.log(set3)
+
+const dup = [1,1,2,2,2,3,4,8,5,9,5,7,10,10,9, null, true, false, null, undefined, 'das', 'dev']
+const uniqueVal = (new Set(dup))
+console.log('obj to arr: ', Array.from(uniqueVal))
+// or
+console.log('object to arr: ', [...uniqueVal])
+console.log(uniqueVal.has(5))
+console.log(uniqueVal.size)
+console.log(uniqueVal.delete(2))
+console.log(uniqueVal)
+
+// uniqueVal.forEach((e)=>console.log(e))
+
+for(let item of uniqueVal.keys()){
+    console.log('Key: ', item)
+}
+
+for(let val of uniqueVal.values()){
+    console.log('Value: ', val)
+}
+for (const [key, value] of uniqueVal.entries()) {
+    console.log(`Key: ${key} and Value: ${value}`)
+}
+
+
+// console.log(uniqueVal.clear())
+// console.log(uniqueVal)
+
+const obj_to_arr = Array.from(uniqueVal)
+// console.log('Arr: ', obj_to_arr)
+
+
+
