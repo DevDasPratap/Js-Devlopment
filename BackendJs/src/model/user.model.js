@@ -53,14 +53,14 @@ const userSchema = new Schema(
   }
 );
 
-// custom hoock
+// custom hoock - store encrypt password
 userSchema.pre("save", async function (next) {
-  if (!this.isModified("password")) return next();
-  this.password = bcrypt.hash(this.password, 10);
+  if (!this.isModified("password")) return next(); // not modifyed return
+  this.password = await bcrypt.hash(this.password, 10); //all time hash password
   next();
 });
 
-// custom method
+// custom method - check and compare db and input passord
 userSchema.methods.isPasswordCorrect = async function (password){
   return await bcrypt.compare(password, this.password)
 }

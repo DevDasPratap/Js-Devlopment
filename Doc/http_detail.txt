@@ -1,0 +1,54 @@
+URL/URI/URN are same
+
+http headers
+metadata=> key:value sent along with request and response
+http headers what to do => caching, authentication(bearer token, session/refresh cookie/token, ), manage state(guest/logedin user, have cart, etc)
+
+request headers => from client
+response headers => from server
+representation headers => encoding/compression
+payload headers => data
+
+
+most common headers
+
+accept: application/json
+user-agent => get user details
+authorigation => bearer
+content-type => image/pdf/text/json
+cookie 
+cache-control => expire relate
+
+Cors
+Access-control-allow-origin
+Access-control-allow-credentials
+Access-control-allow-method
+
+Security
+
+Cross-origin-embeddes-policy
+Cross-origin-opener-policy
+Cross-security-policy
+X-XSS-protection
+
+HTTP methods - Basic set of operatios that can be used to internet with server
+
+GET: retrive a resource
+HEAD: No message body (response headers only)
+OPTIONS: what operations are available
+TRACE: loopback test (got some data)
+DELETE: remove a resource
+PUT: replace a resource (replace all part)
+PATCH: change part of a resource (replace single part)
+POST: internet with resource (mostly add)
+
+
+HTTP status code
+
+1xx - informational
+2xx- success
+3xx- redirection
+4xx- client error
+5xx- server error
+
+
