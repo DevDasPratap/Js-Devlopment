@@ -10,7 +10,7 @@ const generateAccessTokenAndRefreshToken = async (userId) => {
     const accessToken = user.generateAccessToken();
     const refreshToken = user.generateRefreshToken();
     user.refreshToken = refreshToken;
-    await user.save({ validateBeforeSave: false });
+    await user.save({ validateBeforeSave: false }); // without password saved
     return {
       accessToken,
       refreshToken,
@@ -35,7 +35,6 @@ const registerUser = asyncHandler(async (req, res) => {
    * check for user create response
    * return res
    */
- 
 
   const { username, email, fullname, password } = req.body;
 
@@ -86,7 +85,8 @@ const registerUser = asyncHandler(async (req, res) => {
     username: username.toLowerCase(),
   });
 
-  const createUser = User.findById(user._id).select("-password -refreshToken");
+  const createUser = await User.findById(user._id).select("-password -refreshToken");
+  console.log('createUser:', createUser);
 
   if (!createUser) {
     throw new ApiError(500, "Somthing wen worng while registering user");
@@ -126,9 +126,60 @@ const loginUser = asyncHandler(async (req, res) => {
     throw new ApiError(400, "Invalid user credential");
   }
 
-  const {accessToken, refreshToken} = await generateAccessTokenAndRefreshToken(user._id);
+  const { accessToken, refreshToken } =
+    await generateAccessTokenAndRefreshToken(user._id);
 
+  const loggedINuser = await User.findById(user._id).select(
+    "-password -refreshToken"
+  );
 
+  //cookie generate
+  const options = {
+    //edit only server side, in fronted only viewmode
+    httpOnly: true,
+    secure: true,
+  };
+
+  return res
+    .status(200)
+    .cookie("accessToken", accessToken, options)
+    .cookie("refreshToken", refreshToken, options)
+    .json(
+      new ApiResponse(
+        200,
+        {
+          user: loggedINuser,
+          accessToken,
+          refreshToken,
+        },
+        "User logged in successfully"
+      )
+    );
 });
 
-export { registerUser, loginUser };
+const logoutUser = asyncHandler(async (req, res) => {
+  await User.findByIdAndUpdate(
+    req.user._id,
+    {
+      $set: {
+        refreshToken: undefined,
+      },
+    },
+    {
+      new: true,
+    }
+  );
+  //cookie generate
+  const options = {
+    //edit only server side, in fronted only viewmode
+    httpOnly: true,
+    secure: true,
+  };
+  return res
+    .status(200)
+    .clearCookie("accessToken", options)
+    .clearCookie("refreshToken", options)
+    .json(new ApiResponse(200, {}, "User logout"));
+});
+
+export { registerUser, loginUser, logoutUser };
