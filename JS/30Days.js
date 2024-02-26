@@ -117,3 +117,56 @@
 // store.push(orginal[n-i-1])
 // }
 // console.log(store)
+
+// Reverse an array.
+const arr = [1, 9, 8, 4, 5, 10, 5, 8]
+
+const reverseArr = function(arr) {
+    // return arr.reverse()
+
+    // const rev = []
+    // for (let i = 0; i < arr.length; i++) {
+    //     rev.unshift(arr[i])
+    // }
+    return rev
+}
+
+// const res = reverseArr(arr)
+// console.log(res)
+
+// Find the maximum number in an array.
+
+const findLarge = function (arr) {
+    const large = arr.sort((a,b)=>a-b)
+    return large[large.length-1]
+}
+
+// const res = findLarge(arr)
+// console.log(res)
+
+// Calculate the sum of all numbers in an array.
+
+const sum = function (arr) {
+    let all = 0
+    for (let i = 0; i < arr.length; i++) {
+        all += arr[i]
+    }
+    return all
+}
+// const res = sum(arr)
+// console.log(res)
+
+// Remove duplicates from an array.
+
+const dup = function (arr) {
+    const unique = []
+    for (let i = 0; i < arr.length; i++) {
+        if (unique[i] !== arr[i+1]) {
+            unique.push(arr[i])
+        }
+    }
+    return unique
+}
+
+const res = dup(arr)
+console.log(res)

@@ -1,0 +1,4 @@
+Types of backend auth
+1. Session base
+   
+2. Token base
