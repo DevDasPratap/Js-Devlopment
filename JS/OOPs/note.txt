@@ -7,8 +7,10 @@ Programming paradigm main goal:
 6. Memory efficient
 7. Dry(Don't repeat your self)
 
+Alernate of OOPs
+Functional Programming
+Structed or modular programming
 
-Functional Programming alernate of OOPs
 
 
 
