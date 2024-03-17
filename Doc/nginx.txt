@@ -1,0 +1,15 @@
+NGINX - is powerfull web server and uses a non threaded, event-drivent architeture
+
+it can also do other important things, such as load balancing, hhtp caching, reverse proxy
+
+forward proxy = multiple client -> vpn -> server 
+revese proxy = client -> vpn -> multiple server 
+revese proxy = multiple client <-> vpn(NGINX <-> load balancing, caching, ) <-> multiple server
+
+NGINX:
+   - Can handle 10000 concurrent request
+   - Cache http request
+   - Act as load balancer
+   - Act as API gateway
+   - Servse and cache static file like image, video, css
+   - Handle ssl certificate

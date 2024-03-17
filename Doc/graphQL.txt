@@ -1,0 +1,1 @@
+graphQL -> (query(db to fetch data), muatation(store data into db))
