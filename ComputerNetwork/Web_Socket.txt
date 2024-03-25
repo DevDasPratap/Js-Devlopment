@@ -1,0 +1,39 @@
+Introduction.
+Transmission Modes.
+Web Sockets.
+Why were web sockets created?
+Working of Web Sockets.
+Advantages of Web Sockets.
+Disadvantages of web sockets.
+
+
+Introduction: WebSockets is like a superpower for web developers! They are a technology that allows real-time communication between web browsers and servers, enabling developers to create highly interactive web applications. With WebSockets, you can build applications that respond instantly to user actions, display live data feeds, and much more. Think of WebSockets as a magical portal that connects your web browser to the server, allowing you to communicate in real time without having to constantly refresh the page. It's an exciting technology that is revolutionizing how we interact with the web, and once you start using it, you'll wonder how you ever built web applications without it!
+
+Transmission Modes: Before understanding web sockets you need to understand the transmission modes.
+                    Transmission modes refer to the direction of data flow between two communication devices in a computer network. 
+
+                    There are three types of transmission modes:
+                    1. Simplex.
+                    2. Half-Duplex.
+                    3. Full-Duplex.
+
+Web Sockets: A WebSocket is a communication protocol that enables full-duplex and bidirectional data transfer between a client and a server over the internet. Unlike the traditional HTTP protocol, which is unidirectional and stateless, WebSockets enable real-time communication, allowing data to flow back and forth between the server and the client in real time.
+
+Why were web sockets created?: The traditional HTTP protocol used in web development is designed for client-server communication, where the client sends a request to the server and the server responds with a static or dynamic resource. However, this communication is unidirectional and lacks real-time interaction between the client and server.
+
+                               With the increasing demand for real-time web applications, there was a need for a new technology that allowed for bidirectional, real-time communication between the client and server. This is where WebSockets come in.
+
+                               Before WebSockets, real-time communication in web applications was achieved using techniques such as polling or long-polling, where the client would repeatedly send requests to the server to check for new data. This approach was inefficient and put a strain on server resources. With WebSockets, the connection between the client and server is kept open, eliminating the need for repeated requests and reducing server load.
+
+Advantages of Web Sockets: WebSockets provide a number of advantages over traditional HTTP-based communication protocols. Here are some of the key advantages of WebSockets:
+                           1. Real-time communication.
+                           2. Reduced network overhead.
+                           3. Scalability.
+                           4. Reduced server load.
+                           5. Flexibility
+                           6. Security
+
+Disadvantages of web sockets: Although WebSockets provide many advantages over traditional HTTP-based communication protocols, they also have some disadvantages. Here are some of the key disadvantages of WebSockets:
+                              1. Browser compatibility..
+                              2. Firewall and proxy issues.
+                              3. Server resource utilization.

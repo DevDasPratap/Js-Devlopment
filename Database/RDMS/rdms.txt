@@ -1,0 +1,6 @@
+RDBMS
+
+Need of RDBMS.
+Introduction to RDBMS.
+Important Terminologies.
+Why Industries use RDBMS.

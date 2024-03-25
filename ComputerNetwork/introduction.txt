@@ -1,0 +1,57 @@
+Topics Covered
+1. Introductoon
+2. Network
+3. www
+4. IP address
+5. PORT numbers
+6. DNS
+7. Cache
+8. The flow of how users get webpages
+
+Introductoon: Networking concepts are an essential aspect of web development. Understanding how networks,
+              the internet, and various protocols work is crucial for web developers to create reliable and
+              secure websites. As a web developer, it's important to understand how the internet works.
+              This includes concepts like networks, the internet, the World Wide Web (WWW), DNS, IP addresses, and port numbers.
+
+              Network: In the world of web development, a network refers to a group of interconnected devices that can
+              communicate with each other to share resources, data, and information. Networks can vary in size from
+              a small-scale local network in a home or office to a large-scale global network like the internet.
+
+              As a web developer, having an understanding of how networks work is crucial for building reliable and
+              secure websites. When designing a website, web developers need to consider factors such as network speed,
+              bandwidth, and latency to ensure that their site loads quickly and is easily accessible to users.
+
+Internet: Internet refers to a global network of interconnected computer networks that use standardized communication protocols to exchange data and information. The internet provides access to a vast array of resources, including websites, email, online applications, and digital media.
+
+WWW: The  World Wide Web (WWW or simply the Web) refers to a system of interconnected web pages and resources accessed through the internet. The Web is built on top of the internet and provides a way for users to access and share information and resources using standard protocols.
+
+     The Web is a platform for creating, publishing, and consuming digital content, including websites, web applications, multimedia, and more. Web developers use a variety of tools and technologies to create websites and web applications that can be accessed and used by users around the world.
+
+     The Web is often described as a distributed system, meaning that web pages and resources are hosted on servers located all around the world. This allows users to access information and resources from anywhere with an internet connection, making the Web an essential platform for global communication and collaboration.
+
+IP Address: IP address (Internet Protocol address) is a unique numerical identifier assigned to each device connected to the internet. IP addresses are used to identify and communicate with devices on a network and are an essential component of the internet infrastructure.
+
+            IP addresses come in two main types: IPv4 and IPv6. IPv4 addresses are the most common type and consist of four sets of numbers between 0 and 255, separated by dots (for example, 192.168.1.1). IPv6 addresses are longer and consist of eight sets of four hexadecimal digits, separated by colons (for example, 2001:0db8:85a3:0000:0000:8a2e:0370:7334).
+
+            IP addresses are used to identify servers that host websites and web applications. When a user types a domain name (such as www.pwskills.com) into their web browser, the browser uses a DNS server to translate the domain name into the IP address of the server that hosts the website. The browser then sends a request to the server using the IP address, asking for the web page or resource requested by the user.
+
+PORT numbers: The port number is a numeric identifier used to identify specific services running on a server. Port numbers are used to help route data to the correct destination on a network and are an essential component of internet communication protocols.
+
+              If a website is hosted on a non-standard port, users may need to include the port number in the URL to access the site. For example, if a website is hosted on port 8080, users would need to enter the port number in the URL like this: http://website.com:8080/. 
+
+              Considering VS Code's Live Server extension, port numbers are used to identify the local web server that is serving the website or web application. By default, Live Server uses port number 5500 to serve web content, but users can specify a different port number if needed.
+
+DNS: DNS, or Domain Name System, is a system used in web development to translate domain names, such as "pwskills.com," into IP addresses that computers can understand. DNS servers maintain a database of domain names and their corresponding IP addresses, allowing web browsers and other applications to access websites by their domain names instead of their IP addresses.
+
+Cache: Cache refers to a mechanism for storing frequently accessed data in a temporary storage location to reduce the time it takes to access the data in the future. Caching is used to improve the performance and speed of web applications by reducing the number of requests made to the server and minimizing the amount of data that needs to be transmitted over the network.
+
+       One example of caching in web development is browser caching. When a user visits a website, their browser stores certain resources such as images, stylesheets, and JavaScript files in its cache. The next time the user visits the same website, the browser can retrieve these resources from its cache instead of requesting them from the server again, resulting in faster page load times and reduced bandwidth usage.
+
+The flow of how users get webpages: When a user types a domain name into their web browser, the following flow occurs to bring the website to the user's web browser:
+                                    The web browser sends a request for the website to the user's local DNS resolver.
+                                    The local DNS resolver checks its cache to see if it already has the IP address for the domain name. If it does, it sends the IP address back to the web browser. If it does not, it forwards the request to the DNS server.
+                                    The local DNS resolver then sends a request to the DNS server for the IP address of the domain name.
+                                    The local DNS resolver sends the IP address back to the web browser.
+                                    The web browser sends a request for the website to the web server using the IP address.
+                                    The web server sends the website content back to the web browser.
+                                    The web browser renders the website content and displays it to the user.

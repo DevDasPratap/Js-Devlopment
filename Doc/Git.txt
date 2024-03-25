@@ -140,3 +140,13 @@ Git is this much only
 • git update-index
 • git verify-pack
 • git worktree
+
+Git: A version control system is a tool that helps software development
+     manage changes to their source code overt time.
+     It allows you track and manage diffrent version of your code,
+     collabarate with other developers, and revert to earlier
+     version of your code if necessary.
+     
+     Git is a version control system that allows you to track chnages in your code,
+     collabarate with others, and manage your projects source code history.
+

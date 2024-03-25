@@ -1,0 +1,30 @@
+1. what is database
+   what-> why-> how
+What
+=> Database -> Storage
+            -> Computation(use of data)
+   1st generation in human store data in there in mind(memorize) (for next generation read and share data to next generation)
+   2nd generation write data on stone (for next generation read and share data to next generation)
+   after came computer used store data and use data
+Why
+   in these era time without database we can't run our application
+
+How
+   They are used database to store data
+
+2. why do we need database
+3. file base storage system
+=> easy to used to stored data
+   no complecation involved
+   copy multiple file
+
+4. challenges of filebase storage system
+5. data management system
+6. data modeling
+
+Schema: Bluprint of stor data
+        All Tables
+        Tables name
+        Tables attribute
+        Relationship
+There Schema Architecture

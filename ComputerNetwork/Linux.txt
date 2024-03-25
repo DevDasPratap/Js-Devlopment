@@ -1,0 +1,34 @@
+Linux Command
+
+man (list of command)
+ls, ls -a (hiden file), ls -lh(file size & more)
+cd
+pwd
+mkdir
+rmdir, rm -rf folername(folder delete)
+mv
+cp
+open
+touch
+find
+ln
+gzip
+tar
+gunzip
+alias
+cat
+grep
+sort
+uniq
+echo
+printf
+chown
+chmod
+vim
+nano
+whoami
+who
+sudo
+passwd
+ping
+clear

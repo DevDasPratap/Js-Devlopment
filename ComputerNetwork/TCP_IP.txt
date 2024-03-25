@@ -1,0 +1,52 @@
+Introduction.
+TCP/IP Model.
+Layers of TCP/IP Protocol.
+Working of TCP/IP Model.
+Applications of TCP/IP.
+Advantages of TCP/IP Model.
+Disadvantages of TCP/IP Model.
+
+Introduction: TCP/IP is a fundamental protocol suite used for communication over the internet and other computer networks. It stands for Transmission Control Protocol/Internet Protocol and consists of two main protocols: TCP and IP. TCP provides reliable, ordered, and error-checked delivery of data between applications, while IP is responsible for routing and addressing packets of data between computers. Understanding TCP/IP is essential for any network engineer, system administrator, or software developer, as it forms the backbone of modern networking and the internet. In this lecture, we will explore the basics of TCP/IP, its components, how it works, and its importance in modern-day networking. We will also discuss various applications of TCP/IP, such as web browsing, email, and file transfer, to name a few. By the end of this lecture, you will have a solid understanding of the TCP/IP protocol suite and its importance in today's interconnected world.
+
+TCP/IP Model: The TCP/IP model is widely used for communication between devices on the Internet because it provides a standardized framework for communication. It was developed by the U.S. Department of Defense in the 1970s and has since become the standard for communication on the Internet.
+
+              The TCP/IP model is a networking model that is widely used for communication between devices on the Internet. It consists of four layers: the application layer, the transport layer, the internet layer, and the network access layer.
+
+Layers of TCP/IP Protocol: The TCP/IP model generally consists of four essential layers
+                           Application Layer.
+                           Host-To-Host Layer/Transport Layer.
+                           Internet Layer/Network Layer.
+                           Network Access Layer/Link Layer.
+
+The Application Layer: This layer is where the user interacts with an application to send or receive data. Examples of applications are web browsers, email clients, and instant messaging programs.
+
+                       The Application Layer in the TCP/IP model includes a variety of protocols that are used by applications to communicate with each other over the internet.
+
+The Transport Layer: This layer is responsible for the reliable delivery of data from one application to another. It establishes a connection between the two devices. TCP ensures that all packets are delivered in the correct order and without errors.
+
+                     It consists of two main protocols: Transmission Control Protocol (TCP) and User Datagram Protocol (UDP).
+
+The Internet Layer: This layer is responsible for routing data between networks. It uses the IP to send packets of data from one network to another. IP determines the best route for the packets to take and ensures that they arrive at the correct destination.
+
+The Link Layer: This layer is responsible for transmitting data over a physical network connection. It includes protocols such as Ethernet and Wi-Fi. The Link layer ensures that packets are transmitted correctly over the physical connection.
+
+Working of TCP/IP Model: The TCP/IP model provides a set of protocols that enable communication between devices on a network. When using the client-server model, the client device communicates with the server device using the TCP/IP protocol stack.
+
+                         The client-server communication model is a fundamental concept of the TCP/IP model that describes how applications communicate with each other over the internet. In this model, there are two types of nodes: clients and servers.
+
+Applications of TCP/IP: The TCP/IP protocol suite is the backbone of the modern internet and is used in a wide range of applications. Here are some of the key applications of TCP/IP:
+                        Web Browsing.
+                        Email.
+                        File Transfer.
+                        Video Streaming.
+                        Voice over IP (VoIP).
+
+Advantages of TCP/IP Model: Wide compatibility.
+                            Scalability.
+                            Open standards.
+                            Reliable data transfer.
+                            Flexibility.
+
+Disadvantages of TCP/IP Model: While the TCP/IP protocol suite has many advantages, there are also some disadvantages to consider:
+                               Security.
+                               Complexity.

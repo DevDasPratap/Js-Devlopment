@@ -1,0 +1,14 @@
+This clasification is done based on how language takes input user to perform an action
+- Impereative - JS, Java, C++, etc
+- Declarative - SQL
+
+
+show database;
+create database db_name;
+USE db_name;
+DROP database db_name;
+CREATE TABLE table_name (Name VARCHAR(100), Rating INTEGER)
+SHOW TABLES;
+INSERT INTO table_name (Name, Rating) VALUES ("Spiderman", 5)
+
+SELECT * FROM table_name

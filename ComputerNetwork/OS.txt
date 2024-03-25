@@ -1,0 +1,44 @@
+Introduction.
+Operating system.
+What is the need for an OS?
+Kernel.
+Development of first OS.
+Types of OS.
+Features of OS.
+
+
+Introduction: An OS is one of the most important pieces of software that runs on any computer system. It is responsible for managing the hardware resources and providing a layer of abstraction that enables users to interact with the machine.
+
+              An OS is a complex and multifaceted piece of software that has evolved over decades to become the powerful tool that it is today. From the earliest days of computing to the modern era of cloud-based systems and mobile devices, the OS has played a critical role in shaping the way we interact with technology, and its importance only continues to grow as we rely more and more on computers in our daily lives.
+
+              In this lecture, we will delve into the fascinating world of OS and explore how it has evolved over time to become the backbone of modern computing. We will examine the various types of OS, including desktop, server, mobile, and embedded systems, and learn about their unique features and capabilities. We will also discuss the key concepts and principles that underpin OS design and explore the latest trends and developments in this fast-moving field.
+
+Operating system: An Operating System (OS) is a software program that serves as a bridge between a computer's hardware and software, enabling the efficient use of system resources and providing an interface for users to interact with the machine. An OS manages system resources such as memory, CPU, storage, and input/output devices, and provides services such as process management, file management, and security. It also abstracts hardware details, providing a layer of abstraction that enables software applications to run on different types of hardware without requiring modification.
+
+What is the need for an OS?: Operating Systems (OS) is a crucial component of modern computing, providing a platform for running software applications and managing hardware resources. Without an OS, a computer system would be unable to function, as there would be no way to manage and control the underlying hardware components. The need for an OS arises from the fact that computer systems are complex machines that require a sophisticated layer of software to manage their various components and provide a user-friendly interface.
+
+Kernel: The kernel is a critical component of any operating system, responsible for managing the system's resources and providing a platform for running software applications. It acts as a bridge between the hardware components of the system and the software applications that run on it. The kernel is a complex piece of software that is often described as the "brain" of the operating system.
+
+First OS: The mid-1950s marked the emergence of the first Operating System. Prior to this, computers were only able to execute one program at a time. The early Operating Systems were responsible for enabling multiple applications to run concurrently while accurately tracking the CPU's billing expenses. They acted as supervisors, overseeing the single-stream batch processing system. Along with program management, they were also responsible for I/O operations.
+
+          General Motors' GMOS for IBM 701 was the first Operating System. It paved the way for other early Operating Systems such as IBM OS/360 and DEC's TOPS-10. These early Operating Systems had limited functionalities and were generally designed for specific hardware platforms. They provided basic functionalities such as file management, device drivers, and memory management, but lacked modern features such as virtual memory and multitasking, which are now standard features of contemporary Operating Systems.
+
+Development of first OS: Back in the early days of computing, programming involved physically manipulating the machine's circuitry. Later, an assembly language was developed to write code for this purpose. As time progressed, programmers realized the need to write a compiler in this assembly language, which could compile user languages like C into assembly language.
+
+                         Eventually, Operating Systems were developed using high-level languages like C and C++, and their respective compilers were also developed in the same language. This was a significant shift from earlier times when the Operating System was written in assembly language. By using high-level languages, Operating Systems became easier to develop and maintain. It also allowed for the development of a standard set of interfaces, enabling application programs to be written independently of the hardware platform, which ultimately led to the growth of the software industry.
+
+Types of OS: There are several types of Operating Systems, each designed for specific environments and purposes. The types of OS include:
+             1. Single-User OS
+             2. Multi-User OS
+             3. Real-Time OS
+             4. Network OS
+             5. Mobile OS
+             6. Embedded OS
+
+Features of OS: Some common features of Operating Systems are:
+                1. Process Management.
+                2. Memory Management.
+                3. Device Management.
+                4. File Management.
+                5. Security.
+                6. Networking.
