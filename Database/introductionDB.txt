@@ -28,3 +28,5 @@ Schema: Bluprint of stor data
         Tables attribute
         Relationship
 There Schema Architecture
+
+more: https://mode.com/sql-tutorial
