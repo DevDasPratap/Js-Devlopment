@@ -4,3 +4,10 @@ Need of RDBMS.
 Introduction to RDBMS.
 Important Terminologies.
 Why Industries use RDBMS.
+
+What and why of RDBMS
+usecases of RDBMS:
+ - Relationships
+ - Normalization
+ - Joins
+ - Transactions

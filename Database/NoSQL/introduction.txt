@@ -1,0 +1,12 @@
+Introduction  to Module
+
+● Challenges of RDBMS 
+● Introduction to NoSQL 
+● Distributed Systems 
+● CAP Theorem 
+● Key-value Database 
+● Columnar Database 
+● Document Database 
+● Graph Databases
+
+Challenges of RDBMS

@@ -1,0 +1,13 @@
+Keys of dbms
+
+Key: column or combination of column must be unique every row
+
+Types of key
+super key: collection of all possible key in the table
+
+cadidate key: sub set of super key
+
+primary key: any of one key from cadidate key, must be unique
+
+alternate key: All possible combination of cadidate key - primary key (rest of the key is alternate key)
+
