@@ -250,3 +250,77 @@ Objective of backend developer
   - Response to a request
   - Understand the request
   - Do whatever it requires to send a response
+
+We have problems in diffrent phases
+  - Development -> Deployment -> Distribution
+Application architecture
+  - Monolithic (mvc/ all codebase in one folder)
+  - N-tier (use microframework(graphQL,API server) multiple tier application divide(backend, frontent, database))
+  - Modular monolith (mvc but brake with diffrent service)
+  - Microservice (diffrent service application)
+  - Event driven (create messaing service)
+  - Cloud native (if we deside will run on cloud)
+  - Serverless
+
+High performace code
+  - Problem solving
+       - Data structure
+       - Algorithms
+  - Engineering
+       - Design pattern (27 Patterns)
+       - Design principal
+       - Schema optimization
+       - Query optimization
+       - Scalable code
+  - Testing
+       - Testing
+
+State:
+  - Stateless: not used any file system, not session store 
+  - Statefull: store in code
+
+Cloud Computin:
+   - Linux
+   - SSH
+   - Compute/VM
+   - Storage
+   - Database
+   - Networking
+   - VPC (Compute/VM, Storage, Database, Networking)
+
+DevOps:
+Development => DevOps => Deployment
+
+General process:
+  - write code
+  - test the code locally
+  - push to github
+  - pull the code on the server
+  - build 
+  - deploy 
+  - monitor
+
+DevOps process:
+  - write code
+  - push to github
+  - test automatically on the intregration server
+  - build the code and generate final version of code intregate on server
+  - monitor
+
+Non functional requirements
+ - System design:
+    - performace
+    - Scalability
+    - Reliablity
+    - Security
+
+Common system design concepts
+   - Application architecture
+   - computer network
+       - OSI (Open system interconnection) model
+   - Synchronous/Asynchronous communication between services
+       - Synchronous: (Rest API, gRPC, GraphQL)
+       - Asynchronous: came request then quick send response rest of task forward to schedule/message broker (Event driven architecture)
+   - Caching and CDN
+   - Scaling database
+   - fault tolerance, failures and disaster recovery
