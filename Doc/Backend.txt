@@ -125,3 +125,128 @@ Database Courses
    - MongoDB - Administration
    - MongoDB - Atlas
    - MongoDB - Realm
+
+
+----- Inside the Backend Development ----
+What is Backend?
+How does the computer help us?
+We need to store information: Using FS or DB, end of the day all data store in FS(like: .txt, .json, .png, .js)
+Problems with File System
+  - File system is very slow
+  - Difficult to access
+  - Limited Structure   
+  - NOT scalable for large valume of data
+  - No pre processing
+  - No search
+  - And a lot of ther problems
+Database: Smart people address all these issues and devloped database to store all kinds of information that is easy to access.(we can directly access to db to store and retrive information)
+Drawbacks of Database: 
+  - Lack of security
+  - Lack of permissions
+  - No custom business logic
+  - No validation
+Business Logic:
+  - it's not client mistake
+  - it's mistake by our business application layer (wrong business logic code)
+  - Adding application large on top of database
+  - User will commnicate with database via application
+  - So that we can have control over their access
+  - Also validate data before inserting.
+Drawbacks of Business Logic
+  - There is no visual layer (they run script(terminal))
+  - No dynamic content
+  - Only prewritten script
+User Interface Layer:
+  - User -> user interface layer -> application/business logic layer -> database
+  - Adding extra layer for user
+  - User can see and intract with the data
+  - Dynamic content
+Package & Ship:
+  - Traditional software package 
+  - Intregated all components
+  - Easy to ship 
+  - Everything lives in clients machine
+  - No centralized and distributed solution
+Software Distribution Media:
+  - Distribution with (CD rom, Flash Drive, Hard disk)
+Internet Borns: We no need to CD, Flash disk, etc
+Difference between web & normal application:
+  - We need to find a diffrent solution
+  - We need a central database that can be access by all users
+  - So that every user can access the same data
+Communication between client & server:
+  - Networking
+Networking:
+  - Dont need when normal application
+  - When build web application then we need to networking
+  - web application connect each other through network
+Networking Concepts
+  - IP address
+  - DNS( Domain name system) 
+  - Protocol
+  - Packet
+  - Buffer
+  - SSL/TLS
+DNS (Domain Name System)
+  - example when we call any person, we called by name but behind connect with number, same as DNS and IP
+  - All outside request handle web server, web server connect with web application
+  - Client hit domain name -> DNS check and forward connected IP -> web server get request from client(outside) -> web server connect with web application -> inside web application have business logic/DB access -> after validation -> return response same way. 
+Topic list for deep dive into server:
+  - 
+Concepts to become a backend developer
+  - Web server application
+  - Application (Business logic, programming, DSA, Design principal implemnet)
+  - Database (Store application data)
+  - Server (worked with req, res)
+Web Server:
+  - A web ser is computer software and underlying hardware that accepts requests via HTTP or its secure variant HTTPs
+Web Server Responsibilities
+  - Handling HTTP requests
+  - Serving static files
+  - Processing dynamic contents
+  - Load balancing and reverse proxy
+  - Logging & monitoring
+Backend Application:
+  - Request -> understand the req then generate res[validation/security, business logic/other service/database, process response]<- Response
+  - req have many type 
+       -> login/signup
+       -> crop image
+       -> file convert
+       -> store date into DB
+       -> json to html file convert
+       -> request have body,method,header
+       -> send emails
+       -> db date give in xl
+       -> send invoice to email
+       -> notify me
+       -> Types of response:
+            - text
+            - xml
+            - json
+            - files
+Main Responsibilities of Backend Application:
+  - Authentication/Authorization
+  - Validation
+  - Database access(fetch, insert, update, join, aggrefate, table create)
+  - Synchronous communication
+      - communicate with other service (fetch image, get pdf using url)
+  - Asynchronous communication
+      - schedule message (messageQ,Schedular) corn job - perticular work mentioned time
+  - CRUD operations
+  - Generate final response
+Database:
+  - SQL
+      - Schema: Structured schema with predefined structure.
+      - Scalability: Generally vertically scalable.
+  - NoSQL
+      - Schema: There is no fixed schema, meaning data can be stored without predefined structure or schema.
+      - Scalability: Horizontally scalable, easier to scale out
+Server
+  - Server Administration
+  - Linux commands
+  - DNS configurations
+  - SSL/TLS
+Objective of backend developer
+  - Response to a request
+  - Understand the request
+  - Do whatever it requires to send a response
