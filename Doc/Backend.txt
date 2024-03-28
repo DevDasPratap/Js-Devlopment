@@ -324,3 +324,54 @@ Common system design concepts
    - Caching and CDN
    - Scaling database
    - fault tolerance, failures and disaster recovery
+
+
+Backend:
+   - Programming
+        - JavaScript
+   - Internet
+        - What is internet
+        - What is HTTP
+        - What is browser
+        - What is DNS
+        - What is server
+        - How do thsese things work?
+   - Framework
+        - Pick your favorite framework
+        - Try to understand the fundamentals
+        - Create 4-5 project
+   - Database
+        - You need to cover the basic for now
+        - Must pick a relational db
+        - Learn database schema design
+        - Learn basic normaliization, basic query and joins
+        - Learn a good ORM according to your framework(sql: PostgreSQL, nosql: mongoose)
+   - Git
+        - Get comfortable with common git commands
+        - Start using github
+        - Learn issue pull-request and fork
+   - API Design
+        - REST API consistraints
+        - REST API design, documentation & testing
+        - Learn OAuth and API security
+        - Scalable API design that follows best practices 
+   - intregration
+        - integrate provide 2 types API/webhook
+            - API - CRUD Data, we call third party API
+            - Webhook - we not call, we create an API if any Event occur, then this API called by repected third party API service
+        - Explore a lot of third party services
+        - Explore their REST APIs
+        - Try to integrate as many services as you can
+        - Example (connect one service to another service, technolgy to technolgy connect)
+              - in this time we can't do all of things
+              - we only do/build our main core business logic/problem/API
+              - we integrate weather from weather API service
+              - we integrate email/sms service
+              - plane, hotel book API
+              - payment gateway API
+   - Cloud
+        - How SSH to a remote server
+        - Basic linux commands
+        - Run your application on the server
+   - Git
+        -
