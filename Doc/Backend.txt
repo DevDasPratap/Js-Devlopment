@@ -373,5 +373,90 @@ Backend:
         - How SSH to a remote server
         - Basic linux commands
         - Run your application on the server
-   - Git
-        -
+
+
+Core backend development
+    - Junior backend developer: builds basic APIs and implements core functionalities
+    - Backend developer: Creates and monitors web application, focusing on server-side logic
+    - Fullstack developer: Work on both frontend( user interface) and backend development
+    - APIs developer: Designs and develops application programming interface(APIs) for data access.
+    - Microservice developer: builds small independent services that work together to form on application
+    - Security engineer: implements security measures to protecte backed application and data
+Data management
+    - Database adminstrator
+Backend and System Integrateion
+    - Software architecture: designs overall software architecture, considering scaliblity, security and maintainablity
+    - System designer: Creates bluprints for backend systems outlining components and interactions
+    - Integrateion Specialist: Integrates backend system with third party application and service
+    Backend performace engineer: Optimizes backend application for speed and efficiency
+DevOps and cloud management
+    - DevOps engineer: Bridge the gap between development operations automanting workflows.
+    - Site reliablility engineer(SRE): Wnsure the reliablety and scaliblity of backend system.
+    - Cloud architect: Design and implements cloud-base solutions for backend infrastructure.
+    - Cloud engineer: Provisions and manages cloud resources for backend applications.
+Specialized backend roles
+    - Backend security analyst: Identifies and mitigates security vulnerablitys in backend systems
+    - Blockchain developer: Builds application using blockchain technolgy
+    - IoT developer: develops backend systems for internet of things (IoT) devices.
+    - Machine learning engineer: Create a nd maintains backend infrastructure for machine learning models
+    - Backend automation engineer: automates backend tasks and processes to improve efficiency
+    - Embadded system developer: Develops software for devices with limited resources.
+    - Security operations engineer(SecOps): Monitors and responds to security theats on backend systems.
+    - Data analyst: Analyzes backend data to extract insights and inform decision making
+    - Backend Quality assurance(QA): Tests backend functionalities to ensure quality
+    - Legacy system modernization developer: update and improve outdated backend system.
+    - API evangelist: promotes the use of internal and external APIs within the organization
+
+CS foundation 1
+   - Programming language
+   - OOPs
+   - DSA
+   - Design patterns
+   - Database
+      - SQL & NoSQL
+      - Normalization and denormaliization
+      - Indexes
+      - ACID & BASE consistency model
+      - Distributed/Transactions
+      - Database replication
+      - Consistent hashing
+      - Database federation
+Foundation 2
+   - Networking
+      - OSI
+      - TCP/UDP/HTTP/SSH/Subnet
+   - Security
+   - Operating system
+       - job/threads/schedule
+       - multi threading
+   - software architecture
+       - design patterns
+       - design principal
+       - Architecture patterns
+           - client server architecture
+           - layer architecture
+           - cloud native architecture
+       - API and Integrateion
+       - Networking, Security & Cloud
+     - DevOps
+       - Linux
+       - commands line interface
+       - Git
+       - Networking security protocols
+       - Cloud (aws, gcp, azure, digital ocean)
+       - container
+       - configuration management
+       - ci/cd
+       - container orchestration
+       - logs and monitoring
+     - System design
+       - Performance vs scaliblity
+       - Latency vs throughput
+       - Availiblity vs consistency
+       - Reliablity patterns
+       - load balancer
+       - Caching and CDN
+       - Communication and messaing
+       - Microservice architecture
+       - Cloud native technolgy
+       - Cloud design patterns
