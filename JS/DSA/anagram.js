@@ -11,7 +11,7 @@ function isAnagram(str1, str2) {
     }
     for (const char of str2) {
         if (!counter[char]) {
-            return
+            return false
         }
         counter[char] -= 1
     }

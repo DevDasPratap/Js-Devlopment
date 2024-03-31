@@ -381,9 +381,11 @@ Core backend development
     - Fullstack developer: Work on both frontend( user interface) and backend development
     - APIs developer: Designs and develops application programming interface(APIs) for data access.
     - Microservice developer: builds small independent services that work together to form on application
-    - Security engineer: implements security measures to protecte backed application and data
+    - Security engineer: implements security measures to protecte backend application and data
 Data management
-    - Database adminstrator
+    - Database adminstrator: manages and optimizes database to ensure performace and availiblity
+    - Database engineer: design, builds and maintains database infrastructures
+    - Data architect: Create data models and stragies for efficient data storage and
 Backend and System Integrateion
     - Software architecture: designs overall software architecture, considering scaliblity, security and maintainablity
     - System designer: Creates bluprints for backend systems outlining components and interactions

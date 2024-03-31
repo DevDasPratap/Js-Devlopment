@@ -1,0 +1,64 @@
+Introduction to exceptional handling in Javascript
+
+In this lecture let’s look into the exceptional handling in javascript. Exception
+handling is a technique in programming to handle errors and exceptions that
+occur during the execution of a program. In JavaScript, the try-and-catch
+statements are used to handle exceptions.
+
+We should always keep the complex code in a try-catch statement. The try
+statement and catch statement in javascript come in pairs.
+
+
+Introduction to exceptional handling in Javascript
+
+Before understanding, exception handling it is important to understand the types
+of errors.
+
+There are two main types of errors in JavaScript:
+
+1. Syntax Errors: occur when the code syntax is not proper and the JavaScript
+interpreter can't understand it. This error can't be handled with exception
+handling.
+
+2. Runtime Errors: occur while the code is executing, such as when trying to
+access an undefined variable or when a function is not found. These errors can
+be handled using exception handling.
+
+Only run-time errors which occur during the execution can be handled using
+exception handling in JavaScript.
+
+
+Introduction to try-catch
+
+Try statement
+It is a piece of code that needs to be tested during the execution of code. The
+block of code is checked if it has any errors or not. If any errors are encountered,
+then the try{} statement passes it to the catch{} statement block. Once the
+control is handed over to the catch block the code block under catch{} will be
+executed.
+
+Catch Statement
+The catch statement defines a block of code that gets executed when any errors
+are encountered within the try block. The catch block gets executed only when
+there is any error present in the try block and the error needs to be addressed.
+Otherwise, the catch block gets skipped. The catch block gets executed only after
+the execution of the try block.
+
+
+try-catch-finally
+
+In addition to the catch statement, we can also use the finally statement, which
+defines a block of code that will be executed regardless of whether an exception
+was thrown or not. This can be used to perform other actions after the
+try-and-catch statements have been executed.
+
+Syntax of try-catch-finally
+
+// Syntax of try-catch-finally
+try{
+// block of code for testing.
+}catch{
+// block of code for addressing errors.
+}finally {
+// block of code to run after try-catch
+}
