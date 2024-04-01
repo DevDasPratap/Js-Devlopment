@@ -1,0 +1,16 @@
+Types of Normalization
+
+Normal Forms In DBMS: 
+    - First Normal Form (1NF)
+    - Second Normal Form (2NF)
+    - Third  Normal Form (2NF)
+    - Boyce- codd Normal Form (BCNF)
+
+
+First Normal Form (1NF):
+    - if one otable 2 condition satify
+          - No cell in the table with multiple values
+          - They should be a primary key
+For a table to be in 1NF:
+All cells should have single/atomic values and no multiple values
+There has to be a primary key that uniquely identifies each row.

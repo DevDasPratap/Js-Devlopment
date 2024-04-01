@@ -1,0 +1,7 @@
+ACID: Either all or nothing
+
+Transactions
+   - money got deducted
+   - wire transfer of monry
+   - money credited
+A-atomicity

@@ -8,6 +8,12 @@ Why Industries use RDBMS.
 What and why of RDBMS
 usecases of RDBMS:
  - Relationships
+ - RDBMS keys
  - Normalization
  - Joins
  - Transactions
+ - 1NF
+ - 2NF
+ - 3NF
+ - BCNF
+ - Joins

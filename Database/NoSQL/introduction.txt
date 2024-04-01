@@ -10,3 +10,17 @@ Introduction  to Module
 ● Graph Databases
 
 Challenges of RDBMS
+
+● What is NoSQL ?
+  NoSQL doesn't imply being against or replacing SQL, as it may seem, but
+  rather extends SQL or encompasses more than just SQL.
+  NoSQL supplements RDBMS.
+● Why NoSQL ?
+  - Natively scalable
+    It is based on the theory of distributed systems
+  - Flexible schema
+    NoSQL offers multiple types of databases based on the type of use :
+          ● Key value
+          ● Document based
+          ● Columnar
+          ● Graph
