@@ -10,6 +10,7 @@ Introduction  to Module
 ● Graph Databases
 
 Challenges of RDBMS
+=> Flexible schema
 
 ● What is NoSQL ?
   NoSQL doesn't imply being against or replacing SQL, as it may seem, but
@@ -24,3 +25,64 @@ Challenges of RDBMS
           ● Document based
           ● Columnar
           ● Graph
+Limitations of RDBMS
+    1. Setting up RDBMS database is very costly
+       ● The most commonly used RDBMS database is from Oracle which has a
+         very expensive Enterprise Level license.
+    2. Schema design in RDBMS is very complex
+         ● RDBMS requires tables to be structured and normalized appropriately.
+         ● In most of the cases, to fetch the data, we need the application of complex
+         join operations which again add to complexity
+    3. Limitation of flexibility
+         ● Cannot be used for unstructured data which is commonly seen scenario
+         (eg. ecommerce websites) in recent times.
+    4. Limitation of scalability
+         ● RDBMS is a great choice when data is limited but when the size of data
+         increases, performance decreases significantly.
+    5. Limitation of scalability
+
+         ● RDBMS uses joins to resolve complex queries. However, if the data is
+         scattered across multiple machines, fetching the data will require a join
+         operation combined with network hops. This can result in significant
+         overhead, slowing down the system and significantly decreasing
+         performance.
+
+Cap Theorem: consistency availablity partition tolerance
+
+Consistency
+● System should not show the problem of stale data during the Δt time(till
+the changes propagate)
+
+Availability
+● System should always respond even if it is with an error message or
+inconsistent data
+
+Partition Tolerance
+● System should not suffer in case of network failure at a specific node which
+can be achieved with the help of data replication.
+
+CAP Theorem
+● CAP theorem states that in a distributed system, we can achieve only two
+of the features out of these three (Consistency, Availability, Partition
+Tolerance)
+● Since partition tolerance is very important wrt distributed systems, there is
+always a trade-off between Consistency and Availability.
+
+Highly consistent systems
+● For a system to be highly consistent, all the reads should be stopped
+during the time when some changes are being propagated.
+● This might result in decrease of availability.
+
+Highly available system
+● If the system has to be highly available, the data that is provided might be
+stale.
+● Consistency here would be lesser
+
+Use cases
+1. Bank Transaction
+Here, consistency should always be high as it involves monetary transactions
+between parties. Lesser availability is acceptable (as we often see, when banks
+claim to have servers down).
+2. Social Media
+Here, availability is more important and stale data is not a problem (we share
+only pictures/reels/tweets etc) and hence consistency takes a back seat.
