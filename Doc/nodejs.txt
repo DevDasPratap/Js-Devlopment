@@ -1,0 +1,102 @@
+NodeJs Architecture:
+       - Open source
+       - JS runtime env
+       - Event driven - if i will any task to nodejs
+                        nodejs work on task then return
+
+The architecture of Node.js comprises two main concepts: an Asynchronous model that resembles the event-based approach of JavaScript, and Non-blocking I/O operations.
+
+Uses of nodejs
+    - real time application
+    - single page application (only restapi call rquired, rest of part all ready in loaded on browser)
+    - IOT
+    - data streaming
+
+Node.js architecture consists of several components that work together to handle incoming client requests and process responses. These components are:
+Requests
+Node.js Server.
+Event Queue
+Event Loop.
+Thread Pool.
+External Resources
+
+
+Working :
+     - Incoming client requests are received by Node.js, which can be either simple (non-blocking) or complex (blocking), depending on the task to be performed.
+     - Querying for specific data involves searching for particular data in a database.
+     - Deleting data involves sending a request to delete specific data or performing a deleting query.
+     - Updating data involves sending a request to change or update a set of data or performing an updating query on a particular row of tables to update a specific entry in the database.
+     - Node.js adds incoming client requests to its event queue.
+     - The event loop in Node.js processes the requests one by one and checks whether external resources are required. If so, the requests are allocated with external resources; otherwise, they move on to the next step.
+     - Non-blocking (simple) requests are processed in the event loop, such as I/O polling, and responses are returned to the respective clients.
+
+Advantages of NodeJS:
+          - Its asynchronous model and non-blocking I/O operation improve the scalability and performance of web applications built on other frameworks.
+          - Node js can easily handle multiple client requests without requiring multiple threads, consuming less memory and resources. Additionally, it is highly scalable and provides high performance. 
+          - Node js is also flexible with multiple frameworks and makes the development process easier.
+
+
+npm init and package.json
+        - npm
+            - NPM (Node Package Manager) is a package manager for Node.js applications. 
+            - It is a command-line utility that makes it easy to install, manage, and share packages of Node.js code. 
+            - NPM is the default package manager for Node.js, and it allows developers to easily install and manage dependencies for their Node.js projects.
+            - NPM provides a central repository of packages, which developers can browse and search to find the packages they need. Packages can also be published to the repository, making it easy for other developers to discover and use them.
+        - npm-init
+            - The npm init command is used to initialize a new or existing npm package. It creates a package.json file that contains important information about the package, such as its name, version, dependencies, and other metadata.
+            - When an initializer is specified, it installs the corresponding npm package named 
+            - create-<initializer> using npm-exec
+            Example: 
+                   - To create a new React-based project using create-react-app:
+                   - To generate a package.json file without any user input:
+                   - To generate a plain old package.json using legacy init:
+                   - To generate a package.json file without any user input:
+                   - To create a new workspace within a project:
+                   - To create a new React-based workspace within a project:
+ 
+        - Installing and uninstalling packages
+        - Package.json
+                   - The package.json file serves as the centerpiece of the Node.js system and is considered the project's manifest file, containing crucial metadata information. 
+                   - Understanding and learning how to work with this file is a fundamental aspect of working with Node.js. It serves as the first step towards becoming proficient in Node.js development.
+                   - To be more specific, the metadata information in the package.json file can be divided into two categories. 
+                   - The first category is identifying metadata properties, which includes details such as the project's name, current version, author, license, and project description. 
+                   - The second category is functional metadata properties, which includes values related to the project's functionality, such as the entry or starting point of the module, project dependencies, scripts being used, and repository links for the Node.js project.
+        - Creating package.json file
+                   - The package.json file serves as the centerpiece of the Node.js system and is considered the project's manifest file, containing crucial metadata information. 
+                   - Understanding and learning how to work with this file is a fundamental aspect of working with Node.js. It serves as the first step towards becoming proficient in Node.js development.
+                   - To be more specific, the metadata information in the package.json file can be divided into two categories. 
+                   - The first category is identifying metadata properties, which includes details such as the project's name, current version, author, license, and project description. 
+                   - The second category is functional metadata properties, which includes values related to the project's functionality, such as the entry or starting point of the module, project dependencies, scripts being used, and repository links for the Node.js project.
+
+command
+npm -v
+npm init
+npm search package_name
+npm install package_name
+npm install package_name@version // perticular version
+npm install package_name --save // save on dependency
+npm install package_name --save-dev
+npm install package_name package_name package_name //multiple package install
+npm uninstall package_name
+
+
+
+NodeJS path module:
+           - Node.js provides you with the path module that allows you to interact with file paths easily.
+           - The path module has many useful properties and methods to access and manipulate paths in the file system.
+
+Useful path properties:
+           - The path object has the sep property that represents the platform-specific path separator
+Handy path methods
+            - The following shows some handy methods of the path module that you probably use very often.
+- path.basename(path, [,ext])
+- path.dirname(path)
+- path.extname(path)
+- path.format(pathObj)
+- path.isAbsolute(path)
+- path.join(...path)
+- path.normalize(path)
+- path.parse(path)
+- path.relative(from, to)
+- path.resolve(...path)
+
