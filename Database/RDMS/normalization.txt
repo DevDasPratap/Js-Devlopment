@@ -7,10 +7,8 @@ Normal Forms In DBMS:
     - Boyce- codd Normal Form (BCNF)
 
 
-First Normal Form (1NF):
-    - if one otable 2 condition satify
-          - No cell in the table with multiple values
-          - They should be a primary key
-For a table to be in 1NF:
-All cells should have single/atomic values and no multiple values
-There has to be a primary key that uniquely identifies each row.
+First Normal Form (1NF) requires that a table meet two conditions:
+1. Each cell in the table must contain a single, atomic value.
+2. There must be a primary key that uniquely identifies each row in the table.
+
+In summary, for a table to be in 1NF, it must have atomic values in each cell and a primary key to uniquely identify each row.

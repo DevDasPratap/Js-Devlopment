@@ -1,0 +1,1 @@
+data store key and value or object

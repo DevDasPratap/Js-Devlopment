@@ -36,9 +36,24 @@ const recurssionSort = function (arr) {
         recurssionSort(arr)
     }
 }
-const res = recurssionSort(arr)
-console.log(newArrList)
+// const res = recurssionSort(arr)
+// console.log(newArrList)
 
-// const recurssion = function(){}
-// const res = recurssion()
-// console.log(res)
+// findOdd
+const odd = [4, 7, 10, 9, 8, 7, 16]
+const recurssion = function(odd){
+    const result = []
+    function helperRecurssion(inputOdd) {
+        if (inputOdd.length === 0) {
+            return false
+        }
+        if (inputOdd[0] % 2 !== 0) {
+            result.push(inputOdd[0])
+        }
+        helperRecurssion(inputOdd.slice(1))
+    }
+    helperRecurssion(odd)
+    return result
+}
+const res = recurssion(odd)
+console.log(res)
