@@ -1,0 +1,169 @@
+How I Would Learn System Design Fundamentals (If I Had To Start Over):
+
+📌 𝐒𝐲𝐬𝐭𝐞𝐦 𝐃𝐞𝐬𝐢𝐠𝐧 𝐊𝐞𝐲 𝐂𝐨𝐧𝐜𝐞𝐩𝐭𝐬
+- Scalability: https://lnkd.in/gpge_z76
+- Latency vs Throughput: https://lnkd.in/g_amhAtN
+- CAP Theorem: https://lnkd.in/g3hmVamx
+- ACID Transactions: https://lnkd.in/gMe2JqaF
+- Consistent Hashing: https://lnkd.in/gd3eAQKA
+- Rate Limiting: https://lnkd.in/gWsTDR3m
+- API Design: https://lnkd.in/ghYzrr8q
+- Strong vs Eventual Consistency: https://lnkd.in/gJ-uXQXZ
+- Synchronous vs. asynchronous communications: https://lnkd.in/gC3F2nvr
+- REST vs RPC: https://lnkd.in/gN__zcAB
+- Batch Processing vs Stream Processing: https://lnkd.in/g4_MzM4s
+- Fault Tolerance: https://lnkd.in/dVJ6n3wA
+- Consensus Algorithms: https://lnkd.in/ggc3tFbr
+- Gossip Protocol: https://lnkd.in/gfPMtrJZ
+- Service Discovery: https://lnkd.in/gjnrYkyF
+- Disaster Recovery: https://lnkd.in/g8rnr3V3
+- Distributed Tracing: https://lnkd.in/d6r5RdXG
+- Top 15 Tradeoffs: https://lnkd.in/gnM8QC-z
+
+🛠️ 𝐒𝐲𝐬𝐭𝐞𝐦 𝐃𝐞𝐬𝐢𝐠𝐧 𝐁𝐮𝐢𝐥𝐝𝐢𝐧𝐠 𝐁𝐥𝐨𝐜𝐤𝐬
+- Horizontal vs Vertical Scaling: https://lnkd.in/gAH2e9du
+- Databases: https://lnkd.in/gti8gjpz
+- Content Delivery Network (CDN): https://lnkd.in/gjJrEJeH
+- Domain Name System (DNS): https://lnkd.in/gkMcZW8V
+- Caching: https://lnkd.in/gC9piQbJ
+- Distributed Caching: https://lnkd.in/g7WKydNg
+- Load Balancing: https://lnkd.in/gQaa8sXK
+- SQL vs NoSQL: https://lnkd.in/g3WC_yxn
+- Database Indexs: https://lnkd.in/gCeshYVt
+- HeartBeat: https://lnkd.in/g4x7sMrF
+- Circuit Breaker: https://lnkd.in/gCxyFzKm
+- Idempotency: https://lnkd.in/gPm6EtKJ
+- Database Scaling: https://lnkd.in/gAXpSyWQ
+- Data Replication: https://lnkd.in/gVAJxTpS
+- Data Redundancy: https://lnkd.in/gNN7TF7n
+- Database Sharding: https://lnkd.in/gMqqc6x9
+- Failover: https://lnkd.in/dihZ-cEG
+- Proxy Server: https://lnkd.in/gi8KnKS6
+- Message Queues: https://lnkd.in/gTzY6uk8
+- WebSockets: https://lnkd.in/g76Gv2KQ
+- Bloom Filters: https://lnkd.in/dt4QbSUz
+- API Gateway: https://lnkd.in/gnsJGJaM
+- Distributed Locking: https://lnkd.in/gRxNJwWE
+- Checksum: https://lnkd.in/ghNc5pfn
+
+🖇️ 𝐒𝐲𝐬𝐭𝐞𝐦 𝐃𝐞𝐬𝐢𝐠𝐧 𝐀𝐫𝐜𝐡𝐢𝐭𝐞𝐜𝐭𝐮𝐫𝐚𝐥 𝐏𝐚𝐭𝐭𝐞𝐫𝐧𝐬
+- Client-Server Architecture: https://lnkd.in/dAARQYzq
+- Microservices Architecture: https://lnkd.in/gFXUrz_T
+- Serverless Architecture: https://lnkd.in/gQNAXKkb
+- Event-Driven Architecture: https://lnkd.in/dp8CPvey
+- Peer-to-Peer (P2P) Architecture: https://www.spiceworks.com/tech/networking/articles/what-is-peer-to-peer/
+
+***
+
+More System Design resources in this GitHub repository: https://github.com/ashishps1/awesome-system-design-resources
+
+
+
+
+
+
+30+ 𝐆𝐨𝐥𝐝𝐞𝐧 𝐑𝐮𝐥𝐞𝐬 𝐭𝐨 𝐚𝐧𝐬𝐰𝐞𝐫 𝐢𝐧 𝐚 𝐒𝐲𝐬𝐭𝐞𝐦 𝐃𝐞𝐬𝐢𝐠𝐧 𝐈𝐧𝐭𝐞𝐫𝐯𝐢𝐞𝐰
+
+1. For a Read-Heavy System - Consider using a Cache.
+
+2. For a Write-Heavy System - Use Message Queues for async processing
+
+3. For a Low Latency Requirement - Consider using a Cache and CDN.
+
+4. If we need a system to be ACID complaint, we should go for RDBMS or SQL Database
+
+5. If data is unstructured & doesn't require ACID properties, we should go for NO-SQL Database
+
+6. If the system has complex data in the form of videos, images, files etc, we should go for Blob/Object storage
+
+7. If the system requires complex pre-computation like a news feed, we should use a Message Queue & Cache
+
+8. If the system requires searching data in high volume, we should consider using a search index, tries or a search engine like Elasticsearch
+
+9. If the system requires to Scale SQL Database, we should consider using Database Sharding
+
+10. If the system requires High Availability, Performance, & Throughput, we should consider using a Load Balancer
+
+11. If the system requires faster data delivery globally, reliability, high availability, & performance, we should consider using a CDN
+
+12. If the system has data with nodes, edges, and relationships like friend lists, & road connections, we should consider using a Graph Database
+
+13. If the system needs scaling of various components like servers, databases, etc, we should consider using Horizontal Scaling
+
+14. If the system requires high-performing database queries, we should use Database Indexes
+
+15. If the system requires bulk job processing, we should consider using Batch Processing & Message Queues
+
+16. If the system requires reducing server load and preventing DOS attacks, we should use a Rate Limiter
+
+17. If the system has microservices, we should consider using an API Gateway (Authentication, SSL Termination, Routing etc)
+
+18. If the system has a single point of failure, we should implement Redundancy in that component
+
+19. If the system needs to be fault-tolerant, & durable, we should implement Data Replication (creating multiple copies of data on different servers)
+
+20. If the system needs user-to-user communication (bi-directional) in a fast way, we should use Websockets
+
+21. If the system needs the ability to detect failures in a distributed system, we should implement a Heartbeat
+
+22. If the system needs to ensure data integrity, we should use Checksum Algorithm
+
+23. If the system needs to transfer data between various servers in a decentralized way, we should go for the Gossip Protocol
+
+24. If the system needs to scale servers with add/removal of nodes efficiently, with no hotspots, we should implement Consistent Hashing
+
+25. If the system needs anything to deal with a location like maps, nearby resources, we should consider using Quadtree, Geohash, etc
+
+
+Topics Covered so far
+
+- Location Tracking in Google Maps -> https://lnkd.in/gt3-pins
+- Choas Testing -> https://lnkd.in/g7j39H6H
+- Maintainability -> https://lnkd.in/ge7dXufP
+- Resource Starvation -> https://lnkd.in/g3p9tFcb
+- Reliability -> https://lnkd.in/gekd3SHr
+- Disaster Recovery -> https://lnkd.in/g-XrRrG7
+- Transaction in DB -> https://lnkd.in/gmPJUGjd
+- CDN -> https://lnkd.in/gnxESYB2
+- Scaling -> https://lnkd.in/g6tG9a7C
+- Deployment Strategies -> https://lnkd.in/gcawvFua
+- How is circuit breaker implemented? -> https://lnkd.in/g-GvCc5G
+- Short Circuiting -> https://lnkd.in/gPMGXeqE
+- JIO network transmission -> https://lnkd.in/gf2uG6Vh
+- Retry Mechanism -> https://lnkd.in/gzuE5tNA
+- SLA -> https://lnkd.in/gExBEMaq
+- Redis -> https://lnkd.in/gHBvVPv7
+- SQL vs NoSQL -> https://lnkd.in/gFkZTpqH
+- Caching -> https://lnkd.in/ghdrk_gi
+- Pagination -> https://lnkd.in/gDJKPBu6
+- Sharding -> https://lnkd.in/gJPs6K2p
+- Proxy Server -> https://lnkd.in/gpgbfycK
+- Asynchronous workflows -> https://lnkd.in/gMh-F4_S
+- Authentication -> https://lnkd.in/g8eE9WnS
+- Web sockets -> https://lnkd.in/gcZ9vYgn
+- Polling -> https://lnkd.in/grRbRmRB
+- Throttling -> https://lnkd.in/gQ2K2iVj
+- API Gateway -> https://lnkd.in/gdEBWnqD
+- Throughput -> https://lnkd.in/g2St2Xyi
+- Latency -> https://lnkd.in/g4GQTK62
+- Load Balancing -> https://lnkd.in/gihYc6FD
+- GDPR -> https://lnkd.in/g_edZ4MG
+- Reader Writer Node -> https://lnkd.in/gTFN8mF7
+- Encryption -> https://lnkd.in/ghMNzCnQ
+- Authorization -> https://lnkd.in/gtxuffth
+- Availability -> https://lnkd.in/gZdTYs-y
+- Replication -> https://lnkd.in/g83pMMyn
+- Event Driven Architecture -> https://lnkd.in/gRhE3K7Y
+- Microservices -> https://lnkd.in/gFDm3EKS
+- Client Server Architecture -> https://lnkd.in/g2-Cp57b
+- Logging -> https://lnkd.in/gkQ8Dqwh
+- Peer to Peer Architecture -> https://lnkd.in/g4JkNKKp
+- Testing and Quality Assurance -> https://lnkd.in/gDyHcdnr
+- Scaling -> https://lnkd.in/g9-xaBWp
+- Critical Point Analysis -> https://lnkd.in/gBdbg4q4
+- Diagramming -> https://lnkd.in/gMbg_7VV
+- API -> https://lnkd.in/gMd5mi3h
+- High Level System Design -> https://lnkd.in/gBcWUVP5
+- Data Estimation -> https://lnkd.in/g9auVfzv
+- Requirement Understanding -> https://lnkd.in/ggXwZu_k
+- Why is System Design needed in Tech? -> https://lnkd.in/ggfBDXu6

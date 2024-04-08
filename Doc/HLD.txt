@@ -1,0 +1,82 @@
+High-Level System Design
+
+High-Availability:
+Everything about it: What, why, how, etc.
+How to achieve high availability
+Load Balancers
+Whats and Whys.
+Introduction and Types of Load Balancers
+Scaling Load Balancers
+Load Balancing Algorithms
+Scalability
+Determining the scale or number of requests a server can handle and what limits it.
+Vertical Scaling
+Horizontal Scaling
+Scaling different types of traffic: Read heavy or Write heavy
+Replication: Data redundancy and recovery
+Introduction to Replication.
+Types of Replication.
+Maintaining Consistency with Replication.
+Replication Algorithms.
+Leader Election Algorithms.
+Partitioning:
+Horizontal Partitioning
+Vertical Partitioning
+Sharding
+Introduction
+Sharding Strategies
+Rebalancing
+Consistent Hashing
+Production Implementations
+Designing Scalable Storage for Amazon Order History System Using SQL.
+Starting with a simple one and then making it highly scalable and highly available.
+Designing a low-latency and scalable document store like MongoDB.
+Understanding MongoDB's internals along the way.
+Databases
+SQL and NoSQL Databases
+Differences
+When to use each.
+Scaling relational databases
+Designing Twitter/Facebook/etc News feed system.
+Microservices
+Introduction
+Monolithics Vs Microservices: Pros and Cons
+Service vs Microservice
+Coming up with the right set of microservices.
+Event-Driven Architectures
+Queues
+Kafka
+Async Processing
+Designing a distributed messaging queue like Kafka.
+Understanding various use cases it solves and how it solves them.
+Design Messaging Applications like WhatsApp/Slack/Telegram
+Web sockets
+When to use and where to use.
+How to use.
+Scalable implementation.
+Designing a Scalable Web Sockets System.
+Caching:
+What is caching?
+Why is caching used and why is it important?
+Use cases of caching and how you use caching in those use cases?
+Eviction Strategies
+Designing an In-Memory Object Store like Redis
+Design top K Trending Hashtags in Twitter
+Distributed Storage: S3
+Introduction
+Use cases
+Direct upload and download
+Design Streaming applications like YouTube/Netflix
+Content Distribution Networks (CDN's)
+Design YouTube Analytics Services. Showing Video Analytics to the Video Creator.
+Time series databases
+Design location tracking platform with history support
+Understanding Quad Trees and GeoHashing
+Domain Name System (DNS):
+What is it?
+Where is it used?
+Various nuances.
+API Gateways
+Circuit Breakers
+Choosing the right storage for your system and how to make that decision.
+System design framework - both for interviews and work projects.

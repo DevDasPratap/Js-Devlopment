@@ -3,6 +3,7 @@ NodeJs Architecture:
        - JS runtime env
        - Event driven - if i will any task to nodejs
                         nodejs work on task then return
+Node.js is a platform that utilizes JavaScript and is primarily employed for developing web applications that are highly focused on input/output operations, including but not limited to chat applications and multimedia streaming websites. The platform is constructed using Google Chrome's V8 JavaScript engine. A web application is a type of software that executes on a server and is displayed by a client's browser that obtains all the application's resources over the internet.
 
 The architecture of Node.js comprises two main concepts: an Asynchronous model that resembles the event-based approach of JavaScript, and Non-blocking I/O operations.
 
@@ -100,3 +101,363 @@ Handy path methods
 - path.relative(from, to)
 - path.resolve(...path)
 
+Event Module: 
+     - Listening Events
+            - Before emitting any event, it must register functions(callbacks) to listen to the events.
+            - The functions eventEmitter.on(event, listener) and eventEmitter.addListener(event, listener) have similar functionality.
+            - They append the listener at the end of the listener's array for the specified event. If multiple calls are made to the same event and listener, the listener will be added multiple times and subsequently fired multiple times. 
+            - Both functions return the emitter, so they can be chained. In contrast, eventEmitter.once(event, listener) fires only once for a specific event and is then removed from the listeners array. 
+            - It also returns the emitter, allowing for chained calls. In Node.js, each event is identified by a name, and we can trigger an event using the emit(event, [arg1], [arg2], [...]) function. We can pass any number of arguments to the listener functions.
+     - Removing Listener
+            - The function eventEmitter.removeListener() accepts two arguments, namely, event and listener. 
+            - It removes the specified listener from the listeners array that is subscribed to the given event. 
+            - On the other hand, eventEmitter.removeAllListeners() removes all listeners that are subscribed to the specified event from the listeners array.
+            - Removing the listener from the array will change the sequence of the listener’s array, hence it must be carefully used.
+            - The eventEmitter.removeListener() will remove at most one instance of the listener which is in front of the queue.
+            - By default, a maximum of 10 listeners can be registered for any single event. To modify this default value for all instances of EventEmitter, we can use the EventEmitter.defaultMaxListeners property. 
+            - We can use the eventEmitter.getMaxListeners() function to retrieve the maximum number of listeners allowed, which can be set using setMaxListeners() or is set to the default value of 10 if not explicitly set. 
+            - It is important to note that although the maximum number of listeners is not a hard limit, if a new instance is added, EventEmitter will allow it but will issue a warning message indicating a possible memory leak.
+     - Special Event
+            - Whenever new listeners are added, EventEmitter instances emit the 'newListener' event, and whenever existing listeners are removed, they emit the 'removeListener' event.
+     - Asynchronous Event
+- Node.js is a JavaScript runtime that operates asynchronously and in an event-driven manner, as per its official documentation. 
+- Its architecture enables it to handle asynchronous tasks. The 'events' module in Node.js allows it to emit named events that can result in corresponding functions or callbacks being invoked. 
+- These functions or callbacks can subscribe to a specific event, and when the event is triggered, all the callbacks that were registered in the order of their registration are executed. 
+- The EventEmitter class is responsible for emitting events, and all objects that emit events are instances of this class. To listen or emit an event, one can make use of the EventEmitter.
+
+File system module:
+         - What is a file system
+         - Opening a file
+         - Reading a file
+         - Writing to a file
+         - Appending to a file
+         - Closing a file
+         - Deleting a file
+
+File System
+        - Node.js is a platform that uses Chrome's V8 JavaScript engine, allowing developers to use JavaScript to create server-side applications that generate dynamic content for web clients. What sets Node.js apart are its event-driven and non-blocking I/O features. 
+        - Node.js includes a built-in module called FS (File System) that allows users to manage files by creating, reading, deleting, and performing other file operations. 
+        - To use this module, developers can call the "require()" method, which provides access to POSIX functions wrapped by Node.js to enable both synchronous and asynchronous file system operations, depending on the user's requirements.
+        - var fs = require('fs');
+Synchronous vs Asynchronous approach :
+        - The Synchronous approach involves blocking functions that wait for each operation to complete before executing the next one. This means that a command won't execute until the query has finished executing and all the results from previous commands have been obtained. 
+        - On the other hand, the Asynchronous approach involves non-blocking functions that execute all operations at once, without waiting for each operation to complete. The results of each operation are handled when they become available, and each command is executed after the previous one. If the operations involve querying large amounts of data from a database, the Asynchronous approach is recommended. 
+Common use for File System module:
+        - Read Files
+        - Write Files
+        - Append Files
+        - Close Files
+        - Delete Files
+OS Module:
+        - The OS module in Node.js is utilized to retrieve details about the operating system of a computer.
+        - It offers methods for communication with the computer's operating system, including retrieving the hostname and the amount of available system memory in bytes.
+
+PORT:
+   - What is PORT number:
+         -In computer networking, a port is a logical construct that is used to identify a specific process or service running on a computer or other networked device.
+         -Each port is associated with a unique number, called a port number, which allows data to be routed to the correct application or service.
+         -A port number is always associated with a network address of a host, such as an IP address, and the type of transport protocol used for communication.
+         -Specific port numbers are reserved to identify specific services so that an arriving packet can be easily forwarded to a running application
+
+   - Different types of Port number:
+     There are 65,535 available port numbers, which can be classified into 3 different types - 
+          -Well-known Port:
+                - Well-known ports are port numbers that have been assigned by the Internet Assigned Numbers Authority (IANA) to specific services or protocols.
+                - These ports range from 0 to 1023 and are reserved for use by well-known services and applications.
+                - Example - 
+                - Port 80: HTTP (Hypertext Transfer Protocol),
+                - Port 443: HTTPS (HTTP Secure)
+                - Port 25: SMTP (Simple Mail Transfer Protocol),
+                - Port 53: DNS (Domain Name System)
+                - Port 110: POP3 (Post Office Protocol version 3) and Port 143: IMAP (Internet Message Access Protocol)
+   - Registered Port
+                - Registered ports are port numbers that have been assigned by the Internet Assigned Numbers Authority (IANA) to specific services or protocols
+                - These ports range from 1024 to 49151 and are typically used by applications or services that are not considered well-known.
+                - Some examples - 
+                      - Port 8080: HTTP alternate (used as a secondary web server port)
+                      - Port 3306: MySQL (database management system)
+                      - Port 5432: PostgreSQL (database management system)
+                      - Port 3389: Remote Desktop Protocol (used for remote access to a computer)
+
+   - Dynamic or Private Port
+                - Registered ports are port numbers that have been assigned by the Internet Assigned Numbers Authority (IANA) to specific services or protocols.
+                - These ports range from 1024 to 49151 and are typically used by applications or services that are not considered well-known
+                - Examples -
+                     - When a client program initiates a connection to a server program, the operating system assigns a unique dynamic port number to the client side of the connection. This dynamic port number is used for the duration of the connection and is released when the connection is closed.
+
+
+Best practices of using Port number 
+            - Use standard ports whenever possible
+            - Avoid using non-standard ports
+            - Consider using port forwarding
+            - Document port usage
+            - Secure port usage
+            - Test port accessibility
+            - 
+
+How to handle different URLs:
+    - What are URLs
+        - URLs stand for Uniform Resource Location, commonly termed as a web address
+        - is a reference to a web resource that specifies its location on a computer network and a mechanism for retrieving it.
+        - Uniform Resource Locators were defined in RFC 1738 in 1994 by Tim Berners-Lee
+        - URLs occur most commonly reference web pages (HTTP) but are also used for file transfer (FTP), email(mailto), database access and many other application.
+
+    - What are the different parts of URL
+        - URLs is composed of several fails, including
+        - Scheme - The scheme indicates the protocol used to access the resource	
+        - HostName - the hostname is the name of the server hosting the resource
+        - Port - the port number is an optional part of the URL that specifies the network port to use for the connection.
+        - Path - it specifies the location of the resource on the server
+        - Query - the query string is an optional part of the URL that contains data to be passed to the server
+        - Slug -it can be called a resource or fragment which is an optional part of the URL 
+
+    - How to handle different URLs in Node.js
+        - In Nodejs, different URLs can be handle using conditional statement and http module. 
+
+
+How to create server in Nodejs:
+   - HTTP module
+        - Hypertext Transport Protocol modules of Nodejs
+        - HTTP modules is the core modules of Nodejs
+        - HTTP modules provide way to create server and handle HTTP request and response.
+        - It exposes various classes, functions and properties to work with HTTP 
+        - To use the HTTP server and Client one must require(“node:http”)
+
+   - Feature of HTTP module:
+        - Create an HTTP server using `http.createServer()`
+        - Listen to incoming request using the `server.listen()` method
+        - Handle incoming requests and send responses using the `request` and `response` object passed to the server’s request event
+        - Set headers on the response object using `response.setHeader()`
+        - Write data to the response object using `response.write()`
+        - End the response using `response.end()` 
+        - Send an HTTP request to a server using `http.request()`
+        - Receive a response from a server using the `response` event of the `http.clientRequest` object returned by `http.request()`
+
+   - Server with HTTP module
+const http = require("node:http"); // getting the http module
+
+const port = 3000; // initializing the port no.
+const host = "localhost"; // define the hostname
+
+const server = http.createServer((req, res) => { // create server
+  res.statusCode = 200; // set to 200 to indicate it is successful
+  res.setHeader( "Content-type", "text/plain"); // set content type to plain text
+  res.end("hello world"); // end with ‘hello world’ text return
+});
+
+server.listen(port, () => { // list to the define port.
+  console.log(`Server running at ${host}:${port}`);
+});
+
+
+Basic of Routes:
+    - Definition
+         - In Express application, routes define how the application responds to client requests for specific URLs and HTTP methods
+         - A route consists of a combination of an HTTP method (such as GET, POST, PUT, DELETE, etc.) and a URL pattern.
+         - In Express, we can define routes using the app.METHOD() functions, where METHOD is the HTTP method name (e.g., get, post, put, delete, etc.).
+
+    - Syntax
+        - Each route can have one or more handler functions, which are executed when the route is matched.
+        - Route definition takes the following structure:
+        - app.METHOD(PATH,HANDLER)
+        - Where -
+             - app is the instance of express
+             - METHOD is an HTTP request method, in lowercase.
+             - PATH is a path on the server.
+             - HANDLER is the function executed when the route is matched.
+
+    - Request and Response object in Express
+             - Request object in Express -
+             - The req object represents the HTTP request and has properties for the request query string, parameters, body, HTTP headers, and so on. 
+             - In Express.js, the request method is used to retrieve information from an HTTP request sent to the server. It is represented by the `req` object that is available in the callback function of an Express route handler.
+             - Some commonly used methods and properties of Request method are -
+             - req.params -This property is an object that contains properties mapped to the named route parameters. 
+             - req.query-This property is an object that contains properties mapped to the query string parameters in the URL. 
+             - req.body-This property contains the parsed request body sent by the client in the HTTP request.
+             - req.headers-This property is an object that contains the HTTP headers sent by the client in the request
+             - req.cookies-This property is an object that contains the cookies sent by the client in the request.
+             - req.path-This property contains the path part of the URL of the request.
+             - req.ip-This property contains the IP address of the client that sent the request.
+             Response object in Express
+         In Express.js, the response object (res) is used to send a response to the client that sent the HTTP request. The res object provides a variety of methods that can be used to send different types of responses, such as HTML pages, JSON data, and error messages.
+         Commonly use res object are - 
+             - res.send() - This method sends a string, buffer, JSON object, or an HTML file as the response.
+             - res.json() - This method sends a JSON response
+             - res.render() -  This method renders an HTML view using a template engine like EJS or Handlebars.
+             - res.status() - This method sets the status code of the response.
+             - res.redirect() - This method redirects the client to a different URL.
+             - res.sendFile() - 	This method sends a file as a response to the client.
+             - res.cookie() - This method sets a cookie in the response
+             - res.clearCookie() - This method clears a cookie in the response.
+
+
+    - Routing
+             - Routing in Express.js involves several parts that work together to handle incoming HTTP requests and generate appropriate responses. 
+             - Here are the main parts of routing in Express.js:
+             - Route methods - Express.js supports several HTTP methods, such as GET, POST, PUT, DELETE, and others, which are used to define routes that handle requests of a specific type.
+             - Route paths - Route paths, in combination with a request method, define the endpoints at which requests can be made. Route paths can be strings, string patterns, or regular expressions.
+             - Route Handlers - The route handler is a callback function that executes when the server receives a request matching the HTTP method and route path. 
+             - Route Parameters - Route parameters are named URL segments that are used to capture the values specified at their position in the URL.
+
+    - Handling success and error
+        There are several ways of handling error and success in an Express.js route:
+        Using the `res.status()` method to set the HTTP status code the `res.send()` or `res.json()` method to send the response data
+        
+        app.get('/users', (req, res) => {
+          const users = [{ id: 1, name: 'John' }, { id: 2, name: 'Jane' }]
+          
+          if (users.length === 0) {
+            // handling error
+            res.status(404).send('No users found')
+          } else {
+            // handle success
+            res.status(200).json(users)
+          }
+        })
+
+    - Simple demo example
+        Here are some examples of Routes with Express
+        Response “home page” on the Home page.
+        app.get('/', (req, res) => {
+          res.send(‘homepage') 
+        })
+        
+        Response to POST request on the root route (/), the application’s home page
+        app.post('/', (req, res) => {
+          res.send('Got a POST request')
+        })
+
+
+Working with environment variables using .env:
+
+What are environmental variables and why do we use them?
+      - Environment variables are variables available to your program/application dynamically during runtime. The value of these variables can come from a range of sources — text files, third-party secret managers, calling scripts, etc.
+      - Environment variables  are used to store sensitive data such as passwords, API credentials, and other information that should not be written directly in code. Environment variables must be used to configure any variables or configuration details that may differ between environments.
+
+Good practices to follow while defining environment variables in .env file.
+      - Use descriptive names: Use clear and meaningful names for your environment variables.
+      - Use uppercase letters: It's common convention to use all uppercase letters for environment variables. 
+      - Separate words with underscores: To make your environment variables more readable, separate words with underscores. For example, use "DATABASE_URL" instead of "databaseUrl”.
+      - Don't commit .env file to version control: Make sure your .env file is not committed to version control, as this could expose sensitive information to unauthorized users.
+      - Keep the file consistent: Use a consistent format for your .env file. For example, you could use the format "VARIABLE_NAME=value" for each variable.
+
+Set up and read a .env file?
+      - Create a new file in the root directory of your project called .env. This file should not have a file extension and should be in the same directory as your main code file.
+      - Add your environment variables to the .env file using the following format: KEY=VALUE.
+      -  Save the .env file.
+      - Now Install dotenv npm package.  “npm install dotenv”
+      - In your main code file, import the package that you just installed and load the environment variables from the .env file : “require('dotenv').config();”
+      -  You can now access the environment variables in your code using the process.env object.
+      - 
+      - const dbConfig = {
+          host: process.env.DB_HOST,
+          user: process.env.DB_USER,
+          password: process.env.DB_PASSWORD,
+      - };
+
+
+What and Why of CORS?
+   - Cross-Origin Resource Sharing (CORS) is an HTTP-header based mechanism that allows a server to indicate any origins (domain, scheme, or port) other than its own from which a browser should permit loading resources.
+How does CORS work?
+   - website on "example.com" makes a request to the API on "api.example.org"
+   - Before the actual request is sent, the browser sends a preflight request to the server hosting the API ("api.example.org"). This preflight request is an HTTP OPTIONS request that asks the server whether it will allow the actual request.
+   - The server hosting the API responds to the preflight request with a set of headers that indicate whether the request is allowed or not. These headers include "Access-Control-Allow-Origin", "Access-Control-Allow-Methods", and  "Access-Control-Allow-Headers"
+   - If the server responds with headers that allow the request, the browser sends the actual request to the API and retrieves the requested data.
+
+
+For example, the preflight request might look like this:
+
+OPTIONS /api/data HTTP/1.1
+Host: api.example.org
+Origin: https://example.com
+Access-Control-Request-Method: GET
+Access-Control-Request-Headers: authorization
+
+And the server might respond with headers like this:
+
+HTTP/1.1 200 OK
+Access-Control-Allow-Origin: https://example.com
+Access-Control-Allow-Methods: GET, POST
+Access-Control-Allow-Headers: authorization
+
+This indicates that the request from "example.com" is allowed, and the actual GET request to the API can proceed.
+
+Why are you getting a CORS error?
+     - One of the top reasons for CORS errors in development is that the server you are sending a request to might not include the expected access-control-allow-origin header in the responses it sends back to you. Or if it does, it doesn't include your frontend app's URL in the list of approved origins.
+
+Few ways to resolve CORS errors:
+Setting CORS headers in the API response.
+
+const express = require('express');
+const cors = require('cors');
+const app = express();
+
+app.use(cors());
+// your API endpoints here
+
+2.   Enabling core in server-side API: 
+
+app.get('/api', (req, res) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  
+// res.setHeader('Access-Control-Allow-Origin', "https://example.com") allows only the mentioned domain to access the API
+
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  // your API logic here
+});
+
+Authentication and Authorization
+What is Authentication?
+Authentication is a process that verifies that someone or something is who they say they are. Technology systems typically use some form of authentication to secure access to an application or its data. For example, when you need to access an online site or service, you usually have to enter your username and password. Then, behind the scenes, it compares the username and password you entered with a record it has on its database. If the information you submitted matches, the system assumes you are a valid user and grants you access.
+
+Common Types of Authentication.
+Something-you-know: Passwords and security questions are two authentication factors that fall under this category. As only you would know your password or the answer to a particular set of security questions, systems use this assumption to grant you access.
+something you have: Physical devices such as smart card, USB security tokens and mobile phones fall under this category. For example, when you access a system, and it sends you a One Time Pin (OTP) via SMS or an app, it can verify your identity because it is your device.
+something you are: Biometric authentication mechanisms fall under this category. Since individual physical characteristics such as fingerprints are unique, verifying individuals by using these factors is a secure authentication mechanism.
+
+What is Authorization?
+Authorization is the process of determining whether a user or system is allowed to access a particular resource or perform a particular action. In other words, authorization is the process of granting or denying access to protected resources based on the permissions and privileges of the user or system.
+
+Which Comes First, Authentication or Authorization?
+Authentication and authorization both rely on identity. As you cannot authorize a user or service before identifying them, authentication always comes before authorization.
+
+Real-world example.
+when you login to your email account, you are required to provide your username and password to authenticate yourself. Once you are authenticated, the email server will check your permissions to determine what resources you can access. You might be authorized to read and send emails, but not to delete them or change settings.
+
+
+What and Why Express:
+Different types of NodeJs Frameworks
+What is Express
+Why do we use Express
+
+What are Frameworks:
+A framework is a software tool or platform that provides developers with a set of pre-written code, components, and libraries that they can use to build applications.
+Frameworks often include a set of guidelines and best practices that help developers to write code more efficiently and to build applications that are more stable, secure, and scalable.
+ Some popular web development frameworks include Ruby on Rails, Django, Laravel, React, Angular, and Vue.js.
+Frameworks can vary in complexity and size, from lightweight micro-frameworks that provide only the bare essentials, to full-stack frameworks that include everything from front-end libraries to back-end database integration.
+
+What are the different types of Node.js Framework:
+Some of the different types of Node.js Frameworks that help software architects to develop applications efficiently and with ease are as follows - 
+Express.js
+Koa.js
+Nest.js
+Hapi.js
+Fastify.js
+Sails.js
+
+What is Express:
+Express is an open-source backend web application framework for building Restful APIs with Nodejs.
+It is fast, unopinionated, minimalist web framework for Node.js
+Express.js was founded by TJ Holowaychuk.
+Its main key features are Robust routing and Middleware function.
+Express is a back-end component of popular development stacks like MEAN, MERN, or MEVN, together with the MongoDB database software and a Javascript Front-end framework or library.
+
+Why do we use Express.js
+
+Lightweight and unopinionated Nodejs framework
+Fast and Efficient for building scalable web applications with high traffic
+Large and active community as a result there are plenty of resource available for learning and troubleshooting.
+Easy to learn due to its simplicity and intuitive API that is easy to learn even for new developers who are new to Nodejs
+Modular and Extensible 
+Routing and middleware support which provides a powerful routing system and middleware support, making it easy to handle complex requests and responses.

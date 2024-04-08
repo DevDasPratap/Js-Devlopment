@@ -1,0 +1,10 @@
+Reqister
+mail verification
+login
+jwt authentication
+user profile
+refresh token
+forgot passord
+reset password
+authenticate api
+logout
