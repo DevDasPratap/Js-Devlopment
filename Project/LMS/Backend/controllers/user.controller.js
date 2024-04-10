@@ -52,11 +52,10 @@ const register = async (req, res, next) => {
                     fs.rm(`uploads/${req.file.filename}`)
                 }
             } catch (error) {
-                return next(
-                    new AppError(error || 'File not uploaded, Please try again', 500)
-
-                )
+                const errorMessage = typeof error.message === 'string' ? error.message : JSON.stringify(error);
+                return next(new AppError(errorMessage, 500));
             }
+
         }
         await user.save() // 2nd time save
 
@@ -72,21 +71,21 @@ const register = async (req, res, next) => {
             user
         })
     } catch (error) {
-        return next(new AppError(error.message, 500))
+        const errorMessage = typeof error.message === 'string' ? error.message : JSON.stringify(error);
+        return next(new AppError(errorMessage, 500));
     }
+
 }
 const login = async (req, res, next) => {
     try {
         const { email, password } = req.body
+        console.log(email, password)
         if (!email || !password) {
             return next(new AppError('All fields are required', 400))
         }
-        const user = User.findOne({
-            email
-        })
-            .select('+password') //speacilly call password bcause in model select:false, this for select: false in user.model
-
-        if (!user || !user.comparePassword(password)) {
+         //speacilly call password bcause in model select:false, this for select: false in user.model
+        const user = await User.findOne({ email }).select('+password')
+        if (!(user && (await user.comparePassword(password)))) {
             return next(new AppError('Email or password does not match', 400))
         }
         const token = await user.generateJWTToken()
@@ -101,7 +100,7 @@ const login = async (req, res, next) => {
         return next(new AppError(error.message, 500))
     }
 }
-const logout = (req, res) => {
+const logout = (req, res, next) => {
     res.cookie('token', null, {
         secure: true,
         maxAge: 0,
@@ -112,7 +111,7 @@ const logout = (req, res) => {
         message: 'User loged out successfully',
     })
 }
-const getProfile = async (req, res) => {
+const getProfile = async (req, res, next) => {
     try {
         const userId = req.user.id
         const user = await User.findById(userId)
@@ -159,14 +158,14 @@ const forgotPassword = async (req, res, next) => {
         return next(new AppError(error.message, 500))
     }
 }
-const resetPassword = async (req, res, next) => { 
-    const {resetToken} = req.params
-    const {password} = req.body
+const resetPassword = async (req, res, next) => {
+    const { resetToken } = req.params
+    const { password } = req.body
     const forgotPasswordToken = crypto.createHash('sha256').update(resetToken).digest('hex')
 
     const user = await findOne({
         forgotPasswordToken,
-        forgotPasswordExpiry: {$gt: Date.now()}
+        forgotPasswordExpiry: { $gt: Date.now() }
     })
     if (!user) {
         return next(
@@ -179,14 +178,14 @@ const resetPassword = async (req, res, next) => {
     user.save()
 
     res.status(200).json({
-        success:true,
-        message:`Password changed successfully`
+        success: true,
+        message: `Password changed successfully`
     })
 
 }
-const changePassword = async (req, res, next)=>{
-    const {oldPassword, newPassword} = req.body
-    const {id} = req.user
+const changePassword = async (req, res, next) => {
+    const { oldPassword, newPassword } = req.body
+    const { id } = req.user
     if (!oldPassword || !newPassword) {
         return next(new AppError(`All field are mendatory`, 400))
     }
@@ -208,13 +207,13 @@ const changePassword = async (req, res, next)=>{
     await user.save()
     user.password = undefined // response password undefined from object
     res.status(200).json({
-        success:true,
-        message:'Password changed successfully'
+        success: true,
+        message: 'Password changed successfully'
     })
 }
-const updateUser = async(req, res, next)=>{
-    const {fullName} = req.body
-    const {id} = req.params.id
+const updateUser = async (req, res, next) => {
+    const { fullName } = req.body
+    const { id } = req.params.id
 
     const user = await User.findById(id)
     if (!user) {

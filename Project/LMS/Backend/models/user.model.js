@@ -53,6 +53,7 @@ const userSchema = new Schema({
 
 // Hashes password before saving to the database
 userSchema.pre('save', async function (next) {
+    // If password is not modified then do not hash it
     if (!this.isModified('password')) {
         return next()
     }
@@ -71,16 +72,17 @@ userSchema.methods = {
             {
                 expiresIn: process.env.JWT_EXPIRY,
             }
-            )
-        },
-        // method which will help us compare plain password with hashed password and returns true or false
+        )
+    },
+    // method which will help us compare plain password with hashed password and returns true or false
     comparePassword: async function (plainTextPassword) {
         return await bcrypt.compare(plainTextPassword, this.password)
     },
-    generatePasswordResetToken: async function() {
+    generatePasswordResetToken: async function () {
         const resetToken = crypto.randomBytes(20).toString('hex')
         this.forgotPasswordToken = crypto.createHash('sha256').update(resetToken).digest('hex')
-        this.forgotPasswordExpiry = Date.now() + 15*60*1000 //15min time for expire passwors reset link
+        this.forgotPasswordExpiry = Date.now() + 15 * 60 * 1000 //15min time for expire passwors reset link
+        return resetToken
     }
 }
 
