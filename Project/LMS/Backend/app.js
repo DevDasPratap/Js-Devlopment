@@ -6,6 +6,7 @@ import cookieParser from 'cookie-parser'
 import morgan from 'morgan';
 import userRoutes from './routes/user.routes.js';
 import errorMiddleware from './middlewares/error.middleware.js';
+import courseRouter from './routes/course.routes.js';
 const app = express()
 
 app.use(express.json()) // Parse data into json when request body data get
@@ -26,6 +27,7 @@ app.use('/ping', function (req, res) {
 // Routes of 3 modules
 // User route
 app.use('/api/v1/user', userRoutes)
+app.use('/api/v1/course', courseRouter)
 
 
 app.all('*', (req, res)=>{

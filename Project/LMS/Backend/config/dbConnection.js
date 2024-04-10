@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-// stric disabled - if does not exist no error send
+// stric disabled - if does not exist on schema no error send
 mongoose.set('strictQuery', false)
 
 const connectionToDB = async () => {
@@ -13,7 +13,7 @@ const connectionToDB = async () => {
         }
     } catch (error) {
         console.log(error)
-        process.exit(1) // if get error(db not connect/exit) terminate this
+        process.exit(1) // if get error(db not connect then exit) terminate this
     }
 }
 export default connectionToDB

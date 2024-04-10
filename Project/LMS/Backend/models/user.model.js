@@ -1,4 +1,4 @@
-import { Schema, model, now } from "mongoose";
+import { Schema, model } from "mongoose";
 import bcrypt from 'bcrypt'
 import jwt from "jsonwebtoken";
 import crypto from "crypto";
@@ -11,7 +11,7 @@ const userSchema = new Schema({
     3. Schema(model) validation 
     */
     fullName: {
-        type: 'String',
+        type: String,
         required: [true, 'Name is required'],
         minLength: [5, 'Name must be at least 5 chartcher'],
         maxLength: [50, 'Name must be less then 50 chartcher'],
@@ -19,7 +19,7 @@ const userSchema = new Schema({
         trim: true
     },
     email: {
-        type: 'String',
+        type: String,
         required: [true, 'Email is required'],
         lowercase: true,
         trim: true,
@@ -27,21 +27,21 @@ const userSchema = new Schema({
         match: [/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/, 'Please enter a valid email'],
     },
     password: {
-        type: 'String',
+        type: String,
         required: [true, 'Password is required'],
         minLength: [8, 'Password must be at leset 8 char'],
         select: false // when user get query password don't give by default
     },
     avatar: {
         public_id: {
-            type: 'String',
+            type: String,
         },
         secure_url: {
-            type: 'String',
+            type: String,
         },
     },
     role: {
-        type: 'String',
+        type: String,
         enum: ['USER', 'ADMIN'],
         default: 'USER'
     },
@@ -61,7 +61,7 @@ userSchema.pre('save', async function (next) {
 
 // generic method
 userSchema.methods = {
-    // method which will help us compare plain password with hashed password and returns true or false
+    // method which will help generate jwt token
     generateJWTToken: async function () {
         return await jwt.sign(
             {
@@ -71,8 +71,9 @@ userSchema.methods = {
             {
                 expiresIn: process.env.JWT_EXPIRY,
             }
-        )
-    },
+            )
+        },
+        // method which will help us compare plain password with hashed password and returns true or false
     comparePassword: async function (plainTextPassword) {
         return await bcrypt.compare(plainTextPassword, this.password)
     },

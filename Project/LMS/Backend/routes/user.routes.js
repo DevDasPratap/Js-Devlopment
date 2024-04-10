@@ -3,15 +3,15 @@ import { login, register, logout, getProfile, forgotPassword, resetPassword, cha
 import  {isLoggedIn}  from "../middlewares/auth.middleware.js";
 import upload from "../middlewares/multer.middleware.js";
 
-const router = Router()
+const userRoute = Router()
 
-router.post('/register', upload.single('avatar'), register)
-router.post('/login', login)
-router.get('/logout', register)
-router.get('/me', isLoggedIn, getProfile)
-router.post('/forgot', forgotPassword)
-router.post('/reset/:resetToken', resetPassword)
-router.post('/change-password', isLoggedIn, changePassword)
-router.post('/update/:id', isLoggedIn, upload.single('avatar'), updateUser)
+userRoute.post('/register', upload.single('avatar'), register)
+userRoute.post('/login', login)
+userRoute.get('/logout', register)
+userRoute.get('/me', isLoggedIn, getProfile)
+userRoute.post('/forgot', forgotPassword)
+userRoute.post('/reset/:resetToken', resetPassword)
+userRoute.post('/change-password', isLoggedIn, changePassword)
+userRoute.post('/update/:id', isLoggedIn, upload.single('avatar'), updateUser)
 
-export default router
+export default userRoute

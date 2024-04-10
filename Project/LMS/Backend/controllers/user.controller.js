@@ -19,7 +19,7 @@ const register = async (req, res, next) => {
 
         const userExists = await User.findOne({ email })
         if (userExists) {
-            return next(new AppError('Email already exists', 409))
+            return next(new AppError('Email already exists', 409)) // next goto error.middleware then goto app.js
         }
         const user = await User.create({
             fullName,
@@ -60,9 +60,9 @@ const register = async (req, res, next) => {
         }
         await user.save() // 2nd time save
 
-        user.password = undefined // bcz user already send password don't resend
+        user.password = undefined // bcz dont send password to client
 
-        const token = await user.generateJWTToken()
+        const token = await user.generateJWTToken() // for register and direct logedin
         // svae this token in cookie
         res.cookie('token', token, cookieOptions)
 
@@ -79,18 +79,18 @@ const login = async (req, res, next) => {
     try {
         const { email, password } = req.body
         if (!email || !password) {
-            return next(new AppError('All field are required', 400))
+            return next(new AppError('All fields are required', 400))
         }
         const user = User.findOne({
             email
         })
-            .select('+password') //this for select: false in user.model
+            .select('+password') //speacilly call password bcause in model select:false, this for select: false in user.model
 
         if (!user || !user.comparePassword(password)) {
             return next(new AppError('Email or password does not match', 400))
         }
         const token = await user.generateJWTToken()
-        user.password = undefined
+        user.password = undefined // dont send password to client
         res.cookie('token', token, cookieOptions)
         res.status(200).json({
             success: true,
@@ -126,7 +126,6 @@ const getProfile = async (req, res) => {
         return next(new AppError('Failed to fetch user detaild,', error.message, 500))
     }
 }
-
 const forgotPassword = async (req, res, next) => {
     const { email } = req.body
     if (!email) {
@@ -185,7 +184,6 @@ const resetPassword = async (req, res, next) => {
     })
 
 }
-
 const changePassword = async (req, res, next)=>{
     const {oldPassword, newPassword} = req.body
     const {id} = req.user
@@ -214,7 +212,6 @@ const changePassword = async (req, res, next)=>{
         message:'Password changed successfully'
     })
 }
-
 const updateUser = async(req, res, next)=>{
     const {fullName} = req.body
     const {id} = req.params.id
