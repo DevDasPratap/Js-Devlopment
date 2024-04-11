@@ -7,7 +7,7 @@ const userRoute = Router()
 
 userRoute.post('/register', upload.single('avatar'), register)
 userRoute.post('/login', login)
-userRoute.get('/logout', register)
+userRoute.get('/logout', logout)
 userRoute.get('/me', isLoggedIn, getProfile)
 userRoute.post('/forgot', forgotPassword)
 userRoute.post('/reset/:resetToken', resetPassword)
