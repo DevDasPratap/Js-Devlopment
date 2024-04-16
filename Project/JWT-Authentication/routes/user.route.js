@@ -3,6 +3,7 @@ const multer = require('multer')
 const userRouter = express()
 const path = require('path')
 const { userRegister } = require('../controllers/user.controller')
+const { registerValidator } = require('../helpers/validation')
 
 userRouter.use(express.json())
 
@@ -18,11 +19,18 @@ const storage = multer.diskStorage({
         cb(null, name)
     }
 })
-
+const fileFilter = (req, file, cb)=>{
+    if (file.mimetype === 'image/jpeg' || file.mimetype === 'image/png') {
+        cb(null, true)
+    }else{
+        cb(null, false)
+    }
+}
 const upload = multer({
-    storage: storage
+    storage: storage,
+    fileFilter: fileFilter
 })
 
-userRouter.post('/register', upload.single('image'), userRegister)
+userRouter.post('/register', upload.single('image'), registerValidator, userRegister)
 
 module.exports = userRouter
