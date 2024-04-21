@@ -1,0 +1,100 @@
+Topics covered: 
+- Introduction to Databases and SQL
+- Basic Sql syntax
+- Connecting to a sample database
+
+What are Databases?
+
+- Databases are structured collections of data that are organized for efficient storage, retrieval, and manipulation.
+- They serve as a central repository for information, allowing users to store and access data in a structured manner.
+- Common types of databases include relational databases (e.g., MySQL, PostgreSQL), NoSQL databases (e.g., MongoDB, Cassandra), and object-oriented databases (e.g., MongoDB).
+
+Types of Databases:
+
+- Relational databases: Organize data into tables consisting of rows and columns, with relationships established between tables.
+
+- NoSQL databases: Designed for storing and retrieving unstructured or semi-structured data, offering flexibility and scalability for modern applications.
+
+- Object-oriented databases: Store data as objects, enabling complex data structures and relationships to be represented.
+
+Introduction to SQL:
+
+- SQL (Structured Query Language) is a standard language for interacting with relational databases.
+
+- It provides a set of commands for querying, updating, and managing databases.
+
+- SQL is widely used across various industries for data manipulation and analysis tasks.
+
+Basic SQL Syntax (we will cover all of it in detail):
+
+- SELECT: Used to retrieve data from one or more tables.
+
+- INSERT: Adds new rows of data into a table.
+
+- UPDATE: Modifies existing data in a table.
+
+- DELETE: Removes rows of data from a table.
+
+Understanding SQL Queries:
+- SQL queries are structured statements that specify the data to be retrieved from a database.
+- The SELECT statement is the primary SQL command for retrieving data, allowing users to specify the columns and conditions for filtering rows.
+
+We'll start by connecting to a sample database and running basic SQL queries to retrieve data from tables.
+
+MySQL Workbench:
+1. Download and install MySQL Workbench from the official website if you haven't already.
+
+2. Launch MySQL Workbench and connect to your MySQL server instance.
+
+3. If you don't have a sample database, you can create one or download a pre-existing sample database. 
+
+4. Once connected, navigate to the "Schema" tab to view the available databases.
+
+5. Right-click on the desired database and select "Query Window" to open a new SQL query window.
+Write your SQL query (e.g., SELECT * FROM tablename) in the query window and click the "Execute" button to run the query.
+
+
+
+users/Other DBMS/Apps <=> Database <=> Stroage <=> Relational Database/Hierarchical Database/NoSQL Database/Object Database
+
+
+Topics covered:
+- Components  of SQL 
+- Retrieving specific columns with SELECT 
+- Using aliases for column names
+
+Components of SQL:
+
+- Data Definition Language (DDL):
+Used for defining and modifying the structure of the database schema.
+Includes commands like CREATE, ALTER, DROP, TRUNCATE.
+
+- Data Manipulation Language (DML):
+Used for manipulating data within the database.
+Includes commands like SELECT, INSERT, UPDATE, DELETE.
+
+- Data Control Language (DCL):
+Used for controlling access to data within the database.
+Includes commands like GRANT and REVOKE.
+
+- Transaction Control Language (TCL):
+Used for managing transactions within the database.
+Includes commands like COMMIT, ROLLBACK, SAVEPOINT.
+
+- Data Query Language (DQL):
+Primarily used for querying data from the database.
+Includes commands like SELECT.
+
+Retrieving Specific Columns with SELECT:
+
+- The SELECT statement is used to retrieve data from one or more tables in a database.
+- You can specify the columns you want to retrieve by listing them after the SELECT keyword.
+- Example: SELECT column1, column2 FROM tablename;
+- This allows you to retrieve only the relevant data you need, which can improve query performance.
+
+Using Aliases for Column Names:
+
+- Aliases provide alternative names for columns in the result set, making it easier to understand and manipulate the data.
+- You can assign aliases using the AS keyword or by simply providing a new name after the column.
+- Example: SELECT column1 AS alias1, column2 alias2 FROM tablename;
+- Aliases are especially useful when working with calculated fields or when joining tables.

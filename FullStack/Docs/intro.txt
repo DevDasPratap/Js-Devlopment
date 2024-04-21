@@ -1,0 +1,196 @@
+Application Requirements and Landscape
+
+SRS (Software Requirements Specifications)
+
+Let's assume that we are all plaques. We want to start a business. The name of that business is Problem Solvers Cafe (PS Cafe). It is precisely for those who are plasterers or problem solvers that we want to start a special cafe.
+এর requirements আছে কিছু। এই ধরণের রিকোয়ারমেন্টসকে বলা হয় SRS (Software Requirements Specifications)। এই অ্যাপের জন্য SRS হলোঃ
+
+PS Caffe is an imaginary online coffee delivery service. This business is designed specially for programmers by keeping their life style in mind. We need an application to accept orders from online. The application will have the following functional and non functional requirements.
+
+A very simple application. We are looking to create a coffee delivery service where we are, keeping in mind the lifestyle of programmers. Since we want to do it keeping in mind the lifestyle of programmers that means we have to offer 24/7 service. It is an online service. There is a special note that says we don't want to grow the business too fast. We are just looking to create an MVP (Minimal Viable Product) or Workable prototype for market research. There is a huge difference between this MVP and real life application. It is important to note that the term MVP is not only associated with software development. Apart from this it can be used and is being used in any field.
+
+MVP is also called Workable Prototype in other languages. Prototypes are of two types. A type of prototype where only the UI can be seen but no action can be taken. And ours is a workable prototype. This means we will build an application through which we can serve 200/300 people. Then the first version will not need many functionalities. Later we will keep updating these things as the business grows.
+
+Since we are building an MVP and have future business growth in mind, we need to ensure that our application can be easily transferred to any architecture later on.
+
+This application has some functional and non-functional requirements. An important question in the interview is What is the difference between functional and non-functional requirements.
+
+Functional Requirements
+
+Functional requirements are requirements that depend on the features of my application. These are usually called clients. Can say no again. As the client may have said about application login. He did not say about log out. But if there is a login, there must be a logout. So we have to add some functional requirements ourselves for the sake of the application even if the client doesn't tell us. This application has some functional requirements. They are:
+
+Functional Requirements (Mostly client requirements):
+
+Local Authentication: At the beginning we don't want to spend more on authentication services. Just keep it simple by implementing a local authentication using email & password. But make sure, we can extend local AUTH to OAuth2 anytime in future. We need the following features -
+   - Hashed password
+   - Email verification
+   - Forget password
+   - Block users if necessary
+
+First we don't need any kind of paid authentication service. We will only do local authentication with email and password. But we have to take care that in future we can extend local AUTH to OAuth2 to keep this system. This is when we create a model or create a controller when we have such a system. Besides we have to keep some features like - password hashing, email verification, forget password and when we want we can block any user.
+
+Multiple Roles (Role Based Access Control): There will be mainly five roles:
+    - Admin: Admin can create and manage everything including sales data
+    - Manager: Manager can't be able to create anything but can see sales data, inventory and products
+    - Chef: They can only see queue orders
+    - Delivery Man: They can manage the queue orders and change status
+    - User: won't able to see any admin information but able to check products, reviews and place orders.
+
+This application will have 5 main roles. Admin can access everything. Managers can only view sales data, inventory and products. The chef can only see the orders that are in the queue. Delivery man can manage order and change status. For example, if he is out for delivery, he can change the status to out for delivery, when the delivery is done, he can change the status to Delivered. Users will never see admin information, only check products, place orders and leave reviews.
+
+ - User will be able to place orders
+
+User can place order according to their choice.
+
+ - User will be able see existing reviews and only place review after a successful order
+
+User can view existing reviews. But you will not be able to give a review until an order is placed and the delivery of that order is not complete. You can review only that order against each order.
+
+ - Sales dashboard
+
+Sales status can be known from here. How much was sold, more or less this week, these data analysis can be done from this dashboard.
+
+ - Manage inventory
+
+All inventory tracking can be kept from here. For example, the amount of stock of sugar, coffee, milk etc. will be recorded here. A feature can also be added, such as how much coffee, sugar or milk is needed to make a cappuccino, and the rest can be displayed against an order.
+
+ - Live tracking of the order
+
+User can track his order live. For example, if the order is placed, it will show a status like Order Placed. Similarly, when coffee is being made, processing, out for delivery, etc., he can see some statuses. Later, depending on the growth of the application, live location tracking can also be provided by connecting Google Maps API.
+
+Here are our functional requirements.
+
+Non functional requirements
+
+Non-functional requirements are requirements that do not depend on how the application's features will be. And these non-functional requirements are almost the same for all applications. These basically ensure how well our application will perform. As this application has some non-functional requirements. They are:
+
+ - Non Functional Requirements:**
+
+ - Secure
+
+To create an application, it must be secure. We don't want anyone to get into my app and do whatever they want. So the application needs to be secured as per requirement.
+
+ - Reliable
+
+Of course our application should be such that everyone can rely on it. Suppose someone orders a coffee. 30 minutes later he logged in and saw the order disappearing from his dashboard. But his money was cut off. In this case no one can relay on this application. So we need to be data secure, reliable and maintain data consistency.
+
+ - Easy Maintainability
+
+MVP is a product that we built for public research. So it's bound to have a lot of bugs. Also many customer requirements may increase day by day. They used to give us a request that this feature would be great. We also saw for the good of the business adding some features will make the business better. Keeping these aspects in mind, we must make our application so that any feature can be easily added if needed, any bug can be fixed easily.
+
+ - Awesome Usability
+
+This is purely a UX term. If my application is not easy for users to use then no one will use it no matter how good the features are. So Usability must be good.
+
+ - High availability (not main concern for MVP)
+
+This means our application must be available 24/7 no matter what happens in the world. Here's a concept - Eleven Nine (99.999999999%). This means the most available. Couldn't be more available. These are mostly familiar to those who work with the cloud. We need this concept to find out how much availability Amazon's services provide. Although this functionality is not the main concern for MVP. We will make this product for just some users. Then depending on the usage of the application we will increase the availablity of our application.
+
+ - Scalability (not main concern for MVP)
+
+This is also not a main concern for MVP. Suppose the users of our application keep increasing day by day. Initially 10 people. Next month 100 people, then 1000, 10000 etc. Along with this, our application also needs to be scalable for such a large number of users. Multiple servers may be used. This is not required for MVP, but it is important to keep this in mind when building applications.
+
+Basically these are our non-functionality requirements.
+
+SDLC Models
+
+We generally work with two models for project management. Water Fall Model and Agile Model. Apart from these two, there are numerous other models. If you search by typing SDLC (Software Development Life Cycle) model you will find many more models. But these two models have been used successfully for years. Now the question is which model we will use. For that we need to have some idea about these two models.
+
+Water Fall Model
+
+Suppose our requirements are fixed. The requirement will not change even in the next 4/5 years. We will make the product according to this requirement. After 4/5 years I will update if necessary. The waterfall model is very useful for this type of project.
+
+We can understand this from the above picture. What we have done so far is all within the requirements. Now by analyzing these requirements, what architecture to use, how to architect, what system design to use, what challenges may come, what constraints may come, how we can solve these problems, how we can reduce the time. All are topics of design. Then we do UI/UX, do frontend development, do backend development, make API everything belongs to Implementation. Then we have to go through various testing. After passing the load test, acceptance test, security test etc. then we can deploy our application. All these topics belong to Verification. There are bound to be bugs when building applications. Debugging this bug is included in Maintanence.
+
+This model has a big problem. The problem is that once the requirements analysis is over, so is the design. 50% of implementation is complete. Now the client comes and says such a change that the whole system is broken. If so, you have to start all over again. Your sufferings have died in all fields.
+
+Agile Model
+
+The way to get rid of the problem that we talked about in the above model is the Agile Model. Now the question is What is Agile Model. Agile model is a kind of Water Fall Model. The work we do in the waterfall model is for the long term. For 2/3 years. On the other hand Agile model is a waterfall model for 15 days or 7 days. There will be a requirement for 7 days. Design, implementation, verification will be done accordingly. Next 7 days will work on other requirements. Thus the cycle will continue. As mentioned in our application we will work with local authentication for the first 15 days. Next 15 days I will work with role based access control. This will continue. Now after two months if the client comes and says authentication is done by email. Now he wants to add phone number too. Since we have worked on authentication separately so only that needs to be changed. There will be no problem on the rest of the work. Just water fall model is after a certain short time. Agile Model Since our application is MVP, we will select Agile Model with eyes closed.
+
+Choose Necessary Technology
+
+For our application development we need to understand which technology is suitable for our application development. We need a landscape for that. Here is an overview so that you can get an idea.
+
+First we need to create SRS. The tools we may need for that are:
+- Google Docs, Microsoft Office, Notion.
+- (To draw EML Diagram, ER Diagram, Activity Diagram etc.) draw.io, Lucid chart
+
+Then we will jump to the design part. It is called Blue Print of any application. What this part will contain is:
+
+- System Design
+
+  - Architectural Decision
+
+    - Monolithic (Layered)
+      - Easy to develop, but very complex to maintain when application grows
+    - Microservice
+      - Very hard to develop, but easy to maintain.
+    - Serverless (FAAS - Function as a service)
+
+Monolithic Application means all the features of an application will be in one place. On the other hand, Microservice is to separate all the features of that application and keep them on separate servers. Since there will be separate databases, it is a bit difficult to create a communication system between them. So it is better to avoid Microservice for single person or small team.
+
+If MVP then go to Monolithic Architecture with closed eyes. And where it is said that I need high availability and high scalability, we will use microservices.
+
+We will use Serverless Architecture, when the client says I want MVP, but there is a possibility to grow this application very quickly. If grow too soon I don't want any kind of problem user face or user complain to us. Because it is highly scalable.
+
+  - Select Database There are many types of databases in the market. We need to find out which type of database is required for which task.
+    - SQL (When I know what properties the data will and won't have)
+      - PostgreSQL
+      - MySQL
+    - NoSQL (When the requirement changes randomly)
+      - MongoDB
+      - Casandra
+    - Key value
+      - Redis (Caching, Job Scheduling, Message Broker)
+      - DynamoDB
+    - Graph Database (For data in graph structure)
+      - Neo4j
+    - Search Database (Search engine related works)
+      - Elastic Database (Open Source - Text Search)
+      - Algolia Search (Open AI 3 - Natural Language Processing) For example, I searched Men's favorite pet, then he will read my writing and search what people's favorite pet can be. It is very powerful but not free.
+
+- Software Architecture Software Architecture is directly related to coding. It totally depends on the system design. What we need to know about software architecture is:
+  - OOP
+  - OOP Design Pattern & Principles
+  - DSA
+  - Clean Code Architecture
+  - Problem Solving
+- Testing
+  - Test Driven Development (First write the test code and then write the main code)
+  - E2E (End to End) (Testing using a headless browser)
+- Distribution
+  - DevOps (Tasks that are operationally related can be automated through it)
+    - Continuous - DevOps is where the word "Continue" goes. It will be more clear if you see the picture below.
+      - Git and Github
+      - Linux, SSH - Secured Shell Homepage
+      - Circle CI, Travis CI, Jenkins (Integration server)
+      - Docker (For Single Service), Docker Compose (For Multiple Service)
+      - Docker Swarm, Kubernetes (To manage applications in Multiple Place from one place)
+      - Prometheus, Nagios (For continuous monitoring)
+      - Ansible
+  - Cloud Engineering - We need a cloud where we can deploy our applications. Numerous design decisions come into play here. such as
+    - VPC (Virtual Private Cloud) Through this, it can be arranged that only those applications in this cloud can access my database.
+    - EC2 (Elastic Computing Cloud) Actual server That will run my application
+    - S3 (Provide Storage Service)
+    - RDS (Relational Database Service)
+    - DynamoDB
+    - Route 53
+    - CloudFront (CDN)
+    - SES (Simple Email Service)
+    - SNS (Simple Notification Service)
+    - SQS (Simple Queue Service)
+    - API Gateway
+    - Lambda
+    - Step Functions
+    - Cloud Watch
+    - Cloud Formation, Terraform, By using CDK we can provide non functionalities requirements.
+- Maintenance
+
+Decision
+
+Based on what we learned above, let's make our application decision. Since the MVP will be and said no need for high availability or scalability, we can skip the cloud engineering part. Just 4/8 GB RAM server will work. Initial devops isn't even needed because we need a workable prototype quickly. Will definitely need it later.
+
+- Since MVP, I will use Monolithic Architecture.
+- Since the decision will be random change, we will use NoSQL database (MongoDB Atlas).
+- For the backend we need to ask ourselves two questions. First question is whether we need to do heavy computing in our application (video processing / image processing)? If not then .Net, Java Spring boot, Go lang is excluded. The second question is whether my application is MVC, multipage? If so then exclude NodeJS. We will select Django, Laravel or Ruby on Rails. If MVC is not, data driven and real time then close your eyes NodeJS. Our application is data driven so we will select NodeJS for our application. Because it will not block any request. In this case, we can use Hapi, Express or Fastify as Node JS framework.

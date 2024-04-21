@@ -1,0 +1,25 @@
+Keys of dbms
+
+Key: column or combination of column must be unique every row
+
+Types of key
+super key: collection of all possible key in the table
+
+cadidate key: sub set of super key
+
+primary key: any of one key from cadidate key, must be unique
+
+alternate key: All possible combination of cadidate key - primary key (rest of the key is alternate key)
+
+
+1. Primary Key: This uniquely identifies each record in a table, ensuring that no two records have the same identifier. It's often a single column but can be a combination of columns (composite key) if needed. Primary keys are crucial for data integrity and efficient data retrieval.
+
+2. Foreign Key: Found in one table, it references the primary key in another table. This establishes relationships between tables, ensuring referential integrity. Foreign keys enforce constraints, preventing actions that would invalidate relationships between tables.
+
+3. Candidate Key: These are columns or combinations of columns that could potentially serve as primary keys. They must be unique and are candidates for the primary key role. From these candidates, one is chosen as the primary key.
+
+4. Composite Key: Made up of multiple columns, this key uniquely identifies records when no single column can do so. While individual columns might not be unique, their combination ensures uniqueness. Composite keys are useful for complex data models where a single column is insufficient for identification.
+
+5. Super Key: A super key is a set of columns that uniquely identifies rows in a table. It may contain more columns than necessary for uniqueness and is a superset of candidate keys. Super keys are foundational to understanding the concept of keys but are not always used directly in database design.
+
+These keys are integral to relational databases, ensuring data integrity and enabling efficient querying and manipulation of data. Each plays a specific role in defining relationships between tables and maintaining the integrity of the database schema.

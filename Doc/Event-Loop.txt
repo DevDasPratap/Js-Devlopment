@@ -13,3 +13,14 @@ Things to explore more ( I wont be explaining these as I want you guys to explor
 Different memory types in browser
 Micro task and callback queue
 Web Apis
+
+
+How Does the Event Loop Work?
+
+The event loop operates in a continuous cycle, constantly checking for tasks that need to be executed. It consists of several components:
+
+Call Stack: The call stack is where function calls are queued and executed in a last-in, first-out (LIFO) manner. When you call a function, it's added to the top of the stack, and when the function completes, it's removed from the stack.
+
+Callback Queue: Asynchronous operations, such as timer callbacks or I/O events, are placed in the callback queue once they are complete. These callbacks are waiting to be processed and executed by the event loop.
+
+Event Loop: The event loop is responsible for continuously monitoring the call stack and the callback queue. If the call stack is empty, the event loop checks if there are any callbacks in the queue waiting to be processed. If so, it moves the callback from the queue to the call stack for execution.

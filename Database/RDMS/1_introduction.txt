@@ -1,0 +1,9 @@
+Relation database management system
+
+what and why of RDMS
+usecases of RDMS
+RDMS key concepts:
+    - relationships
+    - normalization
+    - joins
+    - transactions

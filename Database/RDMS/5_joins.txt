@@ -1,0 +1,32 @@
+Here are some types of joins in a Relational Database Management System (RDBMS):
+Outer join
+Combines columns from all tables on one or more common dimensions, and includes all data from all tables
+Inner join
+Returns common records from both tables, also known as the intersection of two tables
+Left join
+Ensures that all customers are included in the result set, including relevant order information where available
+Natural join
+Also considered a type of inner join, but it does not use any comparison operator for join condition
+Cross join
+Unnests arrays into rows, which is a common operation when working on analytical data
+Self join
+A way to use a table more than once in a join, so that you'll join the table with itself
+Hash join
+An example of a join algorithm, and is typically more efficient for larger result sets than nested loops
+Semijoin
+Returns rows that match an EXISTS subquery without duplicating rows from the left side of the predicate 
+
+
+Joins in databases are operations used to combine rows from two or more tables based on a related column between them. The primary types of joins are:
+
+1. Inner Join: An inner join returns rows that have matching values in both tables based on the specified join condition. If there is no match between the tables, the rows are not included in the result set. Inner joins are commonly used to retrieve data that exists in both tables.
+
+2. Left (Outer) Join: A left join returns all rows from the left table (the first table specified in the join) and the matched rows from the right table (the second table specified in the join). If there is no match in the right table, NULL values are returned for the columns from the right table.
+
+3. Right (Outer) Join: A right join is the opposite of a left join. It returns all rows from the right table and the matched rows from the left table. If there is no match in the left table, NULL values are returned for the columns from the left table.
+
+4. Full (Outer) Join: A full join returns all rows from both tables and matches rows from the left table with rows from the right table based on the join condition. If there is no match in one of the tables, NULL values are returned for the columns from the table without a match.
+
+5. Cross Join: A cross join returns the Cartesian product of the two tables, resulting in a combination of each row from the first table with every row from the second table. It does not require a join condition and can result in a large number of rows if the tables involved are large.
+
+Joins are fundamental to relational database querying, allowing users to combine data from multiple tables to retrieve meaningful information. The choice of join type depends on the specific requirements of the query and the desired outcome.

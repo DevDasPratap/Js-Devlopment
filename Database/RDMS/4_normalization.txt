@@ -1,0 +1,42 @@
+Types of Normalization
+
+Normal Forms In DBMS: 
+    - First Normal Form (1NF)
+    - Second Normal Form (2NF)
+    - Third  Normal Form (2NF)
+    - Boyce- codd Normal Form (BCNF)
+
+
+First Normal Form (1NF) requires that a table meet two conditions:
+1. Each cell in the table must contain a single, atomic value.
+2. There must be a primary key that uniquely identifies each row in the table.
+
+In summary, for a table to be in 1NF, it must have atomic values in each cell and a primary key to uniquely identify each row.
+
+
+Certainly! Let's delve into each of these normal forms:
+
+1. First Normal Form (1NF):
+   - In 1NF, each column in a table contains atomic (indivisible) values, meaning that each value in a column should be single-valued. There should be no repeating groups or arrays within a table.
+   - It ensures that each attribute contains only one value for each record, eliminating multivalued attributes.
+   - For example, if you have a table for student records, each attribute like Name, Roll Number, and Address should contain atomic values and not arrays or lists of values.
+
+2. Second Normal Form (2NF):
+   - To achieve 2NF, the table must first satisfy the requirements of 1NF.
+   - Additionally, all non-key attributes (attributes not part of the primary key) must be fully functionally dependent on the entire primary key.
+   - This eliminates partial dependencies, where non-key attributes depend on only part of the primary key.
+   - For instance, if you have a composite primary key like (StudentID, CourseID) in a table for student course enrollments, attributes like CourseName should depend on the entire key, not just one part of it.
+
+3. Third Normal Form (3NF):
+   - Similar to 2NF, the table must first meet the requirements of 1NF.
+   - Furthermore, all non-key attributes must be dependent only on the primary key and not on other non-key attributes.
+   - This eliminates transitive dependencies, where non-key attributes depend on other non-key attributes.
+   - For example, if you have a table for employee records with attributes like EmployeeID, Department, and Manager, where Manager is functionally dependent on Department, it should be moved to a separate table to achieve 3NF.
+
+4. Boyce-Codd Normal Form (BCNF):
+   - BCNF is a stricter form of 3NF.
+   - In BCNF, every determinant (attribute determining another attribute) must be a candidate key.
+   - This ensures that there are no non-trivial functional dependencies between attributes in a table.
+   - For instance, if you have a table where every determinant is a candidate key, it's already in BCNF.
+
+These normal forms help in organizing data efficiently, reducing redundancy, and ensuring data integrity in relational databases. Each normal form represents a higher level of normalization and helps in avoiding anomalies and inconsistencies in database design.

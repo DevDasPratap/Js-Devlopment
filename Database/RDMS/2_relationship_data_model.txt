@@ -1,0 +1,19 @@
+Relationship Data Model
+
+The relationship data model focuses on two things:
+Tables.
+Relationships.
+
+
+
+1. Tables** Represent entities or objects, organized into rows (records) and columns (attributes or properties).
+
+2. Relationships:
+
+   a. One-to-One (1:1): Each record in one table is related to exactly one record in another table, and vice versa.
+   
+   b. One-to-Many (1:M): Each record in one table can be related to one or more records in another table, but each record in the second table is related to only one record in the first table.
+   
+   c. Many-to-Many (M:N): Many records in one table can be related to many records in another table, often implemented using a junction table.
+
+These relationships define how data in different tables are linked, ensuring data integrity and facilitating efficient data management.

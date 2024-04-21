@@ -1,0 +1,21 @@
+Sql is a tradional RDMS
+nosql is a document oriented nosql database
+
+in sql, data is stored in tables with rows and columns
+in monodb data stored in collection of json like documents
+
+sql uses a fixed schema, where the structure of the tables must be defined before can be inserted
+mongodb uses a dynamic schema where documents can have diffrent fields.
+
+Here's a basic comparison between MySQL and MongoDB:
+
+| Aspect           | MySQL                               | MongoDB                             |
+|------------------|-------------------------------------|-------------------------------------|
+| Data Model       | Relational: Tables with rows and columns | NoSQL: Documents in collections     |
+| Schema           | Structured with predefined schema   | Flexible schema (schema-less)       |
+| Query Language   | SQL (Structured Query Language)     | MongoDB Query Language (MQL)        |
+| ACID Compliance  | Fully compliant (Atomicity, Consistency, Isolation, Durability) | Limited (atomic operations)         |
+| Scalability      | Vertical scaling (limited)          | Horizontal scaling (sharding)       |
+| Use Cases        | Traditional transactional systems, e-commerce platforms | Content management, real-time analytics |
+| Transactions     | Supports ACID transactions          | Limited atomic operations           |
+| Performance      | Slower for read-heavy workloads     | Faster for read-heavy workloads     |

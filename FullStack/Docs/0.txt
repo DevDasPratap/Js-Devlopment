@@ -1,0 +1,9 @@
+=> HTML + CSS +JS+DOM 
+=> Basic DSA + JS Advance + OOPs + Design patterns
+=> Then choose frontend or backend role
+=> Frontend (junior) - react + redux + design UI
+=> Backend (junior) - Node + mongo + API design and management
+=> Frontend (senior) - Design patterns + performace optimization + PWA + Design system
+=> Backend (senior) - Design patterns + Database + API testing + Backend techniques(Apache kafka, rebitmq, redis, event derivent architructure, distributed system, etc) + Scalable APPS => Linux (OS) + Basic networking + system design + Application architructures => DevOps & Clouds
+
+

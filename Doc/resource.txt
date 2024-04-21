@@ -1,0 +1,45 @@
+Here are 10 Github repos for DevOps 👇🏻
+
+1. The Book of Secret Knowledge : https://github.com/trimstray/the-book-of-secret-knowledge
+
+2. Awesome Scalability : https://github.com/binhnguyennus/awesome-scalability
+
+3. Awesome Cloud Native Trainings : https://github.com/joseadanof/awesome-cloudnative-trainings
+
+4. DevOps Exercises : https://github.com/bregman-arie/devops-exercises
+
+5. Fast Kubernetes : https://github.com/omerbsezer/Fast-Kubernetes
+
+6. How they SRE : https://github.com/upgundecha/howtheysre
+
+7. Ansible for DevOps Examples : https://github.com/dastergon/awesome-sre
+
+8. Test your Sys Admin Skill : https://github.com/trimstray/test-your-sysadmin-skills
+
+9. Awesome DevSecOps : https://github.com/devsecops/awesome-devsecops
+
+10. DevOps Bash Tools : https://github.com/HariSekhon/DevOps-Bash-tools
+
+
+Here are 10 github repos 👇🏻
+
+1. Awesome Backend Development: https://github.com/zhashkevych/awesome-backend
+2. System Design Primer: https://github.com/donnemartin/system-design-primer
+3. Clean Architecture: https://github.com/panagiop/node.js-clean-architecture
+4. RealWorld: https://github.com/gothinkster/realworld
+5. Node Best Practices: https://github.com/goldbergyoni/nodebestpractices
+6. Backend Developer Roadmap: https://github.com/kamranahmedse/developer-roadmap
+7. Node.js Best Practices: https://github.com/goldbergyoni/nodebestpractices
+8. Awesome Node.js: https://github.com/sindresorhus/awesome-nodejs
+9. Backend Engineering Resources: https://github.com/shahednasser/awesome-resources
+10. Project-Based Tutorials in C: https://github.com/mtb0x1/Project-Based-Tutorials-in-C
+
+
+Wanna learn web development from basics?
+https://andreasbm.github.io/web-skills/
+
+4 websites for FREE mock interviews 👇🏻
+1. pramp.com
+2. interviewing.io
+3. prepbunk.com
+4. Interviewbit.com

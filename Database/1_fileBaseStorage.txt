@@ -1,0 +1,16 @@
+What is a File base storage system? The Major Challenges of File-Based Storage Systems
+A file-based storage system is a traditional approach to storing and managing data, where data is stored in individual files on a computer’s file system. Each file contains a collection of records, with each record representing an entity or object in the system. The data in each file is usually organized in a simple, flat structure, with no relationships established between files.
+
+While file-based storage systems are simple and easy to implement, they have several limitations. For example, they can be prone to data redundancy and inconsistency, making it difficult to maintain data accuracy. Additionally, file-based systems can suffer from data anomalies such as update, insert, and delete anomalies, which can lead to incorrect or incomplete data.
+
+Overall, file-based storage systems are suitable for small-scale applications with a limited amount of data and simple data processing requirements. However, as the amount of data and complexity of operations increase, a more robust and structured approach, such as a database management system, becomes necessary to ensure data accuracy, consistency, and efficiency.
+
+
+The Major Challenges of File-Based Storage Systems.
+
+Data Redundancy: Data redundancy occurs when the same data is stored in multiple files or locations, resulting in inconsistencies and errors.
+Data Inconsistency: Data inconsistency is another major challenge in a file-based storage system. When data is stored in multiple files, it can become difficult to keep all the copies of the data in sync, resulting in inconsistencies.
+Limited Scalability: File-based storage systems are often not very scalable. As the amount of data in the system grows, it can become increasingly difficult to manage and maintain the system.
+Security: File-based storage systems are often less secure than database systems. In a file-based storage system, it can be difficult to control who has access to data and what they can do with it.
+Inefficient use of storage space: File-based systems can lead to inefficient use of storage space as files are duplicated or stored in multiple locations.
+Data Isolation: Data isolation refers to the fact that in a file-based storage system, data is often stored in separate files, which makes it difficult to access and share data across different applications or systems.

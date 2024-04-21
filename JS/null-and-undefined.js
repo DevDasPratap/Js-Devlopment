@@ -1,3 +1,11 @@
+
+/**
+ * null - null is having no value
+ * undefined - undefined means not defined
+ * null - null is an assiginment value given to variable, example - let test = null
+ * undefined - the value of undefined variable is set by javascript, example - let test 
+ */
+
 // null and undefined
 // both are used to check absence of value but with slightly difference. 
 
