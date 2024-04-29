@@ -1,0 +1,19 @@
+Component of a programming languages => Input Processing Output
+
+Processing => 1.Foundational 2.Structural
+
+1. Foundational =>
+     - Variable
+     - Operator
+     - Statement/Expression
+     - Loop
+     - Function
+     - Condition/Logis
+     - Array, Key value pairs
+
+2. Structural =>
+     - OOPs
+     - Functional
+     - Design patterns
+     - Design principles
+     - DSA

@@ -98,3 +98,186 @@ Using Aliases for Column Names:
 - You can assign aliases using the AS keyword or by simply providing a new name after the column.
 - Example: SELECT column1 AS alias1, column2 alias2 FROM tablename;
 - Aliases are especially useful when working with calculated fields or when joining tables.
+
+
+Topics covered:
+- Data definition language
+- Filtering data with WHERE clause (AND, OR, IN, BETWEEN)
+
+Data Definition Language in SQL :
+
+DDL (Data Definition Language) commands in SQL are used to define, manage, and manipulate the structure of database objects. These commands handle the creation, modification, and deletion of database objects like tables, indexes, views, etc. 
+
+- CREATE:
+The CREATE command is used to create new database objects like tables, indexes, views, stored procedures, and more.
+
+Usage:
+ - CREATE TABLE is used to create a new table with defined columns and data types.
+
+ - CREATE INDEX is used to create an index on a table for faster data retrieval.
+
+ - CREATE VIEW is used to create a virtual table based on the result-set of a SELECT statement.
+
+- ALTER:
+The ALTER command is used to modify existing database objects.
+
+Usage:
+- ALTER TABLE allows you to add, modify, or drop columns, constraints, etc., in an existing table.
+
+- ALTER INDEX is used to modify an index (e.g., to add or remove columns from an existing index).
+
+-ALTER VIEW enables you to modify the definition of an existing view.
+
+Changes existing things in the database, such as adding a column to a table.
+
+- DROP:
+The DROP command is used to delete database objects.
+
+Usage:
+- DROP TABLE is used to delete an entire table and its data.
+
+- DROP INDEX is used to remove an index from a table.
+
+- DROP VIEW deletes a view from the database.
+
+Deletes things, like tables or indexes, entirely from the database.
+
+- TRUNCATE:
+The TRUNCATE command removes all records from a table.
+
+Usage: 
+- Unlike DELETE, TRUNCATE empties a table completely but does not log individual row deletions. It's faster than DELETE for large tables.
+
+Quickly removes all the data from a table, but keeps the table itself.
+
+Filtering data with WHERE clause (AND, OR, IN, BETWEEN):
+
+1. The Basics of WHERE Clause:
+
+- The WHERE clause acts as a filter, allowing you to selectively retrieve rows from a table based on specified conditions.
+
+- It follows the SELECT statement and precedes any optional clauses like ORDER BY or LIMIT.
+
+- Example: SELECT * FROM employees WHERE department = 'SDE';
+
+2. Using AND for Multiple Conditions:
+
+- The AND operator allows you to combine multiple conditions, ensuring that all conditions must be true for a row to be included in the result set.
+
+- Example: SELECT * FROM products WHERE category = 'Desktop' AND price > 50000;
+
+3. Employing OR for Alternative Conditions:
+
+- The OR operator provides flexibility by allowing you to specify alternative conditions, where only one condition needs to be true for a row to be included in the result set.
+- Example: SELECT * FROM customers WHERE country = 'India' OR country = 'Nepal';
+
+4. Using IN for Multiple Values:
+
+- The IN operator simplifies queries with multiple OR conditions, allowing you to specify a list of values to match against a single column.
+
+- Example: SELECT * FROM orders WHERE status IN ('Pending', 'Processing');
+
+5. Leveraging BETWEEN for Range Queries:
+
+- The BETWEEN operator is handy for specifying a range of values for a column, inclusive of both endpoints.
+Example: SELECT * FROM employees WHERE salary BETWEEN 50000 AND 80000;
+
+If you have completely understood the above topics, go for the exercise shared below: 
+
+Scenario: 
+You are tasked with managing employee data for a company. You have created a database named "EmployeeDB" with the following tables using DDL commands:
+
+- Employees table:
+Columns: EmployeeID, FirstName, LastName, Department, Position, Salary, JoinDate
+
+- Departments table:
+Columns: DepartmentID, DepartmentName
+
+Exercise Tasks:
+
+1. Use DDL commands to create the above tables (Employees and Departments) in the "EmployeeDB" database.
+
+2. Populate the Departments table with sample department data. You can include departments such as "Finance," "Human Resources," "Marketing," etc.
+
+3. Insert sample employee data into the Employees table. Include various employees across different departments, with different positions, salaries, and join dates.
+
+4. Practice filtering data using the WHERE clause with the following scenarios: 
+a. Retrieve all employees from the "Finance" department. 
+b. Retrieve all employees who hold the position of "Manager" in any department. 
+c. Retrieve all employees with a salary greater than $60,000. 
+d. Retrieve all employees who joined the company between January 1, 2023, and December 31, 2023. 
+e. Retrieve all employees who work in either the "Finance" or "Marketing" department. 
+f. Retrieve all employees with a salary between $40,000 and $50,000. 
+g. Retrieve all employees who are not in the "Human Resources" department. 
+h. Retrieve all employees whose first name starts with the letter 'J'.
+
+5. Experiment with combining multiple filtering conditions using AND, OR, and IN operators to refine your queries further.
+
+Topics covered:
+- Data manipulation language 
+- Sorting data with ORDER BY
+- Limiting results with LIMIT
+
+Data Manipulation Language 🔎
+
+DML (Data Manipulation Language) in SQL is all about managing the data within a database. It includes commands that allow you to interact with the data.
+
+- INSERT: 
+Adds new rows of data into a table, enabling the addition of new records. 
+
+- UPDATE: 
+Modifies existing data in a table, enabling changes to existing records.
+
+- DELETE: 
+Removes rows of data from a table, effectively deleting specific records.
+
+These commands form the backbone of interaction with a database's data. They enable querying, addition, modification, and deletion of data within database tables. Their usage is essential for managing and maintaining the data integrity and structure of a database.
+
+Sorting Data with ORDER BY:
+
+- The ORDER BY clause allows you to sort the result set based on one or more columns.
+
+- You can specify the column(s) to sort by and the sorting order (ascending or descending).
+
+- Example: SELECT * FROM products ORDER BY price DESC;
+
+- Sorting data enables you to present information in a meaningful way, facilitating analysis and decision-making.
+
+Limiting Results with LIMIT:
+
+- The LIMIT clause is used to restrict the number of rows returned by a query.
+
+- It is often combined with ORDER BY to retrieve the top or bottom N records.
+
+- Example: SELECT * FROM customers ORDER BY total_purchases DESC LIMIT 10;
+
+- Limiting results can enhance query performance and prevent overwhelming large result sets.
+
+Practice question:
+
+Managing Product Inventory
+
+You are working as a database administrator for an e-commerce company, tasked with managing the inventory database. Use SQL queries to perform the following tasks:
+
+1. Update Product Prices:
+The company has decided to increase the prices of all products in the "Electronics" category by 10%. Update the price column for these products accordingly.
+
+2. Sort Products by Price:
+Retrieve the details of all products from the "Electronics" category. Sort the result set in descending order of their prices.
+
+3. Limit Results:
+Display the top 5 cheapest products from the "Home Appliances" category.
+
+Your SQL script should include the following steps:
+
+- Begin by updating the prices of products in the "Electronics" category.
+
+- Retrieve product details for all products in the "Electronics" category, sorted by price in descending order.
+
+- Finally, display the details of the top 5 cheapest products in the "Home Appliances" category.
+
+- Ensure that your queries are efficient and optimize the use of ORDER BY and LIMIT clauses to minimize resource usage and improve query performance.
+
+Bonus Challenge:
+4. Update Product Stock:
+Due to high demand, decrease the stock quantity of all products in the "Home Appliances" category by 20%. Update the stock_quantity column for these products accordingly.

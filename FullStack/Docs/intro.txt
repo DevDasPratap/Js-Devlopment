@@ -3,7 +3,7 @@ Application Requirements and Landscape
 SRS (Software Requirements Specifications)
 
 Let's assume that we are all plaques. We want to start a business. The name of that business is Problem Solvers Cafe (PS Cafe). It is precisely for those who are plasterers or problem solvers that we want to start a special cafe.
-এর requirements আছে কিছু। এই ধরণের রিকোয়ারমেন্টসকে বলা হয় SRS (Software Requirements Specifications)। এই অ্যাপের জন্য SRS হলোঃ
+It has some requirements. These types of requirements are called SRS (Software Requirements Specifications). SRS for this app is:
 
 PS Caffe is an imaginary online coffee delivery service. This business is designed specially for programmers by keeping their life style in mind. We need an application to accept orders from online. The application will have the following functional and non functional requirements.
 

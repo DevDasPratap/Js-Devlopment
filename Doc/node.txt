@@ -1,0 +1,148 @@
+Node.js interviews can be challenging, but with the right preparation, you can ace them! I've compiled a list of 50 short Node.js interview questions that are frequently asked.
+
+1. What is Node.js?
+2. So, what's the main difference between Node.js and JavaScript?
+3. Can you explain the concept of non-blocking I/O in Node.js?
+4. How does Node.js handle child threads?
+5. When would you use Node.js over other backend technologies?
+6. What's an event loop in Node.js lingo?
+7. How does Node.js handle concurrency?
+8. Tell me about npm. What's it all about?
+9. Ever worked with Express.js? If so, what's it used for?
+10. Let's dive into callbacks: What are they, and why are they important in Node.js?
+11. Okay, let's talk about Promises. What problem do they solve in Node.js?
+12. How does error handling work in Node.js?
+13. Ever heard of callback hell? How does one avoid it?
+14. Alright, what's the purpose of the package.json file?
+15. Can you tell me about streams in Node.js?
+16. How does Node.js manage dependencies?
+17. What's the role of require() in Node.js?
+18. Let's discuss the global object in Node.js. What's its significance?
+19. Can you explain the difference between process.nextTick() and setImmediate()?
+20. How does Node.js handle buffer objects?
+21. What's the purpose of the os module in Node.js?
+22. Let's talk about debugging in Node.js. What tools do you use?
+23. How does Node.js handle memory leaks?
+24. What's the role of middleware in Express.js?
+25. Can you explain the difference between res.send() and res.json() in Express.js?
+26. Ever worked with templating engines in Express.js? Which one's your favorite?
+27. What's the purpose of app.use() in Express.js?
+28. Let's discuss RESTful APIs. What are they, and how does Express.js help implement them?
+29. What's the purpose of app.get(), app.post(), app.put(), and app.delete() in Express.js?
+30. How does Express.js handle routing?
+31. Let's talk about authentication in Express.js. How do you implement it?
+32. Can you explain the concept of middleware chaining in Express.js?
+33. What's the purpose of body-parser middleware in Express.js?
+34. Let's dive into WebSockets: What are they, and how do you implement them in Node.js?
+
+
+avascript Enthusiasts🤗🤗
+
+Here are the Interview questions asked in round-1 for salary bracket (25 LPA),
+
+1. Arrow function and what is the difference apart from syntax?
+2. Call, apply bind (write down the code for one of them)
+3. Generator Function and write a range Generator functions
+4. Real time example of Generator Functions?
+5. ES6 features
+6. Write down the code for spread operator, rest operator and Object destructuring?
+7. Difference between forEach and map?
+8. Difference between Object.assign(), Object.create()? Which one mutates the data ?
+9. What is a Promise ?
+10. Write a function component in react which returns a lazy loaded Button Component and add the Suspense with fallback UI?
+11. What is Error Boundary, How can we write a separate Error Boundary Component?
+12. What is Redux, Why Redux , Core principles of redux?
+13. Write down a basic sum function using Typescript and how do you accept params in either string or number?
+14. What are Generics functions (inside Typescript), can you write down types ?
+15. Abstract function means ?
+16. Software Principles (DRY, KISS) how do you implemented in your codebase
+17. Git hook (pre commit, husky)
+18. SOLID Principles
+19. Write down test cases ? What does beforeEach and beforeAll do ?
+20. Difference between mock vs spy in testing?
+21. Explain Testing Pyramid? 
+22. Differences between Integration Testing vs End to End testing?
+23. Which tool you have used for above of them ?
+24. What do we mean by code coverage ? How do you measure code coverage? 
+25. What is meant by OWASP top10?
+26. What is meant by CSP, XSS (where do we set these CSP headers? In Client or Server)
+27. What is meant by CORS? (Where do we set them)
+28. DDD ? 
+29. Explain me the various ways of Performance Optimization that you can do at any level (ex: CSS, JS, HTML)
+30.What is CRP?
+31. What are memory leaks in react ? Why do they happen ?
+32. Promise.all vs Promise.any vs Promise.race?
+33. How do you configure typescript in your project?
+34. How many ways you can create an object ?
+35. What does we have in .tsconfig.json? can you explain them?
+36. Problem Solving
+
+
+Sharing a roadmap for backend development using NodeJs 🟢
+1. 𝐉𝐚𝐯𝐚𝐒𝐜𝐫𝐢𝐩𝐭 𝐅𝐮𝐧𝐝𝐚𝐦𝐞𝐧𝐭𝐚𝐥𝐬:
+- Basic: variables, data types, functions, and control flow.
+- Introduction to asyn programming: callbacks, promises, and async/await.
+
+2. 𝐍𝐨𝐝𝐞.𝐣𝐬 𝐁𝐚𝐬𝐢𝐜𝐬:
+- Install Node.js and npm.
+- Understanding the Node.js runtime environment, modules, and the CommonJS module system.
+
+3. 𝐄𝐱𝐩𝐫𝐞𝐬𝐬.𝐣𝐬 𝐅𝐫𝐚𝐦𝐞𝐰𝐨𝐫𝐤:
+- Introduction to Express.js.
+- Setting up a basic Express.js server, handling routes, and serving static files.
+- Middleware usage for tasks such as logging, error handling, and authentication.
+
+4. 𝐑𝐄𝐒𝐓𝐟𝐮𝐥 𝐀𝐏𝐈 𝐃𝐞𝐯𝐞𝐥𝐨𝐩𝐦𝐞𝐧𝐭:
+- Principles and design patterns of RESTful APIs.
+- Implementing CRUD using Express.js routes.
+- Handling HTTP requests and responses.
+
+5. 𝐃𝐚𝐭𝐚𝐛𝐚𝐬𝐞 𝐈𝐧𝐭𝐞𝐠𝐫𝐚𝐭𝐢𝐨𝐧:
+- Exploring database options like MongoDB or PostgreSQL.
+- Connecting Node.js applications to databases using libraries like Mongoose or pg-promise.
+
+6. 𝐀𝐮𝐭𝐡𝐞𝐧𝐭𝐢𝐜𝐚𝐭𝐢𝐨𝐧 𝐚𝐧𝐝 𝐀𝐮𝐭𝐡𝐨𝐫𝐢𝐳𝐚𝐭𝐢𝐨𝐧:
+- Implementing user authentication with Passport.js.
+- Understanding authentication strategies, including JWT.
+- Implementing authorization logic for restricting access.
+
+7. 𝐃𝐚𝐭𝐚 𝐕𝐚𝐥𝐢𝐝𝐚𝐭𝐢𝐨𝐧 𝐚𝐧𝐝 𝐄𝐫𝐫𝐨𝐫 𝐇𝐚𝐧𝐝𝐥𝐢𝐧𝐠:
+- Validating incoming data and payloads using libraries: Joi Express-validator.
+- Handling errors and providing error messages.
+
+8. 𝐓𝐞𝐬𝐭𝐢𝐧𝐠:
+- Learning testing frameworks like Mocha, Chai, and Supertest.
+- Writing tests for backend code reliability and correctness.
+
+9. 𝐃𝐞𝐩𝐥𝐨𝐲𝐦𝐞𝐧𝐭:
+- Understanding deployment strategies, including manual and automated deployment using Docker and Kubernetes.
+- Setting up CI/CD pipelines using platforms like GitHub Actions or Jenkins.
+
+10. 𝐒𝐞𝐜𝐮𝐫𝐢𝐭𝐲:
+- Studying common security vulnerabilities in Node.js, such as XSS and CSRF.
+
+11. 𝐌𝐨𝐧𝐢𝐭𝐨𝐫𝐢𝐧𝐠 𝐚𝐧𝐝 𝐋𝐨𝐠𝐠𝐢𝐧𝐠:
+- Setting up logging for tracking application behavior and errors.
+- Utilizing tools: Winston or Morgan for logging and Prometheus or Grafana for monitoring.
+
+
+
+🚀 𝐃𝐞𝐥𝐯𝐞 𝐢𝐧𝐭𝐨 𝐭𝐡𝐞 𝐰𝐨𝐫𝐥𝐝 𝐨𝐟 𝐚𝐬𝐲𝐧𝐜𝐡𝐫𝐨𝐧𝐨𝐮𝐬 𝐩𝐫𝐨𝐠𝐫𝐚𝐦𝐦𝐢𝐧𝐠 𝐢𝐧 𝐉𝐚𝐯𝐚𝐒𝐜𝐫𝐢𝐩𝐭 𝐰𝐢𝐭𝐡 𝐚𝐬𝐲𝐧𝐜-𝐚𝐰𝐚𝐢𝐭!🚀
+
+1️⃣ 𝐖𝐡𝐚𝐭 𝐢𝐬 𝐚𝐬𝐲𝐧𝐜?
+🔹 async is a keyword used to define a function as asynchronous. It allows the function to return a promise, simplifying asynchronous code execution.
+
+2️⃣ 𝐖𝐡𝐚𝐭 𝐢𝐬 𝐚𝐰𝐚𝐢𝐭?
+🔹await is used inside an async function to pause execution until a promise is resolved. It makes asynchronous code look and behave like synchronous code.
+
+3️⃣ 𝐇𝐨𝐰 𝐚𝐬𝐲𝐧𝐜-𝐚𝐰𝐚𝐢𝐭 𝐰𝐨𝐫𝐤𝐬 𝐛𝐞𝐡𝐢𝐧𝐝 𝐭𝐡𝐞 𝐬𝐜𝐞𝐧𝐞𝐬?
+🔹When encountering an await keyword, JavaScript pauses execution of the async function and waits for the promise to resolve.
+🔹Meanwhile, it continues executing other synchronous code. Once resolved, it resumes execution.
+
+4️⃣ 𝐄𝐫𝐫𝐨𝐫 𝐡𝐚𝐧𝐝𝐥𝐢𝐧𝐠:
+🔹async-await allows for easy error handling using 𝐭𝐫𝐲-𝐜𝐚𝐭𝐜𝐡 blocks.
+🔹Errors thrown within the async function or rejected promises can be caught and handled gracefully.
+
+5️⃣ 𝐀𝐬𝐲𝐧𝐜-𝐚𝐰𝐚𝐢𝐭 𝐯𝐬 𝐏𝐫𝐨𝐦𝐢𝐬𝐞𝐬 .𝐭𝐡𝐞𝐧/.𝐜𝐚𝐭𝐜𝐡:
+🔹While both async-await and Promises .then/.catch handle asynchronous code, async-await offers cleaner syntax and easier error handling.
+🔹It's like writing synchronous code in an asynchronous environment, enhancing readability and maintainability.

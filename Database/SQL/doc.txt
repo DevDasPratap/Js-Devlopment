@@ -2,6 +2,10 @@ This clasification is done based on how language takes input user to perform an 
 - Impereative - JS, Java, C++, etc
 - Declarative - SQL
 
+Imperative and declarative are two different programming paradigms.
+
+Imperative Programming: In imperative programming, you tell the computer how to do something step by step. You explicitly write the sequence of instructions for the computer to follow. It focuses on how to achieve a certain result. Examples include languages like C, Python, and Java. For example, in imperative programming, you might say "add 2 to x" or "loop through this list and print each element".
+Declarative Programming: In contrast, declarative programming focuses on what you want to achieve rather than how to achieve it. You declare the desired outcome and let the computer figure out how to accomplish it. Examples include SQL for databases, HTML/CSS for web development, and regular expressions for pattern matching. For example, in declarative programming, you might say "select all users with age greater than 18" or "style this element with a red border".
 
 show database;
 create database db_name;
