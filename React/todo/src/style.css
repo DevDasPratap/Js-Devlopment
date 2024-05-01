@@ -1,0 +1,33 @@
+body{
+    background: lightgray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.todo-container{
+    width: 300px;
+    padding: 10px 20px;
+    background: whitesmoke;
+    border-radius: 7px;
+}
+.todo-header{
+
+}
+.todo-item{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.todo-button{
+    width: 100%;
+    padding: 10px 20px;
+    border-radius: 7px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.todo-item-text{
+    margin-left: 5px;
+}
