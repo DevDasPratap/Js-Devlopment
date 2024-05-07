@@ -1,0 +1,4 @@
+js: js code or utility, network call, API call
+jsx: for react component
+
+All component name must be start with capital chartcher
