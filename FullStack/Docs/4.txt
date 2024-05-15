@@ -1,0 +1,10 @@
+Programming Fundamentals using JavaScript
+Programming Fundamentals
+Variables - helps us to make things dynamically
+Operators
+Conditions
+Loops
+Arrays
+Objects
+Functions
+Expression vs Statement

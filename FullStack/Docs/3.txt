@@ -17,3 +17,118 @@ Processing => 1.Foundational 2.Structural
      - Design patterns
      - Design principles
      - DSA
+
+
+If you want to learn anything, you should first map the whole thing and then learn little by little. Means classify what you want to learn sector by sector. If you can do this then learning anything will be easy for you.
+
+Today our task is how to easily learn new technology. Our agenda for today is:
+
+- Programming Language Landscaping
+- Visualize Programming Syntax
+
+## Programming Language Landscaping
+
+To understand this topic we need to understand the following diagram.
+
+What are the things of programming language? If this question is asked and all answers are listed then its beginning and end cannot be found. In that case, if I can divide each thing into categories, it will be easier for us to create a roadmap. There are basically 3 core components of a programming language. Core components are those without which a programming language cannot be imagined. These 3 components are:
+
+- **Input:** Input can be given in many ways. I am typing something on keyboard that is input, form submit input, some search input in browser. A programming language can have numerous inputs. But when we start learning the language we have to choose which one is standard input. This means we will have the terminal open, we will input with the keyboard. This is called standard input.
+
+- **Processing:** After giving the input it will be processed somehow. This work is very big. This processing can again be divided into two parts:
+
+   - **Foundational:** Everything needed to solve the main problem of an application falls into this category. Here are some important topics.
+
+     - **Variables:** Variables are one of the most important things in a programming language. We don't care much about this, but it is very important where to take variables and not take them. Do not take any unnecessary variables, as there are chances of memory leaks. So there is a matter of understanding this topic.
+
+     - **Statement / Expression:**
+
+     - **Operator:**
+
+     - **Logic:** includes logical operations or logic building such as conditions, loops.
+
+     - **Features** This is a great component for code reuse. We will know about this in detail.
+
+     - **Array, Key-Value Pair Data Structures:** There are many types of data structures. But not all problems need to be solved. But there are two data structures without which the problem solver cannot be imagined. Every programming language provides these two data structures by default. The rest are very complex, we implement them according to our needs. One of these two DS is an array. The Most Ignored Data Structure. Many of us do not know that array is a data structure. If you go to the [Array Data Structure - GeeksForGeeks](https://www.geeksforgeeks.org/array-data-structure/) link, you will see how many algorithms there are for an array. We need to know them. Another data structure is the key-value pair. Arrays and key-value pairs are complementary to each other. We can't give names to arrays, we have to work by index. But we can name data in key-value pairs. It is called object in JavaScript, structure in C, dictionary in Python, map in Dart, Java is a little different because it is an object oriented language, so if you create a class and give two keys and values, the key-value pair will become. The most powerful of these are JavaScript objects. All languages have some variation between key-value pairs. But what matters is that the key and value will remain.
+
+     The six components you see are puzzles. All small and large applications in the world are built with them. The last of these can be replaced with advanced data structures as needed. But the first 5 reps have no chance.
+
+     The child languages of C like C++, Java, JavaScript, PHP have very close syntax. The foundational components differ from language to language only in syntax. No other thought process is different. The thought process is the same. Only the syntax is different.
+
+   - **Structural:** Maintaining code over the years is more difficult than writing code. If an application is not well structured then it becomes difficult to maintain. We use this structural processing to solve that structural problem. It has
+
+   OOP: It is not language specific. We discussed this in detail in the last class. This is a theorem. Although C is not an object oriented programming language, we can do OOP by applying object oriented theory in C. So it appears that we can use OOP even where the language supports OOP, where it does not support it.
+Functional: It is also not language specific. Because it is a theorem. And using it we can use functions as values, and we can create everything in the world with functions. In this case, we can use functional even where the language is giving me support for functional, we can also use it where it is not supported.
+Design Pattern: It is not a programming language dependent. Since OOP is not programming language dependent, we create design patterns using OOP in different ways. So it is also not programming language dependent.
+Design Principles: It also does not depend on any programming language. It includes SOLID (Single responsibility, Open-closed, Liskov substitution, Interface Segregation, and Dependency inversion), DRY (Don't Repeat Yourself), KISS (Keep It Simple, Stupid), YAGNI (You Aren't Gonna Need It). , SoC (Separation of Concerns), Avoid Premature Optimization, Law of Demeter, Clean Code Architecture. If you know about these 7/8 types of principals, you can do anything. You can visit this link to get ideas of these topics.
+DSA: Here comes a question, DSA is better to learn using any language. We do not really understand what DSA is? DSA is a form of mathematics. Discrete mathematics is a branch of mathematics. Data structures and algorithms are included in this branch. DSA has been around since long before programming languages. It can be implemented using any language. Data structure is to keep my data structured in some way, so that I can easily insert data, extract data, update and delete data if necessary. Now we will select the data structure according to which work we will do. But one thing must be clearly remembered that programming language has nothing to do with DSA.
+But the main problem of the application cannot be solved by structural processing. It requires some topics called computer fundamentals. which are discussed in Foundational Processing.
+
+The most important of the above two components is the foundational component. All the problems of the world have been solved with it. Structural lag for development purposes. We should not go structural until we are comfortable with foundational. Foundational we will work in the imperative way.
+
+Output: After processing we will get an output. Output can be monitor, javascript dom, printer, soundbox etc. But when we first learn programming language we will work with standard output. I will learn the rest as I work later
+Visualize Programming Syntax
+Why are we afraid to program? Because when people think, they think with an image. But in programming we have trouble thinking about images. We only care about syntax. In that case, all the syntax goes to our heads and gets messed up. Then we run into a lot of problems. If we can visualize the programming syntax as an image, it becomes much easier for us. There is a website for this called Scratch. Those who are beginners can go here and learn beautifully by putting together like a puzzle. You can check Tamim Shahriar Subin Bhai's Scratch Programming in Bangla Playlist for this. Scratch will be very useful for visualization even for those who are not beginners in programming.
+
+Reasons why JavaScript is called Weird Language
+The reason JavaScript is called this is because there is OOP and functional in such a way that beginners get confused. As OOP can be done here, when I write the method, I can use all the functions again. It should be cleared very well. Another problem is that JavaScript is a dynamic and weekly typed language. JavaScript tries to convert one data type to another data type which is a problem. For example:
+
+let a = 'ab';
+console.log(Number(a)); // NaN
+If it was in Python it would throw an error. But JavaScript tries to convert it, and outputs Nan as a result. For these reasons, JavaScript is called a weird language.
+
+Why do we use functions?
+Suppose we have a requirement to add two numbers. There will be a total of six calculations for this addition. We started writing in imperative way.
+
+let a = 10 + 20;
+let b = 20 + 30;
+let c = 40 + 50;
+let d = 10 + 20;
+let e = 20 + 30;
+let f = 40 + 50;
+Then all of a sudden the client came and said brother what I said to add here, it will not be added it will be subtracted. Now you sat down again and changed everything like this.
+
+let a = 10 - 20;
+let b = 20 - 30;
+let c = 40 - 50;
+let d = 10 - 20;
+let e = 20 - 30;
+let f = 40 - 50;
+This time, the client came again and said, "Brother, I made a mistake when I said that there will be a subtraction." It won't be subtraction, it will be addition but one subtraction from each. Fire your head. But there was nothing to do and you did it like this.
+
+let a = 10 + 20 - 1;
+let b = 20 + 30 - 1;
+let c = 40 + 50 - 1;
+let d = 10 + 20 - 1;
+let e = 20 + 30 - 1;
+let f = 40 + 50 - 1;
+Now you think about client benefits. He comes and gives different changes at different times. And if there is six thousand here instead of six, then you have to go crazy. What did you do cleverly to create a function like this?
+
+function myFunction(a, b) {
+return a + b - 1;
+}
+And write the variables like this.
+
+let a = myFunction(10, 20);
+let b = myFunction(20, 30);
+let c = myFunction(40, 50);
+let d = myFunction(10, 20);
+let e = myFunction(20, 30);
+let f = myFunction(40, 50);
+Now if the client comes and says brother 1 will not be subtracted. Then you only change one place. That is subtract -1 from the function. Then the function will look like this.
+
+function myFunction(a, b) {
+return a + b;
+}
+Then if he says I actually want the sum of the squares of each number. no problem Change the function body.
+
+function myFunction(a, b) {
+return a ** a + b ** b;
+}
+Then it appears that our work is reduced through functions, debugging is facilitated, code is facilitated to maintain, and code can be reused. When we see that we have to write a code twice, we will use the function. Functions wherever there is code repetition.
+
+Our beginners mainly have problems in two places. One is to declare variables. Another is to declare functions. The solution is-
+
+Whenever we see that we have a data, we will create a variable for that data.
+First, we will continue to do what we have to do. When we see that we have done the same task more than once, we will immediately write a function for it. Here we have unknowingly applied a design principal. That is DRY.
+last word
+If the structural component is taken as the design, color of the building then the foundational is brick, sand, cement, rod. No matter how beautiful your building is, if the bricks, sand, cement, rods are not good, the building will not last. So we should clear foundational and go to structural. No lacings should be placed on the foundation.

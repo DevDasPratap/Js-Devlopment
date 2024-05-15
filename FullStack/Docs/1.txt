@@ -1,5 +1,6 @@
-Problem Solvers Caffe (PS Caffe)
-PS Caffe is an imaginary online coffee delivery service. This business is designed specially for programmers by keeping their life style in mind. We need an application to accept orders from online. The application will have the following functional and non functional requirements.
+MVP (Minimal Viable Product) or Workable Prototype to research our targeted market.
+
+What is the difference between functional and non-functional requirements.
 
 Functional Requirements (Mostly client requirements)
 
@@ -31,9 +32,29 @@ Non Functional Requirements:**
 - Scalability (not main concern for MVP)
 
 
+SDLC (Software Development Life Cycle) model
+Water Fall Model:
+      - Requirements
+      - Design
+      - Implementation
+      - Verification
+      - Maintenance
 
+Agile Model:
+      - Requirements
+      - Requirement Analysis
+      - Create design
+      - Coding
+      - Testing
+      - Review
 
-Requirement Analysis & Design:
+Choose Necessary Technology:
+For our application development we need to understand which technology is suitable for our application development. We need a landscape for that. Here is an overview so that you can get an idea.
+First we need to create SRS. The tools we may need for that are:
+      - Google Docs, Microsoft Office, Notion.
+      - (To draw EML Diagram, ER Diagram, Activity Diagram etc.) draw.io, Lucid chart
+
+Requirement Analysis & Design: It is called Blue Print of any application. What this part will contain is
 
 - System Design
   - Architectural Decision
@@ -43,20 +64,21 @@ Requirement Analysis & Design:
       - very hard to develop, but easy to maintain
     - Server less (FAAS - Function as a service)
   - Select Database
-    - SQL
+    - SQL (when I know what properties the data will have and not have)
       - [PostgreSQL](https://www.postgresql.org/)
       - [MySQL](https://www.mysql.com/)
-    - NoSQL
+    - NoSQL (when requirements change randomly)
       - [MongoDB](https://www.mongodb.com/)
       - [Cassandra](https://cassandra.apache.org/_/index.html)
     - Key value
-      - [Redis](https://redis.io/)
+      - [Redis](https://redis.io/) (caching, job scheduling, message broker)
       - [DynamoDB](https://aws.amazon.com/dynamodb/)
-    - Graph Database
+    - Graph Database (for data in graph structure)
       - [Neo4j](https://neo4j.com/)
-    - Search Database
+    - Search Database (search engine related works)
       - [Elastic Search](https://www.elastic.co/elasticsearch/) (Open source - Full Text Search)
       - [Algolia Search](https://www.algolia.com/) (Open AI 3 - Natural Language Processing)
+
 - Software Architecture
   - OOP
   - OOP Design Pattern & Principles
@@ -64,7 +86,7 @@ Requirement Analysis & Design:
   - Clean Code Architecture
   - Problem Solving
 - Testing
-  - Test Driven Development
+  - Test Driven Development (Test Driven Development (first write the test code and then write the main code))
   - E2E (End to End)
 - Distribution
   - DevOps
@@ -72,13 +94,13 @@ Requirement Analysis & Design:
       - [Git](https://git-scm.com/) & [Github](https://github.com/)
       - [Linux](https://www.linux.org/), [SSH - Secure Shell HomePage](https://www.ssh.com/academy/ssh)
       - [Circle CI](https://circleci.com/), [Travis CI](https://www.travis-ci.com/), [Jenkins](https://www.jenkins.io/)
-      - [Docker](https://www.docker.com), [Docker Compose](https://docs.docker.com/compose)
-      - [Docker Swarm](https://docs.docker.com/engine/swarm), [Kubernetes](https://kubernetes.io/)
-      - [Prometheus](https://prometheus.io/), [Nagios](https://www.nagios.org/)
+      - [Docker - (For Single Service)](https://www.docker.com), [Docker Compose - (For Multiple Service)](https://docs.docker.com/compose)
+      - [Docker Swarm](https://docs.docker.com/engine/swarm), [Kubernetes - (To manage applications in Multiple Place from one place)](https://kubernetes.io/)
+      - [Prometheus](https://prometheus.io/), [Nagios](https://www.nagios.org/) - For continuous monitoring
       - [Ansible](https://www.ansible.com/)
-  - Cloud Engineering
-    - [VPC (Virtual Private Cloud)](https://en.wikipedia.org/wiki/Virtual_private_cloud)
-    - [EC2 (Elastic Computing Cloud)](https://aws.amazon.com/ec2/)
+  - Cloud Engineering: We need a cloud where we can deploy our applications. Numerous design decisions come into play here.
+    - [VPC (Virtual Private Cloud)](https://en.wikipedia.org/wiki/Virtual_private_cloud) - Through this, it can be arranged that only those applications in this cloud can access my database.
+    - [EC2 (Elastic Computing Cloud)](https://aws.amazon.com/ec2/) - The actual server that will run my application
     - [S3 (Simple Storage Service)](https://aws.amazon.com/s3/)
     - [RDS (Relational Database Service)](https://aws.amazon.com/rds/)
     - [DynamoDB](https://aws.amazon.com/dynamodb/)
@@ -91,10 +113,9 @@ Requirement Analysis & Design:
     - [Lambda](https://aws.amazon.com/lambda/)
     - [Step Functions](https://aws.amazon.com/step-functions/)
     - [Cloud Watch](https://aws.amazon.com/cloudwatch/)
-    - [Cloud Formation](https://aws.amazon.com/cloudformation/), [Terraform](https://www.terraform.io/), [CDK](https://aws.amazon.com/cdk/)
+    - [Cloud Formation](https://aws.amazon.com/cloudformation/), [Terraform](https://www.terraform.io/), [CDK](https://aws.amazon.com/cdk/) - By using these we can provide non functionalities requirements.
 - Maintenance
 
-Our Decision for PS Caffe:
 
 - Architecture: Monolithic
 - Database - NoSQL ([MongoDB Atlas](https://www.mongodb.com/atlas))
@@ -112,3 +133,17 @@ Steps:
   - Test Code
 - Testing, Deployment
 - Maintenance
+
+For the backend we need to ask ourselves two questions. First question is whether we need to do heavy computing in our application (video processing / image processing)? If not then .Net, Java Spring boot, Go lang is excluded. The second question is whether my application is MVC, multipage? If so then exclude NodeJS. We will select Django, Laravel or Ruby on Rails. If MVC is not, data driven and real time then close your eyes choose NodeJS. Our application is data driven so we will select NodeJS for our application. Because it will not block any request. In this case, we can use Hapi, Express or Fastify as Node JS framework.
+
+The steps required for an application are:
+     - Requirements
+     - Design
+     - Implementation
+     - UI/UX Design
+     - Web Design
+     - Frontend Development
+     - Backend Development
+     - Test Code
+     - Testing, Deployment
+     - Maintenance
