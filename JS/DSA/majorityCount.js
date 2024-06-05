@@ -1,4 +1,4 @@
-const A = [2, 1, 2] //ans 2
+const A = [5, 1, 5, 4, 4, 4, 4]
 const majority = (A) => {
     let hasmap = new Map()
     const len = Math.floor(A.length / 2)
@@ -18,5 +18,35 @@ const majority = (A) => {
     return -1
 }
 
-const res = majority(A)
-console.log(res)
+// const res = majority(A)
+// console.log(res)
+
+// function majorityEle(A){
+//     let map = {}
+//     for(let i = 0; i<A.length; i++){
+//         const num = A[i]
+//         map[num] = map[num] + 1 || 1
+//         if (map[num] > A.length/2) {
+//             return num
+//         }
+//     }
+//     return map
+// }
+// const result = majorityEle(A)
+// console.log(result)
+
+// function majorityEle(A){
+//     let map = {}
+//     for(let i = 0; i<A.length; i++){
+//         const num = A[i]
+//         map[num] = map[num] + 1 || 1
+//     }
+//     for (const key in map) {
+//         if (map[key] > A.length/2) {
+//             return key
+//         }
+//     }
+//     return map
+// }
+// const result = majorityEle(A)
+// console.log(result)

@@ -22,3 +22,89 @@ Clientside Dev: https://www.clientside.dev/
 Frontend Churn: https://www.algochurn.com/frontend
 Reacterry: https://www.reacterry.com/
 Edabit: https://edabit.com/challenges/javascript
+
+
+They say becoming a front-end dev is easy...
+
+Then, I have to show them the reality:
+
+Beginner Level
+1. <div>
+2. <button>
+3. <i>
+4. <b>
+5. font-size: 16px
+6. index.html
+
+Intermediate Level
+7. <script>
+8. <img>
+9. <form>
+10. <iframe>
+11. $(function(){...});
+
+Advanced Level
+12. useEffect
+13. center a <div>
+14. unit tests
+15. responsive layouts
+16. <link preload/prefetch>
+17. linting
+18. CSS cascade
+19. float
+
+Expert Level
+20. CORS
+21. E2E tests
+22. input validation
+23. Hydration errors
+24. font-size 14px safari zoom
+25. filter views
+26. @media print
+27. img srcSet
+28. pagination
+29. NaN / undefined / null
+
+Master Level
+30. infinite scroll
+31. layout shift
+32. calendar UI
+33. cache busting
+34. email CSS
+35. CSS selector perf
+36. event loop
+37. OAuth2
+38. user agents
+39. WASM
+40. this
+
+God Mode Difficulty
+41. caching headers
+42. "0 results found"
+43. WebRTC
+44. regex
+45. SameSite cookie
+46. closures
+47. CJS / ESM
+48. drag and drop UI
+49. rewrite it in Rust
+50. CSS full height on mobile
+51. mobile dialogs
+52. websockets
+53. cookie banners
+54. v8 stack traces
+55. dates
+56. localization
+57. local first
+58. rewrite it back in JavaScript
+59. new Response(new ReadableStream(...))
+60. microtask queue
+61. typeof [1, 2, 3]; // 'object'
+62. source maps
+63. WYSIWYG editor
+64. Samsung browser
+65. 2023 IE support
+66. time zones
+
+(Beyond God Mode)
+67. T extends [any, ...any[]] ? (T extends [...any[], infer _] ? 0 : 1) : 1
