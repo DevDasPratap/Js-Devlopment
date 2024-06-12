@@ -13,7 +13,7 @@ app.get('/', (req, res)=>{
 })
 
 app.use('/auth', authRouter)
-app.use('/auth', stocksRouter)
+app.use('/stock', stocksRouter)
 
 const port = process.env.PORT || 3000
 
