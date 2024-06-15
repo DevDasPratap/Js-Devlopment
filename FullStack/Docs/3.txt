@@ -1,4 +1,4 @@
-Component of a programming languages => Input Processing Output
+Component of a programming languages => Input - Processing - Output
 
 Processing => 1.Foundational 2.Structural
 

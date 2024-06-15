@@ -9,6 +9,31 @@ Objects
 Functions
 Expression vs Statement
 
+#Variables
+We know variable means variable. Beginners have a problem where to take variables and where not to take them. There are some tricks for this. Before that we need to know what is the function of the variable? Simply put, variables help us make anything dynamic. That's the only job. Apart from this, the variable has no other function. It is more like a container. The larger the container, the more space it will take. It means more memory is needed. So what is the need for extra memory? It is possible to take variables less. Then our application will be much lighter. But still we have to take variables. As if we will drink water. How will this water come to us? First, the water from below the ground is stored in a tank under the house through pipes and pumps. Then through another pump it goes on the roof and is stored in another tank. From there it is distributed from house to house through piping. We store that water in the filter through the tap at home. After filtering, we take that water in a jug or bottle. Then when we need to drink water, we drink water from a jug or bottle into a glass. Our purpose is to drink water, so it is necessary to store water in the middle? If we could not keep the tank, it would not be possible to distribute it to everyone's house. If I didn't put it in the filter, I couldn't purify the water. So variables are also like that. They store data. If we don't take the variable then we can't use the data a second time.
+console.log('Pratap Das', 'Pratap Das'.length); // Pratap Das 10
+In the above example if we want to do it with any other name then it is not possible. To do that, you have to drop the current name. Because in case of static code nothing can be changed at runtime. Now the question may come runtime and compile time?
+
+console.log('Pratap Das', 'Pratap Das'.length); // Pratap Das 10
+throw new Error('Something wrong'); // Error
+
+There is nothing wrong with the program here. But while running the program it shows an error. This is called runtime error. The time during which the program runs is called runtime.
+
+console.log('Pratap Das', 'Pratap Das'.length); // Pratap Das 10
+1644dsfsdf
+
+In this case the first code will not execute. will show error directly. Means he got error in code while compiling. This is called a compile time error.
+
+Now we can change many things dynamically at runtime. Like can give some input, can fetch something from internet, can click with mouse. All this happens at runtime. But when we work with static data like in the first example, we cannot change the data inside the log in any way. For that we need to take variables. Whenever we look at the data we will take a variable.
+
+let name = 'Pratap Das';
+console.log(name, name.length); // Pratap Das 10
+
+
+
+
+
+
 # Conditions
 if (studyBasic) {
 	wontJoin();
@@ -75,3 +100,108 @@ while (true) {
 do {
 	console.log('It will run at least once');
 } while (false);
+
+
+Array
+
+What type of data can we store in array? Almost all programming languages ​​have some limitations to storing data in arrays. And only one data type can be stored in an array. In this respect JavaScript has given complete freedom. Any data type can be stored in JavaScript. Even data of different data types can be stored in an array. We can understand if we look down a little.
+
+const nums = [1, 2, 3, 4, 5, 6];
+const bools = [true, true, false, false];
+const nulls = [null, null, null];
+const undefineds = [undefined, undefined, undefined];
+const arrayOfArray = [
+	[1, 2, 3],
+	[4, 5, 6],
+	[7, 8, 9],
+];
+const mixed = [true, null, 'Str', 5, [12, 2, 4]];
+
+Objects and functions can also be stored in arrays. Since we haven't discussed objects and functions yet, we haven't shown them here. An array can store data of different data types, but we will store only data of the same data type in an array. The reason is suppose you created an array of student names. Now if you put their address, phone number there then it will be difficult to find the name. So data of the same type should be stored in an array.
+
+We can think of an array as a database. In memory database. Where we can create data, read it, update it if necessary and delete it if we want. This whole operation is called CRUD - Create, Read, Update, Delete operation. CRUD is the function of all the data structures in the world.
+
+Object
+
+In the array we have entered the names of some students. But now if we want to store information like their email, age and whether they are present in current class then there is a problem with array. We try to see what the problem is.
+
+const student = ['Abu', 'Rayhan', 'rayhan@example.com', 25, true];
+sendEMail(students[0]);
+
+function sendEmail(email) {
+	console.log('Sending Email to ', email);
+}
+
+
+Now we see what could be the problem here. At first glance there is no way to tell which is which type of information. It means that the code has no readability. When we go to email someone, we need to remember how many numbers index that information. Now, here are 5 data that can be remembered somehow. If it is 5000 then it will be very difficult to remember. To overcome this problem we try to write it differently.
+
+const student = {
+	firstName: 'Pratap',
+	secondName: 'Das',
+	email: 'pratap@example.com',
+	age: 25,
+	attend: true,
+};
+
+sendEMail(students.email);
+
+function sendEmail(email) {
+	console.log('Sending Email to ', email);
+}
+
+Even if some texts are written more, the code can be easily read to understand which information is which. Now I don't need to remember the index anymore. Just put a dot (.) at the end of the variable name. It is much more readable, much more informative than before.
+
+Now we can store the information of many students in an array if we want. how can i let's see
+
+const student1 = {
+	firstName: 'Pratap',
+	secondName: 'Das',
+	email: 'pratap@example.com',
+	age: 25,
+	attend: true,
+};
+
+const student2 = {
+	firstName: 'PD',
+	secondName: 'Dev',
+	email: 'pd@example.com',
+	age: 25,
+	attend: true,
+};
+
+const student3 = {
+	firstName: 'Anu',
+	secondName: 'Das',
+	email: 'anu@example.com',
+	age: 25,
+	attend: true,
+};
+
+const allStudents = [student1, student2, student3];
+
+for (let i = 0; i < allStudents.length; i++) {
+	sendEmail(allStudents[i].email);
+}
+
+function sendEmail(email) {
+	console.log('Sending email to', email);
+}
+
+Functions
+
+The function we make works a lot like a loop. We use loops to do the same thing over and over again. We will also use functions to do the same thing over and over again. So why do we use functions to have loops?
+
+Functions we can use in different places as we like. I can call the function as I like. We can reuse functions because functions have a name. But the loop has no name. So I can't use the loop wherever I want. If the loop starts again, I need to either break it, or let it continue until the loop ends. We have no control over the loop. But we can use the function in different places according to our needs. We can control according to our needs. If I take a few lines from the previous example
+
+for (let i = 0; i < allStudents.length; i++) {
+	// sendEmail(allStudents[i].email);
+	console.log('Sending email to', allStudents[i].email);
+}
+
+// function sendEmail(email) {
+// 	console.log('Sending email to', email);
+// }
+
+We could do the same thing without writing functions. But the line inside the loop will not work anywhere outside the loop. But functions can be called anywhere.
+
+When to use function and loop when? Functions when we do the same work in two different places. And if in one place then loop. For example if we are sending an email, and we need the full name in the email, we can do this with a loop. But if we send email in one place, and in other place need full name to create student list then loop will not work. We need to use the function It will be very difficult to understand at first. If you practice slowly, it will get stuck in your head.
