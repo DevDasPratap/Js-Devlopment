@@ -125,7 +125,7 @@ Object
 
 In the array we have entered the names of some students. But now if we want to store information like their email, age and whether they are present in current class then there is a problem with array. We try to see what the problem is.
 
-const student = ['Abu', 'Rayhan', 'rayhan@example.com', 25, true];
+const student = ['Abu', 'Pratap', 'rayhan@example.com', 25, true];
 sendEMail(students[0]);
 
 function sendEmail(email) {
@@ -205,3 +205,171 @@ for (let i = 0; i < allStudents.length; i++) {
 We could do the same thing without writing functions. But the line inside the loop will not work anywhere outside the loop. But functions can be called anywhere.
 
 When to use function and loop when? Functions when we do the same work in two different places. And if in one place then loop. For example if we are sending an email, and we need the full name in the email, we can do this with a loop. But if we send email in one place, and in other place need full name to create student list then loop will not work. We need to use the function It will be very difficult to understand at first. If you practice slowly, it will get stuck in your head.
+
+
+Expression vs Statement
+
+const name1 = 'Pratap'; // Statement
+const name2 = 'Alvi'; // Statement
+const name3 = 'Anik'; // Statement
+const name4 = 'Arjun'; // Statement
+const name5 = 'PD'; // Statement
+
+const students = [
+	'Pratap',
+	'Alvi',
+	'Anik',
+	'Arjun',
+	'PD',
+	'Dev',
+	'Bidyut',
+]; // Statement
+
+console.log(students[0]); // Expression
+console.log(students[1]); // Expression
+console.log(students[2]); // Expression
+console.log(students[3]); // Expression
+console.log(students[4]); // Expression
+
+for (let i = 0; i < students.length; i++) {
+	console.log(students[i], students[i].toLowerCase()); // Expression
+} // Statement
+
+name1.sendEmail(); // Expression
+name2.sendEmail(); // Expression
+name3.sendEmail(); // Expression
+name4.sendEmail(); // Expression
+name5.sendEmail(); // Expression
+
+const nums = [1, 2, 3, 4, 5, 6]; // Statement
+const bools = [true, true, false, false]; // Statement
+const nulls = [null, null, null]; // Statement
+const undefineds = [undefined, undefined, undefined]; // Statement
+const arrayOfArray = [
+	[1, 2, 3],
+	[4, 5, 6],
+	[7, 8, 9],
+]; // Statement
+const mixed = [true, null, 'Str', 5, [12, 2, 4]]; // Statement
+
+const student1 = {
+	firstName: 'Das',
+	secondName: 'Pratap',
+	email: 'pratap@example.com',
+	age: 25,
+	attend: true,
+}; // Statement
+
+const student2 = {
+	firstName: 'Alvi',
+	secondName: 'Dev',
+	email: 'alvi@example.com',
+	age: 25,
+	attend: true,
+}; // Statement
+
+const student3 = {
+	firstName: 'arjun',
+	secondName: 'na',
+	email: 'arjun@example.com',
+	age: 25,
+	attend: true,
+}; // Statement
+
+const allStudents = [student1, student2, student3]; // Statement
+
+for (let i = 0; i < allStudents.length; i++) {
+	sendMail(allStudents[i].email); // Expression
+} // Statement
+
+function sendMail(email) {
+	console.log('Sending email to', email);
+} // Statement
+
+allStudents.forEach((item) => console.log('Email ', item.email)); // Expression
+allStudents.forEach((item) =>
+	console.log('Full Name ', item.firstName, item.secondName)
+); // Expression
+
+function nameOfFunction(name) {
+	if (!name) {
+		console.log('Please provide your name');
+	} else {
+		console.log('Hello', name);
+	}
+} // Statement
+
+nameOfFunction('Pratap'); // Expression
+nameOfFunction('Das'); // Expression
+nameOfFunction(); // Expression
+
+function generateRandomNumber(min = 1, max) {
+	const randomNumber = Math.floor(Math.random() * min + (max - min)); // Statement
+	return randomNumber; // Expression
+} // Statement
+
+console.log(generateRandomNumber(5, 10)); // Expression
+
+The basic difference between Expression and Statement is that Expression returns something at the end of the day, produces data, and stores it somewhere. As such function call is a type of expression. And the statement does not produce any data, cannot be stored anywhere, does not return anything. Function writing is statement, and function call is expression. Because writing function doesn't return anything until it is called. Again if the arrow function is written as an expression it is being stored in a variable.
+
+Where to use the array and where the object?
+Where the terms are singular we will use object. Where Plural we will use Array. For example, one phone - object, many phones - array, person - object, people - array, member - object, members - array. Objects where information about someone or something. Where there are more than one person or more than one object, we will use array. Just keep this in mind. Don't confuse arrays with objects in life anymore.
+
+
+When to Use Arrays vs. Objects
+
+Objects: Use an object when you are dealing with a single entity that contains various properties. Objects are suitable for representing singular items. Each property of an object holds a value, which can be of any data type (including another object or array).
+
+Example:
+
+javascript
+Copy code
+const phone = {
+  brand: "Apple",
+  model: "iPhone 13",
+  price: 999
+};
+
+const person = {
+  name: "John Doe",
+  age: 30,
+  occupation: "Engineer"
+};
+Arrays: Use an array when you are dealing with a collection of items. Arrays are suitable for representing multiple entities of the same type. Each element in an array is usually an object or a primitive value, and the array itself maintains the order of these elements.
+
+Example:
+
+javascript
+Copy code
+const phones = [
+  { brand: "Apple", model: "iPhone 13", price: 999 },
+  { brand: "Samsung", model: "Galaxy S21", price: 799 },
+  { brand: "Google", model: "Pixel 6", price: 599 }
+];
+
+const people = [
+  { name: "John Doe", age: 30, occupation: "Engineer" },
+  { name: "Jane Smith", age: 25, occupation: "Designer" },
+  { name: "Alice Johnson", age: 28, occupation: "Doctor" }
+];
+Key Points to Remember:
+Singular vs. Plural:
+
+Singular term → Use an object.
+Plural term → Use an array.
+Use Case:
+
+For storing information about a single item, use an object.
+For storing information about multiple items, use an array.
+Example Scenarios:
+
+Object: A single phone, a single person.
+Array: A list of phones, a list of people.
+By keeping these guidelines in mind, you can more effectively organize and manage your data structures, avoiding confusion between arrays and objects in your programming endeavors.
+
+
+What should be emphasized to get good grip on JavaScript?
+Arrays
+Objects
+Functions and Functional Programming
+Basic OOP

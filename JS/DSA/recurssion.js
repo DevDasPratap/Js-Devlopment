@@ -1,3 +1,5 @@
+// when we use recurssion whre data came with tree structure
+
 // let count = 1
 // const recurssion = function(num){
 //     if (count > num) {

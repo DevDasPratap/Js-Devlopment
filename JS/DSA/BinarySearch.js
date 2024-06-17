@@ -19,4 +19,27 @@ function binarySearch(arr, target) {
     }
     return -1
 }
-console.log(binarySearch(bs, 9))
+// console.log(binarySearch(bs, 9))
+
+// Binary search using recurssion
+const bss = [1, 4, 5, 8, 9, 10, 16, 91]
+const target = 9
+const binarySearchRecurssion = (arr, target)=>{
+    return binarySearchUtil(arr, target, 0, arr.length)
+}
+const binarySearchUtil = (arr, target, start, end)=>{
+    if (start > end) {
+        return -1
+    }
+    let mid = Math.floor((start+end)/2)
+    if (arr[mid] === target) {
+        return mid
+    }else if(arr[mid] < target){
+        return binarySearchUtil(arr, target, start, mid - 1)
+    }else{
+        return binarySearchUtil(arr, target, mid + 1, end)
+    }
+}
+
+const res = binarySearchRecurssion(bss, target)
+console.log(res)
