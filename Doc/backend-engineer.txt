@@ -1,0 +1,23 @@
+If I were looking to improve my skills as a backend engineer, I would follow the resources from these 10 amazing Github repos. 
+
+Everything you need to start upskilling is here:
+
+➣System Design Primer: https://lnkd.in/eVhC6dTV
+
+➣Backend Developer Roadmap: https://lnkd.in/e2epFudJ
+
+➣Clean Architecture: https://lnkd.in/eAuXHFRB
+
+➣Awesome Backend Development: https://lnkd.in/e4F8bHST
+
+➣RealWorld: https://lnkd.in/eT25dTdv
+
+➣Awesome java: https://lnkd.in/ehycfeMh
+
+➣Backend Engineering Resources: https://lnkd.in/ey6RtUNv
+
+➣Project-Based Tutorials in C: https://lnkd.in/erfJeAwr
+
+➣Java Design Patterns: https://lnkd.in/exVptqUr
+
+➣Awesome Node.js: https://lnkd.in/eanEFcgU
