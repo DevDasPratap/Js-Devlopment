@@ -1,0 +1,134 @@
+A complete high-level and low-level system design. We cover topics from routing, load balancing and caching to advanced concepts like concurrency and design tradeoffs.
+
+A. Fundamentals
+
+0. Basics
+An introduction to distributed systems
+Horizontal vs Vertical Scaling
+Monoliths vs Microservices
+Load Balancing
+Load Balancer Summary PDF
+Sharding
+Summary - Database Sharding
+Single Point of Failure
+Service discovery and Heartbeats
+Capacity Planning and Estimation: How much data does YouTube store daily?
+Content Delivery Networks
+
+1. API Design
+API Design Goals
+API Design in Practice
+
+2. Databases Deep Dive
+What are Databases?
+Storage and Retrieval
+What is a NoSQL database?
+Types of Databases: Graph, TimeSeries and Object
+What database should you choose?
+
+3. Messaging and Event Handling
+The Message Queue: Problem Statement
+Asynchronous processing: benefits
+Publisher Subscriber Models
+Event Driven Architectures
+Event Driven Architectures - Advantages
+Event Driven Architectures - Disadvantages
+
+4. Consistency in Distributed Systems
+What is Data Consistency?
+Linearizable Consistency
+Eventual Consistency
+Causal Consistency
+Data Consistency Levels Tradeoffs
+Transaction Isolation Levels - Read Uncommitted Data
+Read Committed
+Repeatable Reads
+Serializable Isolation Level
+Transaction Level Implementations
+Conclusion - Transaction Isolation
+
+5. Caches Deep Dive
+Caching: Basics
+Caching: Global vs. Local Cache
+Global Cache Internals
+Write Policies: Write Back Policy
+Write Through Policy
+Write Around Policy
+Replacement Policies: LRU, LFU and Segmented LRU
+
+
+6. Networks Deep Dive
+Breakdown: The physical layer
+Breakdown: The Routing Layer
+Breakdown: The behavioral layer
+Connecting to the internet: ISPs, DNS and everything in between
+Internal routing: MAC addresses and NAT
+HTTP, WebSockets, TCP and UDP
+Communication Standards: REST, GraphQL and GRPC
+Head of line blocking
+Video transmission: WebRTC and HTTP-DASH
+Complete the Design: Netflix Content Distribution Network
+
+7. Database Replication
+Primary Replica Architectures
+WAL and Change Data Capture
+Write Amplification and Split Brain
+
+8. Location Based Databases
+Location Representation
+Data Structure - Quad Tree
+Range Queries and Hilbert Curve
+
+9. Database Migrations
+Database Migrations
+Migrating the Database
+Migration Across Regions
+
+
+10. Distributed Rate Limiting
+The Oracle and the Timer Wheel
+Partitioning and Real-life Optimisations
+Architecture Diagram
+Capacity Estimations
+Rate Limiting
+API Contracts
+
+
+11. Security in distributed systems
+Security aspects in distributed systems
+Token Based Auth
+SSO and OAuth
+Access Control Lists and Rule Engines
+Attack Vectors - Hackers, Developers and Code
+How videos are protected inside CDNs
+
+12. Observability in Distributed Systems
+Introduction to Observability
+Logging - Best Practices
+Monitoring Metrics
+Anomaly Detection: Holt-Winters Algorithm
+Root Cause Analysis
+Conclusion to Observability
+
+
+13. Distributed Consensus with Paxos
+The Problem of Distributed Consensus
+Basic Algorithm
+Improving the algorithm
+Termination Conditions
+Practical Considerations
+Complete the design: Design a Payment Gateway
+
+
+14. System Design Tradeoffs
+Introduction to design tradeoffs
+Pull vs. Push Architectures
+Memory vs. Latency
+Throughput vs. Latency
+Consistency vs. Availability
+Latency vs. Accuracy
+SQL vs. NoSQL databases
+Relations Between Tradeoffs
+
+15. Design an Audio Search Engine like Shazam
+Design an algorithm for an Audio Search Engine

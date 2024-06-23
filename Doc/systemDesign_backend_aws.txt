@@ -1,0 +1,201 @@
+SYSTEM DESIGN AND BACKEND ENGINEERING WITH AWS!!
+
+MODULE ONE: System Design Basics
+
+Networking Basics and Abstractions
+Consistency Models ( Eventual
+Causal
+Sequential
+Strict consistency)
+Failure Models ( Fail-stop
+Crash
+Omission failures
+Temporal failures
+Byzantine failures)
+CAP Theorem
+Painting a Software System - Connecting System Dots.
+MODULE TWO: Mathematics For System Design
+Back-of-the-envelope calculations
+Latencies
+Server Types
+Requests estimation
+Mathematics for Resource Estimation (Number of servers required | Storage requirements | Bandwidth requirements)
+Measuring availability
+Measure Reliability
+Scalability & Maintainability
+Fault Tolerance
+
+MODULE THREE: Node JS API development
+
+What is node JS
+and How do use it for the backend?
+es6 essentials for node js
+Asynchronous programming in node js [Callback
+promise
+async await]
+Understanding data flow in a web application. Data nature in the front end.
+Application layer and Database (API development using node js and express js)
+Connecting Postgres database from NodeJS Backend
+Designing Enterprise nodejs systems.[Application layers
+Structures]
+Making a simple streaming service [modular microservice approach]
+
+MODULE FOUR: Rate Limit Module
+
+What is rate limit
+why do we need this?
+Implementing a basic rate limit algorithm
+Implementing sliding window rate-limit
+Rate-limit with nginx
+Rate-limit in microservices
+
+MODULE FIVE : Load Balancer
+
+What Is Load Balancer? Why do we need this?
+What are different tools to load balance?
+What is layer 7 load balance
+What is layer 4 load balance
+Layer 4 load balance hands on
+Load Balancing : Nginx Hands ON
+Load Balancing Algorithm's: Nginx Hands ON -01
+Load Balancing Algorithm's: Nginx Hands ON -02
+Fault tolerant load balance in system design
+
+MODULE SIX: AWS For Scaling
+
+AWS introduction
+AWS Networking Basics
+VPC Design
+VPC peering
+Microservices in AWS
+Different storage in AWS
+Databases in AWS
+Introduction to managed DNS - Route 53
+Autoscaling Group Using EC2
+Load Balancer in AWS
+
+
+MODULE SEVEN: Docker For Backend Engineers
+
+DOCKER Introduction
+Writing Dockerfile Smartly
+Docker-Based MySQL REPLICATION
+Redis Deployment and Integration
+Kafka Deployment and Integration
+Elasticsearch Deployment and Integration
+Implement Layer 4 & 7 LOAD BALANCER using Nginx
+Load Balancing Algorithm: NGINX Hands-On -01
+Load Balancing Algorithm: NGINX Hands-On -02 -- Fault Tolerant Load Balance System Design
+Docker Compose - Full Stack Application Deployment
+
+MODULE EIGHT: Microservice Networking for Backend Engineers
+
+Linux Basic Networking
+Network Namespace Inspection
+Connect To A Network Namespace From HOST
+Connect Two Network Namespaces Using Bridge
+Connect To A Network Namespace From HOST Using Bridge
+
+MODULE NINE : Redis
+
+What is Redis? why do we need this?
+How did Redis evolve?
+Install Redis
+Connecting Redis with NodeJS
+Exploring Datatypes of Redis: String & Lists
+Exploring Datatypes of Redis: Sets & Hashes
+Exploring Datatypes of Redis: Sorted sets
+Exploring Datatypes of Redis Bitmaps and HyperLogLogs
+What is Expiration and TTL?
+Atomic operations and transactions in Redis.
+Streams Hands On
+Geo Hands On
+Persistence In Redis
+Setting up master-slave replication
+Handling failover scenarios
+Partitioning and Sharding: Horizontal scaling with Redis
+What is Consistent hashing
+and how does it help to scale Redis?
+Data distribution across multiple nodes Hands-on
+Exploring GUI tools for managing Redis instances
+
+
+MODULE TEN: Socket
+
+What is a socket?
+Why do we need this?
+Sockets basic architecture
+[Socket.io](http://socket.io/) components
+Rooms and namespaces hands-on
+What is Broadcasting and Acknowledgement?
+Sockets payload
+Design a system for chat application
+Developing A Basic chat application
+Deploy and Test the chat application
+How to Scale Socket Application?
+
+MODULE ELEVEN: RabbitMQ As Service Bus
+
+What is RabbitMQ
+and why do we need this?
+Integrating simple rabbit mq with a publisher and a client
+Understanding All Components of RabbitMQ
+Integrate a direct -exchange || Use case and coding hands-on
+Integrate a default exchange || Use case and coding hands-on
+Integrate a fanout exchange || Use case and coding hands-on
+Integrate a Topic exchange || Use case and coding hands-on
+Integrate a Header exchange || Use case and coding hands-on
+Exploring payload in RabbitMQ
+Making a multi-cluster RabbitMQ
+Explore Rabbit MQ management system
+Deploy RabbitMQ in Kubernetes
+
+MODULE TWELVE: Mapping System Design Components with AWS and Docker
+
+Theory: Design a URL Shortening Service
+Design URL Shortener Service
+Configure Nginx Layer 7 Load Balancer To Expose URL Shortener Service
+
+MODULE THIRTEEN: Tracing And Instrumentation Using Opentelemerty
+
+Opentelemetry Basics
+Context Propagation
+MySQL
+Redis Instrumentation
+Tracing Multiple Services Deployed In AWS Using Opentelemerty
+
+MODULE FOURTEEN: Database Scaling And Monitoring
+
+What Is Acidity? Why Do We Need This?
+How to Achieve Automaticity
+How to Achieve Consistency
+How to Achieve Isolation
+How to Achieve Durability
+Concurrency in Database in Single Server
+Concurrency in Database in Multiple Server Environments
+What Is DB Replication
+Why Do We Need Replication
+Snapshot Replication Hands-On
+Transactional Replication - Use Cases and Hands-On
+Introduction to Replication Architecture: Master-Slave & Master-Master
+Master-Slave Replication Hands-On
+Master-Master Hands-On
+Sync Async Replication
+Consistency and Conflict Resolution
+
+MODULE FIFTEEN: Kubernetes For Application Developer
+
+Kubernetes Architecture And Theory
+Kubernetes Basics
+Deploy k3s Cluster in AWS
+Understanding Kubernetes Networking For Debugging
+Deploy Multiple Microservice
+Scaling Websocket Application Using Kubernetes
+Monitoring Cluster Resource Using
+Deploy and Scale Redis using Kubernetes
+Deploy and Scale Rabbitmq using Redis
+Deploy URL Shortener Using Kubernetes
+
+MODULE SIXTEEN: Design Build and Deploy A Notification Service
+
+Design a Proximity Service / Yelp (DYI)

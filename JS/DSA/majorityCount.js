@@ -50,3 +50,27 @@ const majority = (A) => {
 // }
 // const result = majorityEle(A)
 // console.log(result)
+
+
+// const major = (arr)=>{
+//     if (arr.length < 1) {
+//         return arr
+//     }
+
+//     const max = Math.floor(arr.length / 2)
+//     const map = {}
+//     for (let index = 0; index < arr.length; index++) {
+//         // map[arr[index]] = map[arr[index]] + 1 || 1
+//         map[arr[index]] = (map[arr[index]] || 0) + 1
+//     }
+//     for (const [key, value] of Object.entries(map)) {
+//         if (value > max) {
+//             return parseInt(key);
+//         }
+//     }
+//     return null
+// }
+
+// const arr = [2,1,2, 3, 4, 3, 4, 4]
+// const res = major(arr)
+// console.log(res)
