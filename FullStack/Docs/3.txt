@@ -21,14 +21,13 @@ Processing => 1.Foundational 2.Structural
 
 If you want to learn anything, you should first map the whole thing and then learn little by little. Means classify what you want to learn sector by sector. If you can do this then learning anything will be easy for you.
 
-Today our task is how to easily learn new technology. Our agenda for today is:
+how to easily learn new technology. Our agenda for today is:
 
 - Programming Language Landscaping
 - Visualize Programming Syntax
 
 ## Programming Language Landscaping
 
-To understand this topic we need to understand the following diagram.
 
 What are the things of programming language? If this question is asked and all answers are listed then its beginning and end cannot be found. In that case, if I can divide each thing into categories, it will be easier for us to create a roadmap. There are basically 3 core components of a programming language. Core components are those without which a programming language cannot be imagined. These 3 components are:
 

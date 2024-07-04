@@ -136,7 +136,7 @@ Steps:
 
 For the backend we need to ask ourselves two questions. First question is whether we need to do heavy computing in our application (video processing / image processing)? If not then .Net, Java Spring boot, Go lang is excluded. The second question is whether my application is MVC, multipage? If so then exclude NodeJS. We will select Django, Laravel or Ruby on Rails. If MVC is not, data driven and real time then close your eyes choose NodeJS. Our application is data driven so we will select NodeJS for our application. Because it will not block any request. In this case, we can use Hapi, Express or Fastify as Node JS framework.
 
-The steps required for an application are:
+The steps required for an application development are:
      - Requirements
      - Design
      - Implementation

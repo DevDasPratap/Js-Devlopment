@@ -1,3 +1,23 @@
+Array Operations
+
+Imperative traverse
+Declarative traverse
+Update
+Delete
+Mutation
+Map
+Filter
+Reduce
+Object Deep Drive
+
+Object Operations
+Function vs Method
+Object as a Data Structure
+
+Array Operations
+Object Over Array
+
+
 Array Operations - Imperative vs Declarative
 
 Imperative traverse
