@@ -1,1 +1,17 @@
 JavaScript Array and Object Deep Dive
+
+Declerative: map, filter, reduce, some, find etc
+Imperative: for loop, while loop etc
+
+for in loop => retrun index array, return key Object
+for of loop => return value array, 
+
+mutable vs emutable
+reference error
+imperative vs declarative
+reference
+garbage
+
+map = same length as the original array
+filter = with filter item
+reduce = know one know (only you know), all posible value like string, array, Object
