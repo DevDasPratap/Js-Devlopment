@@ -16,7 +16,11 @@ const countDigit = (N)=>{
 
     // another way
 
-    return str = String(N).length
+    // return str = String(N).length
+
+    // another way
+    if(N < 10) return 1
+    return 1 + countDigit(Math.floor(N/10))
 }
 // const res = countDigit(N)
 // console.log(res)
@@ -27,12 +31,20 @@ const countDigit = (N)=>{
 
 // const number = 12345
 const revNum = (number)=>{
-    const str = String(number)
-    let rev = ''
-    for(let i = str.length-1; i >= 0; i--){
-        rev += str[i]
+    // const str = String(number)
+    // let rev = ''
+    // for(let i = str.length-1; i >= 0; i--){
+    //     rev += str[i]
+    // }
+    // return Number(rev)
+
+    // another way
+    if (number < 10) {
+        return number
     }
-    return Number(rev)
+    const lastDigit = number % 10
+    const remaingNumer = Math.floor(number/10)
+    return Number(lastDigit.toString() + revNum(remaingNumer).toString())
 }
 // const res = revNum(number)
 // console.log(res)
