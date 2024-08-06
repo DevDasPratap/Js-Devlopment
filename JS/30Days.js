@@ -1,4 +1,6 @@
 // 😎 Arrays:
+const array = [1, 9, 8, 4, 5, 10, 5, 8]
+const array2 = [4, 5, 6, 7, 8];
 
 // 1. Reverse an array.
 // 2. Find the maximum number in an array.
@@ -144,6 +146,38 @@ const findLarge = function (arr) {
 // const res = findLarge(arr)
 // console.log(res)
 
+// const array = [1, 9, 8, 4, 5, 10, 5, 8]
+// const maxNumberArray = (array)=>{
+//     let maxnum = 0
+//     for(let i = 0; i < array.length; i++){
+//         if (array[i] > maxnum) {
+//             maxnum = array[i]
+//         }
+//     }
+//     return maxnum
+// }
+// const result = maxNumberArray(array)
+// console.log(result) 
+
+
+// const maxNumberArray = (array)=>{
+//     return Math.max(...array)
+// }
+// const result = maxNumberArray(array)
+// console.log(result) 
+
+
+// const array = [1, 9, 8, 4, 5, 10, 5, 8]
+// const maxNumberArray = (array)=>{
+//     const num = array.reduce((prev, curr)=>{
+//         return curr > prev ? curr : prev
+//     })
+//     return num
+// }
+// const result = maxNumberArray(array)
+// console.log(result) 
+
+
 // Calculate the sum of all numbers in an array.
 
 const sum = function (arr) {
@@ -169,4 +203,62 @@ const dup = function (arr) {
 }
 
 const res = dup(arr)
-console.log(res)
+// console.log(res)
+
+// const uniqueArray = (array)=>{
+//     return [...new Set(array)]
+// }
+// const result = uniqueArray(array)
+// console.log(result) 
+
+
+// const sortArray = (array)=>{
+//     for (let i = 0; i < array.length; i++) {
+//         for (let j = 0; j < array.length; j++) {
+//             if (array[j] > array[j+1]) {
+//                 const temp = array[j]
+//                 array[j] = array[j+1]
+//                 array[j+1] = temp
+//             }
+//         }
+//     }
+//     return array
+// }
+// const result = sortArray(array)
+// console.log(result) 
+
+
+// const sortArray = (array)=>{
+//     return array.sort((a,b)=> a - b)
+// }
+// const result = sortArray(array)
+// console.log(result) 
+
+// const insertsecArray = (array, array2)=>{
+//     const intersection = []
+//     const uniqueArray2 = new Set(array2)
+//     for (let i = 0; i < array.length; i++) {
+//         if (uniqueArray2.has(array[i])) {
+//             intersection.push(array[i]);
+//         }
+//     }
+//     return intersection
+// }
+// const result = insertsecArray(array, array2)
+// console.log(result) 
+
+
+// const rotateArray = (array, position)=>{
+//     const arrayPartB = []
+//     const arrayPartA = []
+//     for(let i = 0; i<array.length; i++){
+//         if (i <= position) {
+//             arrayPartA.push(array[i])
+//         }else{
+//             arrayPartB.push(array[i])
+//         }
+//     }
+//     return [...arrayPartB, ...arrayPartA]
+// }
+// const result = rotateArray(array, 2)
+// console.log(result) 
