@@ -48,4 +48,14 @@ function sumArrayElement(array, startIndex) {
     }
     return array[startIndex]+sumArrayElement(array, startIndex+1)
 }
-console.log(sumArrayElement(array, 0))
+// console.log(sumArrayElement(array, 0))
+
+// time complexity
+function factorial(n) {
+    if (n===0) {
+        return 1
+    }
+    return n * factorial(n-1)
+}
+
+console.log(factorial(4))
