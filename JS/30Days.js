@@ -1,7 +1,6 @@
 // 😎 Arrays:
 const array = [1, 9, 8, 4, 5, 10, 5, 8]
 const array2 = [4, 5, 6, 7, 8];
-
 // 1. Reverse an array.
 // 2. Find the maximum number in an array.
 // 3. Calculate the sum of all numbers in an array.
@@ -14,6 +13,15 @@ const array2 = [4, 5, 6, 7, 8];
 // 10. Implement a function to shuffle an array.
 
 // 😎 Objects:
+const A = {
+    name: 'pd',
+    add: 'Kolkata'
+}
+const B = {
+    name: 'Das',
+    add: 'Haldia'
+}
+
 
 // 11. Merge two objects into one.
 // 12. Deeply clone an object.
@@ -262,3 +270,47 @@ const res = dup(arr)
 // }
 // const result = rotateArray(array, 2)
 // console.log(result) 
+
+// const isPalindrome = (array)=>{
+//     const revArr = [...array].reverse()
+//     console.log(JSON.stringify(revArr))
+//     console.log(JSON.stringify(array))
+//     return JSON.stringify(revArr) === JSON.stringify(array)
+// }
+// const result = isPalindrome(array)
+// console.log(result)
+
+
+// const obj = {...A, ...B}
+// console.log(obj)
+
+// const obj = Object.assign({}, A, B)
+// console.log(obj)
+
+
+// const obj = A
+// obj['pin'] = '70000'
+// console.log(obj)
+// console.log(A)
+
+
+// const serialize = JSON.stringify(A)
+// console.log(serialize)
+// const deserialize = JSON.parse(serialize)
+// console.log(deserialize)
+
+
+
+// const deepEqual = (A, B)=>{
+//     if(A === B) return true
+//     if (typeof A !== 'object' || A === null || typeof B !== 'object' || B === null) return false
+//     const keyA = Object.keys(A)
+//     const keyB = Object.keys(B)
+//     if (keyA.length !== keyB.length) return false
+//     for (const key of keyA) {
+//         if (!keyB.includes(key)) return false
+//     }
+//     return true
+// }
+// const result = deepEqual(A, B)
+// console.log(result)
