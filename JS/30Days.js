@@ -314,3 +314,117 @@ const res = dup(arr)
 // }
 // const result = deepEqual(A, B)
 // console.log(result)
+
+
+// const arrayOfObjects = [
+//     { name: 'John', age: 30 },
+//     { name: 'Jane', age: 25 },
+//     { name: 'Bob', age: 35 }
+//   ];
+  
+//   const objectFromArray ={}
+//   arrayOfObjects.forEach(element => {
+//     objectFromArray[element.name] = element.age
+//   });
+//   console.log(objectFromArray);
+
+//   const objectFromArray = arrayOfObjects.reduce((prev, curr)=>{
+//     prev[curr.name] = curr.age
+//     return prev
+//   }, {});
+  
+//   console.log(objectFromArray);
+
+// const arrayOfObjects = [
+//     { name: 'John', age: 30 },
+//     { name: 'Jane', age: 25 },
+//     { name: 'Bob', age: 35 }
+//   ];
+  
+// const transformObj = {}
+// for (const key of arrayOfObjects) {
+//     transformObj[key.name] = key.age
+// }
+// console.log(transformObj)
+
+
+
+// class Animal {
+//     constructor(name, sound){
+//         this.name = name
+//         this.sound = sound
+//     }
+//     makeSound(){
+//         console.log(`Animal name ${this.name} and sound ${this.sound}`)
+//     }
+// }
+// class Dog extends Animal {
+//     constructor(name, sound, breed){
+//         super(name, sound)
+//         this.breed = breed
+//     }
+//     fetch(){
+//         console.log(`${this.name} the ${this.breed} is fetching`)
+//     }
+// }
+
+// const myDog = new Dog('Kalu', 'bark', 'Indian')
+// myDog.makeSound(); // Inherited method from Animal
+// myDog.fetch();     // Method from Dog class
+
+
+// const person = {
+//     name: 'John',
+//     age: 30,
+//     occupation: 'Engineer'
+//   }
+
+//   //for in
+// for(let key in person){
+//     if (person.hasOwnProperty(key)) {
+//         console.log(`${key}: ${person[key]}`)
+//     }
+// }
+
+// // for of
+// for (const [key, value] of Object.entries(person)) {
+//     console.log(`${key}, ${value}`)
+// }
+
+
+
+// const people = {
+//     John: 27,
+//     Alice: 32,
+//     Bob: 21,
+//     Charlie: 35
+//   };
+// const filered = {}
+// for(const key in people){
+//     if (people[key] >= 30) {
+//         filered[key] = people[key]
+//     }
+// }  
+// console.log(filered)
+
+// const fileredPeople = {}
+// for (const iterator of Object.entries(people)) {
+//     if (iterator[1] >= 30) {
+//         fileredPeople[iterator[0]] = iterator[1]
+//     }
+// }
+// console.log(fileredPeople)
+
+
+// const people = [
+//     { name: 'John', age: 27 },
+//     { name: 'Alice', age: 32 },
+//     { name: 'Bob', age: 21 },
+//     { name: 'Charlie', age: 35 }
+//   ];
+
+// const sortByAge = people.sort((a, b)=>a.age - b.age)
+// console.log(sortByAge)
+
+// const sortByName = people.sort((a, b)=> a.name.localeCompare(b.name))
+// console.log(sortByName)
