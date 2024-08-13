@@ -35,6 +35,7 @@ const B = {
 // 20. Simulate private members in JavaScript objects.
 
 // 😎 Strings:
+const str = 'I am pratap das'
 
 // 21. Reverse a string.
 // 22. Check if a string is a palindrome.
@@ -428,3 +429,29 @@ const res = dup(arr)
 
 // const sortByName = people.sort((a, b)=> a.name.localeCompare(b.name))
 // console.log(sortByName)
+
+
+// const str = 'I am pratap das'
+// console.log(str.split('').reverse().join(''))
+// let rev = ''
+// for(let i=str.length-1; i>= 0; i--){
+//     rev += str[i]
+// }
+// console.log(rev)
+
+
+
+// const isPalindrome = (str)=>{
+//     if (str.length<1) {
+//         return str
+//     }
+//     let rev = ''
+//     for(let i=str.length-1; i>=0; i--){
+//         rev += str[i]
+//     }
+//     if(str === rev){
+//         return true
+//     }
+//     return false
+// }
+// console.log(isPalindrome(str))
