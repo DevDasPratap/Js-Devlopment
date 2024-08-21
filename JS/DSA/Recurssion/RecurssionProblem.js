@@ -1,6 +1,6 @@
 const array = [10,22,30,4, 7]
 function print(array, startIndex) {
-    // Base condition
+    // Base exit condition
     if (startIndex >= array.length) {
         return 
     }
@@ -15,7 +15,7 @@ function print(array, startIndex) {
 // print(array, 0)
 
 function revPrint(array, startIndex) {
-    // Base condition
+    // Base exit condition
     if (startIndex >= array.length) {
         return 
     }
