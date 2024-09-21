@@ -3,7 +3,7 @@
 // Non Premitive => Object, Array
 
 // Non premitive (Lists data type)=> Linear, non linear
-// Linear => opration only work start and end postion (Stack Queue)
+// Linear => opration only work start and end postion (Stack, Queue)
 // Non linear => opration can do anywhere (Graphs, Tree)
 
 // Operation => Traverse, Insert, Delete, Search, Sort, Merge
