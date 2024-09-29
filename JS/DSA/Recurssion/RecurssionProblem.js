@@ -8,7 +8,7 @@ function print(array, startIndex) {
     }
 
     // Logic
-    console.log(array[startIndex])
+    console.log(array[startIndex]) // 0 to length direction -> common loop direction
 
     // Recursive call
     print(array, startIndex + 1)
@@ -26,7 +26,7 @@ function revPrint(array, startIndex) {
     revPrint(array, startIndex + 1)
 
     // Logic
-    console.log(array[startIndex])
+    console.log(array[startIndex])  // length to 0 direction -> reverse direction
 }
 
 

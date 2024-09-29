@@ -77,4 +77,15 @@ function main(){
     console.log('sum: ', sum)
 }
 
-main()
+// main()
+
+
+function printNo(n) {
+    let count = 0
+    if (count === n) {
+        return
+    }
+    printNo(n-1)
+    console.log('print ',n)
+}
+printNo(10)
