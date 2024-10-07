@@ -52,7 +52,7 @@ function sumArrayElement(array, startIndex) {
 }
 // console.log(sumArrayElement(array, 0))
 
-// time complexity
+// time compexity (recurssion tree)
 function factorial(n) {
     if (n === 0) {
         return 1
