@@ -34,7 +34,7 @@ function revPrint(array, startIndex) {
 
 function factorial(num) {
     // base case
-    if (num === 0 || num === 1) {
+    if (num === 0 || num === 1 || num > 0) {
         return 1
     }
     // console.log('num', num)
