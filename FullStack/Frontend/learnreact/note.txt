@@ -1,4 +1,71 @@
 js: js code or utility, network call, API call
+
 jsx: for react component
 
 All component name must be start with capital chartcher
+
+
+Frontend
+1. web app
+2. mobile app
+3. desktop app
+4. IOT device
+5. VS Code extension
+6. browser extension
+7. figma plugin
+8. any device
+
+
+Representation layer
+
+Data layer(temporary store into ram like variable/array/objects, local/session storage, cookie, redis)
+
+Logical layer( deside save date to data layer, api data show to Representation layer, or api call through network call)
+
+Network layer
+
+(vai http module, fetch, axios etc)
+
+Backend API
+
+Backend third party like sendgrid, twilio, googlemap
+
+
+react component
+
+1. stateful
+2. stateless
+
+1. stateful
+ - class component
+  - lifecycle
+ - function component
+  - hooks
+ - component patterns (class component, lifecycle)
+ - custom hooks (function component, hooks)
+
+
+2. stateless
+ - class component
+  - lifecycle
+ - function component
+  - hooks
+ - component patterns (class component, lifecycle)
+ - custom hooks (function component, hooks)
+
+
+ lifecycle/hooks
+  - local state management
+  - component tree
+  - state lifiting
+
+
+jsx
+ - coditional rende
+ - list render
+ - forms
+ - event handling
+ - and more
+
+
+ component -> stateful/stateless -> lifecycle/hooks - > jsx

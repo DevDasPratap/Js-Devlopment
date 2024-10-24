@@ -242,8 +242,8 @@ if (personObj?.address?.city) {
 
 // binary hexa ocatal
 // when we star with zero(0) it behave like binary hexa ocatal
-console.log(010)
-console.log(0o10) //octal used o
-console.log(0b10) //binary b
-console.log(0x10) //hexa x
-console.log(111) //desimal
+// console.log(010)
+// console.log(0o10) //octal used o
+// console.log(0b10) //binary b
+// console.log(0x10) //hexa x
+// console.log(111) //desimal

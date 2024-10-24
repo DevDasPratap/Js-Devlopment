@@ -26,3 +26,7 @@ Four principle for OOPs
 2. Encapsulation: Keep Properties and method private. that will not work outside of the class
 3. Inheritance: Child class will take matching Properties and values from parent class
 4. Polymorphism: This will behave many ways.a child class can overwrite a method that inherited from parent class
+
+
+factory function
+constructor function
