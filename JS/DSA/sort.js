@@ -137,7 +137,7 @@ function quickSort(arr) {
 }
 
 const res = quickSort(arr)
-console.log(res)
+// console.log(res)
 
 const listStudent = [
     {name: 'Pratap', age: 25},
@@ -164,3 +164,51 @@ listStudent.sort((a,b)=>{
 })
 // console.log(`Sort by name:`)
 // console.log(listStudent)
+
+const leftArray = [1,2,3,4,9]
+const rightArray = [2,3,4,5,8,9,10]
+
+function mergerSortedArray(leftArray, rightArray) {
+    const array =[]
+    let i = 0, j = 0
+    while (i < leftArray.length && j < rightArray.length) {
+        if (leftArray[i] < rightArray[j]) {
+            array.push(leftArray[i])
+            i++
+        }else{
+            array.push(rightArray[j])
+            j++
+        }
+    }
+    // Add remaining elements from leftArray, if any
+    while (i < leftArray.length) {
+        array.push(leftArray[i]);
+        i++;
+    }
+
+    // Add remaining elements from rightArray, if any
+    while (j < rightArray.length) {
+        array.push(rightArray[j]);
+        j++;
+    }
+    return array
+}
+
+// console.log(mergerSortedArray(leftArray, rightArray))
+
+function findMax(array) {
+    if (array.length === 0) {
+        return
+    }
+    let max = 0
+    for (let i = 0; i < array.length; i++) {
+        if (max < array[i]) {
+            max = array[i]
+        }
+    }
+    console.log(max)
+    return max
+}
+
+// findMax(leftArray)
+

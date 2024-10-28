@@ -1,3 +1,16 @@
+node.js internal work
+1. v8 engine (c++, js) js code execute
+2. LibUV(Event loop, Thread pool) async code handle on single thread
+
+node.js run create process, main thred
+1. init project
+2. top execution code like console.log() not any inside function code
+3. require/import module work
+4. event callback function register (like socket, emit)
+5. start event loop
+6. thread pool(fs, crypto, compression) cpu intensive 
+
+
 Node.js interviews can be challenging, but with the right preparation, you can ace them! I've compiled a list of 50 short Node.js interview questions that are frequently asked.
 
 1. What is Node.js?

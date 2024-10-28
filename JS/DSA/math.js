@@ -3,9 +3,9 @@
 const N = 12345
 function countDigit(input) {
     let count = 0;
-    while(input > 0) {
-        count++
+    while (input > 0) {
         input = Math.floor(input / 10)
+        count++
     }
     return count
 }
@@ -17,8 +17,17 @@ const resCountDigit = countDigit(N)
 // Output:54321
 
 function reverseNumber(input) {
-    input = String(input)
-    return Number(input.split('').reverse().join(''))
+    // input = String(input)
+    // return Number(input.split('').reverse().join(''))
+
+    // or
+    let reverse = 0
+    while (input !== 0) {
+        let remainder = input % 10
+        reverse = reverse * 10 + remainder
+        input = Math.floor(input / 10)
+    }
+    return reverse
 }
 const resReverseNumber = reverseNumber(N)
 // console.log(resReverseNumber)
@@ -30,8 +39,29 @@ const resReverseNumber = reverseNumber(N)
 // Output: Not Palindrome
 
 function palindromeNumber(input) {
-    const revNumber = String(input).split('').reverse().join('')
-    return input === Number(revNumber)
+    // const revNumber = String(input).split('').reverse().join('')
+    // return input === Number(revNumber)
+
+    // or
+    // let reverse = 0
+    // let num = input
+    // while (input !== 0) {
+    //     let remainder = Math.floor(input%10)
+    //     reverse = reverse * 10 + remainder
+    //     input = Math.floor(input/10)
+    // }
+
+    // return num === reverse
+
+    // or
+    let temp = input
+    let rev = 0
+    while (temp !== 0) {
+        let n = temp % 10
+        temp = parseInt(temp / 10)
+        rev = rev * 10 + n
+    }
+    return input === rev
 }
 
 const resPalindromeNumber = palindromeNumber(N)
@@ -40,10 +70,10 @@ const resPalindromeNumber = palindromeNumber(N)
 // Find GCD of two numbers
 // Input:N1 = 9, N2 = 12     
 // Output:3
-const N1 = 9, N2 = 27  
+const N1 = 9, N2 = 27
 function GCD(N1, N2) {
     let gcd = 0
-    for(let i = 1; i<Math.min(N1, N2); i++){
+    for (let i = 1; i < Math.min(N1, N2); i++) {
         if (N1 % i === 0 && N2 % i === 0) {
             gcd = i
         }
@@ -113,3 +143,19 @@ function primeNumber(input) {
 
 const resPrimeNumber = primeNumber(10)
 // console.log(resPrimeNumber)
+
+function factorial(num) {
+    if (num < 0) {
+        return -1
+    } else if (num === 0 || num === 1) {
+        return 1
+    } else {
+        let res = 1
+        for (let i = 2; i <= num; i++) {
+            res *= i
+        }
+        return res
+    }
+
+}
+// console.log(factorial(4))

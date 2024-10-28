@@ -69,4 +69,57 @@ function exponentionGrouth (n, c){
     return 2 * exponentionGrouth(n - 1, c) + c
 }
 
-console.log(exponentionGrouth(4, 5))
+// console.log(exponentionGrouth(4, 5))
+
+function getPower(n) {
+    if (n == 1) {
+        return 2
+    }
+    let power = getPower(n-1)
+    return 2 * power
+}
+
+// console.log(getPower(4))
+
+function printName(n) {
+    if (n == 0) {
+        return false
+    }
+    console.log('Pratap')
+    return printName(n-1)
+}
+
+// printName(5)
+
+function sumfirstNaturalNum(n) {
+    if (n === 1) {
+        return 1
+    }
+    return n + sumfirstNaturalNum(n-1)
+}
+
+// console.log(sumfirstNaturalNum(4))
+
+function reverseArray(array, i, j) {
+    if (i >= j) {
+        return array
+    }
+    const swap = array[i]
+    array[i] = array[j]
+    array[j] = swap
+
+    return reverseArray(array, i+1, j-1)
+}
+
+// console.log(reverseArray(array, 0, array.length-1))
+
+
+const N = 12345
+function countDigit(input) {
+    if(parseInt(input/10) === 0){
+        return 1
+    }
+    return 1 + countDigit(parseInt(input/10))
+}
+const resCountDigit = countDigit(N)
+// console.log(resCountDigit)

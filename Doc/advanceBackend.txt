@@ -1,0 +1,24 @@
+main backend ->  pubsub -> backend 1 (notification)
+                        -> backend 2 (analytic)
+                        -> backend 3 (email service)
+            -> websocket -> backend 4
+            -> http -> backend 5
+            -> messageQ -> backend 6
+                        -> backend 7
+
+main backend handle core business logic (like bank transaction through upi/paytm must be update amount immedieately -/+ amount update to db)
+other backend like send notification asynchronusly dely acceptable
+
+
+sysnc (strong coupling) => http(rest/graphql)/websocket(debatable if ssync or async)
+when you waiting for a response from another service is call sysnc (do it right now)
+
+async (weak coupling) => message queue
+                      => pub subs
+                      => sever sent event
+                      => websocket 
+when you dont waiting for a response from another service is call async just push into queue you no need to wait for ackowledgement for service
+you do your won things
+
+
+websocket (tcp)

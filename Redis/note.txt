@@ -1,0 +1,131 @@
+user <-> server <-> db
+
+1. multiple query stage from multiple collections
+2. data requery/re compute (response time increse)
+
+with redis
+1. server call to redis get data if dont have data then goto db
+get data response to user and also same time save into redis
+next time user refresh/or same query call no need to call db
+get data from redis.
+
+
+set
+get
+set nx
+mget - same operation multiple get value
+mset - same operation multiple set value
+
+TTL: Time to Live (expire)
+
+list [] // array horizontal
+list [] // stack vatical
+
+
+
+Last login: Fri Oct 25 22:06:52 on ttys004
+-bash: brew: command not found
+
+The default interactive shell is now zsh.
+To update your account to use zsh, please run `chsh -s /bin/zsh`.
+For more details, please visit https://support.apple.com/kb/HT208050.
+Prataps-MacBook-Air:~ pratapdas$ docker run -d --name redis-stack -p 6379:6379 -p 8001:8001 redis/redis-stack:latest
+docker: Error response from daemon: Conflict. The container name "/redis-stack" is already in use by container "59fba93f1d2d9bc109011528cbaeb08274fae5bfd75143e242f8db7d9b9ed439". You have to remove (or rename) that container to be able to reuse that name.
+See 'docker run --help'.
+Prataps-MacBook-Air:~ pratapdas$ docker ps
+CONTAINER ID   IMAGE                      COMMAND            CREATED       STATUS       PORTS                                            NAMES
+59fba93f1d2d   redis/redis-stack:latest   "/entrypoint.sh"   3 hours ago   Up 3 hours   0.0.0.0:6379->6379/tcp, 0.0.0.0:8001->8001/tcp   redis-stack
+Prataps-MacBook-Air:~ pratapdas$ docker exec -it 59fba93f1d2d bash
+root@59fba93f1d2d:/# redis cli ping
+bash: redis: command not found
+root@59fba93f1d2d:/# redis-cli ping
+PONG
+root@59fba93f1d2d:/# redis-cli
+127.0.0.1:6379> set name pratap
+OK
+127.0.0.1:6379> get name
+"pratap"
+127.0.0.1:6379> set user:1 pd
+OK
+127.0.0.1:6379> set user:2 dev
+OK
+127.0.0.1:6379> set user:3 das
+OK
+127.0.0.1:6379> set msg:1 hi
+OK
+127.0.0.1:6379> set msg:2 hey
+OK
+127.0.0.1:6379> set msg:3 hello
+OK
+127.0.0.1:6379> set msg:5 i_am_fine nx
+(nil)
+127.0.0.1:6379> set msg:5 something_else nx
+(nil)
+127.0.0.1:6379> mget user:1 user:2
+1) "pd"
+2) "dev"
+127.0.0.1:6379> mset user:6 hello user:7 hello_pd
+OK
+127.0.0.1:6379> set count 0
+OK
+127.0.0.1:6379> incr count
+(integer) 1
+127.0.0.1:6379> incr count
+(integer) 2
+127.0.0.1:6379> incr count
+(integer) 3
+127.0.0.1:6379> incrby count 5
+(integer) 8
+127.0.0.1:6379> decr count
+(integer) 7
+127.0.0.1:6379> decrby count 4
+(integer) 3
+127.0.0.1:6379> lpush messages hey
+(integer) 1
+127.0.0.1:6379> rpush messages hi
+(integer) 2
+127.0.0.1:6379> lpush messages hey
+(integer) 3
+127.0.0.1:6379> rpush messages by
+(integer) 4
+127.0.0.1:6379> lpush messages ok
+(integer) 5
+127.0.0.1:6379> lpop messages
+"ok"
+127.0.0.1:6379> rpop messages
+"by"
+127.0.0.1:6379> llen messages
+(integer) 3
+127.0.0.1:6379> rpush messages hi
+(integer) 1
+127.0.0.1:6379> lpush messages hey
+(integer) 2
+127.0.0.1:6379> lpush messages ok
+(integer) 3
+127.0.0.1:6379> lrange message 0 -1
+(empty array)
+127.0.0.1:6379> lrange messages 0 -1
+1) "ok"
+2) "hey"
+3) "hi"
+127.0.0.1:6379> lrange messages del messages
+(error) ERR value is not an integer or out of range
+127.0.0.1:6379> lrange messages del name
+(error) ERR value is not an integer or out of range
+127.0.0.1:6379> del messages
+(integer) 1
+127.0.0.1:6379> sadd ip 1
+(integer) 1
+127.0.0.1:6379> sadd ip 2
+(integer) 1
+127.0.0.1:6379> sadd ip 3
+(integer) 1
+127.0.0.1:6379> sadd ip 3
+(integer) 0
+127.0.0.1:6379> srem ip 3
+(integer) 1
+127.0.0.1:6379> sismember ip 1
+(integer) 1
+127.0.0.1:6379> sismember ip 3
+(integer) 0
+127.0.0.1:6379> 

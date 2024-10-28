@@ -40,4 +40,4 @@ const InputGroup = (props) => {
 	);
 };
 
-// export default InputGroup;
+export default InputGroup;
