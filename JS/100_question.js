@@ -1039,3 +1039,5 @@ function isValidTileGrouping(tiles) {
 }
 
 console.log(isValidTileGrouping('112'))
+
+// function statement and function expression

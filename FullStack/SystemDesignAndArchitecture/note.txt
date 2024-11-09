@@ -1,0 +1,181 @@
+Application Architecture:
+    - Which Architecture should we follow?
+    => it depend on bussiness requirment
+    - Architectures:   
+        - Monolithic Architecture: Monolithic architecture refer to a software application design all components are tightly coupled and integrate into a single, self -contained unit.(single tier architecture)
+                                   - key characteristics
+                                      - single codebase
+                                      - centralized deployment
+                                      - shared database
+                                      - tight coupling
+                                   - advantage
+                                   - disadvantage
+                                   - suitable for:
+                                      - simple application: where the functionality is limited and unlikely to changes significatly
+                                      - small team: where resource are limited
+                                      - POC: where the focus is on validating a concept before investing in a complex architecture
+
+            - 2-Tier Architecture:in this software architecture pattern that divides the application into two layers
+                 - 1. presentation tier: this layer handle the user interface and intracts with the user directly
+                 - 2. data tier (server): this layer handle bussiness logic and data store and processing
+                 - advantage: improve scalablity, enhance mentainablity, increse security, flexible thechnical choose, simplify deployment.
+                 - disadvantage: increse complex, additional network trafic, signle point failour(if server fails the entier application unavaliable)
+                 - suitable for:
+            - N Tier Architecture: also known as multi tier architecture is a software architecture pattern that separate the application into multiple layer.
+                        - advantage: improve scalablity, enhance mentainablity, increse security, simplify deployment, thechnical choose
+                        - disadvantage: increse security, additional network trafic, increse debugging defficulty
+                        - suitable for: large web application with complex bussiness logic, enterprize application that require.
+            - Modular Monolithic Architecture: a Modular Monolithic architecture is a software development approch..
+                       - single codebase
+                       - independent modules
+                       - loose coupling
+                       - shared resources
+                       - advantage
+                       - disadvantage
+                       - suitable for  
+            - Microservice Architecture: Microservice architecture is a software development approch that structure an application as a collection of small, independent, and loosely coupled service. each service is self-contained and focuses on single bussiness capability.services communicate well defined apis
+                  - key characteristics
+                    - independent service
+                    - loose coupling
+                    - lightweight technology
+                    - decentralize data
+                - advantage: 
+                    - improve scalablity
+                    - enhance agility
+                     - increse fauilt tolarance
+                     - simplify mentainablity
+                     - flexible technology choose
+                - disadvantage: 
+                    - increse complex
+                    - distribute debugging
+                    - infrastructure overhead
+                    - network latency
+                    - data consistency
+                - suitable for: large and complex application that require scalablity, application with evolving requirment and frequent updates. 
+            - Event-Driven Architecture: is a software design pattern that focuses on events significate occurance or changes within a system - to drive application logic and communication. instead of traditional request, response intractions, events trigger actions and updates across diffrent services.
+               - main key:
+                  - events
+                  - events producer
+                  - events comsumer
+                  - events broker
+                - advantage:
+                   - scalablity
+                   - real time processing
+                   - async communicate
+                - disadvantage: 
+                    - increse complex
+                    - monitoring and tracing
+                    - data consistency
+                    - debugging difficult
+                - suitable for
+            - Cloud Native Architecture: this is refers to methology for designing and building, software application, specifically for development and operation in the cloud computing envionment
+                - key
+                   - Microservice
+                   - containers
+                   - continous delivery
+                - advantage
+                - disadvantage
+                - suitable for
+            - Serverless Architecture: is a cloud computing execution model where the cloud provider
+              - key
+                - no server management
+                - pay-per use
+                - scalablity
+                - event drivent
+                - Microservice
+                - stateless
+              - advantage
+              - disadvantage
+              - suitable for   
+            - How to choose the perfect Architecture?
+              => there is no defination for perfect architecture, start with minimum effort and budget  
+            - What if I want to make a wise decision? 
+               - Focus on the following factors:
+                  - project requirment
+                     - complexity
+                     - scalablity
+                     - performance
+                     - mentainablity
+                     - security
+                     - change frequent
+                  - team expertices
+                     - team experiance
+                     - require skill set
+                  - timeline
+                     - respected deadline
+                  - budget
+                     - development
+                     - deployment
+
+
+
+
+
+
+
+improve the application performance:
+
+What is performance?
+=> application performance refers to the 'how well' your software application operations in terms of various metrics. it encompasses servral key aspects, including:
+   - responsiveness
+   - stability
+   - scalablity
+   - resource utilization
+   - user experiance
+
+for a backend application
+   - measure of how fast or responsive  a system in under
+      - a given workload
+          - backend data
+          - request valume
+      - a given hardware
+          - kind
+          - capacity
+
+how to spot a performance problem?
+=> spotting a performance problem require vigilance and undersatand of your system normal behavior.
+    - monitoring metrics
+       - incresed response time
+       - higher error rate
+       - resource utilization
+       - log analysis
+    - user feedback
+       - complain about slowness
+       - incresed support tickets
+    - proactive checks
+       - load testing
+       - performance profiling
+       - benchmarking
+    - visual indicator
+       - slow loading animations or progress bars
+       - log in user interface
+
+every performance problem is the result of some queue building somewhere
+
+where does a queue can build up ?
+ - network:
+    - incresed latency
+    - packet loss
+    - full send/recive buffer
+ - database:
+    - slow query execution
+    - database connection pool execution
+    - disk i/o bottleneck
+ - operating system
+    - High cpu utilization
+    - excessive memory usage
+    - long progress wait times
+ - application code
+    - ineffcient algorithms
+    - redundant calculation
+    - code deadlocks
+
+queue build up root cause
+  - badly written code
+    - ineffcient algorithms, unnecessary calculation, or poor memory management can all contribute to slow processing.
+  - external dependencies
+   - relying on slow external service or resource intensive libraries can also add to the processing time.
+  - database access
+    - multiple requests needing to connect to a database will form a queue waiting for available connections.
+  - serial execution in code
+    - if tasks are coded to run sequentially one after the other, any bottleneck in the chain will slow down the entier processs

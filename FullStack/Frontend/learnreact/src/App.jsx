@@ -145,19 +145,25 @@
 // 		</div>
 // 	);
 // }
-import { Router } from '@reach/router';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import About from './pages/About';
 import Help from './pages/Help';
 import Home from './pages/Home';
+import Layout from './components/layout/Layout';
 
 function App() {
-	return (
-		<Router>
-			<Home path="/" />
-			<About path="/about" />
-			<Help path="/help" />
-		</Router>
-	);
+  return (
+    <Router>
+      <Routes>
+        <Route element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="about" element={<About />} />
+          <Route path="help" element={<Help />} />
+        </Route>
+      </Routes>
+    </Router>
+  );
 }
 
-export default App
+export default App;
