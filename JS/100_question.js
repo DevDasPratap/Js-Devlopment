@@ -787,7 +787,7 @@ class LinkedList {
             value: data,
             next: null
         },
-        this.tail = this.head
+            this.tail = this.head
         this.length = 1
     }
     append(data) { //lest side add
@@ -808,7 +808,7 @@ class LinkedList {
         this.head = newNode
         this.length++
     }
-    traverse(requireIndex){
+    traverse(requireIndex) {
         let counter = 0
         let currentNode = this.head
         while (counter !== requireIndex) {
@@ -817,25 +817,25 @@ class LinkedList {
         }
         return currentNode
     }
-    insert(index, data){
+    insert(index, data) {
         const newNode = {
             value: data,
             next: null
         }
-        const leaderNode = this.traverse(index -1)
+        const leaderNode = this.traverse(index - 1)
         const nextNode = leaderNode.next
         leaderNode.next = newNode
         newNode.next = nextNode
         this.length++
     }
-    delete(index){
+    delete(index) {
         const leaderNode = this.traverse(index - 1)
         const unwantedNode = leaderNode.next
         const nextNode = unwantedNode.next
         leaderNode.next = nextNode
         this.length--
     }
-    reverse(){
+    reverse() {
         let first = this.head
         let second = first.next
         this.tail = this.head
@@ -848,18 +848,18 @@ class LinkedList {
         this.head.next = null
         this.head = first
     }
-    search(data){
+    search(data) {
         let currentNode = this.head
         while (currentNode) {
             if (currentNode.value === data) {
                 return currentNode
-            }else{
+            } else {
                 currentNode = currentNode.next
             }
         }
         return null
     }
-    display(){
+    display() {
         const values = []
         let currentNode = this.head
         while (currentNode) {
@@ -985,16 +985,16 @@ myList.reverse()
 
 const myPromise = new Promise((resolve, reject) => {
     const success = true; // Simulate success or failure
-    
-    setTimeout(()=>{
-        if(success) {
+
+    setTimeout(() => {
+        if (success) {
             resolve('Operation succeeded!');
-          } else {
+        } else {
             reject('Operation failed!');
-          }
+        }
     }, 5000)
-  });
-  
+});
+
 //   myPromise.then(result => console.log(result)).catch(error => console.log(error));
 
 
@@ -1023,11 +1023,11 @@ function isValidTileGrouping(tiles) {
     let foundPair = false;
     console.log(pairMap)
     for (let [key, value] of Object.entries(pairMap)) {
-        console.log('key',key, 'value',value)
+        console.log('key', key, 'value', value)
         const remainder = value % 3;
-// console.log(remainder)
+        // console.log(remainder)
         if (remainder === 2) {
-            if (foundPair){
+            if (foundPair) {
                 return false;
             }
             foundPair = true;
@@ -1038,6 +1038,26 @@ function isValidTileGrouping(tiles) {
     return foundPair;
 }
 
-console.log(isValidTileGrouping('112'))
+// console.log(isValidTileGrouping('112'))
 
 // function statement and function expression
+
+const versions = ['node-16', 'node-22.5', 'python-4', 'java-8', 'node-18', 'python-5', 'java-9']
+
+function getHigherVersion() {
+    const map = {}
+    for (const version of versions) {
+        const [language, ver] = version.split('-')
+        const currentVersion = parseFloat(ver)
+        if (!map[language] || currentVersion > map[language]) {
+            map[language] = currentVersion
+        }
+    }
+    const higherVer = []
+    for (const [key, value] of Object.entries(map)) {
+        higherVer.push(`${key}-${value}`)
+    }
+    return higherVer
+}
+const highestVersions = getHigherVersion(versions);
+console.log(highestVersions);
