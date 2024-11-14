@@ -1060,4 +1060,59 @@ function getHigherVersion() {
     return higherVer
 }
 const highestVersions = getHigherVersion(versions);
-console.log(highestVersions);
+// console.log(highestVersions);
+
+// const myPromis = new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//         resolve("success");
+//     }, 5000);
+//     setTimeout(() => {
+//         reject("rejected")
+//     }, 3000);
+// });
+
+// myPromis
+//     .then((data) => {
+//         console.log("Resolve:", data);
+//     })
+//     .catch((error) => {
+//         console.log("Reject:", error);
+//     })
+//     .finally(() => {
+//         console.log("Finally block");
+//     });
+
+const promise1 = new Promise((resolve, reject) => {
+    setTimeout(() => resolve('Promise 1 resolved'), 1000);
+  });
+  
+  const promise2 = new Promise((resolve, reject) => {
+    setTimeout(() => resolve('Promise 2 resolved'), 2000);
+  });
+  
+  const promise3 = new Promise((resolve, reject) => {
+    setTimeout(() => resolve('Promise 3 resolved'), 3000);
+  });
+
+  Promise.all([promise1, promise2, promise3])
+  .then((result) => {
+    console.log(result); // Prints the value of the first resolved promise
+  })
+  .catch((error) => {
+    console.error(error); // Handle error if all promises are rejected
+  });
+
+  const arr = ['ram', 'sam', 'dev', 'devi', 'dev', 'Ram']
+const uniqueArr = []
+for (let i = 0; i <= arr.length - 1; i++) {
+  let count = 0;
+  for (let j = 0; j <= arr.length - 1; j++) {
+    if (arr[i] == arr[j]) {
+      count++;
+    }
+  }
+  if (count === 1) {
+    uniqueArr.push(arr[i])
+  }
+}
+// console.log(uniqueArr)

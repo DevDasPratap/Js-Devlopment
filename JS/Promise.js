@@ -64,7 +64,7 @@ if i call 10 api out of them if any api respose failed i want rest of the api re
 
 if promise2 was failed still wait for all promise to settled after 3s [resolve, error, resolve]
 
-Promise.sace([p1,p2,p3])
+Promise.race([p1,p2,p3])
 suppose p1 take 3s
 suppose p2 take 1s
 suppose p3 take 2s
