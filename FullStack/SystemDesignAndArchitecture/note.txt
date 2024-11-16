@@ -135,13 +135,13 @@ for a backend application
 how to spot a performance problem?
 => spotting a performance problem require vigilance and undersatand of your system normal behavior.
     - monitoring metrics
-       - incresed response time
-       - higher error rate
-       - resource utilization
-       - log analysis
+       - incresed response time: pages taking longer to load, delays in progressing inputs, or unresponsive application are telltale signs.
+       - higher error rate: frequent crashes, failed transactions, or application error indicate underlying performance issues.
+       - resource utilization: spikes in cpu usage, memory exhaustion or high network brandwidth consumption can point to bottlenecks.
+       - log analysis: reviewing system logs may reveal specific error warnings or performance related events.
     - user feedback
-       - complain about slowness
-       - incresed support tickets
+       - complain about slowness: users reporting sluggish performance, unresponsive application.
+       - incresed support tickets: A rise in supports tickets related to performance problem further reinforces the need for invesigatiom
     - proactive checks
        - load testing
        - performance profiling
@@ -154,13 +154,13 @@ every performance problem is the result of some queue building somewhere
 
 where does a queue can build up ?
  - network:
-    - incresed latency
-    - packet loss
-    - full send/recive buffer
+    - incresed latency: ping times become higher, uploads and download take longer, and timeouts occur more frequently.
+    - packet loss: data packets further get dropped, leading to incomplete information and retransmission requests, further extending wait times.
+    - full send/recive buffer: Queues on the network card or operating system fill up, preventing data from being sent or received efficiently.
  - database:
-    - slow query execution
-    - database connection pool execution
-    - disk i/o bottleneck
+    - slow query execution:  Long wait times for database queries to complete, impacting page loading times and user actions.
+    - database connection pool execution: All available database connections are in use, preventing new requests from being served, leading to user wait times.
+    - disk i/o bottleneck: Queues for reading and writing data to the disk build up, impacting database operations and application responsiveness.
  - operating system
     - High cpu utilization
     - excessive memory usage
@@ -179,3 +179,212 @@ queue build up root cause
     - multiple requests needing to connect to a database will form a queue waiting for available connections.
   - serial execution in code
     - if tasks are coded to run sequentially one after the other, any bottleneck in the chain will slow down the entier processs
+
+Limited resource capacity: This is essentially a physical limitation of the system. For example, having only one CPU means that only one task can be actively processed at a time. Any incoming requests beyond that will have to wait for their turn, forming a queue.
+Other limited resources can also create bottlenecks, such
+Memory: Insufficient memory can force the system to
+
+swap data to disk, significantly slowing down processing. Network bandwidth: Limited network bandwidth can create queues for data transfer, impacting download and upload speeds.
+
+By adopting this queue-based perspective, we can effectively spot performance issues early on, diagnose their root causes, arid implement targeted solutions to keep our system running smoothly.
+
+Inefficient slow processing: This refers to a situation where the code responsible for handling tasks takes too long to execute. This can happen due to various factors, like:
+Badly written code: Inefficient algorithms, unnecessary calculations, or poor memory management can all contribute to slow processing.
+Serial resources access: This happens when accessing & resource requires tasks to be executed one after another, creating a queue as requests wait for their turn. Examples include:
+Database access: Multiple requests. needing to connect to a database will form
+a queue waiting for available connections Shared files: If only one thread can access a file at a time, others will have to wait in line.
+External dependencies: Relying on slow external services or resource-intensive libraries can also add to the processing time.
+Serial execution in code: If tasks are coded to run sequentially, one after the other, any bottleneck in the chain will slow down the entire process.
+
+Note
+We should always try to avoid building queues when designing a new system or find where the is queue building in an existing system.
+
+performance principales:
+   - efficiency: reduce response time on a single request
+       - Efficient Resource Utilization (System resources utilization)
+
+          - a 10-Memory, Network, Disk
+          - b CPU
+       - Efficient Logic
+          - a Algorithms
+          - b DB Queries
+       - Efficient Data Storage
+          - a Data Structures
+          - b DB Schema
+       - Caching
+   - concurrency: reduce response time on a concurrent request
+       - Hardware (must have concurrency support
+           - multiple core)
+           - Software (we need to code our software that can utilize multiple core)
+              - a Queuing (this queue is not going to block requests)
+              - b. Coherence (being logical)
+   - capacity: increse hardware improve performance
+               - CPU
+               - Memory
+               - Disk
+               - Network
+   
+   performance measurement metrics
+     - latency
+       - Measured in time : Focuses on how quickly the system responds to a request.
+       - Affects user experience: Focuses on how quickly the system responds to a request.
+       - Desired State: low as possible to keep users satisfied and maintain smooth interaction.
+     - throughput
+        - Measured in Request Per Unit of Time: Indicates the system's ability to handle concurrent requests.
+        - Affects number of users supported: Focuses on how quickly the system responds to a request.
+        - Desired State: Greater than the request rate to avoid backlogs and maintain responsiveness under peak load.
+     - errors
+       - Percentage of requests resulting in errors: Represents the system's reliability and correctness.
+       - Affects functional correctness:Errors can disrupt functionality and lead to user frustration.
+       - Desired State: None, aiming for zero errors to ensure accurate and reliable operation.
+     - resource saturation
+       - Measured in Percentage: Indicates how busy system resources (CPU, memory, network) are at any given time,
+       - Affects hardware capacity required: Over-saturation can lead to performance bottlenecks and potential hardware upgrades.
+       - Desired State: Efficient utilization of all resources, avoiding both underutilization (waste) and overutilization (bottlenecks)
+
+
+ - Tail Latency
+   Tail latency refers to the response times of the slowest requests within a certain set, typically measured at the 99th or 99.9th percentile. It provides a more comprehensive picture of performance compared to focusing solely on average latency, which can be misleading if there are a few outliers with significantly higher response times.
+      - Tail latency is an indication of queuing of requests. Gets worse with higher workloads
+      - Average latency hides the effects of tail latency.
+   - Additional Considerations: 
+      - It's crucial to define realistic target values for each metric based on your specific system, user base, and workload characteristics.
+      - Monitor these metrics continuously to identify trends, bottlenecks, and potential issues before they impact users.
+      - Optimize your system based on these metrics, focusing on reducing latency, improving throughput, minimizing errors, and optimizing resource utilization.
+      - Remember, these metrics often interact and influence each other. Optimizing one might affect others, requiring a holistic approach to performance optimization.
+  - Serial Request Latency
+    - Network Connection: There are two types of connections -
+        - Internet (Public)
+        - Intranet (Private)
+        - Intranet is a much reliable connection and faster
+    - TCP Handshake
+        - Client   <----> Server
+        - State changes to SYN-SENT
+        - SYN seq: 100
+        - State changes to ESTABLISHED
+        - SYN-ACK
+        - seq: 200
+        - ack:
+        - ACK
+        - seq: 101
+        - ack
+        - State changes to
+        - State changes to SYN-RECEVED
+    - TLS Handshake
+        - Client
+        - Server
+        - Establish TCP Connection
+        - SYN
+        - SYN ACK
+        - Client Hello
+        - SSL/TLS Handshake
+        - Server Hello Certificate
+        - Certificate Vers
+        - Server Finished
+        - Encrypted Application Data
+        - HTTP GET
+        - HTTP Response
+    - Network Latency
+      - Data Transfer Latency - Every computer is connected via wire. It takes some time travel data from point A to point B. That is called data transfer latency.
+      - TCP Connection - Creation or Establish a connection also has some latency
+      - SSL/TLS Connection - Much more overhead
+    - Network Latency - Approaches
+  - TCP Connections:
+    - Connection Pool (DB App Server): Reusing existing connections instead of establishing new ones for every request can significantly reduce connection setup time and latency.
+    - Persistent Connections (Client - API Gateway):
+    - HTTP/1.1 automatically maintains persistent connections, eliminating the need for handshakes in subsequent requests, improving latency.
+    - SSL Session Caching: Reusing established SSL sessions minimizes the overhead of handshakes, especially for HTTPS connections, saving bandwidth and reducing latency.
+  - Data Transfer.
+    - Session / Data Caching: Caching frequently accessed data at the client or intermediate servers (eg. API Gateway) avoids fetching it from the origin server, reducing round-trip time and latency.
+    - Static Data Caching: Cache static content like logos, scripts, and images close to the user (eg, CDN) to minimize fetching time and improve page load speed. Data Format & Compression: Choosing efficient data formats (eg. JSON over XML) and compression techniques can significantly reduce data size, leading to faster transmission and lower latency.
+    - Binary Data-gRPC: Using protocols like gRPC optimized for binary data transfer avoids unnecessary text parsing and serialization/deserialization, further reducing latency for transferring large data sets.
+
+  - Network Latency - Approaches
+    -Additional considerations:
+       - Minimize HTTP requests: Combine resources into fewer requests to reduce round-trip times and network overhead.
+       - Optimize DNS resolution: Use a Content Delivery Network (CDN) with strategically placed caching servers to minimize DNS lookup times..
+       - Monitor and analyze: Continuously monitor network performance metrics like latency, throughput, and packet loss to identify bottlenecks and areas for further optimization.
+
+   - Memory Access Latency
+      - Finite Heap Memory (If we reach the limit the app will crash)
+      - Large Heap Memory (The application may occupy a large number of memory)
+      - GC (garbage collector) Algorithm.
+      - Finite Buffer Memory (on DB)
+   - Minimize Memory Access Latency
+      - 1. Avoid Memory Bloat: This is the crucial principle. Reduce the overall amount of data your application holds in memory at any given time.
+      - 2. Weak/Soft References: Utilize these reference types to indicate data that can be reclaimed by the garbage collector if resources become scarce. This helps prevent unnecessary data being held in memory permanently.
+      - 3. Multiple Smaller Processes: Splitting your application into smaller, focused processes can help reduce individual memory footprints.
+      - 4. Garbage Collection Algorithm: Choosing an efficient GC algorithm and tuning its parameters can significantly impact latency. Opt for algorithms with low pauses and efficient memory reclamation to minimize overhead during GC cycles.
+      - 5. Batch Processes: Process data in batches instead of single items. This can improve memory efficiency by reducing context switching and increasing data locality within cache lines.
+      - 6. Constantly run with main process: if possible, avoid creating and destroying the main process frequently. This minimizes memory allocation and deallocation overhead, reducing latency associated with these actions.
+      - 7. Database Normalization: Implement proper database normalization to avoid redundant data storage. This reduces the memary footprint on the database side and minimizes unnecessary data transfers to the application, improving overall access times.
+      - 8. Computer Over Storage: Prioritize processing data in memory where possible instead of relying on disk storage. This significantly reduces access latency compared to fetching data from slower disks.
+      - 9. Don't store unnecessary data: Carefully analyze your data needs and avoid storing information that can be easily calculated on demand. This frees up valuable memory space and access to truly essential data
+
+   -Disk Access Latency
+     -Disk IO is very slow.
+        -Web Content Files
+        -Logging
+        -DB Disk Access (Very Very Important)
+
+   -Minimize Memory Access Latency
+        -1. Sequential & Batch IO: Disks are significantly faster at writing and reading data sequentially compared to random access. Batching operations together and writing sequentially can dramatically improve performance.
+        -2. Asynchronous Logging (Worker Thread): Offload logging to a separate worker thread to avoid blocking the main thread and slowing down critical operations.
+        -3. Web Content Caching: Cache static content like images, scripts, and stylesheets closer to the user (e.g., CDN) to minimize disk access on the origin server.
+        -4. Reverse Proxy / Load Balancer: Utilize these tools to distribute traffic across multiple servers, reducing the burden on individual disks and preventing bottlenecks. Additionally, reverse proxies can cache content further improving access times.
+        -5. Separate hosting of dynamic and static data: Host dynamic content, that frequently changes, on separate servers or storage systems from static content.
+        -6. Page Cache, Zero Copy: Utilize the operating system's page cache to keep frequently accessed data readily available in memory, minimizing disk access for repeated requests.
+        -7. Query Optimization: Efficiently written database queries minimize disk access by retrieving only the necessary data.
+        -8. Data Caching: Cache frequently accessed database results within the application to further reduce disk access for repeated requests.
+        -9. Schema Optimization: Design your database schema with efficient data layout and appropriate indexing to minimize disk seeks and improve query execution speed.
+        -10. Higher IOPS, RAID, SSD Disk: Consider hardware upgrades like disks with higher IOPS (Input/Output Operations per Second) or RAID configurations for improved data access parallelism. SSDs offer significantly faster access times compared to tradit HDDs.
+
+
+   -CPU Latency
+      -Inefficient Algorithms (Developer can handle)
+      -Context Switching
+        - In computing, a context switch is the process of storing the state of a process or thread, so that it can be restored and resume execution at a later point, and then restoring a different, previously saved, state.
+CPU
+↓
+Interrupt or system call
+↓
+Save state into PCB1
+↓
+Reload state from PCB2
+↓
+Interrupt or system call
+↓
+Save state into PCB2
+↓
+Reload state from PCB1
+
+
+Process P1
+↓
+Executing
+↓
+↓
+Idle
+Executing
+
+
+Process P2
+↓
+Idle
+↓
+Executing
+↓
+Idle
+
+  - Minimize CPU Latency
+     - Efficient Algorithms
+     - Efficient Queries
+     - Batch/Async IO
+     - Single Threaded Model
+     - Thread Pool Size
+     - Multi-Process in Virtual Environment
+
+    - Latency Costs
+    - Concurrent Request: It requires knowledge of Operating System and Multithreading
+    - capacity: increse hardware improve performance
+    - caching: we will have a separate sessions for that
