@@ -388,3 +388,11 @@ Idle
     - Concurrent Request: It requires knowledge of Operating System and Multithreading
     - capacity: increse hardware improve performance
     - caching: we will have a separate sessions for that
+
+
+Scalablity of Application
+
+we optimization the application performance to make our client happy
+
+current system performance
+    - req
