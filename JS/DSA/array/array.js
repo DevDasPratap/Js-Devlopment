@@ -95,3 +95,52 @@ for(let i=0; i<words.length; i++){
 // }
 
 // max profit
+
+
+const array = [10, 7, 0, 5, 0, 9, 16, 91, 22, 22, 0]
+// Second Largest
+// Input: arr[] = [12, 35, 1, 10, 34, 1]
+// Output: 34
+// Explanation: The largest element of the array is 35 and the second largest element is 34.
+// Input: arr[] = [10, 5, 10]
+// Output: 5
+// Explanation: The largest element of the array is 10 and the second largest element is 5.
+
+const findSecondLargest = (array) => {
+    let largest = -Infinity; // Start with the smallest possible value
+    let secondLargest = -Infinity; // Start with the smallest possible value
+    let secondLargestIndex = -1; // Default value if no second-largest exists
+
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] > largest) {
+            secondLargest = largest; // Update second largest
+            secondLargestIndex = array.indexOf(secondLargest); // Store index of previous largest
+            largest = array[i]; // Update largest
+        } else if (array[i] > secondLargest && array[i] !== largest) {
+            secondLargest = array[i]; // Update second largest
+            secondLargestIndex = i; // Store index of second largest
+        }
+    }
+
+    return { secondLargest, secondLargestIndex };
+};
+const getSecondLargest = findSecondLargest(array)
+console.log(getSecondLargest)
+
+
+// Move All Zeroes to End
+// Input: arr[] = [1, 2, 0, 4, 3, 0, 5, 0]
+// Output: [1, 2, 4, 3, 5, 0, 0, 0]
+// Explanation: There are three 0s that are moved to the end.
+// Input: arr[] = [10, 20, 30]
+// Output: [10, 20, 30]
+// Explanation: No change in array as there are no 0s.
+// Input: arr[] = [0, 0]
+// Output: [0, 0]
+// Explanation: No change in array as there are all 0s.
+
+const moveAllZeroToEnd = (array)=>{
+
+}
+const getMoveZeroResult = moveAllZeroToEnd(array)
+console.log(getMoveZeroResult)
