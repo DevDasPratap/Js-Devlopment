@@ -2,39 +2,39 @@
 
 // create custom array
 class MyArray {
-    constructor(){
+    constructor() {
         this.length = 0
         this.data = {}
     }
-    push(item){
+    push(item) {
         this.data[this.length] = item
         this.length++
         return this.length
     }
-    get(index){
+    get(index) {
         return this.data[index]
     }
-    pop(){
-        const lastItem = this.data[this.length-1]
-        delete this.data[this.length-1]
+    pop() {
+        const lastItem = this.data[this.length - 1]
+        delete this.data[this.length - 1]
         this.length--
         return lastItem
     }
-    shift(){
+    shift() {
         const firstItem = this.data[0]
         for (let i = 0; i < this.length; i++) {
-            this.data[i] = this.data[i+1]
+            this.data[i] = this.data[i + 1]
         }
-        delete this.data[this.length-1]
+        delete this.data[this.length - 1]
         this.length--
         return firstItem
     }
-    delete(index){
+    delete(index) {
         const item = this.data[index]
-        for (let i = index; i < this.length-1; i++) {
-            this.data[i]=this.data[i-1]
+        for (let i = index; i < this.length - 1; i++) {
+            this.data[i] = this.data[i - 1]
         }
-        delete this.data[this.length-1]
+        delete this.data[this.length - 1]
         this.length--
         return item
     }
@@ -56,16 +56,54 @@ const myNewArray = new MyArray()
 // reverse
 const str = 'apple banana oragnge'
 let rev = ''
-for (let i = str.length-1; i >= 0; i--) {
+for (let i = str.length - 1; i >= 0; i--) {
     rev += str[i]
 }
-
 // console.log(rev)
+
+const numArr = [10, 7, 0, 5, 0, 9, 16, 91, 22, 22, 0]
+
+for (let i = 0; i < numArr.length/2; i++) {
+    let temp = numArr[i]
+    numArr[i] = numArr[numArr.length-1-i]
+    numArr[numArr.length-1-i] = temp
+}
+
+let left = 0
+let right = numArr.length-1
+while (left < right) {
+    let temp = numArr[left]
+    numArr[left] = numArr[right]
+    numArr[right] = temp
+    left++
+    right--
+}
+
+for (let i = 0, j=numArr.length-1; i < numArr.length/2; i++, j--) {
+    [numArr[i], numArr[j]] = [numArr[j], numArr[i]]
+}
+console.log(numArr)
+
+// recursive way
+const reverse_arr = (arr, start, end) => {
+    let temp = null
+    if (start <= end) {
+        // console.log(arr) //swap
+        temp = arr[start]
+        arr[start] = arr[end]
+        arr[end] = temp
+        reverse_arr(arr, start + 1, end - 1)
+    }
+    return arr
+}
+
+const res = reverse_arr(numArr, 0, numArr.length - 1)
+// console.log(res)
 
 // palindrom
 const palindrom = 'cddc'
 let palin = ''
-for (let i = palindrom.length-1; i >= 0; i--) {
+for (let i = palindrom.length - 1; i >= 0; i--) {
     palin += palindrom[i]
 }
 
@@ -75,9 +113,9 @@ for (let i = palindrom.length-1; i >= 0; i--) {
 const myName = 'pratap das'
 const words = myName.split(' ')
 let sentence = ''
-for(let i=0; i<words.length; i++){
+for (let i = 0; i < words.length; i++) {
     if (myName[i].charAt(0)) {
-        sentence += words[i][0].toUpperCase()+words[i].slice(1)+' '
+        sentence += words[i][0].toUpperCase() + words[i].slice(1) + ' '
     }
 }
 // console.log(sentence)
@@ -125,7 +163,7 @@ const findSecondLargest = (array) => {
     return { secondLargest, secondLargestIndex };
 };
 const getSecondLargest = findSecondLargest(array)
-console.log(getSecondLargest)
+// console.log(getSecondLargest)
 
 
 // Move All Zeroes to End
@@ -139,8 +177,62 @@ console.log(getSecondLargest)
 // Output: [0, 0]
 // Explanation: No change in array as there are all 0s.
 
-const moveAllZeroToEnd = (array)=>{
-
+const moveAllZeroToEnd = (array) => {
+    let nonZeroIndex = 0
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] !== 0) {
+            array[nonZeroIndex] = array[i]
+            nonZeroIndex++
+        }
+    }
+    for (let j = nonZeroIndex; j < array.length; j++) {
+        array[j] = 0
+    }
+    return array
 }
 const getMoveZeroResult = moveAllZeroToEnd(array)
-console.log(getMoveZeroResult)
+// console.log(getMoveZeroResult)
+
+// Rotate Array
+// Input: arr[] = [1, 2, 3, 4, 5], d = 2
+// Output: [3, 4, 5, 1, 2]
+// Explanation: when rotated by 2 elements, it becomes 3 4 5 1 2.
+// Input: arr[] = [2, 4, 6, 8, 10, 12, 14, 16, 18, 20], d = 3
+// Output: [8, 10, 12, 14, 16, 18, 20, 2, 4, 6]
+// Explanation: when rotated by 3 elements, it becomes 8 10 12 14 16 18 20 2 4 6.
+// Input: arr[] = [7, 3, 9, 1], d = 9
+// Output: [3, 9, 1, 7]
+// Explanation: when we rotate 9 times, we'll get 3 9 1 7 as resultant array.
+
+function rotatedArray(array, position) {
+    // Handle cases where position > array.length
+    position = position % array.length;
+
+    const first = [];
+    const second = [];
+
+    // Collect elements before the position
+    for (let i = 0; i < position; i++) {
+        first.push(array[i]);
+    }
+
+    // Collect elements from the position to the end
+    for (let j = position; j < array.length; j++) {
+        second.push(array[j]);
+    }
+
+    // Return the concatenated rotated array
+    return [...second, ...first];
+}
+//  console.log(rotatedArray([7, 3, 9, 1], position=9))
+
+function rotateArrayRecursive(array, d){
+    d = d % array.length
+    if (d === 0) {
+        return array
+    }
+    const firstElement = array.shift()
+    array.push(firstElement)
+    return rotateArrayRecursive(array, d-1)
+}
+// console.log(rotateArrayRecursive([2, 4, 6, 8, 10, 12, 14, 16, 18, 20], 3));

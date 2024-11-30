@@ -3,18 +3,18 @@
 // *****
 // *****
 
-// function printPattern(n) {
-//     let pattern = ''
-//     for(let i=0; i<n; i++){
-//         for (let j = 0; j < n; j++) {
-//             pattern += '* '
-//         }
-//         console.log(pattern)
-//         pattern = ''
-//     }
-// }
+function printPattern(n) {
+    for (let row = 0; row < n; row++) {
+        let pattern = ''
+        for (let column = 0; column < n; column++) {
+            pattern += '* '
+        }
+        console.log(pattern)
+        // pattern = ''
+    }
+}
 
-// printPattern(5)
+printPattern(5)
 
 // *
 // **
@@ -54,24 +54,24 @@
 // printPattern(5)
 
 
-function printPattern(n) {
-    let pattern = ''
-    for(let i=0; i<n; i++){
-        for (let j = 0; j < n-i; j++) {
-            pattern += ' '
-        }
-        for (let k = 0; k < 2*i+1; k++) {
-            pattern +='*'
-        }
-        for (let l = 0; l < n-i-1; l++) {
-            pattern +=' '
-        }
-        console.log(pattern)
-        pattern = ''
-    }
-}
+// function printPattern(n) {
+//     let pattern = ''
+//     for(let i=0; i<n; i++){
+//         for (let j = 0; j < n-i; j++) {
+//             pattern += ' '
+//         }
+//         for (let k = 0; k < 2*i+1; k++) {
+//             pattern +='*'
+//         }
+//         for (let l = 0; l < n-i-1; l++) {
+//             pattern +=' '
+//         }
+//         console.log(pattern)
+//         pattern = ''
+//     }
+// }
 
-printPattern(5)
+// printPattern(5)
 
 // 1
 // 12
