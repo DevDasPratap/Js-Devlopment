@@ -390,9 +390,291 @@ Idle
     - caching: we will have a separate sessions for that
 
 
+
+
+
+
+
+
+
+
 Scalablity of Application
 
 we optimization the application performance to make our client happy
 
 current system performance
-    - req
+    - req-res latency 150 ms per request average, 350 ms tail latency, throughput - 1000 concurrect request per Second
+
+whole day the application performance really well, howerver during the peak hour the system gets shut down.
+
+what we can do next ?
+we need to scale our system
+
+scaling in system design
+  - Scaling in system design refers to the ability of a system to handle increased load or demand while maintaining or improving its performance. Scaling is an essential aspect of system design, especially in the context of distributed and cloud-based applications, where workloads can vary over time and may experience rapid growth. The goal of scaling is to ensure that a system can adapt to changing circumstances, such as increased user traffic or growing datasets, without compromising its responsiveness or reliability.
+
+Performance vs Scaling
+
+Performance:
+  • Low Latency
+  • High Throughput
+      • Concurrency
+           • Single Machine (Multi Threading)
+           • Multi Machine (Multi Threading + Multi Processing = Distributed Processing)
+      • Capacity
+   • Capacity
+
+Scalability
+   • Subset of Performance
+   • High Throughput
+       • Ability of a system to increase its throughput by adding more hardware capacity
+   • Scale both up and down
+
+There are two types of scaling
+   - vertical
+   - horizontal
+
+  Vertical Scaling - Vertical scaling, also known as scaling up or scaling vertically, refers to the process of increasing the capacity of a single server or resource in order to handle a larger load or improve performance. This is typically achieved by adding more CPU, memory, storage, or other resources to a single machine.
+  
+  Pros of Vertical Scaling:
+    Simplicity: It is often simpler to implement, requiring minimal changes to the existing architecture or application.
+    Performance: Vertical scaling can lead to improved performance for individual tasks since the resources available to a single machine are increased.
+    Cost-Effective for Small to Medium Workloads: For applications with relatively small or predictable workloads, vertical scaling can be cost-effective.
+  
+  How to Achieve Vertical Scaling?
+    • Add More CPU: Increase the processing power by adding more powerful CPUs or additional processors to the existing hardware.
+    • Add More Memory (RAM): Upgrade the amount of random access memory (RAM) to allow the server to handle more concurrent processes and data.
+    • Increase Storage Capacity: Add more storage space, either by expanding existing drives or adding new ones, to accommodate growing data needs.
+    • Upgrade to a More Powerful Server: Replace the current server with a more powerful one that can handle increased workloads.
+
+
+   Why Not Vertical Scaling? What are The Problems We Still Have?
+      - limitation
+
+   Cons of Vertical Scaling
+       - Limited Scalability: There is a practical limit to how much a single machine can be scaled vertically. Once the maximum capacity is reached, further scaling may require a more complex and expensive approach.
+       - Downtime for Upgrades: Increasing resources often requires shutting down the server, which can result in downtime.
+       - Higher Costs for High-Performance Needs: For very high-performance requirements, the cost of acquiring extremely powerful hardware may become prohibitive.
+       - Single Point of Failure: If the single server fails, it can impact the entire system. Redundancy and failover mechanisms are crucial to mitigate this risk.
+
+   When to Use Vertical Scaling?
+      - Vertical scaling is suitable when the workload is well-suited to a single, powerful machine.
+      - It's a viable option for applications with predictable resource needs.
+      - In scenarios where simplicity and quick upgrades are crucial.
+
+   Horizontal Scaling - Horizontal scaling, also known as scaling out, involves adding more machines or nodes or instance or server to a system to distribute the load and increase its overall capacity. Instead of making a single machine more powerful, horizontal scaling adds more machines to share the workload.
+
+   
+   Pros of Horizontal Scaling
+      - Improved Scalability: Horizontal scaling allows a system to handle increased loads by adding more machines, providing a more flexible and scalable solution.
+      - Cost-Effective: Horizontal scaling can be more cost-effective than vertical scaling, especially with the use of commodity hardware or cloud services where resources can be provisioned on demand.
+      - Redundancy and Fault Tolerance: With multiple machines, the system becomes more resilient to failures. If one machine goes down, others can continue to handle requests.
+      - Easy to Add Capacity: Adding more machines to a cluster is often a straightforward process and can be done without significant downtime.
+
+   How to Achieve Horizontal Scaling
+
+      - Load Balancing: Distribute incoming requests across multiple servers to ensure even utilization and prevent overloading a single server. Load balancers help achieve this by intelligently routing traffic.
+      - Clustering: Create a cluster of machines that work together to handle requests. Clustering involves connecting multiple servers in a way that they act as a single system.
+      - Containerization: Use containerization technologies like Docker or Kubernetes to deploy and manage applications in lightweight, portable containers. This facilitates the deployment of applications across multiple machines.
+      - Auto-Scaling: Implement automated processes that dynamically adjust the number of instances based on demand. Cloud services often provide auto-scaling features to add or remove instances as needed.
+
+   Monolithic is an anti pattern for scalablity
+     - Issue with This Monolithic Architecture
+            • Two Different IP Addresses
+            • Two Different Databases
+            • Two Different Storages
+            • How client will decide which route to go?
+      solution:
+         - use load balancer
+         - use single database (stateful service) have replicaset, sharding, indexing, partition
+         - use single storage (stateful service)
+
+      Cons of Horizontal Scaling
+         - Complexity: Managing and coordinating multiple instances and ensuring they work seamlessly together can introduce complexity, especially in distributed systems.
+         - Inter-Node Communication: In some cases, horizontal scaling may require efficient communication between nodes, which can be challenging to implement and maintain.
+         - Data Consistency: Maintaining data consistency across multiple nodes can be complex, especially in distributed databases. Ensuring all nodes have the latest data can be a challenge.
+         - Not Suitable for All Workloads: While horizontal scaling is effective for many scenarios, some applications may not benefit from it, especially those with high inter-process communication requirements.
+
+
+      When to Use Horizontal Scaling
+         - Horizontal scaling is suitable for applications with dynamic or unpredictable workloads.
+         - It's effective for cloud-based architectures where resources can be provisioned and deprovisioned on demand.
+         - When redundancy, fault tolerance, and improved scalability are critical.
+
+      Scalability principales
+         - Decentralization - One component is not responsible for all the work. If one component is responsible for all the work it is called Monolithic. Monolithic is an anti-pattern for scalability. Decentralization in scalability refers to the distribution of responsibilities and functions across multiple components or nodes within a system rather than centralizing them in a single entity. In a decentralized architecture, different parts of the system can operate independently, reducing bottlenecks and improving overall scalability.
+                Key Aspects of Decentralization
+                     - Distribution of Components: Instead of having a monolithic architecture, decentralization involves breaking down the system into smaller, independent components or services. Each component can operate autonomously.
+                     - Data Distribution: In a decentralized system, data is often distributed across multiple nodes. This can involve partitioning data or replicating it across various servers to ensure that no single point becomes a performance bottleneck.
+                     - Load Distribution: Workloads are distributed across multiple nodes or instances, ensuring that no single component bears the entire burden of incoming requests. Load balancing mechanisms play a crucial role in achieving this distribution.
+               
+               Advantages of Decentralization
+                   - Improved Scalability: Decentralization allows a system to scale horizontally by adding more nodes to distribute the workload, providing a more efficient way to handle increased demand.
+                   - Fault Tolerance: Since responsibilities are distributed, failures in one component do not necessarily affect the entire system. Decentralized systems are often more resilient to faults.
+                   - Flexibility: Decentralized architectures are more flexible and adaptable to changes in workload. Adding or removing nodes can be done without disrupting the entire system.
+
+         - Independence - Independence in scalability refers to the ability of components or modules within a system to operate autonomously without strong dependencies on each other. Each component can function independently, making it easier to develop, deploy, and scale.
+               Key Aspects of Independence
+                    - Loose Coupling: Components in an independent system are loosely coupled, meaning that changes to one component do not have a significant impact on others. This allows for more flexibility and ease of modification.
+                    - Isolation of Concerns: Each component or service focuses on a specific task or functionality, and its internal workings are encapsulated. This isolation of concerns makes it easier to reason about and maintain individual components.
+                    - Service-Oriented Architecture (SOA): Independence is often achieved through a service-oriented architecture, where different functions are provided by independent services that communicate through well-defined interfaces.
+
+               Advantages of Independence
+                    - Easier Maintenance: Independent components are easier to maintain and update since changes to one component are less likely to affect others.
+                    - Scalability: Independent components can scale horizontally without causing cascading effects on the rest of the system. This supports the overall scalability of the system.
+                    - Parallel Development: Teams can work on different components concurrently, leading to faster development cycles and efficient collaboration.
+
+     Load Balancer:
+           -A load balancer is a device or software application that distributes incoming network traffic across multiple servers or resources to ensure optimal utilization, prevent overload on any single server, and enhance the availability and reliability of a system or application. Load balancers are commonly used to manage traffic for web servers, databases, and other types of server farms.
+      - Key Functions of Load Balancers
+             - Single IP Address: Client don't need to know about IP addresses of all instances. Load balancer will keep track of it and expose a single IP address for client.
+             - Traffic Distribution: Load balancers evenly distribute incoming network traffic, such as web requests, across multiple servers. This ensures that no single server bears the entire load and prevents any server from becoming a performance bottleneck.
+             - Load Distribution: By distributing the workload across multiple servers, load balancers optimize resource utilization, preventing overloading on specific servers. This leads to improved performance and responsiveness of the overall system.
+             - Scalability: Load balancers support horizontal scalability by easily integrating additional servers into the system. This enables the infrastructure to grow or shrink dynamically based on demand, enhancing the system's overall scalability.
+             - Health Monitoring: Load balancers continually monitor the health and performance of individual servers. If a server becomes unavailable or experiences degraded performance, the load balancer can redirect traffic to healthier servers to maintain system stability.
+             - Session Persistence: Some load balancers support session persistence, ensuring that requests from the same client are consistently directed to the same server. This is essential for applications that require maintaining session state, such as in e-commerce websites.
+      
+      - Use Cases of Load Balancers
+            - Web Servers and Applications: Load balancers distribute incoming web requests across multiple servers, ensuring even utilization and preventing any single server from becoming a bottleneck. This is common in websites, online applications, and e-commerce platforms.
+            - Application Servers in Multi-Tier Architectures: In multi-tier architectures, load balancers distribute traffic among application servers, helping to balance the load and improve the overall performance of the application
+            - Database Servers: Load balancers can be used to distribute read queries among multiple database servers, optimizing the use of database resources and improving query response times.
+            - Content Delivery Networks (CDN): CDNS use load balancers to distribute content to edge servers located in different geographical locations. This reduces latency and improves the speed of content delivery for users around the world.
+            - File Servers and Storage Clusters: Load balancers distribute file requests across multiple file servers or storage clusters, preventing any single server from becoming overwhelmed and ensuring efficient data retrieval.
+            - Mail Servers (SMTP, IMAP): Load balancers distribute email traffic across multiple mail servers, ensuring efficient handling of incoming and outgoing emails and preventing any single server from being overwhelmed.
+
+      - HLB vs SLB
+          - Hardware Based Load Balancer
+               • Load distribution for L4 & L7
+               • OSI Model
+               • F5 Big IP 15000 series
+                     - connection: 300 million
+                     - Throughput: 320/160 Gbps
+                     - RPS (L7): 10 million
+
+         - Software Based Load Balancer
+               • Load distribution L7
+               • Features
+                    - Content based routing
+                    - Support SSL Termination
+                    - Support Sticky Sessions
+               • NGINX:
+                    - Connections: 225K
+                    - Throughput: 70 Gbps
+                    - RPS: 3 million
+      - Reverse Proxy:
+            - A reverse proxy is a server that sits between client devices and a web server, forwarding client requests to the web server and returning the server's responses to clients. Unlike a forward proxy that sits between client devices and the internet, a reverse proxy is positioned on the server side to handle requests on behalf of the server. Reverse proxies provide several benefits, including improved security, load distribution, and caching.
+         - Use Cases of Reverse Proxy
+              - Request Forwarding: Reverse proxies forward client requests to backend servers, acting as an intermediary that relays requests on behalf of the clients.
+              - Load Distribution: Similar to load balancers, reverse proxies distribute incoming requests across multiple backend servers to optimize resource utilization and improve the overall performance of the system. •
+              - SSL Termination: Reverse proxies can handle SSL/TLS encryption and decryption, relieving backend servers of the resource-intensive task of managing secure connections. This enhances server performance and simplifies SSL certificate management.
+              - Caching: Reverse proxies can cache static content, such as images, CSS files, and other assets, to reduce the load on backend servers and improve response times for frequently requested content.
+              - Compression: Reverse proxies can compress content before sending it to clients, reducing bandwidth usage and improving the overall speed of content delivery.
+              - Security: Acting as a barrier between clients and backend servers, reverse proxies enhance security by concealing the internal server structure, preventing direct access to backend servers, and mitigating certain types of attacks.
+              - Web Acceleration: Reverse proxies can accelerate web applications by serving as a middle layer between clients and servers, optimizing content delivery, and reducing latency.
+              - SSL Offloading: In addition to SSL termination, reverse proxies can offload SSL processing tasks from backend servers, freeing up server resources for handling application logic.
+
+      - Load Balancer vs Reverse Proxy
+
+         Feature              -            Load Balancer                 -                                                   Reverse Proxy
+          Location                           Between clients and multiple servers.                                             On the server side, in front of backend servers.
+          Functionality                      Primarily focuses on load distribution.                                           Manages communication between clients and servers, handles SSL termination, caching, and security.
+          Use Cases                          Distributing traffic for performance and availability.                            Caching, SSL termination, security, and serving as a barrier between clients and servers.
+          SSL/TLS Handling                   Can handle SSL/TLS offloading for multiple servers.                               Performs SSL/TLS termination, offloading encryption/decryption from backend servers.
+          Caching                            Primarily focused on load distribution, may have limited caching capabilities.    Often incorporates caching to store and serve static content, reducing the load on backend servers.
+          Client Communication               Directs client requests to appropriate backend servers.                           Communicates with clients on behalf of backend servers, protecting servers from direct exposure to the internet
+          Type                               Software and Hardware                                                             Software
+
+      - API Gateway
+          - An API Gateway is a server that acts as an intermediary between an application and a set of microservices or APIs (Application Programming Interfaces). It serves as a single entry point for multiple APIs, handling tasks such as request routing, composition, security, and protocol translation. API Gateways are a crucial component in modern software architectures, providing a centralized point for managing and securing API interactions.
+          Features of API Gateway
+            - Request Routing: API Gateways route incoming requests from clients to the appropriate backend services or APIs based on predefined rules and configurations.
+            - Authentication and Authorization: Ensures that only authorized users or applications can access the APIs by implementing authentication mechanisms such as API keys, OAuth, or other authentication protocols.
+            - Request and Response Transformation: Modifies or transforms incoming requests and outgoing responses to ensure compatibility between client and server, such as converting data formats or handling versioning.
+            - Rate Limiting and Throttling: Implements controls to limit the number of requests a client can make within a specified time frame, preventing abuse and ensuring fair usage of API resources.
+            - Logging and Analytics: Captures detailed logs of API requests and responses, providing insights into API usage, performance, and potential issues. Analytics tools help in monitoring and optimizing API performance.
+            - Caching: Stores and serves cached responses for frequently requested data, reducing the load on backend servers and improving response times for clients.
+            - Security: Enforces security measures such as HTTPS, SSL/TLS termination, and protection against common security threats like SQL injection or cross-site scripting.
+            - Monitoring and Health Checks: Monitors the health and availability of backend services, performing health checks and dynamically adjusting routing based on the status of the services.
+            - API Versioning: Supports versioning of APIs, allowing clients to specify the desired version and ensuring backward compatibility as APIs evolve.
+            - Distributed Tracing: Enables the tracking of requests across multiple microservices, providing insights into the flow of requests and helping identify performance bottlenecks.
+
+      - Use Cases of API Gateway
+          - API Management: Centralizes the management of APIs, making it easier to create, deploy, version, and retire APIs.
+          - Security and Access Control: Enforces security policies, authenticates users, and ensures that only authorized clients can access specific APIs.
+          - Request Transformation and Composition: Modifies or combines API requests to suit backend service expectations, optimizing the communication between clients and microservices.
+          - Distributed Microservices Architecture: Serves as the entry point for client interactions with microservices, handling the complexity of multiple services and ensuring a unified API surface.
+          - Legacy System Integration: Bridges the gap between modern applications and legacy systems, allowing newer applications to interact with older services through a standardized API.
+          - Cross-Origin Resource Sharing (CORS): Facilitates secure cross-origin communication by enforcing CORS policies, allowing web applications to securely make requests to APIs hosted on different domains.
+          - API Versioning and Evolution: Manages API versioning, ensuring backward compatibility and smooth transitions as APIs evolve over time.
+          - Ingress Controller for Kubernetes: An API Gateway can serve as an Ingress Controller in Kubernetes, managing external access to services, handling SSL termination, and performing request routing based on domain
+          - Third-Party Integration: Facilitates integration with third-party APIs and services, managing API keys, authentication, and data translation to ensure seamless communication between different services.
+          - Microservices Communication: Serves as a central point for communication between microservices within an architecture, managing the complexities of service discovery, load balancing, and fault tolerance.
+
+      - Popular API Gateways
+           - Kong
+           - Apache APISIX
+           - Tyk
+           - Ocelot
+           - Amazon API Gateway
+           - Azure
+
+      - Replication
+          - Replication in system design refers to the process of creating and maintaining multiple copies of data, components, or systems to improve reliability, fault tolerance, and performance. The purpose of replication is to ensure that a system remains available and functional even in the face of failures, outages, or increased demand.
+
+          - Key Concept
+             - Data Replication
+                 - Copies of data are maintained across multiple locations, servers, or storage devices.
+                 - This approach improves data availability, reduces latency, and enhances fault tolerance.
+            - Component Replication
+                 - Replicating entire components or services involves creating multiple instances of a service or application that can operate independently
+            
+            - Stateless Replication
+               - Stateless replication involves replicating the functionality of a system or service without necessarily replicating its state. Each replica operates independently, and there is no shared state between replicas.
+               - Key Characteristics:
+                  - No Shared State: Stateless replicas do not share a common state. Each replica is responsible for managing its own state independently.
+                  - Scalability: Stateless replication is often more scalable than stateful replication because each replica can operate independently, and there is no need for constant synchronization.
+                  - Simplicity: Stateless replicas are typically simpler to implement, as there is no need to manage shared state or handle complex synchronization mechanisms.
+                  - Use Cases: Stateless replication is common in scenarios where maintaining an identical state across replicas is not necessary, such as load balancing in web servers, content delivery networks (CDNs), and stateless microservices.
+            - Stateful Replication
+               - Stateful replication involves replicating both the data and the state of a system. In stateful replication, each instance or replica maintains the current state, and changes made to one replica are reflected in others.
+               - Key Characteristics:
+                  - Shared State: Stateful replicas share the same state, ensuring that each replica has an up-to-date copy of the system's data and state.
+                  - Consistency: Maintaining consistency across replicas is critical in stateful replication. Changes made to one replica are propagated to others to ensure a coherent state.
+                  - Challenges: Achieving stateful replication can be challenging, especially in distributed systems, as it requires mechanisms to synchronize and coordinate the state across replicas.
+                  - Use Cases: Stateful replication is often used in scenarios where maintaining a consistent state across replicas is essential, such as in databases, distributed file systems, and certain types of distributed applications.
+               - Stateful Replication - Web Application
+                  - Not Recommended
+                  - Low latency but lack of scalability and reliability
+                  - When low latency is required such as Auth Session
+                  - Manage sessions using
+                        - Sticky session / session affinity
+                        - Session clustering
+               - Stateful Replication - Database
+                     - Master Slave (Primary Secondary)
+                        - Asynchronous
+                            - Low latency writes
+                            - Eventually consistent
+                            - Data Loss
+                            - Used for Read Replica
+                        - Synchronous
+                           - Consistent
+                           - High latency writes
+                           - Low write availability
+                           - Used for Backup
+                     - Master Slave (Peer to peer)
+                          - Asynchronous
+                              - Write conflicts
+                              - High availability
+                              - Use for multi regional service
+
+
+
+
+
+
+•
+•
+•
+•
+•
+•
