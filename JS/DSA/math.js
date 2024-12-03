@@ -160,3 +160,24 @@ function factorial(num) {
 }
 // console.log(factorial(4))
 
+function checkArmstrongNumber(n){
+    let armstrong = 0
+    let temp = n
+    while (temp > 0) {
+        // get last one digit
+        let remainder = temp%10
+        armstrong += remainder * remainder * remainder
+        temp = Math.floor(temp / 10)
+    }
+    return armstrong === n ? 'Amtrong' : 'Not amstrong'
+}
+const resultArmstrong = checkArmstrongNumber(153)
+console.log(resultArmstrong)
+
+const a=0, z=153
+// Find Armstrong numbers between a and z
+for (let i = a; i <= z; i++) {
+    if (checkArmstrongNumber(i) === 'Amtrong') {
+        console.log(i)
+    }
+}

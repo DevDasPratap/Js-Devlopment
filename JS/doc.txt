@@ -1,0 +1,22 @@
+JavaScript end to end flow
+  - Coading -> local server, local build, git
+  - CI/CD -> production build
+  - Server the js -> configuration of web server, networking, caching
+  - Browser + JS -> Execution, cleanup
+
+Hoisting & Temporal Dead Zones
+
+console.log(n)
+console.log(double)
+var n = 4
+
+function double(num){
+    const ans = num*2
+    return ans
+}
+
+console.log(x)
+
+console.log(xyz)
+let xyz = 'xyz'
+// Temporal Dead Zones

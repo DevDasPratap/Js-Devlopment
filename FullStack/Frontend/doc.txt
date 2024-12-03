@@ -1,0 +1,17 @@
+- Component, props, state, lifecycle
+- In depth knowledge of jsx
+- Conditional rendering & lists
+- Forms and validations
+
+- Component
+    - Component tree & relationship
+    - State, Props, State lisfting
+
+
+JSX function:
+   - Any function that return  a jsx is functional component in react
+   - Name must be capital: App(){}
+   - Must return a place of HTML(JSX)
+   - It always accept an object as an argument: App(argument){}
+   - We can't call  or invoke as a html tag
+   - props: anything that is dynamic can be dynamic using props
