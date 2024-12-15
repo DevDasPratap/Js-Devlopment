@@ -678,3 +678,350 @@ There are two types of scaling
 •
 •
 •
+
+
+
+
+Microservice Architecture | System Design and Application Architecture
+
+   What is Microservice?
+      => Microservices architecture is a software design approach where a complex application is decomposed into a set of small, independent, and loosely coupled services. Each service, known as a microservice, is designed to perform a specific business function and operates as an independent process. Microservices communicate with each other through well-defined APIs (Application Programming Interfaces) and can be developed, deployed, and scaled independently. This architectural style promotes modularity, flexibility, and the ability to evolve and update different parts of the application without affecting the entire system. The goal is to enable faster development, deployment, and maintenance, as well as improved scalability and resilience.
+   
+   Why should We Migrate to Microservices?
+      => A growing team with conflicting feature requests is a common catalyst for transitioning to microservices. However, several other compelling reasons might push you towards this architectural shift:
+   
+   Agility and Faster Development
+       • Independent deployments: Update and deploy individual services without affecting the entire application, enabling faster release cycles and continuous delivery.
+       • Smaller codebases: Developers focus on smaller, well-defined service codebases, leading to quicker development and testing iterations.
+       • Experimentation and innovation: Teams can experiment with new technologies and features in isolated services, minimizing risk and promoting innovation.
+   
+   Scalability and Resilience
+       - Horizontal scaling: Scale individual services based on their specific needs, optimizing resource utilization and handling fluctuating demand effectively.
+       - Fault isolation: Service failures are contained, preventing them from cascading and impacting the whole application, enhancing overall system resilience.
+       - Increased uptime: Microservices architecture can lead to higher uptime and improved user experience due to its inherent resilience.
+   
+   Organizational Alignment and Ownership
+       • Aligned teams and services: Service boundaries map to business capabilities, facilitating team ownership and fostering accountability.
+       • Microservice teams: Dedicated teams own and manage specific services, leading to deeper expertise and domain knowledge.
+       • Improved communication and collaboration: Teams collaborating on services fosters tighter communication and cross-functional understanding.
+   
+   Technology Flexibility and Modernization
+       - Polyglot architecture: Each service can utilize the best fit technology stack, fostering technological innovation and avoiding vendor lock-in.
+       - Modular modernization: Migrate specific services to newer technologies gradually, without needing to rewrite the entire application at once.
+       - Leveraging cloud-native technologies: Microservices align well with cloud platforms and containerization technologies, enabling efficient resource utilization and deployment.
+   
+   Service (Individual):
+     
+     What is a Service?
+        => A service in microservices architecture is an independent, deployable unit focused on delivering a specific business capability. It's like a well-defined task within a larger project, responsible for a particular function and operating with a high degree of autonomy.
+      
+     Key Characteristics
+         - Focused functionality: Owns a specific domain or area within the application, providing clear and focused functionality.
+         - Independent deployment: Can be developed, tested, and deployed independently without affecting other services.
+         - Loose coupling: Communicates with other services through well-defined APIs, minimizing dependencies and preventing cascading failures.
+         - Private data ownership: Ideally has its own data storage and controls its own data models for encapsulation and fault isolation.
+         - Technology agnostic: Can be implemented using different languages and technologies.
+   Move to microservice
+      - Add an api Gateway
+      - Separate authentication service
+      - Migrate high value service
+   
+   Every Service can have Multiple Instance Running. How can API Gateway Know in Which Instance It Needs to Forward The Request?
+     (Because Every Service Has Their Own IP Address)
+     - Introduce load balancer
+     - Introduce service discovery
+     - Message Queues
+   How to communicate between services ?
+     There are Two Ways
+        - Synchronous
+            - HTTP / RESTful APIs
+            - GRPC and Protocol Buffers
+            - GraphQL
+        - Asynchronous
+            - Message Queues
+            - Web Socket
+   
+   HTTP/RESTful APIs
+      - Description: Synchronous communication often involves using HTTP/RESTful APIs for request-response interactions. A microservice sends an HTTP request to another microservice, and it waits for a response.
+      - Used: 
+      - Pros: Simplicity, ease of implementation, and real-time interactions.
+      - Cons: Increased coupling between services, potential for cascading failures, and higher latency for some use cases.
+   
+   gRPC and Protocol Buffers
+      - Description: gRPC is a remote procedure call (RPC) framework developed by Google. It uses Protocol Buffers as a serialization format for efficient and language-agnostic communication.
+      - Used: Used for internal communication
+      - Pros: Efficient binary serialization, support for bidirectional streaming, and strong contract definition.
+      - Cons: Higher complexity compared to REST, potential for increased coupling.
+   
+   GraphQL
+      - Description: GraphQL is a query language for APIs that enables clients to request only the data they need. It allows more flexible and efficient communication between services.
+      - Used: 
+      - Pros: Client-driven queries, reduced over-fetching of data, and flexibility in data retrieval.
+      - Cons: Requires a specific skill set, complexity in implementing and securing.
+
+   Message Queues
+      - Description: Asynchronous communication involves the use of message queues (e.g., RabbitMQ, Apache Kafka). Microservices send messages to queues, and other microservices consume these messages asynchronously.
+      - Used:
+      - Pros: Loose coupling, improved fault tolerance, and better scalability for asynchronous processing.
+      - Cons: Complexity in managing message ordering and potential delays in processing.
+   
+   Web Socket
+      - Description: WebSocket provides full-duplex communication channels over a single, long-lived connection. It is suitable for scenarios requiring real-time bidirectional communication.
+      - Used:
+      - Pros: Real-time communication, reduced latency for specific use cases.
+      - Cons: Requires support for bidirectional communication, potential for increased complexity.
+
+
+
+
+
+
+
+
+System Reliability
+
+Distributed System
+   - More Likely to Fail
+   - Failure Can Be
+       - Partial
+       - Independent
+   
+   Failures in Large Scale Distributed System
+      - Definition: Large scale systems are typically distributed systems. Distributed systems are composed of multiple independent components that communicate and coordinate to achieve a common goal.
+      - Characteristics: Large number of components: There are many different parts (software or hardware) that make up the entire system.
+      - Large number of component instances: Each component may have multiple instances running to handle the system's load and provide scalability.
+
+   Types of Failures
+      
+      - Partial Failures:
+           - Definition: A partial failure occurs when only a specific part of the system malfunctions while the rest continues to operate.
+           - Example: One service within the system stops working, but other services remain functional.
+      - Independent Failures:
+           - Definition: Failures that are independent won't impact other services or components in the system. The failure is contained within a specific service or instance.
+           - Example: If one service fails, it doesn't affect the functionality of other services.
+      
+      - Single Point of Failures:
+           - Definition: A single point of failure is a component or part of the system that, if it fails, can cause the entire system to fail.
+           - Example: If a critical service that is required by many others fails, it becomes a single point of failure.
+   
+   Challenges in Large Scale Distributed System
+      - 1. Increased Chance of Partial Failures: In large-scale systems, there are numerous components and instances, increasing the likelihood of individual parts experiencing failures.
+      - 2. Cascading Effects: Partial failures can lead to complete system failures if they trigger a cascade of issues. For example, if a critical service fails, it might cause other dependent services to fail, creating a domino effect.
+      - 3. Identifying Single Point of Failures: In complex distributed systems, identifying single points of failure can be challenging. It's not always straightforward to determine which component, if it fails, could bring down the entire system.
+      - 4. Mitigation Strategies: Due to the complexity and potential for failures in large-scale distributed systems, it's crucial to implement strategies like redundancy, fault tolerance, and monitoring to mitigate the impact of failures.
+   
+   Reliability Engineering
+      - Reliability
+      - Availability
+      - Fault Tolerance
+   
+   Reliability
+      Reliability engineering is the systematic practice of predicting, preventing, and managing the probability of failure in systems and equipment. It's essentially the engineering discipline focused on making things function consistently and for their intended lifespans.
+         - A system is said to be reliable if it can continue to function correctly and remain available for operations even in the presence of partial failures
+         - It is measured as the probability of a system working correctly in a given time interval
+      
+      Reliability – Breakdown the Definition
+         - Probability: This indicates the likelihood of the system functioning correctly. A perfectly reliable system would have a probability of 1 (100%), while a completely unreliable system would have a probability of 0 (0%).
+         - Intended function: This refers to the specific purpose the system is designed to achieve. For example, a computer's intended function might be to run software applications, while a bridge's intended function might be to safely transport vehicles across a river.
+         - Adequately: This means the system not only functions but also meets acceptable performance standards. For example, a computer might be considered reliable if it runs applications without crashing, but not if it runs them very slowly.
+         - Specified period of time: This emphasizes that reliability isn't a universal concept. A system might be highly reliable for short periods but less reliable over longer durations. For example, a car might be reliable for a daily commute but might experience more failures over a long road trip.
+         - Stated conditions: This highlights that reliability can be influenced by specific operating conditions. For example, a computer might be reliable under normal room temperature but might overheat and malfunction in a hot environment.
+      
+   Availability
+      Availability in the context of computer systems and services refers to the probability that a system will be operational and accessible during a given period of time when it is supposed to be available for use. It is a critical metric in evaluating the reliability and performance of a system. Availability is often expressed as a percentage and is calculated using various methods, with two common approaches being time-based availability and request-based availability.
+
+      Time Based Availability
+         - Definition: Time-based availability is calculated based on the amount of time a system is operational (uptime) versus the total time, including periods of downtime.
+         - Formula: Availability = Uptime / (Uptime + Downtime) ×100
+         - Example: If a system is operational for 900 hours in a month and experiences 100 hours of downtime, the availability would be 900 / (900 + 100) ×100, resulting in 90% availability.
+      
+      Request Based Availability
+         - Definition: Request-based availability is calculated by considering the number of successful requests versus the total number of requests made to the system.
+         - Formula: Availability=Total Successful Requests / Total Requests × 100
+         - Example: If a web service receives 9000 requests and successfully processes 8500 of them, the availability would be 8500 / 9000 * 100, resulting in approximately 94.44% availability.
+      
+      Key Points
+         - Downtime Tolerance: Availability does allow for some downtime, but the system is expected to recover quickly. It's about ensuring that when a system does go down, it doesn't stay down for an extended period.
+         - Measuring Reliability: Availability is a key metric in assessing the reliability of a system. High availability indicates that the system is dependable and accessible, meeting user expectations.
+         - Trade-offs: Achieving high availability often involves trade-offs, as increased redundancy and fault tolerance mechanisms may be necessary, which can impact cost and complexity.
+         - Continuous Monitoring: To maintain and improve availability, systems are often subject to continuous monitoring, performance analysis, and proactive measures to identify and address potential issues before they lead to downtime.
+      
+      High Availability
+         - High Availability refers to the design and implementation of systems or services with the goal of ensuring a high level of operational performance and accessibility. Achieving high availability involves minimizing downtime and maintaining continuous operation, even in the face of failures or disruptions. The points mentioned highlight various aspects associated with high availability:
+            - Cost of Availability: While high availability isccrucial, it comes with associated costs. Implementing redundancy, fault tolerance, and other measures to achieve high availability often involves additional infrastructure, technology, and operational expenses.
+            - Business Impact: The level of availability required should align with the business impact of downtime. Critical systems with high business impact, such as e-commerce platforms or financial services, typically demand higher availability levels.
+      Key Points
+         - Trade-offs:
+             - Factors Impacting High Availability:
+                  - a. New Features: Achieving high availability may involve trade-offs with the introduction of new features. Resources allocated to maintaining availability might limit the resources available for developing and releasing new functionalities.
+                  - b. Operational Costs: The operational costs associated with maintaining high availability, such as redundant infrastructure and monitoring systems, should be considered.
+
+            - Rollout of New Features:
+                  - a. Strategic Use of Downtime: Systems with high availability often use the permitted downtime specified in Service Level Agreements (SLAs) or Service Level Objectives (SLOs) for planned activities, such as the rollout of new features or updates.
+                  - Example: Scheduled maintenance or updates can be strategically performed during periods of lower demand to minimize the impact on users.
+                  - b. Challenge: Introducing new features can potentially cause disruptions, even in highly available systems. Ensuring a smooth rollout without affecting ongoing operation is a complex challenge.
+      
+      The Nines' of Availability
+         - If availability is 99.00% available, it is said to have "2 nines" of availability, and if it is 99.9%, it is called "3 nines", and so on.
+
+         the nines availability table
+      
+   Fault Tolerance
+      Fault tolerance is a set of techniques and strategies designed to improve the availability and/or reliability of a system by enabling it to continue functioning even when certain components or subsystems experience faults.
+
+      - Fault-tolerant systems are designed to automatically:
+         - Detect Partial Failures
+         - Handle Partial Failures
+         - Recover from Partial Failures
+      - Detect Partial Failures: Identify and recognize when a component or subsystem is experiencing a partial failure.
+      - Handle Partial Failures: Implement mechanisms to ensure that the system can continue operating despite the presence of partial failures.
+      - Recover from Partial Failures: Initiate recovery processes to restore full functionality after a partial failure has occurred.
+
+   Design Fault Tolerance
+      - Redundancy
+      - Fault Detection
+      - Recovery
+
+      -Redundancy
+         - Redundancy refers to the duplication of critical components, functions, or resources within a system with the aim of increasing reliability and ensuring continued operation in the event of a failure or disruption.
+         - Replication / Duplication of critical components or functions of a system in order to increase its reliability
+         - A secondary capacity is kept ready as backup, over and above the primary capacity, in case the primary is not available
+         - Ex. Backup tiers of cars, Power bank
+
+      - Example - 3 Tier Application
+
+         - Application Tier:
+           - Duplicate application servers are deployed to handle client requests. If one server fails, the other servers can still process the requests.
+           - Load balancers distribute incoming requests across multiple application servers to ensure efficient resource utilization and fault tolerance.
+         
+         - Database Tier:
+           - The database is replicated to have multiple copies of the data. This can be achieved through techniques like master-slave replication or multi-master replication.
+           - If one database server fails, the other servers can continue serving read and write requests, ensuring data availability and minimizing downtime.
+         
+         - Storage Tier:
+           - Redundant storage devices or disks are used to store data. RAID (Redundant Array of Independent Disks) configurations, such as RAID 1 (mirroring), can be employed to duplicate data across multiple disks.
+           - If one disk fails, the redundant disk(s) can take over, preventing data loss and maintaining system availability.
+         
+         - Redundancy Types
+            - Active Redundancy - Hot Spare
+            - Passive Redundancy - Warm Spare
+            - Cold Redundancy - Spare (Backup)
+
+         - Active Redundancy
+            - Definition: In active redundancy, all nodes within a system actively participate in processing tasks simultaneously. This setup is also known as a "hot spare" configuration.
+            - Characteristics:
+            - Simultaneous Processing: All nodes are actively involved in handling the workload.
+            - Highest Availability: This configuration is ideal for maximizing availability since any node can take over if another fails.
+            - Example: In a cluster of servers, each server actively processes requests. If one server fails, another is ready to seamlessly pick up the workload, ensuring uninterrupted service.
+         
+         Passive Redundancy
+            - Definition: Passive redundancy, or "warm spare," involves having standby nodes that are not actively processing tasks. However, they are ready to take over in case of a failure.
+            - Characteristics:
+               - Selective Processing: Only active nodes are processing tasks; standby nodes remain ready.
+               - Quick Recovery: While not actively contributing to processing, standby nodes can quickly assume the workload if needed.
+            - Example: In a database cluster, one server is actively handling queries while other remains on standby. If the active server fails, the standby server can quickly take over to minimize downtime.
+         
+         Cold Redundancy (Not for where used load balancer or server less)
+            - Definition: Cold redundancy, or having spare nodes as backups, involves keeping additional nodes in a dormant state until needed. These nodes are brought online only in the event of a failover.
+            - Characteristics:
+                - Inactive Nodes: Spare nodes remain offline until activated during a failover.
+                - Not High Availability: This setup is not inherently designed for high availability since there is a delay in bringing the backup nodes online.
+            - Example: In a network, backup routers may be kept in a powered-off state until the primary router fails. In case of failure, the backup router is activated to restore network functionality.
+         
+         SPOF
+           - A single point of failure refers to a component or a part of a system that, if it fails, will cause the entire system to fail. This means that the failure of one critical component can disrupt the entire system's functionality. It is essential to identify and address single points of failure to ensure the reliability and availability of the system.
+           - For example, let's consider a web application that relies on a single database server to store and retrieve data. If this database server becomes unavailable due to a hardware failure or software issue, the entire application will be affected, and users won't be able to access their data or perform any operations. In this case, the database server acts as a single point of failure.
+         
+         Redundancy for
+           - Stateful Component
+           - Stateless Component
+           - Load Balancer
+           - Datacenter Redundancy
+         
+         - Fault Detection
+             Fault Models
+                 - Response Failure: A server fails to receive or respond to incoming messages
+                 - Timeout Failure: A server response duration is longer than timeout duration
+                 - Incorrect Response Failure: A server's response is incorrect
+                 - Crash Failure: A server halts but it working correctly until it halts (Bugs and crash)
+                 - Arbitrary Response Failure: Response is incorrect because of security compromised
+         
+             Health Checks
+               - Health checks are a mechanism used to monitor the health and status of servers or components within a system. They help detect faults or failures in a timely manner and allow for proactive recovery or mitigation actions.
+               There are mainly two types of health check techniques,
+                  -Ping Based
+                  -Heartbeat Base
+               
+             Ping Based Health Check
+                 - An external monitoring service periodically sends ping requests to a server. If the server fails to respond to the ping requests within a specific time frame, it indicates a potential fault or unavailability of the server. This type of health check is commonly used to monitor the network connectivity and basic availability of a server.
+             Heartbeat Based Health Check
+                 - In an internal cluster monitoring setup, servers within a cluster exchange heartbeat signals at regular intervals. If a server stops sending heartbeats or fails to receive heartbeats from other servers within the expected timeframe, it indicates a potential fault or unavailability of the server. This type of health check helps ensure the availability and proper functioning of servers within a cluster.
+             
+             External Monitoring Service
+                - Health check service generates
+                    - Alerts for recovery
+                    - Events - for scaling
+                - Application Health Checks
+                    - HTTP Response
+                    - TCP Response
+                - Periodic Health Checks
+                    - Response Code
+                    - Response Time
+                    - Number of Retries
+         
+         - Recovery
+            - Stateless Recovery
+                 - Hot Standby
+                 - Warm Standby
+            - Stateful Recovery
+                 Database Failover
+                   - Master Slave
+                   - Master Master
+                 
+                 Cache Failover
+                   - Redundant Replica
+                   - Synchronized
+                 
+                 Load Balancer
+                   - Redundant Load Balancer
+                   - Updating DNS using Virtual IP
+         - System Stability
+            Timeouts
+               Client Components
+                  - User interface: Timeout mechanisms are essential in user interfaces to prevent applications from freezing or becoming unresponsive when waiting for a response from a service or server. For example, if a web page is loading data from a server, a timeout ensures that the user interface remains interactive even if the server
+                  - Service clients: In the context of service-oriented architectures, client components often communicate with backend services. Timeouts in service clients ensure that if a response from the service takes too long, the client doesn't wait indefinitely, improving overall system responsiveness.
+               Timeouts prevents call to integration points from becoming blocked threads
+                  - Dependency Failures: In distributed systems, components often depend on external services or resources. If one service fails or experiences a prolonged delay, it can lead to a cascading effect, affecting downstream components.
+                  - Timeouts as Safeguards: Timeouts act as safeguards by limiting the time a component is willing to wait for a response. If the response is not received within the specified time frame, the calling component can take appropriate action, such as retrying, logging an error, or providing a fallback response. This helps prevent a single failure from causing a chain reaction of failures.
+            
+            Retries
+               For transient failures
+                  - Not for permanent failures
+               For system errors
+                  - For example one instance get down
+                  - Not for application errors
+               Retries with exponential back-off is a technique that retries an operation, with an exponentially increasing wait time, up to a maximum retry count has been reached
+               Return HTTP 503
+                  - Client can decide when to callback again
+            
+            Circuit Breaker (failed dectection)
+               - The circuit breaker is a design pattern used to detect failures and encapsulates the logic of preventing a failure from constantly recurring during maintenance, temporary external system failure, or unexpected system difficulties.
+                   - Deliberate service degradation when a system is under stress and a problem is detected
+                   - Process
+                       - Keep track of success and failures
+                       - In the event of too many failures, fallback to
+                           - Default values
+                           - Cached values
+                           - Error messages
+                       - Resume when stress dissipates
+                  - Closed: When everything is normal, the circuit breakers remain closed, and all the request passes through to the services as normal. If the number of failures increases beyond the threshold, the circuit breaker trips and goes into an open state.
+                  - Open: In this state circuit breaker returns an error immediately without even invoking the services. The Circuit breakers move into the half-open state after a certain timeout period elapses. Usually, it will have a monitoring system where the timeout will be specified.
+                  - Half-open: In this state, the circuit breaker allows a limited number of requests from the service to pass through and invoke the operation. If the requests are successful, then the circuit breaker will go to the closed state. However, if the requests continue to fail, then it goes back to the open state.
+
+
+
+
+
+
+
+Application Security

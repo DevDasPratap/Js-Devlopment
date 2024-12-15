@@ -1,0 +1,9 @@
+Requirment:
+ - user can see a catalog of products
+ - users can add products to a shopping cart
+ - a product can only stay in the cart 10 minutes, if the user doesn't place on order within 10 minutes the cart be cleared automatically and reset the stock.
+ - user can place order from thier shopin cart
+ - place the order update stock
+
+
+ browserStack, american express, amazon, atlasian, motorola, oracle, walmart, microsoft

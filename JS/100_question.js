@@ -1116,3 +1116,626 @@ for (let i = 0; i <= arr.length - 1; i++) {
   }
 }
 // console.log(uniqueArr)
+
+
+
+// fastest loop
+/**
+ * for, while, do while, forin, forof, some, filter, reduce, map, foreach, every, find
+ */
+
+// console.time('Loop test')
+const numbersList = Array.from({length: 5_000}, ()=>{
+    Math.floor(Math.random()*100)
+})
+// console.log(numbersList)
+
+// const usingForLoop = async(array)=>{
+//     console.time('For loop')
+//     const newNum = []
+//     for (let i = 0; i < array.length; i++) {
+//         newNum.push(array[i])
+//     }
+//     console.timeEnd('For loop')
+// }
+// usingForLoop(numbersList)
+// console.timeEnd('Loop test')
+
+// How to Manage Concurrent Async Tasks with Queues in JavaScript
+
+class TaskRunner{
+    constructor(concurrency){
+        this.queue = []
+        this.concurrency = concurrency
+        this.activeCount = 0
+    }
+    async push(promise){
+        if (this.activeCount < this.concurrency){
+            this.execute(promise)
+        }else {
+            this.queue.push(promise)
+        }
+    }
+    async execute(promise){
+        this.activeCount++
+        try {
+            await promise()
+        } finally {
+            this.activeCount--
+            if (this.queue.length) {
+                this.execute(this.queue.shift())
+            }
+        }
+    }
+}
+const promises = [
+    ()=> new Promise((resolve)=>setTimeout(()=>{
+        console.log('Promise 1 resolve')
+        resolve()
+    }, 1500)),
+    ()=> new Promise((resolve)=>setTimeout(()=>{
+        console.log('Promise 2 resolve')
+        resolve()
+    }, 1500)),
+    ()=> new Promise((resolve)=>setTimeout(()=>{
+        console.log('Promise 3 resolve')
+        resolve()
+    }, 1500)),
+    ()=> new Promise((resolve)=>setTimeout(()=>{
+        console.log('Promise 4 resolve')
+        resolve()
+    }, 4000)),
+    ()=> new Promise((resolve)=>setTimeout(()=>{
+        console.log('Promise 5 resolve')
+        resolve()
+    }, 5000)),
+    ()=> new Promise((resolve)=>setTimeout(()=>{
+        console.log('Promise 6 resolve')
+        resolve()
+    }, 6000)),
+    ()=> new Promise((resolve)=>setTimeout(()=>{
+        console.log('Promise 7 resolve')
+        resolve()
+    }, 7000)),
+    ()=> new Promise((resolve)=>setTimeout(()=>{
+        console.log('Promise 8 resolve')
+        resolve()
+    }, 8000)),
+
+]
+
+// const runner = new TaskRunner(3)
+// promises.forEach((promise)=>runner.push(promise))
+
+
+
+// ?= - Why You Don't Need Try/Catch Anymore
+
+async function getData() {
+    // const [reqError, response] ?= await fetch('https://jsonplaceholder.typicode.com/users')
+    // if (reqError) {
+    //     handleReqError(reqError)
+    //     return
+    // }
+
+    // const [parseError, json] ?= await response.json()
+    // if (parseError) {
+    //     handleReqError(parseError)
+    //     return
+    // }
+    // const [validationError, data] ?= await validationSchema.parse(json)
+    // if (validationError) {
+    //     handleReqError(validationError)
+    //     return
+    // }
+    // return data
+
+}
+
+
+// Object Cloning && Garbage Collector in JS
+// dynamic nature - we can change property on run time
+const obj = {
+    age: 27,
+    weight: 54,
+    height: 5.4
+}
+
+// console.log(obj)
+obj.color = 'gray' // run time modify object
+// console.log(obj)
+
+let cloneObj = {...obj} // clone object
+
+// check clone or referance
+obj.age = 30 
+
+// here we clone so obj.age not update on cloneObj
+// console.log('Orginal obj',obj)
+// console.log('Clone obj', cloneObj)
+
+// console.log(obj === cloneObj) // check same raferance
+
+// copy
+const copyObj = obj
+obj.weight = 55
+
+// when we copy both will modify
+// console.log('Orginal obj',obj)
+// console.log('Copy obj', copyObj)
+
+// console.log(obj === copyObj) // check same raferance
+
+
+// another way clone
+const assignObj = Object.assign({}, obj)
+
+obj.gender = 'male'
+
+// here we clone so obj.gender not update on assignObj because it diffrent referance
+// console.log('Orginal obj',obj)
+// console.log('Assign obj', assignObj)
+
+// console.log(obj === assignObj) // check same raferance
+
+
+// cloning with itreation
+const itrate = {}
+// for (const key in obj) {
+//     itrate[key] = obj[key]
+// }
+
+for(let [key, value] of Object.entries(obj)){
+    itrate[key] = value
+}
+// console.log('Clone with itrate: ',itrate)
+
+
+// Garbage Collector - in js have Garbage Collector it automatic remove (we don't have access/control to manualy memory free) it all time running back ground.
+
+
+// Currying in JavaScript
+// before curring
+// curry(1,2,3)
+// after curring
+// curry(1)(2)(3)
+
+// function sum(a,b) {
+//     return a+b
+// }
+// console.log(sum(4,5))
+
+// function sum(a) {
+//     return function(b) {
+//         return a+b
+//     }
+// }
+// console.log(sum(4)(5))
+
+function curry(f) {
+    return function(a) {
+        return function(b) {
+            return f(a,b)
+        }
+    }
+}
+
+function sum(a,b) {
+    return a+b
+}
+
+// console.log(curry(sum)(4)(5))
+
+
+// Type checking in JavaScript without using Typescript
+let x = NaN
+let y = NaN
+// console.log(Object.is(x,y))
+// console.log(x===y)
+// console.log(typeof x === typeof y)
+
+let num = 0/0
+// console.log(Object.is(num, NaN))
+// console.log(num===NaN)
+// console.log(typeof num === typeof NaN)
+
+// console.log(Number.isFinite(43))
+// console.log(Number.isFinite(3.14))
+// console.log(Number.isFinite(-10))
+// console.log(Number.isFinite(Infinity))
+// console.log(Number.isFinite(-Infinity))
+// console.log(Number.isFinite(NaN))
+// console.log(Number.isFinite('42'))
+// console.log(Number.isFinite(null))
+
+// console.log(typeof Infinity)
+// console.log(typeof -Infinity)
+// console.log(typeof NaN)
+
+// let boolValue = new Boolean(true)
+// let strValue = boolValue.valueOf()
+
+// console.log(strValue)
+// console.log(typeof strValue)
+
+let boolValue = new Boolean(true)
+let primitiveValue = boolValue.valueOf()
+
+// console.log(boolValue.constructor === Boolean)
+// console.log(boolValue instanceof Boolean)
+
+/**
+ * check Array.isArray()
+ * Object.is(compaire two value)
+ * Number.isFinite
+ * Object wrapper
+ * */
+
+
+// How to easily flatten a deeply nested object JavaScript 
+
+const response = {
+    name:'Pratap',
+    age: 27,
+    characteristics:{
+        height: '5.4 feet',
+        complexion:'gray',
+        hair: 'balck',
+        weight: '59 kg'
+    },
+    skills : {
+        frontend: {
+          language: ['JavaScript', 'TypeScript'],
+          frameworks: ['Angular', 'React'],
+          layout: {
+            markup: ['HTML', 'EJS'],
+            styling: ['CSS', 'MaterialUI', 'Bootstrap', 'Tailwind']
+          }
+        },
+        backend: {
+          runtime: ['Node.js'],
+          frameworks: ['Express.js'],
+          database: {
+            nonRelational: 'MongoDB',
+            relational: 'MySQL'
+          },
+          tools: ['Git', 'Postman', 'Heroku', 'Netlify', 'AWS']
+        },
+        OS: ['Linux']
+      }
+}
+
+const flatenObj = (obj)=>{
+    let result = {}
+    for(let i in obj){
+        if (typeof obj[i] === 'object' && !Array.isArray(obj)) {
+            const temp = flatenObj(obj[i])
+            for(const j in temp){
+                result[i+'.'+j] = temp[j]
+            }
+        }else{
+            result[i] = obj[i]
+        }
+    }
+    return result
+}
+
+const res = flatenObj(response)
+// console.log(res)
+
+// Object method binding JavaScript 
+var obj5 = {
+    hello: function () {
+        return `Hello ${this.name}`
+    },
+    name: 'pd'
+}
+
+var obj3 = {
+    hello: obj.hello,
+    name: 'pratap'
+}
+
+
+// Normalize Data in Objects JavaScript
+
+const obj4 = [
+    {key: 'Test 1', data: 'Data 1'},
+    {key: 'Test 1', data: 'Data 1'},
+    {key: 'Test 2', data: 'Data 2'},
+    {key: 'Test 4', data: 'Data 4'},
+    {key: 'Test 2', data: 'Data 2'},
+    {key: 'Test 1', data: 'Data 1'},
+    {key: 'Test 5', data: 'Data 5'},
+    {key: 'Test 4', data: 'Data 4'}
+];
+
+const normalize = (obj4) => {
+    const output = {};
+    obj4.forEach(({key, data}) => {
+        // Initialize an array for the key if it doesn't exist
+        if (!output[key]) {
+            output[key] = [];
+        }
+        // Add the object to the array for the given key
+        output[key].push({key, data});
+    });
+    return output;
+};
+
+const normalizedObj = normalize(obj4);
+
+// console.log('normalizedObj', normalizedObj)
+
+
+const reverseNormalize = (normalizedObj) => {
+    // Extract and flatten all arrays from the object
+    return Object.values(normalizedObj).flat();
+};
+
+// console.log(reverseNormalize(normalizedObj));
+
+
+// JavaScript Method chaining
+function computeamount() {
+    let total = 0;
+
+    const methods = {
+        lacs(amount) {
+            total += amount * 100000;
+            return this; // Return the methods object for chaining
+        },
+        thousand(amount) {
+            total += amount * 1000;
+            return this; // Return the methods object for chaining
+        },
+        core(amount) {
+            total += amount * 10000000; // Core is interpreted as crore
+            return this; // Return the methods object for chaining
+        },
+        value() {
+            return total; // Return the computed value
+        }
+    };
+
+    return methods; // Return the methods object
+}
+const methodChange = computeamount().lacs(10).thousand(5).core(5).value()
+// console.log('methodChange', methodChange)
+
+// Convert Array to an Object
+const array2 = ['a', 'b', 'c', 'd']
+const arrToObj = array2.reduce((acc, curr, index)=> ({
+    ...acc,
+    [index]: curr
+}), {})
+// console.log('array2', array2)
+// console.log('arrToObj', arrToObj)
+
+// Closures in JavaScript can cause memory leaks
+/**
+ * clousers allow inner functions to access variable from their outer (enclosing) function. even after the outer function has finished executing.
+ */
+
+// function createCountDown(start) {
+//     let count =start
+//     return function () {
+//         return count--
+//     }
+// }
+// const countDown = createCountDown(10)
+// console.log('countDown', countDown())
+// console.log('countDown', countDown())
+// console.log('countDown', countDown())
+// console.log('countDown', countDown())
+
+
+// Your JavaScript App Is Leaking Memory And You Don't Know
+/**
+ * Improper management of global variables
+ * Closures
+ * Example (Closures memory leak)
+ * Timers & Callbacks
+ * Example (Timers & Callbacks memory leak)
+ * Event Listeners
+ * Example (Event Listeners memory leak)
+ * Websockets and External Connections
+ * Example (Websockets and External Connections memory leak)
+ * Detached Dom Elements
+ * Example (Detached Dom Elements memory leak)
+ */
+
+// Improper management of global variables
+function calculateSum(a,b) {
+    // let, const for correct scope because after function execution sum variable can't accessable because it going to garbage collection.
+    sum = a+b //this sum variable creates a global variable
+    return sum
+}
+console.log(calculateSum(10,5))
+// even this function execute still access sum
+console.log(sum)
+
+// Closures
+function createCountDown(start) {
+    let count =start
+    return function () {
+        return count--
+    }
+}
+let countDown = createCountDown(10)
+// console.log('countDown', countDown())
+// console.log('countDown', countDown())
+// console.log('countDown', countDown())
+// console.log('countDown', countDown())
+
+// when you are done with countDown, break the referance
+countDown = null
+
+// Timers & Callbacks
+const carData = {
+    name: 'audi',
+    miles: 10
+}
+// const intervalId = setInterval(()=>{
+//     // update carData every 1 seconds
+//     console.log('Running...');
+//     carData.miles += 1
+//     console.log('carData.miles', carData.miles += 1)
+// }, 1000)
+
+// clearInterval(intervalId)
+// Stop the interval when it's no longer needed
+// setTimeout(() => {
+//     clearInterval(intervalId);
+//     console.log('Interval cleared.');
+// }, 10000);
+
+
+// How to Execute many async API calls in parallel JavaScript
+const taskUrls = [
+    'https://jsonplaceholder.typicode.com/todos/1',
+    'https://jsonplaceholder.typicode.com/todos/2',
+    'https://jsonplaceholder.typicode.com/todos/3',
+    'https://jsonplaceholder.typicode.com/todos/4',
+    'https://jsonplaceholder.typicode.com/todos/5'
+]
+
+const executeAsyncTask = async(url)=>{
+    const data = await fetch(url)
+    const res = await data.json()
+    return res
+}
+const executeAsyncTasks = async()=> {
+    const response = await Promise.all(
+        taskUrls.map((url)=>executeAsyncTask(url))
+    )
+    console.log('response', response)
+}
+// console.log(executeAsyncTasks(taskUrls))
+
+
+// How to deep clone a nested object without using libraries
+const aaa = {
+    name:"pratap",
+    language: 'javascript',
+    framework: ['angular', 'react.js', 'next.js']
+}
+
+const b = aaa // shallow copy b obj change a obj
+// b.language = 'typeascript'
+// console.log('aaa', aaa)
+// console.log('b', b)
+
+
+const clone = (input)=>{
+    if(input === null || typeof input !== 'object'){
+        return input
+    }
+    const initialValue = Array.isArray(input) ? [] : {}
+    return Object.keys(input).reduce((acc, key)=>{
+        acc[key] = clone(input[key])
+        return acc
+    }, initialValue)
+}
+const cc = clone(a)
+cc.language = 'typeascript'
+// console.log('aaa', aaa)
+// console.log('cc', cc)
+
+
+// How to Search any value in a deeply nested object JavaScript
+const hinduCulture = {
+    country: "India",
+    religion: {
+        name: "Hinduism",
+        deities: ["Brahma", "Vishnu", "Shiva", "Lakshmi"],
+        festivals: ["Diwali", "Holi"]
+    },
+    food: [
+        { name: "Prasad", type: "Rice Dish" },
+        { name: "Samosa", type: "Snack" }
+    ],
+    clothing: {
+        men: ["Kurta", "Dhoti"],
+        women: ["Saree", "Lehenga"]
+    },
+    languages: ["Hindi", "Tamil"],
+    historicalSites: ["Kashi Vishwanath Temple", "Somnath Temple", "Kedarnath Temple"]
+};
+
+function containsObj(obj, value) {
+    function isEqual(obj, value) {
+        if (typeof obj !== typeof value) {
+            return false;
+        }
+        if (typeof obj !== 'object' || obj === null) {
+            return obj === value;
+        }
+        if (Array.isArray(obj) && Array.isArray(value)) {
+            if (obj.length !== value.length) {
+                return false;
+            }
+            for (let i = 0; i < obj.length; i++) {
+                if (!isEqual(obj[i], value)) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        if (!Array.isArray(obj) && !Array.isArray(value)) {
+            const keys = Object.keys(obj);
+            if (keys.length !== Object.keys(value).length) {
+                return false;
+            }
+            for (let key of keys) {
+                if (!isEqual(obj[key], value)) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        return false;
+    }
+
+    if (isEqual(obj, value)) {
+        return true;
+    }
+    if (typeof obj !== 'object' || obj === null) {
+        return false;
+    }
+    for (const key in obj) {
+        if (containsObj(obj[key], value)) {
+            return true;
+        }
+    }
+    return false;
+}
+
+console.log(containsObj(hinduCulture, 'Kurta'));  // Should return true
+
+// Method to check if value exists in arrays or object
+function containsValue(obj, value) {
+    if (Array.isArray(obj)) {
+        // Check if value exists in array
+        return obj.includes(value);
+    } else if (typeof obj === 'object' && obj !== null) {
+        // Check if value exists in object's values
+        return Object.values(obj).some(val => containsValue(val, value));
+    }
+    return obj === value;
+}
+// console.log(containsValue(hinduCulture, 'Kurta'));  // Should return true
+// console.log(containsValue(hinduCulture, 'Yoga'));   // Should return false
+
+// How to easily traverse through a deeply nested object JavaScript 
+function iterateObject(obj) {
+    for (const key in obj) {
+        if (typeof obj[key] === 'object' && obj[key] !== null) {
+            iterateObject(obj[key])
+        }else{
+            console.log(`${key}:${obj[key]}`)
+        }
+    }
+}
+iterateObject(hinduCulture)
+//JS Interesting thing about references (deep cloning)
