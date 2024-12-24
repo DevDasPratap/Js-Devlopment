@@ -82,7 +82,7 @@ while (left < right) {
 for (let i = 0, j=numArr.length-1; i < numArr.length/2; i++, j--) {
     [numArr[i], numArr[j]] = [numArr[j], numArr[i]]
 }
-console.log(numArr)
+// console.log(numArr)
 
 // recursive way
 const reverse_arr = (arr, start, end) => {
@@ -236,3 +236,141 @@ function rotateArrayRecursive(array, d){
     return rotateArrayRecursive(array, d-1)
 }
 // console.log(rotateArrayRecursive([2, 4, 6, 8, 10, 12, 14, 16, 18, 20], 3));
+
+
+function maxIndex(arr) {
+    let index = 0
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] > arr[index]) {
+            index = i
+        }
+    }
+    return index
+}
+
+// console.log(maxIndex([10, 7, 0, 5, 0, 9, 16, 91, 22, 22, 0]))
+
+function isSorted(arr) {
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] > arr[i+1]) {
+            return false
+        }
+    }
+    return true
+}
+
+// console.log(isSorted([10, 7, 0, 5, 0, 9, 16, 91, 22, 22, 0]))
+
+
+function reverseArray(arr) {
+    const rev = []
+    let start = 0, end = arr.length-1
+    while(start < arr.length){
+        rev[end] = arr[start]
+        start++
+        end--
+    }
+    return rev
+}
+
+// console.log(reverseArray([10, 7, 0, 5, 0, 9, 16, 91, 22, 22, 0]))
+
+// two pointer
+function moveZeroLeft(arr) {
+    let left = 0
+    let right = arr.length-1
+    while (left <right) {
+        while (arr[left]===0) {
+            left++
+        }
+        while (arr[right] !== 0) {
+            right--
+        }
+        if (left<right) {
+            let temp = arr[left]
+            arr[left] = arr[right]
+            arr[right] = temp
+        }
+    }
+    return arr
+}
+
+// console.log(moveZeroLeft([10, 7, 0, 5, 0, 9, 16, 91, 22, 22, 0]))
+
+function moveZeroRight(arr) {
+    let left = 0
+    let right = arr.length-1
+    while (left <right) {
+        while (arr[left]!==0) {
+            left++
+        }
+        while (arr[right] === 0) {
+            right--
+        }
+        if (left<right) {
+            let temp = arr[left]
+            arr[left] = arr[right]
+            arr[right] = temp
+        }
+    }
+    return arr
+}
+
+// console.log(moveZeroRight([10, 7, 0, 5, 0, 9, 16, 91, 22, 22, 0]))
+const n = 5
+let sum = 0
+for(let i=1; i<=n; i++){
+  sum += i
+}
+// console.log('summ', sum)
+
+
+function findUnion(a, b) {
+    // code here
+    const map = {}
+        for(let i=0; i<a.length; i++){
+            map[i] = (map[a[i]] || 0 )+1
+        }
+        for(let i=0; i<b.length; i++){
+            map[i] = (map[b[i]] || 0 )+1
+        }
+        let count = Object.keys(map).length
+        console.log(count)
+}
+
+// findUnion([1, 2, 3, 4, 5], [1, 2, 3])
+
+
+// https://www.geeksforgeeks.org/array-data-structure-guide/
+// https://www.geeksforgeeks.org/top-50-array-coding-problems-for-interviews/
+
+
+// Find the Minimum and Maximum Element in an Array
+function maxMin(array) {
+    // const max = Math.max(...array)
+    // const min = Math.min(...array)
+  
+    const min = getMin(array)
+    const max = getMax(array)
+  
+    return [min, max]
+  }
+  function getMin(array) {
+    let min = Infinity
+    for (let i = 0; i < array.length; i++) {
+      if (array[i] < min) {
+        min = array[i]
+      }
+    }
+    return min
+  }
+  function getMax(array) {
+    let max = -Infinity
+    for (let i = 0; i < array.length; i++) {
+      if (array[i] > max) {
+        max = array[i]
+      }
+    }
+    return max
+  }
+//   console.log(maxMin([22, 14, 8, 17, 35, 3]))

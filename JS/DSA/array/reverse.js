@@ -1,4 +1,9 @@
 const arr = [10, 6, 7, 2, 3, 5, 9, 16, 91, 22]
+// const reverse = []
+// for(let i = arr.length-1; i>=0; i--){
+//     reverse.push(arr[i])
+// }
+// console.log(reverse)
 
 // recursive way
 const reverse_arr = (arr, start, end) => {
@@ -24,12 +29,25 @@ const reverse_arr = (arr, start, end) => {
 // console.log(arr)
 
 // other way
+// let left = 0
+// let right = arr.length-1
+// while (left <right) {
+//     let temp = arr[left]
+//     arr[left] = arr[right]
+//     arr[right] = temp
+//     left++
+//     right--
+// }
+
+// console.log(arr)
+
+
+// other way
 let left = 0
 let right = arr.length-1
+// Iterate till left is less than right
 while (left <right) {
-    let temp = arr[left]
-    arr[left] = arr[right]
-    arr[right] = temp
+    [arr[left], arr[right]] = [arr[right], arr[left]] // Swap the elements at left and right position
     left++
     right--
 }
