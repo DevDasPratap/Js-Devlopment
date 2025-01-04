@@ -160,24 +160,130 @@ function factorial(num) {
 }
 // console.log(factorial(4))
 
-function checkArmstrongNumber(n){
+function checkArmstrongNumber(n) {
     let armstrong = 0
     let temp = n
     while (temp > 0) {
         // get last one digit
-        let remainder = temp%10
+        let remainder = temp % 10
         armstrong += remainder * remainder * remainder
         temp = Math.floor(temp / 10)
     }
     return armstrong === n ? 'Amtrong' : 'Not amstrong'
 }
 const resultArmstrong = checkArmstrongNumber(153)
-console.log(resultArmstrong)
+// console.log(resultArmstrong)
 
-const a=0, z=153
+const a = 0, z = 153
 // Find Armstrong numbers between a and z
 for (let i = a; i <= z; i++) {
     if (checkArmstrongNumber(i) === 'Amtrong') {
-        console.log(i)
+        // console.log(i)
     }
 }
+
+// Reversing a String
+// Description: Write a program to reverse a given string.
+
+// Example:
+// Input: string = programming
+
+// Output:gnimmargorp
+
+// Explanation: The reversed string of programming is gnimmargorp.
+const reverseString = (str) => {
+    if (str === '') {
+        return str; // Base case: return empty string
+    }
+    let reverse = ''
+    // for (let i = str.length-1; i >= 0; i--) {
+    //     reverse += str[i]
+    // }
+
+    for (const char of str) {
+        reverse = char + reverse; // Prepend each character
+    }
+    return reverse
+}
+// console.log(reverseString('Programming'))
+
+
+// Finding the Largest and Smallest Numbers in an Array
+// Description: Write a program to find the largest and smallest numbers in an array.
+
+// Example:
+// Input: array = [4, 7, 1, 8, 5]
+
+// Output:Largest: 8, Smallest: 1
+
+// Explanation: The largest number in the array is 8 and the smallest is 1.
+
+function findLargeSmall(arr) {
+    let large = -Infinity; // Initialize to the smallest possible value
+    let small = Infinity;  // Initialize to the largest possible value
+
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] > large) {
+            large = arr[i]; // Update largest value
+        }
+        if (arr[i] < small) {
+            small = arr[i]; // Update smallest value
+        }
+    }
+    return { large, small }
+}
+// console.log(findLargeSmall([4, 7, 1, 8, 5]))
+
+// Sorting an Array
+// Description: Write a program to sort an array of numbers in ascending order.
+
+// Example:
+// Input: array = [3, 1, 4, 1, 5, 9]
+
+// Output:[1, 1, 3, 4, 5, 9]
+
+// Explanation: The array sorted in ascending order is [1, 1, 3, 4, 5, 9].
+function sorting(arr) {
+    for (let i = 0; i < arr.length; i++) {
+        for (let j = 0; j < arr.length; j++) {
+            if (arr[j] > arr[j+1]) {
+                let temp = arr[j]
+                arr[j] = arr[j+1]
+                arr[j+1] = temp
+            }
+        }
+    }
+    return arr
+}
+// console.log(sorting([4, 7, 1, 8, 5]))
+
+// Finding the Sum of Elements in an Array
+
+// Description: Write a program to find the sum of elements in an array.
+
+// Example:
+// Input: array = [1, 2, 3, 4, 5]
+
+// Output:15
+
+// Explanation: The sum of the elements in the array is 15.
+
+function sumOfElement(arr){
+    let sum = 0
+    for (const element of arr) {
+        sum += element
+    }
+    return sum
+}
+// console.log(sumOfElement([1, 2, 3, 4, 5]))
+
+
+// Finding the Largest Palindrome in a String
+// Description: Write a program to find the largest palindrome in a given string.
+
+// Example:
+// Input: string = babad
+
+// Output:bab or aba
+
+// Explanation: Both bab and aba are valid palindromes in the string.
