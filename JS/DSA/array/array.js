@@ -162,9 +162,19 @@ const findSecondLargest = (array) => {
 
     return { secondLargest, secondLargestIndex };
 };
-const getSecondLargest = findSecondLargest(array)
+// const getSecondLargest = findSecondLargest(array)
 // console.log(getSecondLargest)
 
+// function secondLargestEle(array) {
+//     const srt = array.sort((a,b)=>a-b)
+//     for(let i = srt.length-2; i>=0; i--){
+//         if(srt[i] !== srt[srt.length-1]){
+//             return srt[i]
+//         }
+//     }
+//     return -1
+// }
+// console.log(secondLargestEle(array))
 
 // Move All Zeroes to End
 // Input: arr[] = [1, 2, 0, 4, 3, 0, 5, 0]
@@ -374,3 +384,34 @@ function maxMin(array) {
     return max
   }
 //   console.log(maxMin([22, 14, 8, 17, 35, 3]))
+
+const arr = [1, 2, 3];
+// console.table(arr); // Shows detailed information in the console
+
+const maximumProduct = function(nums) {
+    let max1 = -Infinity, max2 = -Infinity, max3 = -Infinity
+    let min1 = Infinity, min2 = Infinity
+    // Traverse the array to find max1, max2, max3 and min1, min2
+    for(let num of nums){
+        if(num > max1){
+            max3 = max2
+            max2 = max1
+            max1 = num
+        }else if(num > max2){
+            max3 = max2
+            max2 = num
+        }else if(num > max3){
+            max3 = num
+        }
+
+        if(num < min1){
+            min2 = min1
+            min1 = num
+        }else if(num < min2){
+            min2 = num
+        }
+    }
+    return Math.max(max1*max2*max3, max1*min1*min2)
+};
+
+console.log(maximumProduct([1,2,3,4]))
