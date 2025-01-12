@@ -578,7 +578,7 @@ function reverseArrayInGroups(arr, k) {
   // return arr;
 }
 
-console.log(reverseArrayInGroups([1, 2, 3, 4, 5, 6, 7, 8, 9], 3))
+// console.log(reverseArrayInGroups([1, 2, 3, 4, 5, 6, 7, 8, 9], 3))
 
 // create a helper function to reverse the subarray
 function reverse(array, start, end) {
@@ -589,3 +589,55 @@ function reverse(array, start, end) {
   }
   return array;
 }
+
+
+const matrix = [
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8, 9]
+];
+
+// Print the matrix
+for (let i = 0; i < matrix.length; i++) {
+  let row = "";
+  for (let j = 0; j < matrix[i].length; j++) {
+      row += matrix[i][j] + " ";
+  }
+  // console.log(row);
+}
+
+// Array Representation by Compiler
+// JavaScript uses row-major order for storing multidimensional arrays.
+// Formula for 2D array in row-major order: index = row * columns + column
+
+// Row Major Formula for 2D Arrays
+let rows = 3, cols = 3;
+let rowIndex = 1, colIndex = 2;
+let linearIndexRowMajor = rowIndex * cols + colIndex;
+// console.log("Row-Major Index:", linearIndexRowMajor);
+
+// Column Major Formula for 2D Arrays
+let linearIndexColMajor = colIndex * rows + rowIndex;
+// console.log("Column-Major Index:", linearIndexColMajor);
+
+
+// Get, Set, Avg, Max Functions
+function get(arr, index) {
+  return arr[index] ? arr[index] : -1;
+}
+function set(arr, index, value) {
+  arr[index] = value;
+}
+function avg(arr) {
+  // return arr.reduce((sum, val) => sum + val, 0) / arr.length;
+  return Math.max(...arr) + Math.min(...arr)
+}
+function max(arr) {
+  return Math.max(...arr);
+}
+let numbers = [10, 20, 30, 40];
+console.log("Get Element:", get(numbers, 2));
+set(numbers, 2, 35);
+console.log("Set Element:", numbers);
+console.log("Average:", avg(numbers));
+console.log("Max:", max(numbers));
