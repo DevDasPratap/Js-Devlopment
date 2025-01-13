@@ -636,8 +636,9 @@ function max(arr) {
   return Math.max(...arr);
 }
 let numbers = [10, 20, 30, 40];
-console.log("Get Element:", get(numbers, 2));
-set(numbers, 2, 35);
-console.log("Set Element:", numbers);
-console.log("Average:", avg(numbers));
-console.log("Max:", max(numbers));
+// console.log("Get Element:", get(numbers, 2));
+// set(numbers, 2, 35);
+// console.log("Set Element:", numbers);
+// console.log("Average:", avg(numbers));
+// console.log("Max:", max(numbers));
+
