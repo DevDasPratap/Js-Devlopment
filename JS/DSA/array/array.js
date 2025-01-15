@@ -559,10 +559,10 @@ function moveZeroesToStart(nums) {
 
 function reverseArrayInGroups(arr, k) {
 
-  for(let i=0; i<arr.length; i+=k){
+  for (let i = 0; i < arr.length; i += k) {
     let start = i
-    let end = Math.min(i+k-1, arr.length-1)
-    while(start<end){
+    let end = Math.min(i + k - 1, arr.length - 1)
+    while (start < end) {
       [arr[start], arr[end]] = [arr[end], arr[start]]
       start++
       end--
@@ -601,7 +601,7 @@ const matrix = [
 for (let i = 0; i < matrix.length; i++) {
   let row = "";
   for (let j = 0; j < matrix[i].length; j++) {
-      row += matrix[i][j] + " ";
+    row += matrix[i][j] + " ";
   }
   // console.log(row);
 }
@@ -642,3 +642,18 @@ let numbers = [10, 20, 30, 40];
 // console.log("Average:", avg(numbers));
 // console.log("Max:", max(numbers));
 
+const reverseWords = function (s) {
+  const arr = s.trim().split(' ')
+  let left = 0
+  let right = arr.length - 1
+  let result = ''
+  for (let i = arr.length-1; i >= 0; i--) {
+    if (arr[i].length !== 0) {
+      result += (result.length > 0 ? ' ' : '') + arr[i];
+    }
+  }
+  return result
+};
+
+console.log(reverseWords("    the      sky     is blue      "))
+// Output: "blue is sky the"
