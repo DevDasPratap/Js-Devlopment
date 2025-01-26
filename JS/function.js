@@ -410,10 +410,10 @@ const operation = [
     body:`console.log('a*b', a*b)`
   },
 ]
-operation.forEach((op)=>{
-  const fncon = new Function(...op.params, op.body)
-  fncon(...op.args)
-})
+// operation.forEach((op)=>{
+//   const fncon = new Function(...op.params, op.body)
+//   fncon(...op.args)
+// })
 
 /*
 Higher order function:-
@@ -440,7 +440,7 @@ function generateTwoNum(max, cb){
 const cb = function(ran1, ran2){
   console.log(ran1, ran2)
 }
-generateTwoNum(1000, cb)
+// generateTwoNum(1000, cb)
 
 // or
 
@@ -468,10 +468,50 @@ function power(p) {
 }
 
 const squr = power(2)
-console.log(squr)
-console.log(cube)
-console.log(sqr)
+// console.log(squr)
+// console.log(cube)
+// console.log(sqr)
 
-console.log(squr(5))
+// console.log(squr(5))
 
 // Lexical/parsing/tokenize => compile => run
+
+
+function name() {
+  return 2+2
+}
+// console.log(name())
+
+for (let i = 0; i < 3; i++) {
+  setTimeout(function() {
+      console.log(i); // 3, 3, 3
+  }, 1000);
+}
+
+function createTimers() {
+  for (let i = 1; i <= 3; i++) {
+      setTimeout(function () {
+          console.log(`Timer ${i}`);
+      }, i * 1000);
+  }
+}
+// createTimers();
+
+function greet1(name, callback) {
+  console.log('type of', typeof callback)
+  console.log("Hello, " + name);
+  callback();
+}
+
+function sayGoodbye1() {
+  console.log("Goodbye!");
+}
+
+// console.log(greet1("Ajay", sayGoodbye1))
+
+
+const n = [1, 2, 3, 4, 5];
+const sum1 = n.reduce(function(acc, curr) {
+    return acc + curr;
+}, 0);
+// console.log(sum1);
