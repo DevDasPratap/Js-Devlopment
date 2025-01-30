@@ -689,4 +689,60 @@ function arrayLeader(array) {
   return leader
 }
 
-console.log(arrayLeader([16, 17, 4, 3, 5, 2]))
+// console.log(arrayLeader([16, 17, 4, 3, 5, 2]))
+
+
+// Largest element in an Array
+// Input: arr[] = [20, 10, 20, 4, 100]
+// Output: 100
+
+function largestElement(array) {
+
+  // pre build approch
+  // return Math.max(...array)
+
+  // native approch
+  let max = array[0]
+  for(let i=1; i<=array.length; i++){
+    if(array[i] > max){
+      max = array[i]
+    }
+  }
+  return max
+
+}
+
+// console.log(largestElement([20, 10, 20, 4, 100]))
+
+
+// Largest three distinct elements in an array
+// Input: arr[] = [10, 4, 3, 50, 23, 90]
+// Output: [90, 50, 23]
+function threeLargest(array) {
+  let first = -Infinity, second = -Infinity, third = -Infinity;
+
+  for (let num of array) {
+    if (num > first) {
+      third = second;
+      second = first;
+      first = num;
+    } else if (num > second && num < first) {
+      third = second;
+      second = num;
+    } else if (num > third && num < second) {
+      third = num;
+    }
+  }
+
+  let result = [];
+  if (first !== -Infinity) result.push(first);
+  if (second !== -Infinity) result.push(second);
+  if (third !== -Infinity) result.push(third);
+
+  return result;
+}
+
+console.log(threeLargest([10, 4, 3, 50, 23, 90]));  // [90, 50, 23]
+console.log(threeLargest([10, 9, 9]));             // [10, 9]
+console.log(threeLargest([10, 10, 10]));           // [10]
+console.log(threeLargest([]));                     // []

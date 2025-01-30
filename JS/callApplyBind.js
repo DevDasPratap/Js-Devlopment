@@ -1,5 +1,4 @@
 // Call, Apply, Bind => function/method bulid in pre defined method
-// Call => Call method allow an object to used the function/method of another object
 
 const person = {
     f_name: 'Pratap',
@@ -12,6 +11,7 @@ const person2 = {
     f_name: 'Dev',
     l_name:'D',
 }
+// Call => Call method allow an object to used the function/method of another object
 // console.log(person.fullName.call(person2, 'Haldia', "INDIA"))
 const callResult = person.fullName.call(person2, 'Haldia', "INDIA")
 console.log(callResult)

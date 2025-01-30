@@ -33,7 +33,7 @@ function counter(){
             return privateAge;
     } 
   }
-  let person1= new personDetails("Bittu", 22);
+  let person1= new personDetails("Pratap", 22);
   console.log(person1.getAge())
 
 */
@@ -140,9 +140,9 @@ Student.prototype.testMethod= function(){
 }
 
 let person1= new Person("suraj", 26);
-let student1= new Student("Bittu", 25, "CS");
+let student1= new Student("Pratap", 25, "CS");
 
-console.log(student1.getDetails()) // "Bittu 25"
+console.log(student1.getDetails()) // "Pratap 25"
 console.log(student1.major);       //  "CS" 
 
 

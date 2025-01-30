@@ -5,10 +5,10 @@
 // Lexical environment = local memory + lexical environment of parent
 
 function outer() {
-    let username = "Bittu";
+    let username = "Pratap";
     // console.log(secret)
     function inner() {
-        let secret = "Bittu123"
+        let secret = "Pratap23"
         console.log("Inner", username);
         console.log(secret)
     }

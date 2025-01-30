@@ -19,7 +19,7 @@ console.log(myHero.pratap())
 console.log(heroPower.pratap())
 
 Array.prototype.heyPratap = function () {
-    console.group(`Hitesh say hi`)
+    console.group(`Dev say hi`)
 } 
 console.log(myHero.heyPratap())
 // console.log(heroPower.heyPratap()) // array can't add on object
