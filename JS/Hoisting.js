@@ -5,6 +5,14 @@
    Remember : only declaration is hoisted not initialization.
 */
 
+/**
+ * What is hoisting
+ * Hoisting means to lift up
+ * Varible and function declaration are moved to the top of the current scope
+ * This is done at compile time
+ * Variable and functions can used before they are declared
+ */
+
 // we can access function before it is declared. 
 /*
 test()

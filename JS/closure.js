@@ -1,3 +1,7 @@
+/**
+ * First we know: A function return a another function
+ */
+
 // Run on browser and check console
 
 const num1 = 2
