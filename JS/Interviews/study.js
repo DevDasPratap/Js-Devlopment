@@ -235,8 +235,20 @@ function highestOddNumber(num) {
 // Find Common Elements Between Two Arrays
 let arr1 = [2, 1, 4, 6, 3];
 let arr2 = [1, 7, 8, 3, 2];
-let commonElements = arr1.filter(element => arr2.includes(element));
+// let commonElements = arr1.filter(element => arr2.includes(element));
 // console.log(commonElements); // Output: [2, 1, 3]
+
+function findCommonElement(arr1, arr2) {
+  const common = []
+  for (let index = 0; index < arr1.length; index++) {
+    if (arr2.includes(arr1[index])) {
+      common.push(arr1[index])
+    }
+  }
+  return common
+}
+// const findCommEle = findCommonElement(arr1, arr2)
+// console.log('Find', findCommEle)
 
 // Find Common Elements Without Duplicates
 let arr3 = [2, 1, 4, 6, 3, 2];
@@ -244,6 +256,24 @@ let arr4 = [1, 7, 8, 3, 2, 2];
 let commonElements1 = [...new Set(arr3.filter(element => arr4.includes(element)))];
 // console.log(commonElements); // Output: [2, 1, 3]
 
+function commonElementsWithouDuplicate(arr3, arr4) {
+  const common = []
+  for (let index = 0; index < arr3.length; index++) {
+    if (arr4.includes(arr3[index])) {
+      common.push(arr3[index])
+    }
+  }
+  const unique = []
+  for (let index = 0; index < common.length; index++) {
+    if (!unique.includes(common[index])) {
+      unique.push(common[index])
+    }
+  }
+  return unique
+}
+
+// const commonElementsWithouDup = commonElementsWithouDuplicate(arr3, arr4)
+// console.log(commonElementsWithouDup)
 
 // Find elements that are unique to each array (not common).
 let arr5 = [2, 1, 4, 6, 3];
