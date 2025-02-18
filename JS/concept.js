@@ -269,7 +269,7 @@ function calculateAverage(array) {
   for (let i = 0; i < array.length; i++) {
     sumOfElement += array[i]
   }
-  return sumOfElement/array.length
+  return sumOfElement / array.length
 }
 
 try {
@@ -283,13 +283,305 @@ try {
 
 function calculateSimpleInterest(principalAmount, interesRate, durationAmount) {
   const multiplication = principalAmount * interesRate * durationAmount
-  const simpleInterest = multiplication/100
+  const simpleInterest = multiplication / 100
   return simpleInterest
 }
 
 try {
-  const result = calculateSimpleInterest(1000, 5,1)
-  console.log('result', result)
+  // const result = calculateSimpleInterest(1000, 5,1)
+  // console.log('result', result)
 } catch (error) {
   console.log(error.name, error.message)
 }
+
+function countWords(sentence) {
+  // let count = 0;
+  // let isWord = false;
+
+  // for (let i = 0; i < sentence.length; i++) {
+  //   if (sentence[i] !== ' ') {
+  //     if (!isWord) {
+  //       count++;
+  //       isWord = true;
+  //     }
+  //   } else {
+  //     isWord = false;
+  //   }
+  // }
+  // return count;
+
+  const words = sentence.split(' ').filter(word => word.length > 0)
+  return words.length
+}
+
+try {
+  // const result = countWords('       What is     the day     today   ')
+  // console.log('result', result)
+} catch (error) {
+  console.log(error.name, error.message)
+}
+
+
+function swapValue(a, b) {
+  [a, b] = [b, a]
+  return { a, b }
+
+  // a=a+b
+  // b=a-b
+  // a=a-b
+  // return {a, b}
+}
+
+try {
+  // const result = swapValue(4, 5)
+  // console.log('result', result)
+} catch (error) {
+  console.log(error.name, error.message)
+}
+
+
+function isArmstrong(number) {
+  if (number < 0) {
+    return false; // Negative numbers cannot be Armstrong numbers
+  }
+
+  let originalNumber = number; // Store the original number
+  const digits = [];
+
+  while (number > 0) {
+    let lastDigit = number % 10; // Get the last digit
+    number = Math.floor(number / 10); // Remove last digit
+    digits.push(lastDigit);
+  }
+
+  let armstrongSum = 0;
+  let numDigits = digits.length; // Number of digits in the number
+
+  for (let i = 0; i < digits.length; i++) {
+    armstrongSum += Math.pow(digits[i], numDigits); // Raise to the power of number of digits
+  }
+
+  return originalNumber === armstrongSum;
+}
+
+try {
+  // const result = isArmstrong(153);
+  // const result = isArmstrong(370);
+  // const result = isArmstrong(789);
+  // console.log('result:', result);
+} catch (error) {
+  console.log(error.name, error.message);
+}
+
+
+function fizzFuzz(number) {
+  for (let i = 1; i <= number; i++) {
+    if (i % 3 === 0 && i % 5 === 0) {
+      return 'Fizz Fuzz'
+    } else if (i % 3 === 0) {
+      return 'Fizz'
+    } else if (i % 5 == 0) {
+      return 'Fuzz'
+    }
+  }
+}
+
+try {
+  // const result = fizzFuzz(3)
+  // console.log('result', result)
+} catch (error) {
+  console.log(error.name, error.message)
+}
+
+
+
+function countChar(string) {
+  const count = {}
+  for (let i = 0; i < string.length; i++) {
+    // if (!count[string[i]]) {
+    //   count[string[i]] = 0
+    // }
+    // count[string[i]] += 1
+
+    // if (count[string[i]] === undefined) {
+    //   count[string[i]] = 0
+    // }
+    // count[string[i]] += 1
+
+    count[string[i]] = (count[string[i]] || 0) + 1
+  }
+  return count
+}
+
+try {
+  const result = countChar('hi how are you')
+  // console.log('result', result)
+} catch (error) {
+  console.log(error.name, error.message)
+}
+
+
+
+function alphabeticOrder(string) {
+  let isAlphabetic = true
+  for (let i = 0; i < string.length; i++) {
+    if (string[i] > string[i+1]) {
+      isAlphabetic = false
+    }
+  }
+  return isAlphabetic
+}
+
+try {
+  const result = alphabeticOrder('abcdefgh')
+  // console.log('result', result)
+} catch (error) {
+  console.log(error.name, error.message)
+}
+
+
+
+function checkAnagram(stringA, stringB) {
+  if (stringA.length !== stringB.length) {
+    return false
+  }
+  const stringCharA = {}
+  for (const element of stringA) {
+    stringCharA[element] = (stringCharA[element] || 0)+1
+  }
+
+  const stringCharB = {}
+  for (const element of stringB) {
+    stringCharB[element] = (stringCharB[element] || 0)+1
+  }
+
+  for (const key in stringCharA) {
+    if(stringCharA[key] !== stringCharB[key]){
+      return false
+    }
+  }
+  return true
+}
+
+try {
+  const result = checkAnagram('abcd', 'abcd')
+  // console.log('result', result)
+} catch (error) {
+  console.log(error.name, error.message)
+}
+
+
+function transpose(array) {
+  const rows = array.length
+  const cols = array[0].length
+  const result = []
+  for (let i = 0; i < rows; i++) {
+    for (let j = 0; j < cols; j++) {
+      if (!result[j]) {
+        result[j] = []
+      }
+      result[j][i] = array[i][j]
+    }
+  }
+
+  return result
+}
+
+const array = [
+  [1,2,3],
+  [4,5,6],
+  [7,8,9]
+]
+try {
+  // const result = transpose(array)
+  // console.log('result', result)
+} catch (error) {
+  console.log(error.name, error.message)
+}
+
+
+
+function isStrongPassword(password) {
+  password = password.trim(); // Remove leading/trailing spaces
+
+  if (password.length < 8) {
+    return false;
+  }
+
+  const lowerChar = 'abcdefghijklmnopqrstuvwxyz';
+  const upperChar = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  const specialChar = '~!@#$%^&*()_+{}[]';
+  const number = '1234567890';
+
+  let haveLowerCase = false;
+  let haveUpperCase = false;
+  let haveSpecialChar = false;
+  let haveNumber = false;
+
+  for (let i = 0; i < password.length; i++) {
+    let char = password[i];
+    
+    if (lowerChar.includes(char)) {
+      haveLowerCase = true;
+    } else if (upperChar.includes(char)) {
+      haveUpperCase = true;
+    } else if (specialChar.includes(char)) {
+      haveSpecialChar = true;
+    } else if (number.includes(char)) {
+      haveNumber = true;
+    }
+
+    // If all conditions are met, we can stop early
+    if (haveLowerCase && haveUpperCase && haveSpecialChar && haveNumber) {
+      return true;
+    }
+  }
+
+  return haveLowerCase && haveUpperCase && haveSpecialChar && haveNumber;
+}
+
+try {
+  // console.log(isStrongPassword('Prat@pD91')); // true
+  // console.log(isStrongPassword('weakpass')); // false
+  // console.log(isStrongPassword('StrongPass1')); // false (no special char)
+  // console.log(isStrongPassword('!Weak1')); // false (less than 8 chars)
+} catch (error) {
+  console.log(error.name, error.message);
+}
+
+
+function matrixMultiplication(array1, array2) {
+
+  // Add validation to check if input are arrays
+  const rowsInResult = array1.length;
+  const columnsInResult = array2[0].length;
+
+  const rownInSecondArray = array2.length;
+  const result = [];
+
+  for(let i = 0; i < rowsInResult; i++) {
+      for(let j = 0; j < columnsInResult; j++) {
+          let cellValue = 0;
+          for(let n = 0; n < rownInSecondArray; n++) {
+              cellValue += array1[i][n] * array2[n][j];
+          }
+
+          if(!result[i]) {
+              result[i] = [];
+          }
+          result[i][j] = cellValue;
+          
+      }
+  }
+  return result;
+}
+
+const firstArray = [ [1,2],
+                      [3,4] ];
+const secondArray = [ [5,6],
+                      [7,8]   ];
+
+// const firstArray = [ [1,2,3], [3,4,8]];
+// const secondArray = [ [5,6], [7,8], [7,9]]
+
+console.log(matrixMultiplication(firstArray, secondArray));
