@@ -425,7 +425,7 @@ try {
 function alphabeticOrder(string) {
   let isAlphabetic = true
   for (let i = 0; i < string.length; i++) {
-    if (string[i] > string[i+1]) {
+    if (string[i] > string[i + 1]) {
       isAlphabetic = false
     }
   }
@@ -447,16 +447,16 @@ function checkAnagram(stringA, stringB) {
   }
   const stringCharA = {}
   for (const element of stringA) {
-    stringCharA[element] = (stringCharA[element] || 0)+1
+    stringCharA[element] = (stringCharA[element] || 0) + 1
   }
 
   const stringCharB = {}
   for (const element of stringB) {
-    stringCharB[element] = (stringCharB[element] || 0)+1
+    stringCharB[element] = (stringCharB[element] || 0) + 1
   }
 
   for (const key in stringCharA) {
-    if(stringCharA[key] !== stringCharB[key]){
+    if (stringCharA[key] !== stringCharB[key]) {
       return false
     }
   }
@@ -488,9 +488,9 @@ function transpose(array) {
 }
 
 const array = [
-  [1,2,3],
-  [4,5,6],
-  [7,8,9]
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8, 9]
 ]
 try {
   // const result = transpose(array)
@@ -520,7 +520,7 @@ function isStrongPassword(password) {
 
   for (let i = 0; i < password.length; i++) {
     let char = password[i];
-    
+
     if (lowerChar.includes(char)) {
       haveLowerCase = true;
     } else if (upperChar.includes(char)) {
@@ -559,29 +559,104 @@ function matrixMultiplication(array1, array2) {
   const rownInSecondArray = array2.length;
   const result = [];
 
-  for(let i = 0; i < rowsInResult; i++) {
-      for(let j = 0; j < columnsInResult; j++) {
-          let cellValue = 0;
-          for(let n = 0; n < rownInSecondArray; n++) {
-              cellValue += array1[i][n] * array2[n][j];
-          }
-
-          if(!result[i]) {
-              result[i] = [];
-          }
-          result[i][j] = cellValue;
-          
+  for (let i = 0; i < rowsInResult; i++) {
+    for (let j = 0; j < columnsInResult; j++) {
+      let cellValue = 0;
+      for (let n = 0; n < rownInSecondArray; n++) {
+        cellValue += array1[i][n] * array2[n][j];
       }
+
+      if (!result[i]) {
+        result[i] = [];
+      }
+      result[i][j] = cellValue;
+
+    }
   }
   return result;
 }
 
-const firstArray = [ [1,2],
-                      [3,4] ];
-const secondArray = [ [5,6],
-                      [7,8]   ];
+const firstArray = [
+  [1, 2],
+  [3, 4]
+];
+const secondArray = [
+  [5, 6],
+  [7, 8]
+];
 
 // const firstArray = [ [1,2,3], [3,4,8]];
 // const secondArray = [ [5,6], [7,8], [7,9]]
 
-console.log(matrixMultiplication(firstArray, secondArray));
+// console.log(matrixMultiplication(firstArray, secondArray));
+
+
+function tipCalculator(amount, tip) {
+  if (typeof amount !== 'number' || !Array.isArray(tip)) {
+    throw new Error('Invalid input: amount must be a number and tip must be an array');
+  }
+
+  const result = [];
+  for (let i = 0; i < tip.length; i++) {
+    if (typeof tip[i] !== 'number') {
+      throw new Error('Invalid tip percentage: all elements in tip array must be numbers');
+    }
+    const tipAmount = amount * (tip[i] / 100);
+    result.push(tipAmount);
+  }
+  return result;
+}
+
+try {
+  // const result = tipCalculator(100, [5, 10, 15]);
+  // console.log('Tip:', result);
+} catch (error) {
+  console.log(error.name, error.message);
+}
+
+
+function checkIsPalindrome(input) {
+  for (let i = 0; i < input.length; i++) {
+    if (input[i] !== input[input.length - 1 - i]) { // first and last index check
+      return false
+    }
+  }
+  return true
+}
+
+
+function findPalindromSubString(string) {
+  const result = []
+  for (let i = 0; i < string.length; i++) {
+    for (let j = i + 1; j <= string.length; j++) {
+      const substring = string.slice(i, j)
+      if (checkIsPalindrome(substring) && substring.length > 1) {
+        result.push(substring)
+      }
+    }
+  }
+  return result
+}
+
+// console.log(findPalindromSubString('radarmadam'))
+
+function checkValidParentheses(s) {
+  const stack = [];
+  const pairs = { ')': '(', '}': '{', ']': '[' };
+
+  for (let char of s) {
+    if (char in pairs) {
+      if (stack.pop() !== pairs[char]) return false;
+    } else {
+      stack.push(char);
+    }
+  }
+
+  return stack.length === 0;
+}
+
+// Test cases
+console.log(checkValidParentheses("(){}[]")); // true
+console.log(checkValidParentheses("(}}}"));   // false
+console.log(checkValidParentheses("{[()]}")); // true
+console.log(checkValidParentheses("({[)]}")); // false

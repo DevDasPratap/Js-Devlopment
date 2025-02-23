@@ -1,0 +1,159 @@
+# DSA Study Plan in JavaScript
+
+## 1. JavaScript Basics
+### Variables, Operators & Operations
+- Sum of two integers
+- Relation between integer and string
+- Sum and message
+- Accept and print the answer
+- Swap two variables via 3 methods
+
+### Operators & Math Functions
+- Arithmetic, Logical, Comparison, Assignment, Bitwise operators
+- Math problems:
+  - Calculate area and perimeter of a rectangle
+  - Area of a triangle using Heron's formula
+  - Circumference of a circle
+
+## 2. Conditional Statements
+- Valid user verification
+- Shop discount calculation
+- Electricity bill calculation
+- INR denomination calculation
+- Ternary operator, switch case, handling multiple values in one case
+
+## 3. Loops
+### For Loop
+- Print 'n' Hello Worlds
+- Print numbers from 1 to n and vice versa
+- Sum of 'n' natural numbers & factorial of a number
+- Factors of a number
+- Check if a number is prime
+
+### While Loop
+- Factors of a number
+- Check if a number is prime
+- Sum of digits
+- Reverse of a number
+- Check for Strong number
+
+### Do-While Loop
+- Repeat 'Hello' multiple times
+- Fast Calculator
+- Guess the number
+
+## 4. Pattern Programming
+- Nested Loop Patterns
+- Various pattern-based problems
+
+## 5. Arrays
+### Introduction
+- Fixed and dynamic-size arrays
+- Accept values from user & assign in the array
+
+### Array Problems
+- Sum of array elements
+- Maximum element in the array
+- Second maximum element
+- Reverse the array
+- Move all zeroes to left and ones to right
+
+## 6. Strings
+### String Basics
+- Methods of string manipulation
+- Print each character on a new line
+- Print in reverse order
+- Check if a string is a palindrome
+- Toggle each character
+- Frequency of each character in a string
+
+## 7. Object-Oriented Programming (OOP)
+- Class & Object
+- Constructor
+- Prototype Object
+- 'this' keyword
+- Design Problems
+
+## 8. Advanced Array Problems
+- Left & right rotation by k elements
+- Remove duplicates from a sorted array
+- Merge sorted arrays
+- Best time to buy and sell stocks
+- Sort colors
+- Maximum Subarray (Kadane's Algorithm)
+- Majority Element (Moore's Voting Algorithm)
+- Trapping Rain Water problem
+
+## 9. Sorting Algorithms
+### Part 1
+- Bubble Sort
+- Selection Sort
+- Insertion Sort
+
+### Part 2
+- Quick Sort
+- Merge Sort
+- Cyclic Sort
+
+### Sorting Problems
+- Missing Number
+- Find all disappeared numbers in an array
+- First positive number
+
+## 10. Binary Search
+- Binary Search Algorithm
+- Search Insert Position
+- Search in Rotated Sorted Array
+- Book Allocation Problem
+- Koko Eating Bananas
+- Threshold Limit Problem
+
+## 11. Hashing
+- Print frequency of each number
+- Print unique elements
+- Check if a sentence is a pangram
+- Sort people based on conditions
+- Two Sum problem
+- Subarray sum equals k
+- Longest subarray with sum k
+- Longest consecutive sequence
+
+## 12. Linked List
+- Implementation
+- Design Linked List
+- Find the middle of a Linked List
+- Detect cycle in a Linked List
+- Reverse a Linked List
+- Delete a node in a Linked List
+- Reverse nodes in k-group
+
+## 13. Queue & Stack
+- Stack & Queue Implementation
+- Valid Parentheses problem
+- Implement stack using queue
+- Implement queue using stack
+- Next larger element
+- Largest Rectangle in Histogram
+
+## 14. Recursion & Backtracking
+- Print 'n' Hello times
+- Print numbers from 1 to n & n to 1
+- Sum of 'n' natural numbers
+- Factorial of 'n'
+- Sum of digits
+- Fibonacci series (iterative & recursive)
+- Tower of Hanoi
+- Josephus problem
+- Subset generation
+- Permutations
+- Letter Combination Sum
+- Combination Sum
+- Sudoku Solver
+
+## 15. Graphs
+- Implementation of Graphs
+- BFS & DFS traversal
+- Cycle detection in a graph
+- Topological sorting
+- Shortest Path Algorithms
+
