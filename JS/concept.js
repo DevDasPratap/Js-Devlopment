@@ -641,22 +641,71 @@ function findPalindromSubString(string) {
 // console.log(findPalindromSubString('radarmadam'))
 
 function checkValidParentheses(s) {
-  const stack = [];
-  const pairs = { ')': '(', '}': '{', ']': '[' };
+  const stack = []
+  const pairs = { ')': '(', '}': '{', ']': '[' }
 
   for (let char of s) {
     if (char in pairs) {
-      if (stack.pop() !== pairs[char]) return false;
+      if (stack.pop() !== pairs[char]){
+        return false
+      }
     } else {
-      stack.push(char);
+      stack.push(char)
     }
   }
 
-  return stack.length === 0;
+  return stack.length === 0
 }
 
 // Test cases
-console.log(checkValidParentheses("(){}[]")); // true
-console.log(checkValidParentheses("(}}}"));   // false
-console.log(checkValidParentheses("{[()]}")); // true
-console.log(checkValidParentheses("({[)]}")); // false
+// console.log(checkValidParentheses("(){}[]")); // true
+// console.log(checkValidParentheses("(}}}"));   // false
+// console.log(checkValidParentheses("{[()]}")); // true
+// console.log(checkValidParentheses("({[)]}")); // false
+
+
+
+function findAllOccurrence(string, findWord) {
+  const result = [];
+  let index = string.indexOf(findWord);
+
+  while (index !== -1) {
+    result.push(index);
+    index = string.indexOf(findWord, index + 1); // Move forward to find next occurrence
+  }
+  
+  return result;
+}
+
+const bigString = 'This is a big string with the word big repetition';
+const wordFind = 'big';
+
+// console.log(findAllOccurrence(bigString, wordFind)); // Output: [10, 35]
+
+
+
+function generateRandomNumber(minNumber, maxNumber) {
+  // return Math.floor(Math.random()*maxNumber+1)
+  return Math.floor(Math.random() * (maxNumber - minNumber + 1)) + minNumber
+}
+const minNumber = 5
+const maxNumber = 10
+// console.log(generateRandomNumber(minNumber, maxNumber))
+
+
+// get user data in js using prompt-synce
+// const prompt = require('prompt-sync')()
+// const userInput = prompt('Please enter here: ')
+// console.log('User input: ', userInput)
+
+
+
+function rollDice() {
+  return Math.floor(Math.random()*6)+1
+}
+function rollMultipleDice(numberOfDise, sideInDise) {
+  let counter = 0
+}
+
+// console.log(rollDice())
+console.log(rollMultipleDice(1,6))
