@@ -35,3 +35,5 @@ Important list of questions to prepare for JavaScript interviews.
 🔍 Explain how code sharing between files can be accomplished.
 🔍 Define what a promise is and describe its applications.
 🔍 Explore how Object-Oriented Programming (OOP) principles can be applied when coding in JavaScript.
+
+https://dev.to/this-is-angular/understanding-angular-ahead-of-time-aot-compilation-2m7p

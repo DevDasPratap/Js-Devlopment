@@ -121,3 +121,67 @@ function printList(head) {
 
 // console.log('Final Linked List:');
 printList(head);
+
+
+
+
+
+
+
+
+// Rohan Kumar Sahu
+// 4:03 PM
+// Let A = [1,2,3]
+// Let B = [1,2,3]
+
+// (A==B)
+
+// (A===B)
+// Let A = { “name” : “abc”}
+// Let B = A;
+//  B.name = “cde”
+
+// A.name = ?
+// B.name = ?
+// Rohan Kumar Sahu
+// 4:05 PM
+// for(var i = 0; i < 5; i++){
+//  setTimeout(() => {
+//   console.log(i);
+// }, 1000)
+// }
+// var count=1;
+// var func1=()=>console.log(count);
+// var func2=()=>{
+// 	var count=2;
+// 	func1();
+// }
+// func2();
+// Rohan Kumar Sahu
+// 4:07 PM
+// 10 + “10” + 5
+// Rohan Kumar Sahu
+// 4:08 PM
+// input  - [1, 2, 3, 4, 5]
+// output - [1,2,3,4,5,1,2,3,4,5]
+
+
+
+// // console.log(10 + “10” + 5)
+
+// // //1015
+
+// // input  - [1, 2, 3, 4, 5]
+// // output - [1,2,3,4,5,1,2,3,4,5]
+
+// const input = [1, 2, 3, 4, 5]
+// // const result = [...input, ...input]
+// // console.log()
+// const result = []
+// for(let i=0; i<input.length; i++){
+//     result.push(input[i])
+// }
+// for(let i=0; i<input.length; i++){
+//     result.push(input[i])
+// }
+// console.log(result)

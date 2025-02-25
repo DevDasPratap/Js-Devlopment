@@ -49,4 +49,25 @@ const subsets = function (nums) {
     return subSet
 };
 
-console.log(subsets([1,2,3]))
+// console.log(subsets([1,2,3]))
+
+// How to Execute One Async Function After Another in JavaScript?
+async function demo1() {
+  return new Promise((resolve) => {
+      setTimeout(() => {
+          console.log('demo1');
+          resolve(true); // Resolves after logging "demo1"
+      }, 1000);
+  });
+}
+
+async function demo2() {
+  console.log('demo2');
+}
+
+async function execute() {
+  await demo1(); // Waits for demo1 to complete
+  demo2();       // Executes demo2 after demo1
+}
+
+execute();
