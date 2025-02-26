@@ -1,0 +1,33 @@
+Roadmap for backend
+   - History of node.js
+   - Defination of node.js
+   - Details working of js engine
+   - Node.js structure
+
+Build js language for building fronted application to make our web application dynamic and intractive.
+
+Where js can used?
+ - to build fronted apps/web apps / web pages
+ - desktop application
+ -game
+ - backend server through js
+ - mobile apps
+
+ Defination of node.js
+ - A javascript runtime environment 
+ - written in c++
+ - build on chrome v8 engine
+ - cross platform
+ - open source
+ - maintained by open js community
+
+advance defination - It works on nonblocking I/O operation / Async operation
+
+
+why node.js is builded?
+apahe http server (blocking I/O) one task complete at a time
+
+
+expres.js
+problem with node.js
+route, middleware

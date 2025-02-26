@@ -437,3 +437,9 @@ server.listen(3000, () => console.log('Server running on port 3000'));
 
 By choosing Express.js, developers can reduce complexity, improve performance, and write clean, maintainable code compared to using the raw HTTP module.
 
+### How do you resolve merge conflicts in Git?
+
+Use git status to identify conflicting files.
+Manually edit the conflicting files to keep the desired changes.
+Use git add <file> to mark conflicts as resolved.
+Commit the resolved changes using git commit.
