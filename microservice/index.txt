@@ -31,3 +31,131 @@ apahe http server (blocking I/O) one task complete at a time
 expres.js
 problem with node.js
 route, middleware
+
+Middleware:
+   - is a function that have access/chnage to req, res 
+   - Middleware are function that have next() function to pass to the control
+   Client ----> Request  (Middleware (modify))  Response <----Server
+
++---------+         +----------+         +------------+         +---------+
+| Client  | -----> | Request  | -----> | Middleware | -----> | Response |
++---------+         +----------+         +------------+         +---------+
+                                                   |
+                                                   v
+                                              +---------+
+                                              | Server  |
+                                              +---------+
+
+
+Type of middleware: 
+   - application level middleware
+   - router level middleware
+   - built in level middleware
+   - Error handling middleware
+   - Third party middleware
+
+Middleware in Express.js is a function that has access to the request (req), response (res), and the next() function. Middleware functions can modify the request and response objects, execute code, and pass control to the next middleware in the stack.
+
+Types of Middleware
+
+1. Application-Level Middleware
+
+These are middleware functions bound to an instance of an Express application using app.use() or specific HTTP methods like app.get().
+
+const express = require('express');
+const app = express();
+
+app.use((req, res, next) => {
+    console.log('Application-Level Middleware executed');
+    next();
+});
+
+app.get('/', (req, res) => {
+    res.send('Hello World');
+});
+
+app.listen(3000, () => console.log('Server running on port 3000'));
+
+
+
+2. Router-Level Middleware
+
+Router-level middleware works similarly to application-level middleware but is bound to an instance of express.Router().
+
+const express = require('express');
+const router = express.Router();
+
+router.use((req, res, next) => {
+    console.log('Router-Level Middleware executed');
+    next();
+});
+
+router.get('/route', (req, res) => {
+    res.send('Router Level Middleware Response');
+});
+
+const app = express();
+app.use('/api', router);
+
+app.listen(3000, () => console.log('Server running on port 3000'));
+
+
+
+Built-In Middleware
+
+Express provides built-in middleware for common tasks like serving static files, parsing request bodies, etc.
+
+Examples:
+
+express.json() – Parses incoming JSON requests
+
+express.urlencoded({ extended: true }) – Parses URL-encoded requests
+
+express.static('public') – Serves static files
+
+const express = require('express');
+const app = express();
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static('public'));
+
+app.listen(3000, () => console.log('Server running on port 3000'));
+
+
+4. Error Handling Middleware
+
+This middleware is used to handle errors in Express applications. It has four parameters: (err, req, res, next).
+
+const express = require('express');
+const app = express();
+
+app.get('/', (req, res) => {
+    throw new Error('Something went wrong');
+});
+
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).send('Internal Server Error');
+});
+
+app.listen(3000, () => console.log('Server running on port 3000'));
+
+
+5. Third-Party Middleware
+
+These are middleware functions provided by third-party libraries like morgan, cors, and helmet.
+
+Example: Using morgan for logging
+
+const express = require('express');
+const morgan = require('morgan');
+const app = express();
+
+app.use(morgan('dev'));
+
+app.get('/', (req, res) => {
+    res.send('Third-Party Middleware Example');
+});
+
+app.listen(3000, () => console.log('Server running on port 3000'));

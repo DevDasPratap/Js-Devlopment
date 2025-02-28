@@ -31,14 +31,14 @@
 
 let a = 5
 let b = '5'
-console.log(a+b) // here not addition it concanitaion
+console.log(a + b) // here not addition it concanitaion
 
 // String First → Everything Becomes a String
-let c=5
-let d=5
-console.log('sum of 5 and 5: ' + c+d)
-console.log('sum of 5 and 5: ' + (c+d)) //broadmass
-console.log(c+d + ' sum of 5 and 5')
+let c = 5
+let d = 5
+console.log('sum of 5 and 5: ' + c + d)
+console.log('sum of 5 and 5: ' + (c + d)) //broadmass
+console.log(c + d + ' sum of 5 and 5')
 
 /**
  * 'sum of 5 and 5: ' is a string.
@@ -86,8 +86,8 @@ console.log(10 === 10) // both side value check with type
 
 // && || where check multiple condition check
 
-console.log(10>6 && 15<9 && 18>9) // if first condition get false didnot check next condition just return false
-console.log(10>6 || 15<9 || 18>9) // if any condition true and check till last condition            
+console.log(10 > 6 && 15 < 9 && 18 > 9) // if first condition get false didnot check next condition just return false
+console.log(10 > 6 || 15 < 9 || 18 > 9) // if any condition true and check till last condition            
 
 
 // pre post increment/decrement
@@ -97,9 +97,9 @@ console.log(i)
 
 
 let j = 10, k = 22
-let l = j+k + j++ + k++ + ++j + ++k
-console.log('j='+ j)
-console.log('k='+ k)
+let l = j + k + j++ + k++ + ++j + ++k
+console.log('j=' + j)
+console.log('k=' + k)
 console.log('l=' + l)
 
 let m = true
@@ -113,3 +113,92 @@ let e = 10
 // let f = ++(e++)
 // console.log(e)
 // console.log(f)
+
+
+/**
+ * Condition
+ */
+
+if (-1) {
+    console.log('a')
+}
+if (10) {
+    console.log('a')
+}
+
+let num = 0
+console.log(num > 0 ? 'Positive' : 'Negetive')
+console.log(num > 0 ? 'Positive' : num < 0 ? 'Negative' : 'Zero')
+
+/**
+ * When we use If or Switch
+ */
+
+let day = 4;
+// switch (day) {
+//     case 1:
+//         console.log('Sunday');
+//         break;  // Added break to prevent fall-through
+//     case 2:
+//         console.log('Monday');
+//         break;
+//     case 3:
+//         console.log('Tuesday');
+//         break;
+//     case 4:
+//         console.log('Wednesday');
+//         break;
+//     default:
+//         console.log('Invalid');
+//         break;
+// }
+
+
+// A fall-through condition in a switch statement occurs when a case does not have a break;, causing execution to continue into the next case, regardless of its condition.
+switch (day) {
+    case 1:
+        console.log('Sunday'); // Fall-through occurs here
+    case 2:
+        console.log('Monday');
+        break;
+    case 3:
+        console.log('Tuesday');
+        break;
+    case 4:
+        console.log('Wednesday');
+        break;
+    default:
+        console.log('Invalid');
+        break;
+}
+
+day = 1
+switch (day) {
+    case 1:
+    case 2:
+        console.log('Weekend')
+    case 3:
+        console.log('Tuesday');
+        break;
+    case 4:
+        console.log('Wednesday');
+        break;
+    default:
+        console.log('Invalid');
+        break;
+}
+
+switch (true) {
+    case 10>5:
+        console.log('Hello')
+        break;
+    case 9>5:
+        console.log('Hi')
+        break;
+    case 10<5:
+        console.log('Heooo')
+        break;
+
+    default:
+        break;
+}
