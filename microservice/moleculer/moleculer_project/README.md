@@ -1,3 +1,47 @@
+# Setting Up Microservices with Moleculer
+
+Moleculer is a progressive microservices framework for Node.js that provides an efficient way to build scalable and maintainable applications.
+
+### Step 1: Install Moleculer CLI
+```sh
+npm i moleculer-cli -g
+```
+
+### Step 2: Create a New Moleculer Project
+```sh
+moleculer init project my-microservice
+cd my-microservice
+npm install
+```
+
+### Step 3: Start a Sample Service
+Modify `services/greeter.service.js`:
+```javascript
+module.exports = {
+    name: "greeter",
+    actions: {
+        hello(ctx) {
+            return `Hello, ${ctx.params.name || "World"}!`;
+        }
+    }
+};
+```
+
+### Step 4: Start the Microservice
+```sh
+npm run dev
+```
+
+### Step 5: Call the Service
+Use the Moleculer REPL to test your service:
+```sh
+call greeter.hello --name John
+```
+
+This setup provides a quick and scalable way to develop microservices with Node.js using Moleculer.
+
+
+
 [![Moleculer](https://badgen.net/badge/Powered%20by/Moleculer/0e83cd)](https://moleculer.services)
 
 # moleculer_project
