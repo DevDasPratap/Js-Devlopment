@@ -11,8 +11,9 @@ module.exports = {
                 method: "GET",
                 path: "/hello"
             },
-            async handler(){
-                return 'My demo function route'
+            async handler(ctx){ // http://localhost:3000/api/mydemo/hello?name=pratapdas
+                return `We have created our route ${ctx.params.name}`
+                // return 'My demo function route'
             }
         }
     },
