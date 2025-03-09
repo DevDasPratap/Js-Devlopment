@@ -1,0 +1,56 @@
+version: "3.8"
+
+services:
+  backend:
+    container_name: node_backend
+    build: .  # Build the image from the Dockerfile in the current directory
+    ports:
+      - "5000:5000"  # Map container port 5000 to host port 5000
+    environment:
+      - NODE_ENV=development  # Set environment variable for Node.js
+      - MONGO_URI=mongodb://mongo:27017/mydatabase  # MongoDB connection string
+    depends_on:
+      - mongo  # Ensure MongoDB starts before the backend
+    volumes:
+      - .:/app  # Sync local files with the container
+      - /app/node_modules  # Prevent overwriting node_modules
+    restart: always  # Automatically restart the container if it crashes
+
+  mongo:
+    container_name: mongodb
+    image: mongo:latest  # Use the latest MongoDB image
+    ports:
+      - "27017:27017"  # Expose MongoDB on localhost
+    volumes:
+      - mongo-data:/data/db  # Persistent storage for MongoDB data
+    restart: always  # Restart MongoDB if it stops
+
+volumes:
+  mongo-data:  # Named volume for MongoDB persistence
+
+# ==============================
+# COMMANDS TO USE THIS FILE:
+# ==============================
+# 1. Build and Start Containers:
+#    docker-compose up --build
+#
+# 2. Run in Detached Mode (Background):
+#    docker-compose up -d
+#
+# 3. Check Running Containers:
+#    docker-compose ps
+#
+# 4. View Container Logs:
+#    docker-compose logs -f
+#
+# 5. Stop and Remove Containers:
+#    docker-compose down
+#
+# 6. Remove Containers & Volumes:
+#    docker-compose down -v
+#
+# 7. Restart Services:
+#    docker-compose restart
+#
+# 8. Rebuild Without Cache:
+#    docker-compose build --no-cache
