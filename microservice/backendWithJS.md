@@ -128,3 +128,15 @@ compiler
    - complete code execute
 
 js is compiler (jit compiler) and interpiter language
+
+About libuv: a library to manage asyn operation
+
+   - Event loop (4 phase)
+       - Timer phase: any async code api call, setTimeout, setImediate
+       - Poll phase (i/o operation) handle
+       - Check phase (setImediate)
+       - Close phase (using of socket) all phase handle by close phase to close the operation
+       inside Event loop process.nextTrick <-> promise/callback
+   - Thread pool
+      - any file read, api call, settimeout etc code goto v8 engine v8 work sync task inside call stack handle one task at a time rest of the task will wait until execute last atsk it workin blocking I/O, then task send to libuv 
+   - Callback queue
