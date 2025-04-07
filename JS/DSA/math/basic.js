@@ -35,4 +35,4 @@ function primeTest(num) {
     return true
 }
 
-console.log(primeTest(15))
+// console.log(primeTest(15))

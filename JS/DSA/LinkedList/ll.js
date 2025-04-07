@@ -47,66 +47,141 @@
  * 
  */
 
-// function node(data) {
-//     this.data = data
-//     this.next = null
-// }
-
-// let head = new node(5)
-// console.log(head)
-
-// let mid = new node(10)
-// // console.log(head)
-// // console.log(head.next)
-// head.next=mid
-// // console.log(head)
-
-// let tail = new node(15)
-
-// mid.next = tail
-// console.log(head)
-
-
-
-function Node(data) {
-    this.data = data;
-    this.next = null;
-}
-
-let head = new Node(1);
-let mid = new Node(2);
-head.next = mid;
-
-let insertFirstNode = new Node(3);
-insertFirstNode.next = head;
-head = insertFirstNode;
-
-let insertAtIndex = new Node('ramdomPosition')
-let index = 1
-insertAtIndexFn(insertAtIndex, head, index)
-
-let insertTailNode = new Node(4);
-insertEndNode(insertTailNode, head);
-
-traversal(head);
-
-function insertEndNode(temp, head) {
-    let current = head;
-    while (current.next !== null) {
-        current = current.next;
-    }
-    current.next = temp;
-}
-
-function traversal(head) {
-    let current = head;
-    while (current !== null) {
-        console.log(current.data);
-        current = current.next;
+class Node {
+    constructor(data) {
+        this.data = data;
+        this.next = null;
     }
 }
 
-function insertAtIndexFn(insertAtIndex, head, index) {
-    
+class LinkedList {
+    constructor() {
+        this.head = null;
+    }
+
+    addHead(data) {
+        const newNode = new Node(data);
+        newNode.next = this.head;
+        this.head = newNode;
+    }
+
+    addLast(data) {
+        const newNode = new Node(data);
+        if (!this.head) {
+            this.head = newNode;
+            return;
+        }
+        let current = this.head;
+        while (current.next) {
+            current = current.next;
+        }
+        current.next = newNode;
+    }
+
+    size() {
+        let count = 0;
+        let current = this.head;
+        while (current) {
+            count++;
+            current = current.next;
+        }
+        return count;
+    }
+
+    insertAtPosition(index, data) {
+        if (index < 0 || index > this.size()) {
+            console.log('Invalid index');
+            return;
+        }
+
+        const newNode = new Node(data);
+
+        if (index === 0) {
+            newNode.next = this.head;
+            this.head = newNode;
+            return;
+        }
+
+        let current = this.head;
+        for (let i = 0; i < index - 1; i++) {
+            current = current.next;
+        }
+
+        newNode.next = current.next;
+        current.next = newNode;
+    }
+
+    removeHead() {
+        if (!this.head) return;
+        this.head = this.head.next;
+    }
+
+    removeLast() {
+        if (!this.head) return;
+
+        if (!this.head.next) {
+            this.head = null;
+            return;
+        }
+
+        let current = this.head;
+        while (current.next.next) {
+            current = current.next;
+        }
+        current.next = null;
+    }
+
+    removeAtPosition(index) {
+        if (index < 0 || index >= this.size()) {
+            console.log('Invalid index');
+            return;
+        }
+
+        if (index === 0) {
+            this.head = this.head.next;
+            return;
+        }
+
+        let current = this.head;
+        for (let i = 0; i < index - 1; i++) {
+            current = current.next;
+        }
+
+        if (current.next) {
+            current.next = current.next.next;
+        }
+    }
+
+    print() {
+        let current = this.head;
+        if (!current) {
+            console.log('Linked list are empty')
+        }
+        while (current) {
+            console.log(current.data);
+            current = current.next;
+        }
+    }
 }
 
+
+// const linkedlist = new LinkedList()
+// // linkedlist.print()
+// linkedlist.addHead(10)
+// linkedlist.addHead(20)
+// linkedlist.addHead(30)
+// linkedlist.print()
+
+
+const list = new LinkedList();
+list.addHead(3);
+list.addHead(2);
+list.addHead(1);
+list.addLast(4);
+list.insertAtPosition(2, 10);
+list.print();
+console.log("Size:", list.size());
+list.removeAtPosition(2);
+list.removeHead();
+list.removeLast();
+list.print();
