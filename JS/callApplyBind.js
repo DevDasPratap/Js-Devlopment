@@ -2,14 +2,14 @@
 
 const person = {
     f_name: 'Pratap',
-    l_name:'Das',
-    fullName:function (hometown, country) {
+    l_name: 'Das',
+    fullName: function (hometown, country) {
         return this.f_name + " " + this.l_name + ", " + hometown + ", " + country
     }
 }
 const person2 = {
     f_name: 'Dev',
-    l_name:'D',
+    l_name: 'D',
 }
 // Call => Call method allow an object to used the function/method of another object
 // console.log(person.fullName.call(person2, 'Haldia', "INDIA"))

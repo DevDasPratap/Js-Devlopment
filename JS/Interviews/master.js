@@ -189,13 +189,13 @@ switch (day) {
 }
 
 switch (true) {
-    case 10>5:
+    case 10 > 5:
         console.log('Hello')
         break;
-    case 9>5:
+    case 9 > 5:
         console.log('Hi')
         break;
-    case 10<5:
+    case 10 < 5:
         console.log('Heooo')
         break;
 

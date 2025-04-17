@@ -109,7 +109,7 @@ function factorialNumber(number) {
     throw new TypeError('Only number are allowed')
   }
   if (number <= 0) {
-    throw new TypeError('Number should be geter then 0')
+    throw new RangeError('Number should be geter then 0')
   }
   // if (number === 1) {
   //   return number

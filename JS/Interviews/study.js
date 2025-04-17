@@ -14,7 +14,7 @@ function findN(arr) {
   //   }
   // });
   for (let i = 0; i < arr.length; i++) {
-    newObj[arr[i]] = (newObj[arr[i]] || 0)+1
+    newObj[arr[i]] = (newObj[arr[i]] || 0) + 1
   }
   let newarrdup = [];
   for (let key in newObj) {
@@ -601,9 +601,9 @@ function changeObject(v = { ...a }) {
 function changeProperty(person) {
   person.age = 25;  // Modifies the original object
 
-  person = { 
-    name: "John", 
-    age: 50 
+  person = {
+    name: "John",
+    age: 50
   }; // Reassigning person to a new object (doesn't affect original reference)
 
   return person;

@@ -5,7 +5,7 @@ const nums = [1,2,1]
 //     nums.push(nums[i])
 // }
 
-const arr = [1,2,1,1,4,4, 5,5,8,5]
+const arr = [1,2,1,1,4,4,5,5,8,5]
 // const dup = []
 // const unique = []
 // for (let i = 0; i < arr.length; i++) {
