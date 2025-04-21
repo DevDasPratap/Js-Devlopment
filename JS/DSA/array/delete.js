@@ -86,4 +86,33 @@ function deleteEle(array, ele) {
 }
 
 const result3 = deleteEle([1, 2, 3, 4, 5], 3)
-console.log('Result: ', result3)
+// console.log('Result: ', result3)
+
+function deleteAtPosition(array, position, value) {
+  const find = findElementPosition(array, position, value);
+  if (find === -1) {
+    return 'Element not found';
+  }
+
+  for (let i = find; i < array.length - 1; i++) {
+    array[i] = array[i + 1];
+  }
+  array.length -= 1;
+
+  return array; // Return modified array
+}
+
+function findElementPosition(array, position, value) {
+  if (position >= array.length || position < 0) {
+    return -1; // Return -1 instead of a string for consistency
+  }
+
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] === value && i === position) {
+      return i;
+    }
+  }
+  return -1;
+}
+
+console.log(deleteAtPosition([2, 3, 1, 10, 5, 10, 9, 16, 8], 5, 10));
