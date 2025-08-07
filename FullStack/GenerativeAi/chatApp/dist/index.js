@@ -16,7 +16,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const generative_ai_1 = require("@google/generative-ai");
 const dotenv_1 = __importDefault(require("dotenv"));
 dotenv_1.default.config();
-const genAI = new generative_ai_1.GoogleGenerativeAI('AIzaSyD3FJ11PBeEEoqNTSn4j1rLOIdy0w6gBYc');
+const genAI = new generative_ai_1.GoogleGenerativeAI('');
 const prompt = "Hello what is 2 + 2";
 // Fallback to Gemini
 function run() {

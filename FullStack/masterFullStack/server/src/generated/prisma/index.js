@@ -168,7 +168,7 @@ const config = {
     "db": {
       "url": {
         "fromEnvVar": "DATABASE_URL",
-        "value": "postgresql://fullStackApp_owner:npg_A8pyOMPQjY2b@ep-sparkling-block-a4knghud-pooler.us-east-1.aws.neon.tech/fullStackApp?sslmode=require"
+        "value": ""
       }
     }
   },
