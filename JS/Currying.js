@@ -6,7 +6,6 @@
 /*
 Currying in JavaScript is a functional programming technique where a function with multiple arguments 
 is transformed into a sequence of nested functions, each taking a single argument. 
-
 */
 
 

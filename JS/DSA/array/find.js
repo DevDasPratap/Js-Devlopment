@@ -11,5 +11,5 @@ const result = find_element(arr, target)
 if (!result) {
     console.log(`${target} not found`)
 }else{
-    console.log(`${target} element found`)
+    console.log(`${target} element found index ${result}`)
 }

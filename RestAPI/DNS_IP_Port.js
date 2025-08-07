@@ -2,7 +2,7 @@
 URL: https://www.google.com/search?q=monkey
 
 https: Protocol
-wwww: Subdomain
+www: Subdomain
 google: Domain
 com: Domain extention(top level)
 search: Path

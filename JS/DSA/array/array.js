@@ -742,13 +742,45 @@ function threeLargest(array) {
   return result;
 }
 
-console.log(threeLargest([10, 4, 3, 50, 23, 90]));  // [90, 50, 23]
-console.log(threeLargest([10, 9, 9]));             // [10, 9]
-console.log(threeLargest([10, 10, 10]));           // [10]
-console.log(threeLargest([]));                     // []
+// console.log(threeLargest([10, 4, 3, 50, 23, 90]));  // [90, 50, 23]
+// console.log(threeLargest([10, 9, 9]));             // [10, 9]
+// console.log(threeLargest([10, 10, 10]));           // [10]
+// console.log(threeLargest([]));                     // []
+
+// Left Rotate by One
+function leftRotate(arr) {
+  let x = arr[0];
+  for (let i = 1; i < arr.length; i++) {
+    arr[i - 1] = arr[i];
+  }
+  arr[arr.length - 1] = x;
+  return arr;
+}
 
 
+// console.log(leftRotate([1, 2, 3, 4, 5])); // Output: [2, 3, 4, 5, 1]
 
+
+ function insertAtIndex(arr, index, val) {
+    if (index > arr.length || index < 0) {
+      return -1;
+    }
+
+    // Shift elements to the right
+    for (let i = arr.length; i > index; i--) {
+      arr[i] = arr[i - 1];
+    }
+    // Insert the value
+    arr[index] = val;
+
+    return arr;
+  }
+
+// console.log(insertAtIndex([1, 2, 3, 4, 5], 5, 90)); 
+// Output: [1, 2, 3, 4, 5, 90]
+
+console.log(insertAtIndex([1, 2, 3, 4, 5], 2, 90)); 
+// Output: [1, 2, 90, 3, 4, 5]
 
 // Companies wise most asked array’s questions
 

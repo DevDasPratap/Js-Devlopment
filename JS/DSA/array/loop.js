@@ -35,5 +35,39 @@ const array2 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 const array3 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
 for (let i = 0; i < Math.min(array2.length, array3.length); i++) {
-    console.log(`Array2 element: ${array2[i]}, Array3 element: ${array3[i]}`);
+    // console.log(`Array2 element: ${array2[i]}, Array3 element: ${array3[i]}`);
 }
+
+// const fruits = ['apple', 'banana', 'orange'] // 'abcdefgh'  ;
+const fruits = {
+  name: 'John Doe',
+  age: 30,
+  city: 'New York'
+};
+
+// for (let index = 0; index < fruits; index++) {
+//     console.log(index)
+// }
+for(let key of Object.entries(fruits)){
+    // console.log(key)
+}
+
+// fruits.reduce(element => {
+//     console.log(element)
+// });
+
+const obj = {
+  name: 'pd',
+  add:{
+    vill:'a',
+    pin:700000,
+    country: 'a'
+  }
+}
+
+const copyObj = {...obj}
+
+copyObj.age = 10
+
+console.log(obj === copyObj)
+console.log(obj, copyObj)

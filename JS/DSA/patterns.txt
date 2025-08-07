@@ -1,0 +1,72 @@
+Guide to Data Structure Patterns 
+1. Array Patterns 
+● Sliding Window (Fixed & Variable Size) 
+● Two Pointers 
+● Kadane’s Algorithm (Maximum Subarray) 
+● Prefix Sum & Difference Arrays 
+● Merge Intervals 
+● Binary Search on Sorted Arrays 
+● Dutch National Flag Algorithm (Three-Way Partitioning) 
+
+2. Linked List Patterns 
+● Two Pointer (Fast & Slow Pointers) 
+● Reversal of Linked List 
+● Cycle Detection (Floyd’s Algorithm) 
+● Merge Two Sorted Lists 
+● Remove Nth Node from End 
+● Palindrome Linked List 
+
+3. Stack Patterns 
+● Monotonic Stack 
+● Next Greater/Smaller Element 
+● Balanced Parentheses (Stack for Validity) 
+● Min/Max Stack 
+● Stack for Infix, Prefix, Postfix Evaluation 
+4. Queue & Deque Patterns 
+● Sliding Window Maximum (Deque Implementation) ● Circular Queue 
+● LRU Cache (Using HashMap & Doubly Linked List) ● Monotonic Queue 
+5. Hashing Patterns 
+● HashMap for Frequency Counting 
+● Two Sum Problem (Hashing for Lookup) 
+● Group Anagrams (Hashing + Sorting) 
+● Subarray Sum Equals K (Prefix Sum + HashMap) ● Rabin-Karp for Pattern Matching
+6. Tree Patterns 
+● Depth-First Search (Preorder, Inorder, Postorder) ● Breadth-First Search (Level Order Traversal) ● Binary Search Tree (BST) Invariant 
+● Lowest Common Ancestor (LCA) 
+● Tree Diameter Calculation 
+● Morris Traversal (Threaded Binary Tree) 
+7. Graph Patterns 
+● DFS & BFS Traversal 
+● Topological Sorting (Kahn’s Algorithm, DFS) ● Cycle Detection in Graphs (Directed & Undirected) ● Dijkstra’s Algorithm (Shortest Path) 
+● Bellman-Ford Algorithm (Single Source Shortest Path) ● Floyd-Warshall Algorithm (All-Pairs Shortest Path) ● Union-Find (Disjoint Set Union - DSU) 
+● Minimum Spanning Tree (Kruskal & Prim’s Algorithm) 8. Heap (Priority Queue) Patterns 
+● Kth Largest/Smallest Element 
+● Merge K Sorted Lists 
+● Top K Frequent Elements 
+● Median of a Running Stream (Two Heaps Approach) 9. Backtracking Patterns 
+● N-Queens Problem 
+● Sudoku Solver 
+● Word Search in Grid 
+● Subset Generation (Power Set) 
+● Permutation & Combination Generation 
+10. Dynamic Programming (DP) Patterns 
+● 0/1 Knapsack & Unbounded Knapsack 
+● Subset Sum Problem 
+● Longest Common Subsequence (LCS, LIS, etc.) ● Coin Change Problem 
+● Matrix Chain Multiplication 
+● DP on Trees (Subtree DP)
+11. Bit Manipulation Patterns 
+● Checking if a Number is a Power of Two 
+● Counting Set Bits (Brian Kernighan’s Algorithm) 
+● XOR Trick (Find Missing Number, Single Non-Repeating Element) ● Bitmask DP 
+12. Trie (Prefix Tree) Patterns 
+● Insert, Search, and Delete Operations 
+● Autocomplete System 
+● Longest Common Prefix (Trie-Based Approach) 
+● Word Break Problem 
+13. Segment Tree & Fenwick Tree Patterns 
+● Range Sum Queries 
+● Range Minimum Query 
+● Lazy Propagation in Segment Trees 
+● Fenwick Tree for Efficient Prefix Sum Queries 
+This guide provides a structured approach to DSA patterns. Each pattern should be studied with example problems and implementations for better understanding.

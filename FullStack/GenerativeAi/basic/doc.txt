@@ -1,0 +1,5 @@
+OpenAi Models
+   - Text: text to text
+   - Image: Text to Image
+   - Audio: Text to Speach, Speach to Text (whisper)
+   - Sora: Text to Video

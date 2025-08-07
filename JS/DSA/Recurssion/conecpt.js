@@ -1,6 +1,7 @@
 /**
  * Recurssion: Divide and concure, trees, graph, dp
  * Base condition / termination condition
+ * Tail  recursion: better space optimization compared to head recursion, because it doesn't require additional memory to store the call stack.
  */
 
 
@@ -16,10 +17,11 @@ function printHead(arr, startIndex) {
     printHead(arr, startIndex+1)
 }
 
-// printHead([1,2,3,4], 1)
+// printHead([1,2,3,4], 0)
 
 
 // Tail recurssion
+// Tail recursion is a form of recursion where the recursive call is the last operation in the function.
 function printTail(arr, startIndex) {
     // Base condition / termination condition
     if (startIndex >= arr.length) {
@@ -34,7 +36,7 @@ function printTail(arr, startIndex) {
     console.log('arr[startIndex]', arr[startIndex])
 }
 
-// printTail([1,2,3,4], 1)
+// printTail([1,2,3,4], 0)
 
 
 function factorial(num) {
@@ -46,7 +48,7 @@ function factorial(num) {
 }
 
 const res = factorial(4)
-console.log(res)
+// console.log(res)
 
 // Sum of array element
 function sumOfArray(array, startIndex) {
@@ -58,4 +60,20 @@ function sumOfArray(array, startIndex) {
 }
 
 const sum = sumOfArray([1,2,3,4], 0)
-console.log(sum)
+// console.log(sum)
+
+function sumOfDigits(n) {
+        // code here
+        let sum = 0
+        
+        while(n>0){
+            let last = n % 10  // getting last digit from the number
+            n = Math.floor(n / 10)  // removing last digit from the number
+            sum += last
+        }
+        
+        return sum
+    }
+
+console.log(sumOfDigits(99999))
+

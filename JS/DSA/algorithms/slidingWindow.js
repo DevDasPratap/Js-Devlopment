@@ -1,8 +1,8 @@
 /**
- * Subarray → A contiguous part of an array (elements must be continuous).
+ * Subarray / Substring → A contiguous part of an array or string (elements must be continuous).
  *
  * Sliding Window Technique:
- *   - Used to reduce the time complexity of problems involving subarrays or substrings.
+ *   - Used to reduce the time complexity of problems involving subarrays (arrays) or substrings (strings).
  *   - Works on both arrays and strings.
  *
  * There are two types of sliding windows:
@@ -15,11 +15,14 @@
  *    - The window size is not fixed.
  *    - Used when we are asked to find the smallest or largest window that satisfies a certain condition.
  *    - Example: Find the smallest subarray with a sum greater than or equal to a given value.
+ *    - Example: Find the smallest substring with all unique characters.
  *
  * Common keywords that indicate sliding window problems:
  *   - Subarray / Substring
  *   - Largest / Smallest
  *   - Maximum / Minimum
+ * 
+ * Using this approach, you can reduce the time complexity of many array and string related problems from O(n²) down to O(n).
  */
 
 
@@ -75,7 +78,10 @@
 
 // Brute force approach
 function maxSubArrayBruteForce(array, k) {
-    let maxSum = 0
+    if (array.length < k) {
+        return null
+    }
+    let maxSum = -Infinity
     for (let i = 0; i < array.length - k; i++) {
         let sum = 0
         for (let j = i; j < i + k; j++) {
@@ -85,7 +91,7 @@ function maxSubArrayBruteForce(array, k) {
     }
     return maxSum
 }
-// console.log(maxSubArrayBruteForce([4, 5, 7, 8, 9, 1, 1, 4, 5, 5], 3))
+console.log(maxSubArrayBruteForce([4, 5, 7, 8, 9, 1, 1, 4, 5, 5], 3))
 
 // using Sliding Window
 function maxSubArray(array, k) {
@@ -118,4 +124,4 @@ function firstNegetive(array, k) {
         
     // }
 }
-console.log(firstNegetive([10, -1, -7, 8, -15, 30, 16, 22, -88], 3))
+// console.log(firstNegetive([10, -1, -7, 8, -15, 30, 16, 22, -88], 3))
