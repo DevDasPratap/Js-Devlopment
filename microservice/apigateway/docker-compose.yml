@@ -1,0 +1,43 @@
+version: '3.8'
+
+services:
+  api-gateway:
+    build: .
+    container_name: api-gateway
+    restart: always
+    env_file: .env
+    ports:
+      - "9000:9000"
+    depends_on:
+      - redis
+      - prometheus
+    networks:
+      - gari-net
+
+  redis:
+    image: redis:7.2-alpine
+    container_name: redis
+    ports:
+      - "6379:6379"
+    command: ["redis-server", "--appendonly", "yes"]
+    volumes:
+      - redis-data:/data
+    networks:
+      - gari-net
+
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: prometheus
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    ports:
+      - "9090:9090"
+    networks:
+      - gari-net
+
+networks:
+  gari-net:
+    driver: bridge
+
+volumes:
+  redis-data:

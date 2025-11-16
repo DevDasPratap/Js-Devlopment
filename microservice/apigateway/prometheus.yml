@@ -1,0 +1,23 @@
+global:
+  scrape_interval: 15s    # how often to scrape targets
+  evaluation_interval: 15s
+
+# Scrape configs
+scrape_configs:
+  # API Gateway metrics
+  - job_name: 'api-gateway'
+    static_configs:
+      - targets: ['api-gateway:9000']  # matches Docker Compose service + port
+    metrics_path: '/metrics'
+    scheme: 'http'
+
+  # Redis metrics (if you expose Redis with exporter later)
+  # - job_name: 'redis'
+  #   static_configs:
+  #     - targets: ['redis:9121']   # Use redis-exporter if added
+
+# Optional: Alerting (can be configured later)
+# alerting:
+#   alertmanagers:
+#     - static_configs:
+#         - targets: ['alertmanager:9093']
