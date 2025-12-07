@@ -56,11 +56,11 @@ console.log(sumOfDigitRecurssion(789));
 
 
 function fn(n) {
-    if (n===0) {
+    if (n === 0) {
         return
     }
     console.log('N:', n)
-    fn(n-1)
+    fn(n - 1)
     console.log('N:', n)
 }
 
@@ -68,12 +68,12 @@ fn(4)
 
 
 function fn(n) {
-    if (n===0) {
+    if (n === 0) {
         return
     }
-    fn(n-1)
+    fn(n - 1)
     console.log('N:', n)
-    fn(n-1)
+    fn(n - 1)
 }
 
 fn(4)
@@ -82,7 +82,7 @@ function fun(n) {
     if (n === 0) {
         return 0
     }
-    return 1+fun(Math.floor(n/2))
+    return 1 + fun(Math.floor(n / 2))
 }
 
 console.log(fun(16))
@@ -91,40 +91,40 @@ function fun(n) {
     if (n === 0) {
         return 0
     }
-    fun(Math.floor(n/2))
-    console.log(n%2)
+    fun(Math.floor(n / 2))
+    console.log(n % 2)
 }
 
 console.log(fun(16))
 
 function tail(n) {
-if (n===0) {
-    return
-}    
-console.log('N', n)
-tail(n-1)
+    if (n === 0) {
+        return
+    }
+    console.log('N', n)
+    tail(n - 1)
 }
 
 tail(4)
 
 function nonTail() {
-    if (n===0) {
-    return
-}    
-tail(n-1)
-console.log('N', n)
+    if (n === 0) {
+        return
+    }
+    tail(n - 1)
+    console.log('N', n)
 }
 
 nonTail(4)
 
 // how to make above function tail recursive
 
-function print(n,r) {
-if (n<r) {
-    return
-}
-console.log(r)
-print(n, r+1)
+function print(n, r) {
+    if (n < r) {
+        return
+    }
+    console.log(r)
+    print(n, r + 1)
 }
 
 // Writing base case in recurssion
