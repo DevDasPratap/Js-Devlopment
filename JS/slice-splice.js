@@ -1,5 +1,5 @@
-slice : 
 /*
+slice : 
 array.slice(startIndex, endIndex);    both index are optional and endIndex is not included
 It does not modify original array
 It return a shallow copy of a portion of an array into a new array object

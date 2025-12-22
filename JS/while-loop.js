@@ -27,7 +27,7 @@ while(c < numbers.length)
     c++;
 }
 
-const myName = "Ashish Saluja";
+const myName = "Pratap Das";
 let d = 0;
 while(d < myName.length) {
     //console.log(myName[d]);
