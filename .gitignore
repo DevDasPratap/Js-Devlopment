@@ -4,3 +4,4 @@
 /ExpressJS/.env
 LMS/Backend/.env
 /Backend/node_modules
+/BackendLambda

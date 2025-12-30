@@ -153,7 +153,7 @@ function printTo1(n) {
  printTo1(n-1)
 }
 
-// printTo1(5)
+printTo1(10)
 
 // print 1 to n
 function printToN(n) {
@@ -164,4 +164,4 @@ function printToN(n) {
  console.log('n: ', n)
 }
 
-printToN(5)
+// printToN(10)

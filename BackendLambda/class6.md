@@ -318,3 +318,6 @@ By batching them, you minimize the number of calls, speed up the system, and kee
 
 how to undo commit in git revert vs reset in git
 You can go back to your previous commit when you commit unwanted code.Using revert command its possible but before using revert you should know the difference between reset and revert to use according to your use case.
+
+git merge and git rebase diffrent?
+
