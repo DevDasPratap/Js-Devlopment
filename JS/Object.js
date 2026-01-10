@@ -352,3 +352,38 @@ const obje = {
 // console.log(obje)
 
 
+const obj = {a:1}
+const copy = Object.assign(obj, {b:2})
+copy.a=3
+// console.log(obj.a)
+
+const gadget = {
+  name: 'Smartphone',
+  space:{
+    brand:'Apple',
+    model: 16,
+    features:{
+      camera:'50MP',
+      battery: '4000mAh',
+      waterProof:true,
+      waranty:'1 year'
+    }
+  }
+}
+
+const gadgetResult = gadget.space.brand.nonExistingProperty?.anyName
+console.log(gadgetResult)
+
+
+global.age = 10
+const personObj = {
+  age:20,
+  getAge: function () {
+    return `Hi my age is: ${this.age}`
+  }
+}
+
+// console.log(personObj.age)
+// console.log(personObj.getAge())
+// const fn = personObj.getAge
+// console.log(fn())

@@ -207,7 +207,7 @@ class LinkedList {
     return false
   }
 
-  // Find the length of a linked list (iterative & recursive).
+  // Find the length of a linked list (iterative).
   Length(){
     if (this.head === null) {
       console.log(`Empty Linkedlist`)
@@ -221,6 +221,9 @@ class LinkedList {
     }
     return lengthCount
   }
+
+  // Find the length of a linked list (recursive)
+  LengthRecursive(){}
 }
 
 const ll = new LinkedList()

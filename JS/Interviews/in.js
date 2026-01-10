@@ -255,6 +255,68 @@ function fetchKeysFromNestedObjectArray(data) {
   return result;
 }
 
-console.log(fetchKeysFromNestedObjectArray({ a: { b: { c: 1 }, d: 2 }, e: 3 }));
+// console.log(fetchKeysFromNestedObjectArray({ a: { b: { c: 1 }, d: 2 }, e: 3 }));
 
-console.log(fetchKeysFromNestedObjectArray([1, { a: 2, b: [3, 4] }, 5]));
+// console.log(fetchKeysFromNestedObjectArray([1, { a: 2, b: [3, 4] }, 5]));
+
+
+// simple loop over 10k array length
+async function processRecords(records) {
+  console.time('Sequential processing time')
+
+  for (let index = 0; index < records.length; index++) {
+    await processRecord(records[index])
+  }
+
+  console.timeEnd('Sequential processing time')
+
+  const memory = process.memoryUsage()
+  console.log('Memory used MB:', (memory.heapUsed / 1024 / 1024).toFixed(2))
+  console.log('All records processed successfully')
+}
+
+async function processRecord(record) {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      console.log(`Processed record: ${record}`)
+      resolve()
+    }, 10)
+  })
+}
+
+const records = Array.from({ length: 10000 }, (_, i) => i + 1)
+
+// processRecords(records)
+
+// optimized loop over 10k array length with batch processing
+async function processRecordsOpt(records) {
+  console.time('Batch processing time')
+
+  const BATCH_SIZE = 1000
+
+  for (let index = 0; index < records.length; index += BATCH_SIZE) {
+    const batch = records.slice(index, index + BATCH_SIZE)
+
+    // Run batch in parallel
+    const promises = batch.map((record) => processRecord(record))
+
+    await Promise.all(promises)
+
+    console.log(`Processed batch ${index / BATCH_SIZE + 1}`)
+  }
+
+  console.timeEnd('Batch processing time')
+
+  const memory = process.memoryUsage()
+  console.log('Memory used MB:', (memory.heapUsed / 1024 / 1024).toFixed(2))
+  console.log('All records processed successfully')
+}
+
+// processRecordsOpt(records)
+
+
+
+
+// JSON vs js Object
+// npm vs npx
+
