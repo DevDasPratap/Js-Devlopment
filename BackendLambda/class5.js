@@ -171,3 +171,61 @@ async function tryIt(fn) {
 
 
 // give me in js for build logic
+
+
+/**
+ * Scope & Closures | Chapter 3 | Part 2 - Global unshadowing
+Global unshadowing is a trick which we can use to unshadow global “var” and “function” declarations. It doesn’t work for let , const and class declarations.
+It’s not recommended for use, its just to understand the global object better.
+
+
+ */
+
+
+// Scope & Closures - Understand shadowing fundamentals with a basic example
+var studentName = 'Any name'
+function printStudent(studentName) {
+  studentName = studentName.toUpperCase()
+  console.log(studentName)
+}
+printStudent('new name')
+printStudent(studentName)
+console.log(studentName)
+
+/**
+ * Scope & Closures - Conversation between Scope manager, Compiler and Engine.
+
+Understand the javascript execution as a conversation between the three. This will clear a lot of questions you have in mind about execution phases and will also lay foundation for upcoming topics.
+ */
+
+var students = [
+  {id:10, name:'a'},
+  {id:109, name:'d'},
+  {id:7, name:'b'},
+  {id:22, name:'p'}
+]
+
+function getStudentNames(studentId) {
+  for(let student of students){
+    if (studentId.id === studentId) {
+      return student.name
+    }
+  }
+}
+
+var nextStudent = getStudentNames(22)
+console.log(nextStudent)
+
+
+/**
+ *  Scope & Closures - Lexical scopes
+
+The word lexical in lexical scope comes from the lexing stage, where JavaScript decides scopes before code runs.
+A fundamentals-first look at why scope behaves the way it does.
+ */
+
+
+/**
+ * Polyfilling/transpiling lets modern JavaScript features work in older browsers 🚀
+A quick dive into polyfills from the You Don’t Know JavaScript series.
+ */
