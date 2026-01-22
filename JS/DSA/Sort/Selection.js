@@ -40,3 +40,20 @@ function selectionSortDescending(arr) {
 
 // const result = selectionSortDescending(arr);
 // console.log(result); // Output: [10, 9, 8, 7, 5, 4]
+
+function a(array) {
+  for (let index = 0; index < array.length; index++) {
+    const element = array[index];
+    console.log(element)
+  }
+}
+console.log(a([10, 9, 8, 7, 5, 4]))
+
+function a1(array) {
+  const length = array.length
+  for (let index = 0; index < length; index++) {
+    const element = array[index];
+    console.log(element)
+  }
+}
+console.log(a1([10, 9, 8, 7, 5, 4]))
