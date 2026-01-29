@@ -1,3 +1,31 @@
+/*
+SELECTION SORT (JavaScript)
+
+WHEN TO USE:
+- Small datasets
+- When memory writes should be minimized (few swaps)
+- Simple and predictable sorting logic
+- Useful for teaching basic sorting concepts
+
+WHEN NOT TO USE:
+- Large datasets
+- Performance-critical applications
+
+TIME COMPLEXITY:
+- Best Case:    O(n²)
+- Average Case: O(n²)
+- Worst Case:   O(n²)
+
+SPACE COMPLEXITY:
+- O(1)
+  In-place sorting, no extra memory used
+
+WHY IT WORKS:
+- Repeatedly selects the smallest (or largest) element
+- Places it at the beginning of the unsorted part
+- Grows the sorted portion one index at a time
+*/
+
 // selection sort
 const arr = [4, 10, 5, 9, 7, 8]
 

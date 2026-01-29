@@ -1,3 +1,31 @@
+/*
+BUBBLE SORT
+
+WHEN TO USE:
+- Very small arrays
+- Learning / teaching sorting basics
+- When code simplicity is more important than performance
+- When you want a stable sort with minimal logic
+
+WHEN NOT TO USE:
+- Large datasets
+- Performance-critical code (use Quick / Merge sort instead)
+
+TIME COMPLEXITY:
+- Best Case:    O(n)     (already sorted + optimized version)
+- Average Case: O(n²)
+- Worst Case:   O(n²)
+
+SPACE COMPLEXITY:
+- O(1)
+  In-place sorting, no extra memory used
+
+WHY IT WORKS:
+- Repeatedly compares adjacent elements
+- Swaps them if they are in the wrong order
+- After each pass, the largest (or smallest) element "bubbles" to its correct position
+*/
+
 // Bubble sort
 const arr = [4, 10, 5, 9, 7, 8]
 function bubbleSort(arr) {

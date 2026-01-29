@@ -1,3 +1,31 @@
+/*
+MERGE SORT
+
+WHEN TO USE:
+- Large datasets
+- When guaranteed performance is required
+- When a stable sort is needed
+- When worst-case performance must be O(n log n)
+
+WHEN NOT TO USE:
+- When extra space is not allowed
+- When in-place sorting is strictly required
+
+TIME COMPLEXITY:
+- Best Case:    O(n log n)
+- Average Case: O(n log n)
+- Worst Case:   O(n log n)
+
+SPACE COMPLEXITY:
+- O(n)
+  Uses extra arrays during merge step
+
+WHY IT WORKS:
+- Divide the array into halves until single elements remain
+- Merge two sorted halves into one sorted array
+- Guarantees balanced recursion and consistent performance
+*/
+
 const array = [4, 2, 1, 6, 7];
 console.log("Original Array:", array);
 
