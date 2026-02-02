@@ -49,7 +49,7 @@ function mergeTwoSortedArray(array1, array2) {
     }
     return merge
 }
-console.log(mergeTwoSortedArray(array1, array2))
+// console.log(mergeTwoSortedArray(array1, array2))
 
 
 const nums1 = [4,9,5], nums2 = [9,4,9,8,4]
@@ -67,4 +67,28 @@ function intersection(nums1, nums2) {
     }
     return arr
 }
-console.log(intersection(nums1, nums2))
+// console.log(intersection(nums1, nums2))
+
+// Union of Two Arrays
+const arr1 = [7, 1, 5, 2, 3, 6]
+const arr2 = [3, 8, 6, 22, 7] 
+// your program should print Union as [1, 2, 3, 5, 6, 7, 8, 22].
+
+function unioun(arr1, arr2) {
+    const arr1Length = arr1.length
+    const arr2Length = arr2.length
+    const unionSet = new Set()
+    for (let index = 0; index < arr1Length; index++) {
+        if (!unionSet.has(arr1[index])) {
+            unionSet.add(arr1[index])
+        }
+    }
+    for (let index = 0; index < arr2Length; index++) {
+        if (!unionSet.has(arr2[index])) {
+            unionSet.add(arr2[index])
+        }
+    }
+    const unionSort = [...unionSet].sort((a,b)=>a-b)
+    return unionSort
+}
+console.log(unioun(arr1, arr2))
