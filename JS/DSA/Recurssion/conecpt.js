@@ -1,9 +1,27 @@
 /**
  * Recurssion: Divide and concure, trees, graph, dp
  * Base condition / termination condition
- * Tail  recursion: better space optimization compared to head recursion, because it doesn't require additional memory to store the call stack.
+ * Tail recursion: better space optimization compared to head recursion, because it doesn't require additional memory to store the call stack.
  */
 
+/**
+ * PMI (principal of mathematical induction)
+ * it is a prooving technique
+ *  - to prove a formula correct
+ *  PMI does 3 steps:
+ *  - PMI check the value/answer for the most trivial value (Base case)
+ *  - PMI assumes that the formula is correct for some value k (Assumpsion)
+ *  - Then PMI proves the formual for one more term apart from k, maybe k+1 or k-1, etc. (self work)
+ * 
+ *  Recursion solve
+ *   - Find out smallest subproblem for which we know the answer.
+ *   - assume that for the given problem recurssion will correctly calculate a sub problem
+ *   - self work
+ * 
+ * How memory distributed for a process?
+ *  - memory 2 part -> stack(linear, generally call callstack) and heap(big pool) it not a data structure
+ *  - 
+ */
 
 // Head recurssion
 function printHead(arr, startIndex) {
@@ -149,4 +167,19 @@ function recur_sum(n) {
     return answer;
 }
 
-console.log(recur_sum(5));  // Output: 15
+// console.log(recur_sum(5));  // Output: 15
+
+function fact(n) {
+    // Base case
+    if(n===1){
+        return 1
+    }
+
+    // Recursive assumption
+    const subProblem = fact(n-1)
+
+    // Self work
+    return n*subProblem
+}
+
+console.log(fact(5))
