@@ -182,4 +182,12 @@ function fact(n) {
     return n*subProblem
 }
 
-console.log(fact(5))
+// console.log(fact(4))
+
+
+
+// There are N persons, who want to go to a party, there is a contraint that any person can  either go alon or go in a pair
+// [a][b][c] = 1 way
+// [a,b][c] = 1 way
+// [a,c][b] = 1 way
+// [b,c][a] = 1 way
