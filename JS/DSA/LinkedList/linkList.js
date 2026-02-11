@@ -10,6 +10,8 @@
  * ✅ Reverse the list
  * ✅ Find length
  * ✅ Traverse & Print
+ * ✅ Recursive Traversal
+ * ✅ Remove duplicates from a sorted Singly Linked List
  */
 
 class Node {
@@ -202,6 +204,30 @@ class Node {
       }
       console.log("null");
     }
+
+    // Recursive Traversal
+    recursiveTraverse(head){
+      if (head === null) {
+        return
+      }
+      console.log('Value: ', head.data)
+      this.recursiveTraverse(head.next)
+    }
+
+    // Remove duplicates from a sorted Singly Linked List
+    removeDuplicates(){
+      if (!this.head) {
+        return
+      }
+      let current = this.head
+      while (current && current.next) {
+        if (current.data === current.next.data) {
+          current.next = current.next.next
+        }else{
+          current = current.next
+        }
+      }
+    }
   }
   
   // Testing the LinkedList
@@ -241,9 +267,18 @@ class Node {
   console.log("Reversing linked list:");
   linkedList.insertAtEnd(20);
   linkedList.insertAtEnd(30);
-  linkedList.traverse(); // Output: 15 -> 20 -> 30 -> null
-  linkedList.reverse();
-  linkedList.traverse(); // Output: 30 -> 20 -> 15 -> null
+  linkedList.insertAtEnd(40);
+  linkedList.insertAtEnd(40);
+  linkedList.traverse();
+  // linkedList.reverse();
+  linkedList.traverse();
   
-  console.log("Length of linked list:", linkedList.length()); // Output: 3
+  linkedList.recursiveTraverse(linkedList.head)
+
+  console.log("Length of linked list:", linkedList.length());
   
+  
+  linkedList.removeDuplicates()
+  console.log("After removing duplicates:");
+  linkedList.traverse();
+  console.log("Length of linked list:", linkedList.length());
