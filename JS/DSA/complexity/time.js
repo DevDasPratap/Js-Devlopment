@@ -216,3 +216,50 @@ function repeatedSqureRoot(n) {
   }
 }
 // repeatedSqureRoot(10)
+
+
+
+/**
+ * What is Time Complexity?
+ * Time complexity describes how the running time of an algorithm
+ * grows as the input size (n) increases.
+ * It measures the rate of growth, not the exact execution time.
+ *
+ * Asymptotic Notation:
+ * Used to describe the performance of an algorithm as input size → infinity.
+ * It applies to both iterative and recursive algorithms.
+ *
+ * Common Asymptotic Notations:
+ *
+ * 1. Big O (O)  → Upper Bound
+ *    - Represents the worst-case time complexity.
+ *    - Shows the maximum time an algorithm can take.
+ *
+ * 2. Big Omega (Ω) → Lower Bound
+ *    - Represents the best-case time complexity.
+ *    - Shows the minimum time an algorithm can take.
+ *
+ * 3. Big Theta (Θ) → Tight Bound
+ *    - Represents the average or exact bound (when upper and lower bounds are the same).
+ *    - Shows the precise growth rate of the algorithm.
+ *
+ * In simple words:
+ * Time complexity describes the rate at which an algorithm's
+ * performance changes with respect to input size (n).
+ * 
+ * 
+ * 
+ * 
+ * Time complexity O(1)
+ * let a = 5
+ * const b = 10
+ * const c = a+b
+ * console.log(c)
+ * 
+ * 
+ * Time complexity O(1)*n = O(n)
+ * for(let i=0; i<n; i++){
+ * console.log(i)
+ * }
+ * 
+ */
