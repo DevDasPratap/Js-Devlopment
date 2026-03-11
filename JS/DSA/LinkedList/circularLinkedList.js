@@ -27,15 +27,34 @@ class CircularLinkedList {
         }
     }
 
+    insertAtBegin(data) {
+        const newNode = new Node(data)
+
+        if (!this.head) {
+            this.head = newNode
+            newNode.next = newNode
+            return
+        }
+
+        // insert after head
+        newNode.next = this.head.next
+        this.head.next = newNode
+
+        // swap data
+        let temp = this.head.data
+        this.head.data = newNode.data
+        newNode.data = temp
+    }
+
     // Delete the head node
-    deleteHead(){
+    deleteHead() {
         if (!this.head) {
             console.log('The list id empty, nothing to delete')
         }
         if (this.head.next === this.head) {
             // Single node case: List only has one node
             this.head = null
-        }else{
+        } else {
             let current = this.head
             //Traverse to find the last node
             while (current.next !== this.head) {
@@ -48,19 +67,56 @@ class CircularLinkedList {
     }
 
     // Prrint the list
-    printList(){
+    // printList() {
+    //     if (!this.head) {
+    //         console.log('Empty list')
+    //         return
+    //     }
+    //     let result = ''
+    //     let current = this.head
+    //     // do {
+    //     //     result += `${current.data}-> `
+    //     //     current = current.next
+    //     // } while (current !== this.head) {
+    //     //     console.log(`${result} Back to head`)
+    //     // }
+
+    //     do {
+    //         if (!current){
+    //             break
+    //         }
+    //         result += `${current.data}-> `
+    //         current = current.next
+    //     } while (current !== this.head)
+
+    //     console.log(`${result}Back to head`)
+
+
+    //     // for (let current = this.head; ; current = current.next) {
+    //     //     result += `${current.data}-> `
+    //     //     if (current.next === this.head) {
+    //     //         break
+    //     //     }
+    //     // }
+
+    //     // console.log(`${result}Back to head`)
+    // }
+
+    printList() {
         if (!this.head) {
-            console.log('Empty list')
+            console.log("Empty list")
             return
         }
-        let result = ''
+
         let current = this.head
-        do{
-            result += `${current.data}-> `
+        let result = ""
+
+        do {
+            result += current.data + " -> "
             current = current.next
-        }while (current !== this.head) {
-            console.log(`${result} Back to head`)
-        }
+        } while (current && current !== this.head)
+
+        console.log(result + "Back to head")
     }
 }
 
@@ -70,6 +126,7 @@ list.addToHead(40)
 list.addToHead(50)
 list.addToHead(80)
 list.addToHead(90)
+list.insertAtBegin(100)
 
 console.log('Orginal list')
 list.printList()

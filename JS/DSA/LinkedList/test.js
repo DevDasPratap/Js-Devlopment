@@ -29,6 +29,24 @@ class LinkedList {
         current.next = newNode
         return
     }
+    insertAtPosition(data, position){
+        if (position <= 0) {
+            return false
+        }
+        const newNode = new Node(data)
+        if (position === 1) {
+            newNode.next = this.head
+            this.head = newNode
+            return
+        }
+        let current = this.head
+        let previous = null
+        let count = 1
+        while (condition) {
+            
+        }
+
+    }
 }
 
 
