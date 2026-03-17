@@ -21,6 +21,15 @@
  * How memory distributed for a process?
  *  - memory 2 part -> stack(linear, generally call callstack) and heap(big pool) it not a data structure
  *  - 
+ * 
+ * What is recurssion?
+ * When to use recurssion?
+ * Recursion tree, call stack
+ * Recursion vs itration
+ * Ways to write base condition
+ * Recursive leap of faith
+ * Recurrence relation
+ * 
  */
 
 // Head recurssion

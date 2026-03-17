@@ -1,0 +1,1 @@
+most important part of frontend rendering optimizations

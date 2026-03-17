@@ -14,6 +14,81 @@
  * ✅ Remove duplicates from a sorted Singly Linked List
  */
 
+/**
+ * Linked List
+ *
+ * A linked list is a linear data structure where each element (node)
+ * contains data and a reference (pointer) to the next node in the sequence.
+ *
+ * --------------------------------------------------
+ * Time Complexity
+ * --------------------------------------------------
+ *  - Insertion at the beginning: O(1)
+ *  - Insertion at the end: O(1) if a tail pointer is maintained
+ *  - Deletion from the beginning: O(1)
+ *  - Insertion or deletion in the middle: O(1) if the previous node reference is known
+ *  - Searching for an element: O(n)
+ *
+ * --------------------------------------------------
+ * Advantages
+ * --------------------------------------------------
+ *  - Dynamic size (no fixed memory allocation like arrays)
+ *  - Efficient insertion and deletion operations
+ *  - No need to shift elements when inserting or deleting
+ *  - Efficient memory utilization when the size changes frequently
+ *  - Easy implementation of other data structures such as stacks, queues, and deques
+ *  - Useful for applications that require frequent insertions and deletions
+ *  - Can easily grow or shrink during runtime
+ *
+ * --------------------------------------------------
+ * Disadvantages
+ * --------------------------------------------------
+ *  - Extra memory required to store pointers
+ *  - No direct access to elements (unlike arrays)
+ *  - Traversal is required to access elements (O(n))
+ *  - Poor cache locality compared to arrays
+ *  - More complex implementation compared to arrays
+ *  - Reverse traversal is difficult in singly linked lists
+ *
+ * --------------------------------------------------
+ * Real-world Applications
+ * --------------------------------------------------
+ *  - Round Robin scheduling algorithm in operating systems
+ *
+ *  - LRU Cache implementation (HashMap + Doubly Linked List)
+ *    Used in caching systems like Redis, Memcached, and browsers
+ *
+ *  - Browser back and forward navigation
+ *
+ *  - Undo / Redo functionality in text editors
+ *
+ *  - Efficient merging of sorted linked lists
+ *    Useful in streaming systems and database query processing
+ *
+ *  - Memory management systems where free memory blocks are linked
+ *
+ *  - Implementation of queues and deques
+ *
+ *  - Graph adjacency list representation
+ *
+ *  - Music or video playlist management
+ *
+ *  - Task scheduling systems
+ *
+ *  - Network packet buffering
+ *
+ *  - File system block chaining
+ *
+ * --------------------------------------------------
+ * Backend Engineering Use Cases
+ * --------------------------------------------------
+ *  - Cache eviction policies (LRU / LFU)
+ *  - Job queues and background task processing
+ *  - Memory pool management
+ *  - Database page linking
+ *  - Event streaming buffers
+ */
+
 class Node {
     constructor(data) {
       this.data = data;

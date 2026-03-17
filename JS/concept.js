@@ -646,7 +646,7 @@ function checkValidParentheses(s) {
 
   for (let char of s) {
     if (char in pairs) {
-      if (stack.pop() !== pairs[char]){
+      if (stack.pop() !== pairs[char]) {
         return false
       }
     } else {
@@ -673,7 +673,7 @@ function findAllOccurrence(string, findWord) {
     result.push(index);
     index = string.indexOf(findWord, index + 1); // Move forward to find next occurrence
   }
-  
+
   return result;
 }
 
@@ -701,11 +701,727 @@ const maxNumber = 10
 
 
 function rollDice() {
-  return Math.floor(Math.random()*6)+1
+  return Math.floor(Math.random() * 6) + 1
 }
 function rollMultipleDice(numberOfDise, sideInDise) {
   let counter = 0
 }
 
 // console.log(rollDice())
-console.log(rollMultipleDice(1,6))
+// console.log(rollMultipleDice(1,6))
+
+
+/**
+ * Input: 'aaabbc'
+ * Output: 'a3b2c1'
+ */
+function compressString(string) {
+  const map = {}
+  for (let i = 0; i < string.length; i++) {
+    map[string[i]] = (map[string[i]] || 0) + 1
+  }
+  let str = ''
+  for (const [key, value] of Object.entries(map)) {
+    str += key + value
+  }
+  return str
+}
+// console.log(compressString('aaabbc'))
+
+
+
+// Async vs Web Workers Explained: Why Async Still Freezes
+// heavy work (block main threads) - without worker it will freeze
+async function heavyTask() {
+  let x = 0
+  for (let i = 0; i < 10000000000; i++) {
+    x += i
+  }
+  return x
+}
+
+// console.log("Start");
+
+// heavyTask().then(res => console.log("Result:", res));
+
+// console.log("End");
+
+// with worker it will not freeze main threads
+// import worker thread tools
+const { Worker, isMainThread, parentPort } = require('worker_threads');
+
+function runWorker(params) {
+  // If this is main file execution
+  if (isMainThread) {
+
+    console.log("Main thread running");
+
+    // start worker using SAME file
+    // __filename = current file path
+    const worker = new Worker(__filename);
+
+    // receive result from worker
+    worker.on('message', (data) => {
+      console.log("Result from worker:", data);
+    });
+
+  } else {
+
+    // this part runs inside worker thread
+    console.log("Worker thread running");
+
+    // heavy CPU task
+    let sum = 0;
+    for (let i = 0; i < 1e8; i++) {
+      sum += i;
+    }
+
+    // send result back to main thread
+    // parentPort = communication channel to main thread
+    parentPort.postMessage(sum);
+  }
+}
+
+// runWorker()
+
+
+
+
+// How JavaScript Event Loop Works
+
+function execution() {
+  const fs = require('fs');
+
+  console.log("Start");
+
+  // CPU work (runs immediately, blocks event loop)
+  for (let i = 0; i < 1e6; i++) { } // math calculation
+
+  // process.nextTick → highest priority
+  process.nextTick(() => {
+    console.log("process.nextTick");
+  });
+
+  // Promise → microtask
+  Promise.resolve().then(() => {
+    console.log("Promise.then");
+  });
+
+  // setTimeout → macrotask (timer phase)
+  setTimeout(() => {
+    console.log("setTimeout");
+  }, 0);
+
+  // setInterval → macrotask repeated
+  setInterval(() => {
+    console.log("setInterval");
+    process.exit(); // stop loop after first run
+  }, 0);
+
+  // setImmediate → check phase
+  setImmediate(() => {
+    console.log("setImmediate");
+  });
+
+  // File read → I/O phase
+  fs.readFile(__filename, () => {
+    console.log("File read (I/O)");
+
+    setImmediate(() => console.log("setImmediate inside I/O"));
+  });
+
+  // API/DB call simulation → I/O
+  setTimeout(() => {
+    console.log("DB/API call finished");
+  }, 10);
+
+  // webhook simulation → async external trigger
+  setTimeout(() => {
+    console.log("Webhook received");
+  }, 5);
+
+  console.log("End");
+}
+
+// execution()
+
+/**
+ * Flow
+ * 1️⃣ Call Stack (Synchronous code runs here)
+
+        ↓ (if async function found)
+
+2️⃣ Web APIs / libuv (Node background thread handles timers, I/O)
+
+        ↓ (when done)
+
+3️⃣ Queues (Callbacks wait here)
+
+        ↓
+
+4️⃣ Event Loop decides what to move back to Call Stack
+
+
+
+
+
+
+Full Flow Diagram
+                ┌─────────────────┐
+                │   Call Stack    │
+                │ (sync code)     │
+                └────────┬────────┘
+                         │
+                         ▼
+            If async → goes to Web APIs / libuv
+                         │
+                         ▼
+                ┌─────────────────┐
+                │  Web APIs /     │
+                │  libuv thread   │
+                └────────┬────────┘
+                         │
+                         ▼
+                 When ready → goes to
+
+        ┌──────────────────────────────────┐
+        │              QUEUES              │
+        └──────────────────────────────────┘
+
+   🔴 process.nextTick Queue      (highest priority)
+   🟡 Microtask Queue             (Promise.then)
+   🔵 Timers Queue                (setTimeout/setInterval)
+   🟢 Poll Queue                  (DB, API, file read, webhook)
+   🟣 Check Queue                 (setImmediate)
+
+                         │
+                         ▼
+                ┌─────────────────┐
+                │   Event Loop    │
+                └─────────────────┘
+                         │
+                         ▼
+            Moves highest priority callback
+                 back to Call Stack
+
+
+  Sync → nextTick → Promise → Timers → I/O → setImmediate
+ */
+
+
+function findLongString(str) {
+  let longStr = ''
+  let len = longStr.length
+  for (let index = 0; index < str.length; index++) {
+    const length = str[index].length
+    if (len < length) {
+      len = length
+      longStr = str[index]
+    }
+  }
+  return longStr
+}
+const str = ['js', 'angular', 'react', 'node.js', 'javascript']
+// console.log(findLongString(str))
+
+function firstPeak(array) {
+  for (let index = 1; index <= array.length; index++) {
+    if (array[index] > array[index - 1] && array[index] > array[index + 1]) {
+      return array[index]
+    }
+  }
+  return -1
+}
+// console.log(firstPeak([1,5,2,4,1]))
+
+function objToArr(obj) {
+  const arr = []
+  for (let [key, value] of Object.entries(obj)) {
+    arr.push([key, value])
+  }
+  return arr
+}
+// console.log(objToArr({a:1, b:2, d:4, e:5}))
+
+
+function reverseWord(words) {
+  const reverse = words.split(' ')
+  let reverseStr = ''
+  for (let index = reverse.length - 1; index >= 0; index--) {
+    if (reverseStr.length > 0) {
+      reverseStr += ` ${reverse[index]}`
+    } else {
+      reverseStr += `${reverse[index]}`
+    }
+  }
+  return reverseStr
+}
+
+// console.log(reverseWord('Hi hello world js'))
+
+function capitalizeFirstletter(str) {
+  let strCapital = ''
+  for (let index = 0; index < str.length; index++) {
+    if (index === 0 || str[index - 1] === ' ') {
+      strCapital += str[index].toUpperCase()
+    } else {
+      strCapital += str[index]
+    }
+  }
+  return strCapital
+}
+
+// console.log(capitalizeFirstletter('Hi hello world js'))
+
+function arrayIsSorted(array) {
+  if (array.length < 0) {
+    return 0
+  }
+  for (let index = 1; index < array.length; index++) {
+    if (array[index] < array[index - 1]) {
+      return false
+    }
+  }
+  return true
+}
+// console.log(arrayIsSorted([7,8,9,10]))
+
+
+function findMissingNumber(array) {
+  for (let index = 0; index < array.length; index++) {
+    if (array[index + 1] - array[index] > 1) {
+      return array[index] + 1
+    }
+  }
+  return 0
+}
+// console.log(findMissingNumber([90,91,92,94]))
+
+function findMissingNumbers(arr) {
+  let set = new Set(arr)
+  let result = []
+
+  let min = Math.min(...arr)
+  let max = Math.max(...arr)
+
+  for (let i = min; i <= max; i++) {
+    if (!set.has(i)) {
+      result.push(i)
+    }
+  }
+
+  return result
+}
+
+// console.log(findMissingNumbers([90, 91, 92, 94]))
+
+
+function firstNonRepeatingChar(string) {
+  for (let index = 0; index < string.length; index++) {
+    if (string.indexOf(string[index]) === string.lastIndexOf(string[index])) {
+      return string[index]
+    }
+  }
+  return -1
+}
+
+// console.log(firstNonRepeatingChar('aabbcddffe'))
+// console.log('aabbcddffe'.lastIndexOf('b'))
+
+
+const user = {
+  name: 'Pratap Das',
+  gender: 'M',
+  city: 'Haldia',
+  pin: 560068
+}
+// console.log(JSON.stringify(user))
+// console.log(JSON.parse('{"name":"Pratap Das","city":"Haldia","pin":560068}'))
+
+// const a = {}
+// const b = { key: 'b' }
+// const c = { key: 'c' }
+
+// a[b] = 987 // here i insert b obj as key so we got error [object Object]':
+// a[c] = 123
+// console.log(a[b])
+// console.log(a[c])
+// console.log(a) // { '[object Object]': 123 }
+// console.log({}.toString())
+
+// let x = '2'
+// let y = '1'
+// let z = '3'
+// console.log(x + y )
+// console.log('21' - z)
+// console.log(x + y - z)
+
+
+// console.log(false == []) // false = 0, [] = "" = 0 so 0 == 0 => true
+// console.log(false == ![]) // type coeriesion
+
+
+const number = {
+  x:1,
+  y:2,
+  sum(){
+    return this.x + this.y
+  }
+}
+// const result = number.sum
+// console.log(result())
+
+const crazy = ++[[]][+[]]+[+[]]
+// console.log(crazy)
+
+
+
+
+// const arr = [1,4]
+// [arr[0], arr[1]] = [arr[1], arr[0]]
+// console.log(arr)
+
+// const arr = [1,4]
+// myname = 'Mohit'
+// [arr[0], arr[1]] = [arr[1], arr[0]]
+// console.log(arr)
+
+// const arr = [1,4]
+// myname = 'Mohit'
+// console.log(arr)
+// [arr[0], arr[1]] = [arr[1], arr[0]]
+// console.log(arr)
+
+// const arr = [1,4]
+// myname = 'Mohit'
+// console.log(arr)
+// ;[arr[0], arr[1]] = [arr[1], arr[0]]
+// console.log(arr)
+
+
+var abc = 'abc'
+function xyz() {
+  abc = 'xyz'
+  return;
+  function abc() {}
+}
+// console.log(abc)
+
+// console.log()
+// if (true) console.log("true is truthy");
+// if (1) console.log("1 is truthy");
+// if (-1) console.log("-1 is truthy");
+// if ('hello') console.log("non-empty string is truthy");
+// if ([]) console.log("empty array is truthy");
+// if ({}) console.log("empty object is truthy");
+
+
+
+
+// sap
+
+// console.log("A");
+// setTimeout(()=>console.log("B"),0);
+// Promise.resolve().then(()=>console.log("C"));
+// process.nextTick(()=>console.log("D"));
+// console.log("E");
+ 
+async function run(tasks, limit){
+ let i=0;
+ while(i<tasks.length){
+   const batch = tasks.slice(i, i+limit);
+   await Promise.all(batch);
+ }
+}
+ 
+function flatten(arr) {
+ let res = [];
+ for (let i in arr) {
+   if (typeof arr[i] === "array") {
+     res.concat(flatten(arr[i]));
+   } else {
+     res.push(i);
+   }
+ }
+ return res;
+}
+ 
+[1,2,[3,4,[5,6]]]
+ 
+function counter(){
+ let count = 0;
+ return {
+   inc(){ count++; },
+   value: count
+ };
+}
+const c = counter();
+c.inc();
+// console.log(c.value);
+
+
+/**
+ * what class vs function base javascript with usecase
+ * design pattern
+ * clouser
+ * why javascript why not java or go
+ * create a type function only accept number other wise return type error typescript
+ */
+
+
+// Pure vs Impure Function
+
+// this function not depens on outer any property (its paditable)
+function pureFn(x,y) {
+  return (x*y)
+}
+// console.log(pureFn(9,10))
+
+
+// this function depens on outer any property here like n  (its not paditable)
+let n = 10
+function impureFn(x) {
+  return (x*n)
+}
+// console.log(impureFn(7))
+
+
+
+const arrA = [1,2,3]
+const arrB = [1,2,3]
+
+function checkTwoArray(array1, array2) {
+  if (array1.length !== array2.length) {
+    return false
+  }
+  for (let index = 0; index < array1.length; index++) {
+    if (array1[index] !== array2[index]) {
+      return false
+    }
+  }
+  return true
+}
+
+// console.log(checkTwoArray(arrA, arrB))
+
+function longestSameFirstPrefix(str) {
+  if (str.length <= 0) {
+    return 0
+  }
+  let char = str[0]
+  let count = 0
+  for (let index = 0; index < str.length; index++) {
+    if (str[index] === char) {
+      count++
+    }else{
+      break
+    }
+  }
+  return count
+}
+// console.log(longestSameFirstPrefix('aaaabbccccccdddddddd'))
+function longestSamePrefix(str) {
+  if (str.length <= 0) {
+    return 0
+  }
+  let max = 1
+  let count = 1
+  for (let index = 0; index < str.length; index++) {
+    if (str[index] === str[index-1]) {
+      count++
+      max = Math.max(count, max)
+    }else{
+      count = 1
+    }
+  }
+  return count
+}
+// console.log(longestSamePrefix('aaaabbccccccdddddddd'))
+
+
+// Object spread with null
+let o = { ...null }
+// console.log(o)
+// {} 
+// Object spread ignores null and undefined.
+// It does NOT throw an error.
+// They are treated as empty sources.
+
+// Spreading undefined into object
+o = { ...o, ...undefined }
+// console.log(o)
+// {}
+// Again, undefined is ignored in object spread.
+// No error is thrown.
+
+// Array spread with null
+// let op = [...null]
+// ❌ TypeError: null is not iterable
+// Array spread works only with iterable values
+// (like arrays, strings, sets, maps).
+// null and undefined are NOT iterable,
+// so this throws an error.
+
+
+
+
+/**
+ * for (var i = 0; i < 3; i++) {
+
+  setTimeout(() => {
+
+    console.log(i);
+
+  }, 100);
+
+}
+ 
+Problem:
+
+Find the second largest number in an array.
+Input
+[10, 5, 8, 20]
+Output
+10
+ 
+You are climbing a staircase. It takes n steps to reach the top.
+Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?
+ 
+Example 1:
+Input: n = 2
+Output: 2
+Explanation: There are two ways to climb to the top.
+1. 1 step + 1 step
+2. 2 steps
+Example 2:
+Input: n = 3
+Output: 3
+Explanation: There are three ways to climb to the top.
+1. 1 step + 1 step + 1 step
+2. 1 step + 2 steps
+3. 2 steps + 1 step
+ */
+
+
+/**
+ * 🔥 𝗠𝗶𝗰𝗿𝗼𝘁𝗮𝘀𝗸 𝘃𝘀 𝗠𝗮𝗰𝗿𝗼𝘁𝗮𝘀𝗸 — The Real Event Loop Explained
+
+If you understand this, you understand JavaScript execution order.
+
+🧠 𝗧𝗵𝗲 𝗕𝗶𝗴 𝗣𝗶𝗰𝘁𝘂𝗿𝗲
+
+𝗝𝗮𝘃𝗮𝗦𝗰𝗿𝗶𝗽𝘁 𝗵𝗮𝘀:
+1️⃣ Call Stack
+2️⃣ Web APIs
+3️⃣ Task Queues
+4️⃣ Event Loop
+
+𝗧𝗵𝗲𝗿𝗲 𝗮𝗿𝗲 𝘁𝘄𝗼 𝗺𝗮𝗶𝗻 𝗾𝘂𝗲𝘂𝗲𝘀:
+🟡 Macrotask Queue
+🔵 Microtask Queue
+
+🟡 𝗠𝗮𝗰𝗿𝗼𝘁𝗮𝘀𝗸𝘀 (𝗧𝗮𝘀𝗸 𝗤𝘂𝗲𝘂𝗲)
+Examples:
+ • setTimeout
+ • setInterval
+ • setImmediate (Node)
+ • DOM events
+ • I/O
+
+setTimeout(() => console.log("Macrotask"), 0);
+
+Even with 0, it goes to macrotask queue.
+
+🔵 𝗠𝗶𝗰𝗿𝗼𝘁𝗮𝘀𝗸𝘀 (𝗛𝗶𝗴𝗵𝗲𝗿 𝗣𝗿𝗶𝗼𝗿𝗶𝘁𝘆)
+
+Examples:
+ • Promise.then
+ • Promise.catch
+ • Promise.finally
+ • queueMicrotask
+ • MutationObserver
+
+Promise.resolve().then(() => console.log("Microtask"));
+
+𝗠𝗶𝗰𝗿𝗼𝘁𝗮𝘀𝗸𝘀 𝗿𝘂𝗻 𝗯𝗲𝗳𝗼𝗿𝗲 𝗺𝗮𝗰𝗿𝗼𝘁𝗮𝘀𝗸𝘀.
+
+⚡ Execution Order Rule (CRITICAL)
+
+After each macrotask:
+👉 Run ALL microtasks
+👉 Then take next macrotask
+
+𝗠𝗶𝗰𝗿𝗼𝘁𝗮𝘀𝗸𝘀 𝗮𝗹𝘄𝗮𝘆𝘀 𝗱𝗿𝗮𝗶𝗻 𝗳𝘂𝗹𝗹𝘆.
+
+🔥 Example (Classic Interview Question)
+
+console.log("Start");
+setTimeout(() => console.log("Timeout"), 0);
+Promise.resolve().then(() => console.log("Promise"));
+console.log("End");
+
+Output:
+Start
+End
+Promise
+Timeout
+
+𝗪𝗵𝘆?
+ • Synchronous runs first
+ • Microtasks run next
+ • Then macrotasks
+
+💣 𝚃̲𝚛̲𝚒̲𝚌̲𝚔̲ ̲𝚀̲𝚞̲𝚎̲𝚜̲𝚝̲𝚒̲𝚘̲𝚗̲
+
+setTimeout(() => console.log("1"), 0);
+Promise.resolve().then(() => {
+ console.log("2");
+ Promise.resolve().then(() => console.log("3"));
+});
+console.log("4");
+
+Output:
+4
+2
+3
+1
+
+Because:
+All microtasks must finish before next macrotask Even newly added microtasks
+
+🧠 𝗩𝗶𝘀𝘂𝗮𝗹 𝗙𝗹𝗼𝘄
+Call Stack
+ ↓
+Macrotask executes
+ ↓
+Run ALL Microtasks
+ ↓
+Next Macrotask
+
+
+🚨 𝗜𝗻𝘁𝗲𝗿𝘃𝗶𝗲𝘄 𝗧𝗿𝗮𝗽𝘀
+
+❌ “setTimeout(0) runs immediately”
+✔ It waits for current stack + microtasks
+
+❌ “Promises run in parallel”
+✔ They resolve asynchronously via microtask queue
+
+❌ “Only one microtask runs per loop”
+✔ ALL microtasks drain before next macrotask
+
+💡 𝗦𝗲𝗻𝗶𝗼𝗿-𝗟𝗲𝘃𝗲𝗹 𝗜𝗻𝘀𝗶𝗴𝗵𝘁
+𝗧𝗼𝗼 𝗺𝗮𝗻𝘆 𝗺𝗶𝗰𝗿𝗼𝘁𝗮𝘀𝗸𝘀 𝗰𝗮𝗻:
+ • Block rendering
+ • Cause UI jank
+ • Delay macrotasks
+
+𝗧𝗵𝗶𝘀 𝗺𝗮𝘁𝘁𝗲𝗿𝘀 𝗶𝗻:
+ • React batching
+ • Large Promise chains
+ • Async-heavy apps
+
+🎯 I𝗻𝘁𝗲𝗿𝘃𝗶𝗲𝘄 𝗢𝗻𝗲-𝗟𝗶𝗻𝗲𝗿
+
+Microtasks (Promises) have higher priority than macrotasks (setTimeout). After each macrotask, the event loop drains all microtasks before moving on.
+ */
