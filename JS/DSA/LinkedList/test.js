@@ -61,7 +61,6 @@ class LinkedList {
         }
         newNode.next = current.next
         current.next = newNode
-
     }
 
     search(data) {
@@ -170,20 +169,20 @@ class LinkedList {
         return current.data
     }
 
-    findMiddleNode(){
+    findMiddleNode() {
         if (!this.head) {
             return
         }
         const len = this.length()
         let current = this.head
-        for (let index = 0; index < Math.floor(len/2); index++) {
+        for (let index = 0; index < Math.floor(len / 2); index++) {
             current = current.next
         }
 
         return current.data
     }
 
-    removeHead(){
+    removeHead() {
         if (!this.head) {
             return
         }
@@ -191,41 +190,121 @@ class LinkedList {
         return
     }
 
-    removeTail(){
-      if (!this.head) {
-        return
-      }
-      if (!this.head.next) {
-        this.head = null
-        return
-      }
-      let current = this.head
-      while (current.next.next !== null) {
-        current = current.next
-      }
-      current.next = null
+    removeTail() {
+        if (!this.head) {
+            return
+        }
+        if (!this.head.next) {
+            this.head = null
+            return
+        }
+        let current = this.head
+        while (current.next.next !== null) {
+            current = current.next
+        }
+        current.next = null
     }
 
-    removeMiddle(){
-      if (!this.head) {
+    removeMiddle() {
+        if (!this.head) {
+            return
+        }
+        const len = this.length()
+        const middle = Math.floor(len / 2)
+
+        // if middle is head
+        if (middle === 0) {
+            this.head = this.head.next
+            return
+        }
+
+        let current = this.head
+        for (let index = 0; index < middle - 1; index++) {
+            current = current.next
+        }
+
+        // remove middle node
+        current.next = current.next.next
+    }
+
+    removeAtPosition(position) {
+        const len = this.length()
+        if (!this.head || position < 0 || position > len) {
+            console.log("Invalid position")
+            return 
+        }
+
+        // remove head
+        if (position === 0) {
+            this.head = this.head.next
+            return
+        }
+        let current = this.head
+        let index = 0
+
+        // move to previous node
+        while (index < position - 1) {
+            current = current.next
+            index++
+        }
+        // remove node
+        current.next = current.next.next
+    }
+
+    updateAtEnd(data){
+        if (!this.head) {
+            return
+        }
+
+        let current = this.head
+        while (current.next) {
+            current = current.next
+        }
+        current.data = data
+    }
+
+    updateAtHead(data){
+        if (!this.head) {
+            return
+        }
+        this.head.data = data
         return
-      }
-      const len = this.length()
-      const middle = Math.floor(len/2)
+    }
+    
+    updateAtMiddle(data){
+        if (!this.head) {
+            return
+        }
+        const middle = Math.floor(this.length()/2)
+        let current = this.head
+        let index = 0
+        while (index < middle) {
+            current = current.next
+            index++
+        }
+        current.data = data
+    }
 
-      // if middle is head
-      if (middle === 0) {
-        this.head = this.head.next
-        return
-      }
+    updateAtPosition(position, data){
+        const len = this.length()
+        // validate position
+        if (!this.head || !Number.isInteger(position) || position < 0 || position >= len) {
+            console.log("Invalid position")
+            return
+        }
+        // validate data
+        if (data === undefined || data === null) {
+            console.log("Value is required")
+            return
+        }
+        let current = this.head
+        let index = 0
 
-      let current = this.head
-      for (let index = 0; index < middle-1; index++) {
-        current = current.next
-      }
-
-      // remove middle node
-      current.next = current.next.next
+        while (index < position) {
+            current = current.next
+            index++
+        }
+        current.data = data
     }
 }
 
@@ -275,10 +354,46 @@ console.log(`middle of the linkedlist: ${ll.findMiddleNode()}`)
 // ll.removeTail()
 // ll.display()
 
-console.log('----- remove middle -----')
-ll.removeMiddle()
+// console.log('----- remove middle -----')
+// ll.removeMiddle()
+// ll.display()
+
+// console.log('----- remove at postion -----')
+
+// ll.display()
+// console.log('----- -----')
+// ll.removeAtPosition(10)
+// ll.display()
+
+// console.log('----- update at end/tail-----')
+
+// ll.display()
+// console.log('----------')
+// ll.updateAtEnd(100)
+// ll.display()
+
+
+// console.log('----- update at head-----')
+
+// ll.display()
+// console.log('----------')
+// // ll.updateAtHead(100)
+// ll.display()
+
+// console.log('----- update middle-----')
+// ll.display()
+// console.log('----------')
+// ll.updateAtMiddle(100)
+// ll.display()
+
+
+console.log('----- update any position-----')
+ll.display()
+console.log('----------')
+ll.updateAtPosition(4, 50)
 ll.display()
 
+console.log('----- -----')
 console.log('----- -----')
 console.log('----- -----')
 console.log('----- -----')
