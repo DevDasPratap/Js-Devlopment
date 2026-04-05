@@ -1062,16 +1062,16 @@ const user = {
 
 
 const number = {
-  x:1,
-  y:2,
-  sum(){
+  x: 1,
+  y: 2,
+  sum() {
     return this.x + this.y
   }
 }
 // const result = number.sum
 // console.log(result())
 
-const crazy = ++[[]][+[]]+[+[]]
+const crazy = ++[[]][+[]] + [+[]]
 // console.log(crazy)
 
 
@@ -1103,7 +1103,7 @@ var abc = 'abc'
 function xyz() {
   abc = 'xyz'
   return;
-  function abc() {}
+  function abc() { }
 }
 // console.log(abc)
 
@@ -1125,35 +1125,35 @@ function xyz() {
 // Promise.resolve().then(()=>console.log("C"));
 // process.nextTick(()=>console.log("D"));
 // console.log("E");
- 
-async function run(tasks, limit){
- let i=0;
- while(i<tasks.length){
-   const batch = tasks.slice(i, i+limit);
-   await Promise.all(batch);
- }
+
+async function run(tasks, limit) {
+  let i = 0;
+  while (i < tasks.length) {
+    const batch = tasks.slice(i, i + limit);
+    await Promise.all(batch);
+  }
 }
- 
+
 function flatten(arr) {
- let res = [];
- for (let i in arr) {
-   if (typeof arr[i] === "array") {
-     res.concat(flatten(arr[i]));
-   } else {
-     res.push(i);
-   }
- }
- return res;
+  let res = [];
+  for (let i in arr) {
+    if (typeof arr[i] === "array") {
+      res.concat(flatten(arr[i]));
+    } else {
+      res.push(i);
+    }
+  }
+  return res;
 }
- 
-[1,2,[3,4,[5,6]]]
- 
-function counter(){
- let count = 0;
- return {
-   inc(){ count++; },
-   value: count
- };
+
+[1, 2, [3, 4, [5, 6]]]
+
+function counter() {
+  let count = 0;
+  return {
+    inc() { count++; },
+    value: count
+  };
 }
 const c = counter();
 c.inc();
@@ -1172,8 +1172,8 @@ c.inc();
 // Pure vs Impure Function
 
 // this function not depens on outer any property (its paditable)
-function pureFn(x,y) {
-  return (x*y)
+function pureFn(x, y) {
+  return (x * y)
 }
 // console.log(pureFn(9,10))
 
@@ -1181,14 +1181,14 @@ function pureFn(x,y) {
 // this function depens on outer any property here like n  (its not paditable)
 let n = 10
 function impureFn(x) {
-  return (x*n)
+  return (x * n)
 }
 // console.log(impureFn(7))
 
 
 
-const arrA = [1,2,3]
-const arrB = [1,2,3]
+const arrA = [1, 2, 3]
+const arrB = [1, 2, 3]
 
 function checkTwoArray(array1, array2) {
   if (array1.length !== array2.length) {
@@ -1213,7 +1213,7 @@ function longestSameFirstPrefix(str) {
   for (let index = 0; index < str.length; index++) {
     if (str[index] === char) {
       count++
-    }else{
+    } else {
       break
     }
   }
@@ -1227,10 +1227,10 @@ function longestSamePrefix(str) {
   let max = 1
   let count = 1
   for (let index = 0; index < str.length; index++) {
-    if (str[index] === str[index-1]) {
+    if (str[index] === str[index - 1]) {
       count++
       max = Math.max(count, max)
-    }else{
+    } else {
       count = 1
     }
   }
@@ -1425,3 +1425,158 @@ Next Macrotask
 
 Microtasks (Promises) have higher priority than macrotasks (setTimeout). After each macrotask, the event loop drains all microtasks before moving on.
  */
+
+
+
+// let a = //??
+let a = {
+  value: 1,
+  valueOf() {
+    console.log('Called')
+    return this.value++
+  }
+}
+if (a == 1 && a == 2 && a == 3) {
+  console.log('Yes')
+}
+
+
+
+
+let aa = Number()
+let b = Number(undefined)
+
+// console.log({aa, b})
+
+
+
+
+var test = 1
+function test() {
+  console.log('test run')
+}
+// var test = 1
+// test() // test is not a function
+
+
+let aaa = 'this is key'
+const obj = {
+  ['aaa']: 'this is value',
+  [aaa]: 'this is also value'
+}
+
+// console.log(obj.aaa)
+// console.log(obj['this is key'])
+
+
+
+// function testing(a,b,c,d) {}
+// console.log(testing.length)
+
+function testing(a, b, c, d, ...rest) { }
+
+console.log(testing.length)
+
+// function testing(a,b,c=5,d, ...rest) {}
+// console.log(testing.length)
+
+
+
+const object = {
+  name: 'Pratap',
+  pin: 560068,
+  isSecured: false
+}
+
+const proxy = new Proxy(object, {
+  get(target, prop) {
+    if (target.isSecured && prop !== 'isSecured') {
+      throw new Error(`Access denied for property "${prop}"`)
+    }
+
+    console.log('GET:', prop)
+    return target[prop]   // ✅ fix: return actual value
+  },
+
+  set(target, prop, value) {
+    if (target.isSecured) {
+      // Only allow updating pin
+      if (prop !== 'pin') {
+        throw new Error(`Cannot modify "${prop}" when secured`)
+      }
+
+      // Validate pin range
+      if (value < 0 || value > 999999) {
+        throw new Error('PIN must be between 0 and 999999')
+      }
+    }
+
+    console.log('SET:', prop, value)
+    target[prop] = value
+    return true   // ✅ must return boolean
+  }
+})
+
+
+// ✅ Normal access
+// console.log(proxy.name)   // works
+
+// Enable security
+// proxy.isSecured = true
+
+// ❌ Try reading
+// console.log(proxy.name) → Error
+
+// ❌ Try updating name
+// proxy.name = 'New' → Error
+
+// ❌ Invalid pin
+// proxy.pin = -10 → Error
+
+// ❌ Invalid pin
+// proxy.pin = 1000000 → Error
+
+// ✅ Valid pin update
+// proxy.pin = 123456
+
+// console.log(object)
+
+
+
+
+
+const arr = [1, 2, 3, 3, 4, 3, 3, 1, 1, 2]
+// sort in assending order of fequency, output: [4,2,1,3]
+
+function assendingFreq(arr) {
+  const map = {}
+  for (let index = 0; index < arr.length; index++) {
+    map[arr[index]] = (map[arr[index]] || 0) + 1
+  }
+  const entries = Object.entries(map)
+  const sorted = entries.sort((a, b) => { a[1] - b[1] })
+  const result = sorted.map((ele) => {
+    return ele[1]
+  })
+  return result
+}
+// console.log(assendingFreq(arr))
+
+
+
+// Detect the bug in this code?
+
+function sum(n) {
+  if (n <= 0) {
+    return 0
+  }
+  return n + sum(n--)
+}
+
+console.log(sum(10))
+
+// What’s going wrong?
+// n-- is post-decrement
+// It returns the current value of n, then decreases it after
+// So sum(n--) keeps receiving the same value repeatedly
+// This leads to infinite recursion → stack overflow
