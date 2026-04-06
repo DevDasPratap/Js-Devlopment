@@ -1573,10 +1573,24 @@ function sum(n) {
   return n + sum(n--)
 }
 
-console.log(sum(10))
+// console.log(sum(10))
 
 // What’s going wrong?
 // n-- is post-decrement
 // It returns the current value of n, then decreases it after
 // So sum(n--) keeps receiving the same value repeatedly
 // This leads to infinite recursion → stack overflow
+
+
+
+// swap value
+let xx = 4
+let yy = 5
+console.log(`xx: ${xx}, yy: ${yy}`)
+xx = (xx+yy) - (yy=xx)
+console.log(`xx: ${xx}, yy: ${yy}`)
+
+/**
+ * How execution take place in (async vs defer)
+ * 
+ */
