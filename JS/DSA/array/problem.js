@@ -215,4 +215,78 @@ function leftRotatedOne(array) {
     temp.push(first)
     return temp
 }
-console.log(leftRotatedOne([1,2,3,4,5]))
+// console.log(leftRotatedOne([1,2,3,4,5]))
+
+
+// Flatten array
+function flatten(array, depth = 1) {
+    if (!Array.isArray(array)) {
+        return false
+    }
+
+    // approach 1
+    // const arrayToString = array.toString()
+    // // const stringToFlatArray = arrayToString.split(',').map(Number)
+    // const stringToFlatArray = arrayToString.split(',').map((value)=>{
+    //     return Number(value)
+    // })
+    // return stringToFlatArray
+
+    // approach 2
+    // const flatArray = []
+    // for (let index = 0; index < array.length; index++) {
+    //     if (Array.isArray(array[index])) {
+    //         flatArray.push(...flatten(array[index]))
+    //     }else{
+    //         flatArray.push(array[index])
+    //     }
+    // }
+    // return flatArray
+
+    // approach 3 (flat depth)
+    const flatArray = []
+    for (let index = 0; index < array.length; index++) {
+        if (Array.isArray(array[index]) && depth > 0) {
+            flatArray.push(...flatten(array[index], depth-1))
+        }else{
+            flatArray.push(array[index])
+        }
+    }
+    return flatArray
+}
+
+// console.log(flatten([4,[5, [7], 8, [9, [10, [16], 22, [36, [90, 91]]]]]]))
+// console.log(flatten([4,[5, [7], 8, [9, [10, [16], 22, [36, [90, 91]]]]]], Infinity))
+
+
+
+// Break long task into smaller chunks (non-blocking)
+function longRunningFunction() {
+    setTimeout(() => chunk1(), 0)
+    setTimeout(() => chunk2(), 0)
+    setTimeout(() => chunk3(), 0)
+    setTimeout(() => chunk4(), 0)
+}
+
+// longRunningFunction()
+
+function delay() {
+    return new Promise(resolve => setTimeout(resolve, 0))
+}
+
+// Using async/await (cleanest)
+async function longRunningFunction() {
+    await delay()
+    chunk1()
+
+    await delay()
+    chunk2()
+
+    await delay()
+    chunk3()
+
+    await delay()
+    chunk4()
+}
+
+// longRunningFunction()
