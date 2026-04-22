@@ -1594,3 +1594,16 @@ console.log(`xx: ${xx}, yy: ${yy}`)
  * How execution take place in (async vs defer)
  * 
  */
+
+/**
+ * when any code run that code goto on ram and have limit size like 4gb and that code/program in running state called process
+ * ram will allocate some space to excute this program
+ * in this store means we can store variable value, like 
+ * 
+ * how can we store values inside a program?
+ * to store we can use variable
+ * when your program is running state system assigened some memory from ram exaple 400mb
+ * this 400md storage create a bucket, bucket have name, and we store values
+ * 
+ * one line js code means one instrruction, like: let a = 10
+ */
