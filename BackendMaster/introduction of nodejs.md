@@ -125,3 +125,14 @@ any process running on the machine can access it.
 how env variable like PORT=4000
 process1 or process to access same PORT
 how to share a commin config across process
+
+
+module system
+  - commonjs module
+    - module global object
+    - require global function
+    - __dirname accessable 
+  - es6 module
+    - import
+    - export
+    - not __dirname accessable 
