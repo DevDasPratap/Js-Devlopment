@@ -189,3 +189,14 @@ console.log([''] + 1)
 console.log([''] - 1)
 
 // why use abstract equality
+
+
+const objectDemo = {x:10, y:90}
+const num = 10
+console.log(`my num ${num}`)
+console.log(`my object ${objectDemo}`) // here we got [object Object] because js try to toString
+
+console.log(true > true)
+console.log(true > 1)
+console.log(true < true)
+console.log(true > 1)
