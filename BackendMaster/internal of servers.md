@@ -151,3 +151,15 @@ cpu work one at a time
 gpu work parallel
 
 
+node.js provide runtime environment like ironmen, normal human is js but when wear jacket got super power. same here also
+
+in browser js have:
+ - interacting with html, css(dom)
+ - timers
+ - networking - client side (send request, received response)
+ - and more
+
+node.js provide interacting with
+ - access os related like: file system
+ - access processes
+ - networking  - clent + server (send and recived response, create, process request, create server)
