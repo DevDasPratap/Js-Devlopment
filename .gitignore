@@ -5,4 +5,4 @@
 LMS/Backend/.env
 /Backend/node_modules
 BackendLambda/.env
-BackendLambda/node_modules/
+BackendMaster/Redis/node_modules/

@@ -163,3 +163,16 @@ node.js provide interacting with
  - access os related like: file system
  - access processes
  - networking  - clent + server (send and recived response, create, process request, create server)
+
+ environment variable:
+ key value pairs which stores data directly on os level, any process running on the machine can access it
+ process/environment is os level not any programming or node.js relate
+
+ set env:
+ set it in your bashrc or zshrc file
+
+this is only accessable in the current terminal session window not any other new terminal seasson window yo wont get it
+ like: vim ~./zshrc
+ export variableName=value
+
+
