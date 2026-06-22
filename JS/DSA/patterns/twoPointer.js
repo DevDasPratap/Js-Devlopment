@@ -161,7 +161,9 @@ function twoSum(nums, target) {
  *  S  F  (Slow tracks unique position, Fast explores)
  */
 function removeDuplicates(nums) {
-  if (nums.length === 0) return 0;
+  if (nums.length === 0){
+    return 0;
+  }
   
   let slow = 0; // Points to last unique element
   
@@ -295,7 +297,9 @@ function threeSum(nums) {
   
   for (let i = 0; i < nums.length - 2; i++) {
     // Skip duplicates for first element
-    if (i > 0 && nums[i] === nums[i - 1]) continue;
+    if (i > 0 && nums[i] === nums[i - 1]){
+      continue;
+    }
     
     let left = i + 1;
     let right = nums.length - 1;
@@ -352,3 +356,15 @@ function threeSum(nums) {
  * This technique transforms many quadratic problems into linear solutions!
  * ============================================================================
  */
+
+// Squaring a Sorted Array
+function sqrtSorted(array) {
+  const result = []
+  for (let index = 0; index < array.length; index++) {
+    result.push(Math.sqrt(array[index]))
+  }
+  const sorted = result.sort((a,b)=>a-b)
+  return sorted
+}
+
+console.log(sqrtSorted([-4,-1,0,3,10])) // [-4,-1,0,3,10] => [0,1,9,16,100]
