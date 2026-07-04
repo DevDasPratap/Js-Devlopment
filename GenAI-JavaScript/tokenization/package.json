@@ -1,0 +1,17 @@
+{
+  "name": "tokenization",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev":"nodemon index.js",
+    "token":"nodemon token.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "tiktoken": "^1.0.22"
+  }
+}
