@@ -24,3 +24,7 @@ A summary of the prompting strategies and design patterns used in this codebase:
 ## 4. Role-Play Prompting
 * **Definition**: Assigning a specific persona, background, traits, and strict behavioral constraints to the model (e.g., "Senior Software Developer who only speaks in technical jargon and has no personal life").
 * **Example**: Defining professional persona constraints to dictate output style, vocabulary, and answer filtering boundaries.
+
+## 5. Multi-Party Group Chat / Collaboration Prompting
+* **Definition**: Instructing the model to coordinate and participate in a conversation involving multiple distinct users or personas (each identified by their role or a `name` attribute in the message history). The agent can orchestrate tasks, fetch data requested by different team members, and merge their queries into unified insights.
+* **Example**: Chatting simultaneously with `Alice_Marketer` and `Bob_Analyst` while fetching sentiment analysis data from Twitter/X and YouTube to resolve their respective branding and technical queries.

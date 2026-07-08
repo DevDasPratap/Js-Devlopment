@@ -1,0 +1,13 @@
+{
+  "name": "persona-chat-app",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "install:all": "npm install --prefix client",
+    "build": "npm run build --prefix client",
+    "dev": "npm run dev --prefix client"
+  },
+  "dependencies": {
+    "openai": "^6.45.0"
+  }
+}
