@@ -119,3 +119,13 @@
  * - Operating Systems: Process scheduling trees, memory management
  * - AI/ML: Decision Trees, Game Trees
  */
+
+/**
+ * Key terminologies:
+ *  - Node: A data element in the tree
+ *  - Root: the topmost node in the tree
+ *  - Parent and child: A parent is a node with children, a child is a node connected below a parent.
+ *  - Leaf node: a node with no children
+ *  - Edge: A connection between two nodes
+ *  - Height: The number of edges on the longest path from the root to a leaf
+ */
