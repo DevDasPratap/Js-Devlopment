@@ -6,13 +6,18 @@
   "scripts": {
     "dev": "nodemon src/index.js",
     "banner": "nodemon src/sideBanner.js",
-    "loginOtp": "nodemon src/loginWithOtp.js"
+    "loginOtp": "nodemon src/loginWithOtp.js",
+    "jsonVsHash": "nodemon src/jsonVsHash.js",
+    "emailQueue": "nodemon src/emailQueue.js",
+    "bullmq": "nodemon src/bullmq.js",
+    "pubsub": "nodemon src/pubSub.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "bullmq": "^5.79.3",
     "dotenv": "^17.4.2",
     "express": "^5.2.1",
     "ioredis": "^5.10.1",
