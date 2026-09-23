@@ -89,6 +89,29 @@
  *  - Event streaming buffers
  */
 
+/**
+ * Why linked list?
+ * efficient intert and delete
+ * dynamic size
+ * no relocation overhead
+ * 
+ * How to use each
+ * 
+ * Use Arrays whe:
+ * you need fast, direct access by index (like sorting algorithms)
+ * you care about memory usage and cache performance
+ * 
+ * Use Linked Lists When:
+ * You need lots of intert/update/delete in the middle
+ * You are implementing stack, queue, hash chain or adjacency lists in graph
+ * 
+ * 
+ * Point to remember:
+ *  - Node => Value/Data and Pointer/Referance
+ *  - LL is represented by head
+ *  - Last node point is null
+ */
+
 class Node {
     constructor(data) {
       this.data = data;

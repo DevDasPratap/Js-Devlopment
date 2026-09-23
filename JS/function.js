@@ -467,7 +467,7 @@ function power(p) {
   }
 }
 
-const squr = power(2)
+// const squr = power(2)
 // console.log(squr)
 // console.log(cube)
 // console.log(sqr)
@@ -484,7 +484,7 @@ function name() {
 
 for (let i = 0; i < 3; i++) {
   setTimeout(function() {
-      console.log(i); // 3, 3, 3
+      // console.log(i); // 3, 3, 3
   }, 1000);
 }
 
@@ -515,3 +515,94 @@ const sum1 = n.reduce(function(acc, curr) {
     return acc + curr;
 }, 0);
 // console.log(sum1);
+
+
+
+//var in block
+function fun() {
+  var i = 5
+  while (i<10) {
+    var x = i
+    i++
+  }
+  console.log('x:', x)
+  return {i, x}
+}
+// console.log(fun())
+
+
+function funcc() {
+  let i = 1
+  console.log(y)
+  while (i<5) {
+    var y = 10
+    i++
+  }
+  console.log('y:', y)
+}
+
+// console.log(funcc())
+
+// so every thing handle by let so what are usecase of var
+function funVar(x) {
+  // var i // we use use let i also
+  // if(x % 2 == 0){
+  //   i = 0
+  // }else{
+  //   i = 1
+  // }
+
+  if(x % 2 == 0){
+    var i = 0
+  }else{
+    var i = 1
+  }
+  return i
+}
+
+// console.log(funVar(10))
+
+
+function funcVar(x,y) {
+  for (var i = 0; i < 10; i++) {
+    
+  }
+  console.log('i:',i)
+
+  if (x > y) {
+    var temp = x
+    x = y
+    y = temp
+  }
+  return y - x
+}
+
+// console.log(funcVar(8, 10))
+
+// Temporal Dead Zone (TDZ) in JavaScript applies to both let and const declarations.
+// How TDZ Works for Both
+// let: Starts at the top of the block and ends when the let variable is initialized.
+// const: Follows the exact same TDZ rules as let, but also requires an immediate value assignment at declaration.
+// var: Does not have a TDZ; it is hoisted and initialized as undefined
+
+
+
+
+let x = function(name) {
+  console.log('hi', name)
+}
+console.log(x)
+x('Pratap'); // crash if missing semicolon (;)
+
+
+(function y(name) {
+  console.log('hi', name)
+})('Pratap');
+
+
+const ff = function funb() {
+  console.log('hi funb')
+}
+
+ff()
+// funb() // ReferenceError: funb is not defined
